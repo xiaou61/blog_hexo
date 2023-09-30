@@ -4,9 +4,9 @@ menu:
      分类: /categories/ || anzhiyu-icon-shapes
      标签: /tags/ || anzhiyu-icon-tags
 
-  # 友链:
-  #   友人帐: /link/ || anzhiyu-icon-link
-  #   朋友圈: /fcircle/ || anzhiyu-icon-artstation
+   友链:
+     友人帐: /link/ || anzhiyu-icon-link
+     朋友圈: /fcircle/ || anzhiyu-icon-artstation
   #   留言板: /comments/ || anzhiyu-icon-envelope
 
    我的:
@@ -154,7 +154,7 @@ default_top_img: false
 
 cover:
   # display the cover or not (是否显示文章封面)
-  index_enable: false
+  index_enable: true
   aside_enable: true
   archives_enable: true
   # the position of cover in home page (封面显示的位置)
@@ -783,16 +783,15 @@ preloader:
 # --------------------------------------
 
 aside:
-  enable: false
-  hide: false
+  enable: true
+  hide: true
   button: true
   mobile: false # display on mobile
   position: right # left or right
   display: # 控制对应详情页面是否显示侧边栏
-    music: false
     archive: true
-    tag: false
-    category: false
+    tag: true
+    category: true
 
   card_author:
     enable: true
