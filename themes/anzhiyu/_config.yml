@@ -4,20 +4,20 @@ menu:
      分类: /categories/ || anzhiyu-icon-shapes
      标签: /tags/ || anzhiyu-icon-tags
 
-   友链:
-     友人帐: /link/ || anzhiyu-icon-link
-     朋友圈: /fcircle/ || anzhiyu-icon-artstation
-  #   留言板: /comments/ || anzhiyu-icon-envelope
+#   友链:
+#     友人帐: /link/ || anzhiyu-icon-link
+#     朋友圈: /fcircle/ || anzhiyu-icon-artstation
+#  #   留言板: /comments/ || anzhiyu-icon-envelope
 
    我的:
      音乐馆: /music/ || anzhiyu-icon-music
 #     追番页: /bangumis/ || anzhiyu-icon-bilibili
 #     相册集: /album/ || anzhiyu-icon-images
-     小空调: /air-conditioner/ || anzhiyu-icon-fan
+#     小空调: /air-conditioner/ || anzhiyu-icon-fan
 
   # 关于:
   #   关于本人: /about/ || anzhiyu-icon-paper-plane
-  #   闲言碎语: /essay/ || anzhiyu-icon-lightbulb
+#     闲言碎语: /essay/ || anzhiyu-icon-lightbulb
   #   随便逛逛: javascript:toRandomPost() || anzhiyu-icon-shoe-prints1
 
 # nav相关配置
@@ -1046,10 +1046,10 @@ home_top:
     swiper_css: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.css #swiper css依赖
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
   banner:
-    tips: 新品主题
-    title: Theme-AnZhiYu
+    tips: Github
+    title: 进入github
     image: https://bu.dusays.com/2023/05/13/645fa3cf90d70.webp
-    link: https://docs.anheyu.com/
+    link: https://github.com/xiaou61
 
 # 朋友圈配置
 friends_vue:
