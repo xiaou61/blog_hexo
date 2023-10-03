@@ -4,8 +4,8 @@ menu:
      分类: /categories/ || anzhiyu-icon-shapes
      标签: /tags/ || anzhiyu-icon-tags
 
-#   友链:
-#     友人帐: /link/ || anzhiyu-icon-link
+   友链:
+     友人帐: /link/ || anzhiyu-icon-link
 #     朋友圈: /fcircle/ || anzhiyu-icon-artstation
 #  #   留言板: /comments/ || anzhiyu-icon-envelope
 
@@ -14,6 +14,8 @@ menu:
 #     追番页: /bangumis/ || anzhiyu-icon-bilibili
 #     相册集: /album/ || anzhiyu-icon-images
 #     小空调: /air-conditioner/ || anzhiyu-icon-fan
+   开往:
+      开往: https://www.travellings.cn/go.html
 
   # 关于:
   #   关于本人: /about/ || anzhiyu-icon-paper-plane
@@ -31,11 +33,17 @@ nav:
         - name: 旧版博客
           link: https://mydocs.guoyaxue.top/
           icon: /img/favicon.ico
-#    - title: 项目
-#      item:
-#        - name: 安知鱼图床
-#          link: https://image.anheyu.com/
-#          icon: https://image.anheyu.com/favicon.ico
+
+
+    - title: 项目
+      item:
+        - name: 谁去拿外卖
+          link: https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/
+          icon: https://image.anheyu.com/favicon.ico
+        - name: win12网页版
+          link: https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html
+          icon: https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg
+
 
 # mourn （哀悼日，指定日期网站简单变灰，不包括滚动条）
 # 注意： 仅网站首页变灰，其他页面正常显示
@@ -800,7 +808,7 @@ aside:
 
   card_announcement:
     enable: trues
-    content: 欢迎来看我的博客
+    content: 欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/
   card_weixin:
     enable: false
     face: https://bu.dusays.com/2023/01/13/63c02edf44033.png
@@ -1099,7 +1107,7 @@ comment_barrage_config:
 nav_music:
   enable: true
   console_widescreen_music: false # 宽屏状态控制台显示音乐而不是标签 enable为true 控制台依然会显示
-  id: 8152976493
+  id: 7409599794
   server: netease
   all_playlist: https://y.qq.com/n/ryqq/playlist/8802438608
 
