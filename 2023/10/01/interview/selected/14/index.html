@@ -1,0 +1,505 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Scenario 场景 | 小u的博客</title><meta name="keywords" content="面试"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Scenario 场景"><meta name="application-name" content="Scenario 场景"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Scenario 场景"><meta property="og:url" content="http://example.com/2023/10/01/interview/selected/14/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="1 Scenario 场景电商大厂常见促销手段：  优惠券 拼团 砍价 老带新  1.1 优惠券的种类 满减券 直减券 折扣券  1.2 优惠券系统的核心流程1.2.1 发券发券的方式：同步发送 or 异步发送 1.2.2 领券 谁能领？  所有用户 or 指定的用户  领取上限  一个优惠券最多能"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="1 Scenario 场景电商大厂常见促销手段：  优惠券 拼团 砍价 老带新  1.1 优惠券的种类 满减券 直减券 折扣券  1.2 优惠券系统的核心流程1.2.1 发券发券的方式：同步发送 or 异步发送 1.2.2 领券 谁能领？  所有用户 or 指定的用户  领取上限  一个优惠券最多能"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/interview/selected/14/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: 'Scenario 场景',
+  postAI: '',
+  pageFillDescription: '1 Scenario 场景, 1.1 优惠券的种类, 1.2 优惠券系统的核心流程, 1.2.1 发券, 1.2.2 领券, 1.2.3 用券, 1.3 需求拆解, 1.3.1 商家侧, 1.3.2 用户侧, 2 Service 服务, 2.1 服务结构设计, 2.2 优惠券系统设计技术难点, 3 Storage存储, 3.1 表单设计, 券批次（券模板）coupon_batch, 券, 规则, 3.2 建券, 3.3 发券, 如何给大量用户发券？, 触达系统, 系统用户数增加到w级, 发一封站内信的步骤, 千w级用户数, 用户侧操作, 系统侧操作, 给 10W 用户发券, 3.4 领券, 步骤, 用户重复领取或多领, 3.5 用券, 返回可用券, 选择可用券并返回结果, 同时操作多个服务如何保证一致性？, 表设计, 4 Scale 扩展, 4.1 快过期券提醒, 定时扫券表, 延时消息, 新增通知表, 通知信息表（notify_msg）设计, 4.2 数据库层面优化 - 索引, 4.3 发券接口限流保护, 前端限流场景电商大厂常见促销手段优惠券拼团砍价老带新优惠券的种类满减券直减券折扣券优惠券系统的核心流程发券发券的方式同步发送异步发送领券谁能领所有用户指定的用户领取上限一个优惠券最多能领取多少张领取方式用户主动领取自动发放被动领取用券作用范围商品商户类目计算方式是否互斥是否达到门槛等需求拆解商家侧创建优惠券发送优惠券用户侧领取优惠券下单使用优惠券支付服务服务结构设计优惠券系统设计技术难点券的分布式事务使用券的过程会出现的分布式问题分析如何防止超发如何大批量给用户发券如何限制券的使用条件如何防止用户重复领券存储表单设计券批次券模板指一批优惠券的抽象模板包含优惠券的大部分属性如商家创建了一批优惠券共张使用时间为规定只有数码类目商品才能使用满减券发放到用户的一个实体已与用户绑定如将某批次的优惠券中的一张发送给某个用户此时优惠券属于用户规则优惠券的使用有规则和条件限制比如满减券需要达到门槛金额元才能使用券批次表规则表规则内容使用门槛优惠金额使用范围全场商家类别商品商品每个用户可以领取的数量是否互斥表示互斥表示不互斥领取开始时间领取结束时间使用开始时间使用结束时间优惠券表券主键用户批次未使用已使用已过期冻结对应订单领取时间有效日期使用时间建券新建规则满减规则新建优惠券批次劳斯莱斯元代金券发券如何给大量用户发券异步发送触达系统短信邮件可通过调用第三方接口的方式实现站内信通过数据库插入记录来实现信息表信息发送者接受者站内信内容是否已读发送时间信息表先考虑用户量很少的情况商家要给所有人发站内信则先遍历用户表再按照用户表中的所有用户依次将站内信插入到表中这样如果有个用户则群发一条站内信要执行个插入操作系统用户数增加到级发一条站内信就得重复插入上万条数据而且这上万条数据的一样假设一条站内信占发一次站内信就要消耗十几对此可将原来的表拆成两个表信息表信息内容表发一封站内信的步骤往插入站内信的内容在表中给所有用户插入一条记录标识有一封站内信千级用户数这就有非活跃用户的问题假设注册用户一千万根据二八原则其中活跃用户占若采用上面拆成两个表的情况发一封站内信得执行一千万个插入操作可能剩下用户基本都不会再登录其实只需对其中用户插入数据信息表信息发送者去除该字段接受者外键信息内容是否已读信息表信息内容发送者内容发送时间用户侧操作登录后首先查询中的那些没有在中有记录的数据表示是未读的站内信在查阅站内信的内容时再将相关的记录插入系统侧操作发站内信时只在插入站内信的主体内容不插入记录给用户发券有什么问题重复消费导致超发运营提供满足条件的用户文件上传到发券管理后台并选择要发送的优惠券管理服务器根据用户券批次生成消息发送到优惠券服务器消费消息记住使用事务哦领券步骤校验优惠券余量新增优惠券用户表扣减余量注意事务用户领券过程中其实也会出现类似秒杀场景秒杀场景下会有哪些问题如何解决用户重复领取或多领数据校验领券前先查缓存判断成员元素是否是集合的成员领券领券后更新缓存将一或多个成员元素加入到集合中已经存在于集合的成员元素将被忽略用券何时校验优惠券使用规则确认订单提交订单立即付款确认订单页对优惠券进行校验判断是否过期判断适用范围判断是否达到门槛判断是否互斥返回可用券选择可用券并返回结果同时操作多个服务如何保证一致性表设计优惠券操作记录表用户优惠券操作锁定核销解锁操作时间目前分布式事务主流解决方案阶段一对资源进行冻结预留业务资源创建订单时将优惠券状态改为冻结阶段二确认执行业务操作做真正提交将第一步中冻结的资源真正扣减订单支付成功将优惠券状态改为已使用阶段三取消执行业务操作取消阶段预留的业务资源支付失败超时或订单关闭情况将优惠券状态改为未使用扩展快过期券提醒定时扫券表缺点扫描数据量太大随着历史数据越来越多会影响线上主业务最终导致慢延时消息缺点有些券的有效时间太长了天以上有可能造成大量积压新增通知表优点扫描的数据量小效率高删除无用的已通知的数据记录通知信息表设计自增主键券用户需要执行通知的日期通知类型过期提醒通知的时间在该时间戳所在天内通知通知状态初始状态成功失败过期券提在创建优惠券的时候就将需要提醒的记录插入提醒表中把用户批次通知日期作为唯一索引防止同一个批次有重复的记录通知保证每天只会被通知一次建立通知时间索引每日的通知扫描通过该索引列查询通过索引列来提高查询效率通知完成后该表中的数据变失去了意义通过定时任务将该数据删除数据库层面优化索引发券接口限流保护前端限流点击一次后按钮短时间内置灰',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-08 12:24:32',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>面试</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Scenario 场景</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.574Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-08T04:24:32.398Z" title="Updated 2023-08-08 12:24:32">2023-08-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/interview/selected/14/"><header><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a><a href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url">面试</a><h1 id="CrawlerTitle" itemprop="name headline">Scenario 场景</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.574Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-08T04:24:32.398Z" title="Updated 2023-08-08 12:24:32">2023-08-08</time></header><h2 id="1-Scenario-场景"><a href="#1-Scenario-场景" class="headerlink" title="1 Scenario 场景"></a>1 Scenario 场景</h2><p>电商大厂常见促销手段：</p>
+<ul>
+<li>优惠券</li>
+<li>拼团</li>
+<li>砍价</li>
+<li>老带新</li>
+</ul>
+<h3 id="1-1-优惠券的种类"><a href="#1-1-优惠券的种类" class="headerlink" title="1.1 优惠券的种类"></a><strong>1.1 优惠券的种类</strong></h3><ul>
+<li>满减券</li>
+<li>直减券</li>
+<li>折扣券</li>
+</ul>
+<h3 id="1-2-优惠券系统的核心流程"><a href="#1-2-优惠券系统的核心流程" class="headerlink" title="1.2 优惠券系统的核心流程"></a><strong>1.2 优惠券系统的核心流程</strong></h3><h4 id="1-2-1-发券"><a href="#1-2-1-发券" class="headerlink" title="1.2.1 发券"></a><strong>1.2.1 发券</strong></h4><p>发券的方式：同步发送 or 异步发送</p>
+<h4 id="1-2-2-领券"><a href="#1-2-2-领券" class="headerlink" title="1.2.2 领券"></a><strong>1.2.2 领券</strong></h4><ul>
+<li>谁能领？</li>
+</ul>
+<p>所有用户 or 指定的用户</p>
+<ul>
+<li>领取上限</li>
+</ul>
+<p>一个优惠券最多能领取多少张？</p>
+<ul>
+<li>领取方式</li>
+</ul>
+<p>用户主动领取 or 自动发放被动领取</p>
+<h4 id="1-2-3-用券"><a href="#1-2-3-用券" class="headerlink" title="1.2.3 用券"></a><strong>1.2.3 用券</strong></h4><ul>
+<li>作用范围</li>
+</ul>
+<p>商品、商户、类目</p>
+<ul>
+<li>计算方式</li>
+</ul>
+<p>是否互斥、是否达到门槛等</p>
+<h3 id="1-3-需求拆解"><a href="#1-3-需求拆解" class="headerlink" title="1.3 需求拆解"></a><strong>1.3 需求拆解</strong></h3><h4 id="1-3-1-商家侧"><a href="#1-3-1-商家侧" class="headerlink" title="1.3.1 商家侧"></a><strong>1.3.1 商家侧</strong></h4><ul>
+<li>创建优惠券</li>
+<li>发送优惠券</li>
+</ul>
+<h4 id="1-3-2-用户侧"><a href="#1-3-2-用户侧" class="headerlink" title="1.3.2 用户侧"></a><strong>1.3.2 用户侧</strong></h4><ul>
+<li>领取优惠券</li>
+<li>下单</li>
+<li>使用优惠券</li>
+<li>支付</li>
+</ul>
+<h2 id="2-Service-服务"><a href="#2-Service-服务" class="headerlink" title="2 Service 服务"></a><strong>2 Service 服务</strong></h2><h3 id="2-1-服务结构设计"><a href="#2-1-服务结构设计" class="headerlink" title="2.1 服务结构设计"></a><strong>2.1 服务结构设计</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-cdf44a4a-f648-49f0-bebe-686c4a66d2fd.jpg"></p>
+<h3 id="2-2-优惠券系统设计技术难点"><a href="#2-2-优惠券系统设计技术难点" class="headerlink" title="2.2 优惠券系统设计技术难点"></a><strong>2.2 优惠券系统设计技术难点</strong></h3><ul>
+<li>券的分布式事务，使用券的过程会出现的分布式问题分析?</li>
+<li>如何防止超发?</li>
+<li>如何大批量给用户发券?</li>
+<li>如何限制券的使用条件?</li>
+<li>如何防止用户重复领券?</li>
+</ul>
+<h2 id="3-Storage存储"><a href="#3-Storage存储" class="headerlink" title="3 Storage存储"></a>3 Storage存储</h2><h3 id="3-1-表单设计"><a href="#3-1-表单设计" class="headerlink" title="3.1 表单设计"></a><strong>3.1 表单设计</strong></h3><h4 id="券批次（券模板），coupon-batch"><a href="#券批次（券模板），coupon-batch" class="headerlink" title="券批次（券模板），coupon_batch"></a><strong>券批次（券模板），coupon_batch</strong></h4><p>指一批优惠券的抽象、模板，包含优惠券的大部分属性。</p>
+<p>如商家创建了一批优惠券，共1000张，使用时间为2022-11-11 00:00:00 ~ 2022-11-11 23:59:59，规定只有数码类目商品才能使用，满100减50。</p>
+<h4 id="券"><a href="#券" class="headerlink" title="券"></a><strong>券</strong></h4><p>发放到用户的一个实体，已与用户绑定。</p>
+<p>如将某批次的优惠券中的一张发送给某个用户，此时优惠券属于用户。</p>
+<h4 id="规则"><a href="#规则" class="headerlink" title="规则"></a><strong>规则</strong></h4><p>优惠券的使用有规则和条件限制，比如满100减50券，需要达到门槛金额100元才能使用。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-638df6ed-12f8-4a20-8c58-89051bc9376a.jpg"></p>
+<p><strong>券批次表 coupon_batch</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c4d8f639-328b-42b9-94b0-5e15b8eee784.jpg"></p>
+<p><strong>规则表 rule：</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-b2383938-ffbc-4686-808c-908ab11e4b2b.jpg"></p>
+<p><strong>规则内容：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  threshold: 5.01 // 使用门槛 </span><br><span class="line">  amount: 5 // 优惠金额 </span><br><span class="line">  use_range: 3 // 使用范围，0—全场，1—商家，2—类别，3—商品 </span><br><span class="line">  commodity_id: 10 // 商品 id </span><br><span class="line">  receive_count: 1 // 每个用户可以领取的数量 </span><br><span class="line">  is_mutex: true // 是否互斥，true 表示互斥，false 表示不互斥 </span><br><span class="line">  receive_started_at: 2020-11-1 00:08:00 // 领取开始时间 </span><br><span class="line">  receive_ended_at: 2020-11-6 00:08:00 // 领取结束时间 </span><br><span class="line">  use_started_at: 2020-11-1 00:00:00 // 使用开始时间 </span><br><span class="line">  use_ended_at: 2020-11-11 11:59:59 // 使用结束时间 </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><strong>优惠券表 coupon：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">create table t_coupon</span><br><span class="line">(</span><br><span class="line">    coupon_id     int          null comment &#x27;券ID，主键&#x27;,</span><br><span class="line">    user_id       int          null comment &#x27;用户ID&#x27;,</span><br><span class="line">    batch_id      int          null comment &#x27;批次ID&#x27;,</span><br><span class="line">    status        int          null comment &#x27;0-未使用、1-已使用、2-已过期、3-冻结&#x27;,</span><br><span class="line">    order_id      varchar(255) null comment &#x27;对应订单ID&#x27;,</span><br><span class="line">    received_time datetime     null comment &#x27;领取时间&#x27;,</span><br><span class="line">    validat_time  datetime     null comment &#x27;有效日期&#x27;,</span><br><span class="line">    used_time     datetime     null comment &#x27;使用时间&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-2-建券"><a href="#3-2-建券" class="headerlink" title="3.2 建券"></a><strong>3.2 建券</strong></h3><p><strong>1、新建规则</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO rule (name, type, rule_content) </span><br><span class="line">VALUES(“满减规则”, 0, &#x27;&#123; </span><br><span class="line">                         threshold: 100 </span><br><span class="line">                         amount: 10 </span><br><span class="line">                         ...... </span><br><span class="line">                       &#125;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、新建优惠券批次</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO coupon\_batch (coupon\_name, rule\_id, total\_count ) </span><br><span class="line">VALUES(“劳斯莱斯5元代金券”, 1010, 10000);</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="3-3-发券"><a href="#3-3-发券" class="headerlink" title="3.3 发券"></a><strong>3.3 发券</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-066459b1-1271-468e-9e45-c409b6298144.jpg"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-a448c453-8b50-4af8-a913-bda03a6c6f97.jpg"></p>
+<h5 id="如何给大量用户发券？"><a href="#如何给大量用户发券？" class="headerlink" title="如何给大量用户发券？"></a><strong>如何给大量用户发券？</strong></h5><p>异步发送！</p>
+<h5 id="触达系统"><a href="#触达系统" class="headerlink" title="触达系统"></a><strong>触达系统</strong></h5><ul>
+<li>短信、邮件</li>
+</ul>
+<p>可通过调用第三方接口的方式实现</p>
+<ul>
+<li>站内信</li>
+</ul>
+<p>通过数据库插入记录来实现</p>
+<p><strong>信息表 message</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">create table t_message</span><br><span class="line">(</span><br><span class="line">    id         int null comment &#x27;信息ID&#x27;,</span><br><span class="line">    send_id    int null comment &#x27;发送者id&#x27;,</span><br><span class="line">    rec_id     int null comment &#x27;接受者id&#x27;,</span><br><span class="line">    content    vachar(255) comment &#x27;站内信内容&#x27;,</span><br><span class="line">    is_read    int null comment &#x27;是否已读&#x27;,</span><br><span class="line">    send_time  datetime comment &#x27;发送时间&#x27;</span><br><span class="line">)</span><br><span class="line">comment &#x27;信息表&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>先考虑用户量很少的情况，商家要给所有人发站内信，则先遍历用户表，再按照用户表中的所有用户依次将站内信插入到 message 表中。这样，如果有100个用户，则群发一条站内信要执行100个插入操作。</p>
+<h4 id="系统用户数增加到w级"><a href="#系统用户数增加到w级" class="headerlink" title="系统用户数增加到w级"></a><strong>系统用户数增加到w级</strong></h4><p>发一条站内信，就得重复插入上万条数据。而且这上万条数据的 content 一样！假设一条站内信占100K，发一次站内信就要消耗十几M。对此，可将原来的表拆成两个表：</p>
+<p><strong>信息表 message</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-19c6ce5d-8e83-4552-902d-5d28cd17a7be.jpg"></p>
+<p><strong>信息内容表 message_content</strong></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e04b414f-6b41-4882-8324-208715b52284.jpg"></p>
+<h4 id="发一封站内信的步骤"><a href="#发一封站内信的步骤" class="headerlink" title="发一封站内信的步骤"></a><strong>发一封站内信的步骤</strong></h4><ol>
+<li>往 message_content 插入站内信的内容</li>
+<li>在 message 表中，给所有用户插入一条记录，标识有一封站内信</li>
+</ol>
+<h4 id="千w级用户数"><a href="#千w级用户数" class="headerlink" title="千w级用户数"></a><strong>千w级用户数</strong></h4><p>这就有【非活跃用户】的问题，假设注册用户一千万，根据二八原则，其中活跃用户占20%。若采用上面拆成两个表的情况，发一封“站内信”，得执行一千万个插入操作。可能剩下80%用户基本都不会再登录，其实只需对其中20%用户插入数据。</p>
+<p><strong>信息表 message：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">create table t_message</span><br><span class="line">(</span><br><span class="line">    id         int null comment &#x27;信息 ID&#x27;,</span><br><span class="line">    # send_id    int null comment &#x27;发送者 id&#x27;, 去除该字段</span><br><span class="line">    rec_id     int null comment &#x27;接受者 id&#x27;,</span><br><span class="line">    message_id int null comment &#x27;外键，信息内容&#x27;,</span><br><span class="line">    is_read    int null comment &#x27;是否已读&#x27;</span><br><span class="line">)</span><br><span class="line">    comment &#x27;信息表&#x27;;</span><br><span class="line">create table t_message_content</span><br><span class="line">(</span><br><span class="line">    id        int          null comment &#x27;信息内容id&#x27;,</span><br><span class="line">    send_id     int         null comment &#x27;发送者id&#x27;,</span><br><span class="line">    content   varchar(255) null comment &#x27;内容&#x27;,</span><br><span class="line">    send_time datetime     null comment &#x27;发送时间&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="用户侧操作"><a href="#用户侧操作" class="headerlink" title="用户侧操作"></a><strong>用户侧操作</strong></h4><p>登录后，首先查询 message_content 中的那些没有在 message 中有记录的数据，表示是未读的站内信。在查阅站内信的内容时，再将相关的记录插入 message。</p>
+<h4 id="系统侧操作"><a href="#系统侧操作" class="headerlink" title="系统侧操作"></a><strong>系统侧操作</strong></h4><p>发站内信时：</p>
+<ul>
+<li>只在 message_content 插入站内信的主体内容</li>
+<li>message 不插入记录</li>
+</ul>
+<h4 id="给-10W-用户发券"><a href="#给-10W-用户发券" class="headerlink" title="给 10W 用户发券"></a><strong>给 10W 用户发券</strong></h4><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-e6134270-a52f-4579-a200-e0c0e4c13c82.jpg"></p>
+<p>有什么问题？重复消费，导致超发！</p>
+<ol>
+<li>运营提供满足条件的用户文件，上传到发券管理后台并选择要发送的优惠券</li>
+<li>管理服务器根据【用户ID】、【券批次ID】生成消息，发送到MQ</li>
+<li>优惠券服务器消费消息</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 记住使用事务哦！</span><br><span class="line">INSERT INTO coupon (user_id, coupon_id，batch_id)</span><br><span class="line">  VALUES(1001, 66889, 1111);</span><br><span class="line"></span><br><span class="line">UPDATE coupon_batch SET total_count = total_count - 1,</span><br><span class="line">                          assign_count = assign_count + 1</span><br><span class="line">                      WHERE batch_id = 1111 AND total_count &gt; 0;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-领券"><a href="#3-4-领券" class="headerlink" title="3.4 领券"></a><strong>3.4 领券</strong></h3><h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ol>
+<li>校验优惠券余量</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT total_count FROM coupon_batch</span><br><span class="line">WHERE batch_id = 1111;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>新增优惠券用户表，扣减余量</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 注意事务！</span><br><span class="line">INSERT INTO coupon (user_id, coupon_id，batch_id)</span><br><span class="line">  VALUES(1001, 66889, 1111); </span><br><span class="line"></span><br><span class="line">UPDATE coupon_batch SET total_count = total_count - 1,</span><br><span class="line">                          assign_count = assign_count + 1</span><br><span class="line">                      WHERE batch_id = 1111 AND total_count &gt; 0;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>用户领券过程中，其实也会出现类似秒杀场景。秒杀场景下会有哪些问题，如何解决？</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8367d61b-2a12-4225-9fc2-586a1baac77d.jpg"></p>
+<h4 id="用户重复领取或多领"><a href="#用户重复领取或多领" class="headerlink" title="用户重复领取或多领"></a><strong>用户重复领取或多领</strong></h4><p>Redis 数据校验！</p>
+<ol>
+<li>领券前，先查缓存</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 判断成员元素是否是集合的成员</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SISMEMBER KEY VALUE</span><br><span class="line">SISMEMBER batch_id:1111:user_id 1001</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>领券</li>
+<li>领券后，更新缓存</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 将一或多个成员元素加入到集合中，已经存在于集合的成员元素将被忽略</span><br><span class="line">SADD KEY VALUE1......VALUEN</span><br><span class="line">SADD batch_id:1111:user_id 1001</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-用券"><a href="#3-5-用券" class="headerlink" title="3.5 用券"></a><strong>3.5 用券</strong></h2><p>何时校验优惠券使用规则？</p>
+<ol>
+<li>确认订单（√）</li>
+<li>提交订单</li>
+<li>立即付款</li>
+</ol>
+<p>确认订单页，对优惠券进行校验：</p>
+<ul>
+<li>判断是否过期</li>
+<li>判断适用范围</li>
+<li>判断是否达到门槛</li>
+<li>判断是否互斥</li>
+</ul>
+<h3 id="返回可用券"><a href="#返回可用券" class="headerlink" title="返回可用券"></a><strong>返回可用券</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-182ea6b8-4702-4f01-b3dd-f9636815863f.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT batch_id FROM coupon WHERE user_id = 1001 AND status = 0;</span><br><span class="line">SELECT rule_id FROM coupon_batch WHERE batch_id = 1111;</span><br><span class="line">SELECT name, type, rule_content FROM rule WHERE rule_id = 1010;</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择可用券，并返回结果"><a href="#选择可用券，并返回结果" class="headerlink" title="选择可用券，并返回结果"></a>选择可用券，并返回结果</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3d50a63e-2c1a-413b-9143-f808dcc4e0da.jpg"></p>
+<h3 id="同时操作多个服务，如何保证一致性？"><a href="#同时操作多个服务，如何保证一致性？" class="headerlink" title="同时操作多个服务，如何保证一致性？"></a><strong>同时操作多个服务，如何保证一致性？</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-3b30f2df-fd77-4265-b655-31a82028505e.jpg"></p>
+<h3 id="表设计"><a href="#表设计" class="headerlink" title="表设计"></a><strong>表设计</strong></h3><p><strong>优惠券操作记录表 Coupon_opt_record</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create table t_coupon_opt_record</span><br><span class="line">(</span><br><span class="line">    user_id     int      null comment &#x27;用户id&#x27;,</span><br><span class="line">    coupon_id   int      null comment &#x27;优惠券id&#x27;,</span><br><span class="line">    operating   int      null comment &#x27;操作，0-锁定、1-核销、2-解锁&#x27;,</span><br><span class="line">    operated_at datetime null comment &#x27;操作时间&#x27;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>TCC，Try-Confirm-Cancel，目前分布式事务主流解决方案。</p>
+<ol>
+<li>阶段一：Try</li>
+</ol>
+<p>对资源进行冻结，预留业务资源</p>
+<p>创建订单时，将优惠券状态改为 “冻结”</p>
+<ol start="2">
+<li>阶段二：Confirm</li>
+</ol>
+<p>确认执行业务操作，做真正提交，将第一步Try中冻结的资源，真正扣减</p>
+<p>订单支付成功，将优惠券状态改为 “已使用”</p>
+<ol start="3">
+<li>阶段三：Cancel</li>
+</ol>
+<p>取消执行业务操作，取消Try阶段预留的业务资源</p>
+<p>支付失败&#x2F;超时或订单关闭情况，将优惠券状态改为 “未使用”</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-c6a77fdf-4f4d-4082-92a7-c2cd11aba686.jpg"></p>
+<h2 id="4-Scale-扩展"><a href="#4-Scale-扩展" class="headerlink" title="4 Scale 扩展"></a>4 Scale 扩展</h2><h3 id="4-1-快过期券提醒"><a href="#4-1-快过期券提醒" class="headerlink" title="4.1 快过期券提醒"></a><strong>4.1 快过期券提醒</strong></h3><h4 id="定时扫券表"><a href="#定时扫券表" class="headerlink" title="定时扫券表"></a><strong>定时扫券表</strong></h4><p>缺点：扫描数据量太大，随着历史数据越来越多，会影响线上主业务，最终导致慢SQL。</p>
+<h4 id="延时消息"><a href="#延时消息" class="headerlink" title="延时消息"></a><strong>延时消息</strong></h4><p>缺点：有些券的有效时间太长了(30天)以上，有可能造成大量 MQ 积压</p>
+<h4 id="新增通知表"><a href="#新增通知表" class="headerlink" title="新增通知表"></a><strong>新增通知表</strong></h4><p>优点：扫描的数据量小，效率高。删除无用的已通知的数据记录</p>
+<h5 id="通知信息表（notify-msg）设计"><a href="#通知信息表（notify-msg）设计" class="headerlink" title="通知信息表（notify_msg）设计"></a><strong>通知信息表（notify_msg）设计</strong></h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">create table t_notify_msg</span><br><span class="line">(</span><br><span class="line">    id          bigint auto_increment comment &#x27;自增主键&#x27;,</span><br><span class="line">    coupon_id   bigint       null comment &#x27;券id&#x27;,</span><br><span class="line">    user_id     bigint       null comment &#x27;用户id&#x27;,</span><br><span class="line">    notify_day  varchar(255) null comment &#x27;需要执行通知的日期&#x27;,</span><br><span class="line">    notify_type int          null comment &#x27;通知类型，1-过期提醒&#x27;,</span><br><span class="line">    notif_time  timestamp    null comment &#x27;通知的时间，在该时间戳所在天内通知&#x27;,</span><br><span class="line">    status      int          null comment &#x27;通知状态，0-初始状态、1-成功、2-失败&#x27;,</span><br><span class="line">    constraint t_notify_msg_id_uindex</span><br><span class="line">        unique (id)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">alter table t_notify_msg</span><br><span class="line">    add primary key (id);</span><br></pre></td></tr></table></figure>
+
+<p><strong>过期券提</strong></p>
+<ol>
+<li>在创建优惠券的时候就将需要提醒的记录插入提醒表中notify_msg</li>
+<li>把用户ID+批次ID+通知日期作为唯一索引，防止同一个批次有重复的记录通知，保证每天只会被通知一次</li>
+<li>建立notify_time，通知时间索引，每日的通知扫描通过该索引列查询，通过索引列来提高查询效率</li>
+<li>通知完成后该表中的数据变失去了意义，通过定时任务将该数据删除</li>
+</ol>
+<h3 id="4-2-数据库层面优化-索引"><a href="#4-2-数据库层面优化-索引" class="headerlink" title="4.2 数据库层面优化 - 索引"></a><strong>4.2 数据库层面优化 - 索引</strong></h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-9e10c3cb-d0af-4b0e-a2f9-3da2fe7e72f1.jpg"></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-8df5b954-9e5a-445d-882f-f91616fee662.jpg"></p>
+<h3 id="4-3-发券接口，限流保护"><a href="#4-3-发券接口，限流保护" class="headerlink" title="4.3 发券接口，限流保护"></a><strong>4.3 发券接口，限流保护</strong></h3><h4 id="前端限流"><a href="#前端限流" class="headerlink" title="前端限流"></a><strong>前端限流</strong></h4><p>点击一次后，按钮短时间内置灰</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-daadyhqjtsrhsjd-d2d8684d-9488-4543-9b2b-8e7559c8e625.jpg"></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/interview/selected/14/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/interview/selected/14/')">Scenario 场景</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/interview/selected/14/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Scenario 场景&amp;url=http://example.com/2023/10/01/interview/selected/14/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>面试<span class="tagsPageCount">51</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/interview/selected/13/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">分库分表</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/interview/selected/12/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">秒传</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/interview/Java/" title="第四版最强八股文"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第四版最强八股文</div></div></a></div><div><a href="/2023/10/01/interview/selected/1/" title="Java：34道精选高频面试题必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java：34道精选高频面试题必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/10/" title="Java 并发编程八股文（背诵版）必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java 并发编程八股文（背诵版）必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/12/" title="秒传"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">秒传</div></div></a></div><div><a href="/2023/10/01/interview/selected/11/" title="kafka40题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">kafka40题</div></div></a></div><div><a href="/2023/10/01/interview/selected/13/" title="分库分表"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">分库分表</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Scenario-%E5%9C%BA%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">1 Scenario 场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BC%98%E6%83%A0%E5%88%B8%E7%9A%84%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 优惠券的种类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%BC%98%E6%83%A0%E5%88%B8%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B5%81%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 优惠券系统的核心流程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%8F%91%E5%88%B8"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.2.1 发券</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E9%A2%86%E5%88%B8"><span class="toc-number">1.2.2.</span> <span class="toc-text">1.2.2 领券</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E7%94%A8%E5%88%B8"><span class="toc-number">1.2.3.</span> <span class="toc-text">1.2.3 用券</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%9C%80%E6%B1%82%E6%8B%86%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 需求拆解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-%E5%95%86%E5%AE%B6%E4%BE%A7"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 商家侧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-%E7%94%A8%E6%88%B7%E4%BE%A7"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 用户侧</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Service-%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.</span> <span class="toc-text">2 Service 服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E6%9C%8D%E5%8A%A1%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 服务结构设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E4%BC%98%E6%83%A0%E5%88%B8%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%8A%80%E6%9C%AF%E9%9A%BE%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 优惠券系统设计技术难点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Storage%E5%AD%98%E5%82%A8"><span class="toc-number">3.</span> <span class="toc-text">3 Storage存储</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E8%A1%A8%E5%8D%95%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 表单设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B8%E6%89%B9%E6%AC%A1%EF%BC%88%E5%88%B8%E6%A8%A1%E6%9D%BF%EF%BC%89%EF%BC%8Ccoupon-batch"><span class="toc-number">3.1.1.</span> <span class="toc-text">券批次（券模板），coupon_batch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%B8"><span class="toc-number">3.1.2.</span> <span class="toc-text">券</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%84%E5%88%99"><span class="toc-number">3.1.3.</span> <span class="toc-text">规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%BB%BA%E5%88%B8"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 建券</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E5%8F%91%E5%88%B8"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 发券</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BB%99%E5%A4%A7%E9%87%8F%E7%94%A8%E6%88%B7%E5%8F%91%E5%88%B8%EF%BC%9F"><span class="toc-number">3.3.0.1.</span> <span class="toc-text">如何给大量用户发券？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%A7%A6%E8%BE%BE%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.3.0.2.</span> <span class="toc-text">触达系统</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E6%95%B0%E5%A2%9E%E5%8A%A0%E5%88%B0w%E7%BA%A7"><span class="toc-number">3.3.1.</span> <span class="toc-text">系统用户数增加到w级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E4%B8%80%E5%B0%81%E7%AB%99%E5%86%85%E4%BF%A1%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.3.2.</span> <span class="toc-text">发一封站内信的步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%83w%E7%BA%A7%E7%94%A8%E6%88%B7%E6%95%B0"><span class="toc-number">3.3.3.</span> <span class="toc-text">千w级用户数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BE%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.4.</span> <span class="toc-text">用户侧操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E4%BE%A7%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.5.</span> <span class="toc-text">系统侧操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99-10W-%E7%94%A8%E6%88%B7%E5%8F%91%E5%88%B8"><span class="toc-number">3.3.6.</span> <span class="toc-text">给 10W 用户发券</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E9%A2%86%E5%88%B8"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 领券</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.4.1.</span> <span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E9%87%8D%E5%A4%8D%E9%A2%86%E5%8F%96%E6%88%96%E5%A4%9A%E9%A2%86"><span class="toc-number">3.4.2.</span> <span class="toc-text">用户重复领取或多领</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E7%94%A8%E5%88%B8"><span class="toc-number">4.</span> <span class="toc-text">3.5 用券</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%8F%AF%E7%94%A8%E5%88%B8"><span class="toc-number">4.1.</span> <span class="toc-text">返回可用券</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%8F%AF%E7%94%A8%E5%88%B8%EF%BC%8C%E5%B9%B6%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C"><span class="toc-number">4.2.</span> <span class="toc-text">选择可用券，并返回结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%97%B6%E6%93%8D%E4%BD%9C%E5%A4%9A%E4%B8%AA%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">同时操作多个服务，如何保证一致性？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A8%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.4.</span> <span class="toc-text">表设计</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Scale-%E6%89%A9%E5%B1%95"><span class="toc-number">5.</span> <span class="toc-text">4 Scale 扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E5%BF%AB%E8%BF%87%E6%9C%9F%E5%88%B8%E6%8F%90%E9%86%92"><span class="toc-number">5.1.</span> <span class="toc-text">4.1 快过期券提醒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E6%97%B6%E6%89%AB%E5%88%B8%E8%A1%A8"><span class="toc-number">5.1.1.</span> <span class="toc-text">定时扫券表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%B6%88%E6%81%AF"><span class="toc-number">5.1.2.</span> <span class="toc-text">延时消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E9%80%9A%E7%9F%A5%E8%A1%A8"><span class="toc-number">5.1.3.</span> <span class="toc-text">新增通知表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%9A%E7%9F%A5%E4%BF%A1%E6%81%AF%E8%A1%A8%EF%BC%88notify-msg%EF%BC%89%E8%AE%BE%E8%AE%A1"><span class="toc-number">5.1.3.1.</span> <span class="toc-text">通知信息表（notify_msg）设计</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%B1%82%E9%9D%A2%E4%BC%98%E5%8C%96-%E7%B4%A2%E5%BC%95"><span class="toc-number">5.2.</span> <span class="toc-text">4.2 数据库层面优化 - 索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%8F%91%E5%88%B8%E6%8E%A5%E5%8F%A3%EF%BC%8C%E9%99%90%E6%B5%81%E4%BF%9D%E6%8A%A4"><span class="toc-number">5.3.</span> <span class="toc-text">4.3 发券接口，限流保护</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E9%99%90%E6%B5%81"><span class="toc-number">5.3.1.</span> <span class="toc-text">前端限流</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

@@ -1,0 +1,789 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>精选数据库60道面试题必看 | 小u的博客</title><meta name="keywords" content="面试"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="精选数据库60道面试题必看"><meta name="application-name" content="精选数据库60道面试题必看"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="精选数据库60道面试题必看"><meta property="og:url" content="http://example.com/2023/10/01/interview/selected/3/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="精选数据库60道面试题必看:+1:基础1、关系型和非关系型数据库的区别？关系型数据库的优点  容易理解，因为它采用了关系模型来组织数据。 可以保持数据的一致性。 数据更新的开销比较小。 支持复杂查询（带 where 子句的查询）  非关系型数据库（NOSQL）的优点  无需经过 SQL 层的解析，读"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="精选数据库60道面试题必看:+1:基础1、关系型和非关系型数据库的区别？关系型数据库的优点  容易理解，因为它采用了关系模型来组织数据。 可以保持数据的一致性。 数据更新的开销比较小。 支持复杂查询（带 where 子句的查询）  非关系型数据库（NOSQL）的优点  无需经过 SQL 层的解析，读"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/interview/selected/3/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: '精选数据库60道面试题必看',
+  postAI: '',
+  pageFillDescription: '精选数据库60道面试题必看+1, 基础, 1、关系型和非关系型数据库的区别？, 2、详细说一下一条 MySQL 语句执行的步骤, 索引相关, 3、MySQL 使用索引的原因？, 4、索引的三种常见底层数据结构以及优缺点, 5、索引的常见类型以及它是如何发挥作用的？, 6、MyISAM 和 InnoDB 实现 B 树索引方式的区别是什么？, 7、InnoDB 为什么设计 B+ 树索引？, 8、什么是覆盖索引和索引下推？, 9、哪些操作会导致索引失效？, 10、字符串加索引, 日志相关, 11、MySQL 的 change buffer 是什么？, 12、MySQL 是如何判断一行扫描数的？, 13、MySQL 的 redo log 和 binlog 区别？, 14、为什么需要 redo log？, 15、为什么 redo log 具有 crash-safe 的能力是 binlog 无法替代的？, 16、当数据库 crash 后如何恢复未刷盘的数据到内存中？, 17、redo log 写入方式？, 18、redo log 的执行流程?, 19、binlog 的概念是什么起到什么作用 可以保证 crash-safe 吗?, 20、什么是两阶段提交？, 21、MySQL 怎么知道 binlog 是完整的?, 22、什么是 WAL 技术有什么优点？, 23、binlog 日志的三种格式, 24、redo log日志格式, 25、原本可以执行得很快的 SQL 语句执行速度却比预期的慢很多原因是什么？如何解决？, 26、InnoDB 数据页结构, 数据相关, 27、MySQL 是如何保证数据不丢失的？, 28、误删数据怎么办？, 29、drop、truncate 和 delete 的区别, 30、在 MySQL 中有两个 kill 命令, 31、如何理解 MySQL 的边读边发, 32、MySQL 的大表查询为什么不会爆内存？, 33、MySQL 临时表的用法和特性, 34、MySQL 存储引擎介绍（InnoDB、MyISAM、MEMORY）, 35、都说 InnoDB 好那还要不要使用 MEMORY 引擎？, 36、如果数据库误操作 如何执行数据恢复?, 主从备份相关, 37、MySQL 是如何保证主备同步？, 38、什么是主备延迟, 39、为什么要有多线程复制策略？, 40、MySQL 的并行策略有哪些？, 41、MySQL的一主一备和一主多从有什么区别？, 42、主库出问题如何解决?, 43、MySQL 读写分离涉及到过期读问题的几种解决方案?, 44、MySQL的并发链接和并发查询有什么区别？, 性能相关, 45、短时间提高 MySQL 性能的方法, 46、为什么 MySQL 自增主键 ID 不连续？, 47、InnoDB 为什么要用自增 ID 作为主键？, 48、如何最快的复制一张表？, 49、grant 和 flush privileges语句, 50、要不要使用分区表？, 51、join 用法, 52、MySQL 有哪些自增ID？各自场景是什么？, 53、Xid 在 MySQL 内部是怎么生成的呢？, 锁相关, 54、说一下 MySQL 的锁, 55、什么是幻读？, 其它为什么系列, 56、为什么 MySQL 会抖一下？, 57、为什么删除了表表文件的大小还是没变？, 58、count(*)实现方式以及各种 count 对比, 59、orderby 排序内部原理, 60、如何高效的使用 MySQL 显式随机消息精选数据库道面试题必看基础关系型和非关系型数据库的区别关系型数据库的优点容易理解因为它采用了关系模型来组织数据可以保持数据的一致性数据更新的开销比较小支持复杂查询带子句的查询非关系型数据库的优点无需经过层的解析读写效率高基于键值对读写性能很高易于扩展可以支持多种类型数据的存储如图片文档等等扩展可分为内存性数据库以及文档型数据库比如等适合场景数据量大高可用的日志系统地理位置存储系统详细说一下一条语句执行的步骤层按顺序执行的步骤为客户端请求连接器验证用户身份给予权限查询缓存存在缓存则直接返回不存在则执行后续操作分析器对进行词法分析和语法分析操作优化器主要对执行的优化选择最优的执行方案方法执行器执行时会先看用户是否有执行权限有才去使用这个引擎提供的接口去引擎层获取数据返回如果开启查询缓存则会缓存查询结果索引相关使用索引的原因根本原因索引的出现就是为了提高数据查询的效率就像书的目录一样对于数据库的表而言索引其实就是它的目录扩展创建唯一性索引可以保证数据库表中每一行数据的唯一性帮助引擎层避免排序和临时表将随机变为顺序加速表和表之间的连接索引的三种常见底层数据结构以及优缺点三种常见的索引底层数据结构分别是哈希表有序数组和搜索树哈希表这种适用于等值查询的场景比如以及其它一些引擎不适合范围查询有序数组索引只适用于静态存储引擎等值和范围查询性能好但更新数据成本高叉树由于读写上的性能优点以及适配磁盘访问模式以及广泛应用在数据库引擎中扩展以的一个整数字段索引为例这个差不多是棵树高是的时候就可以存的次方个值这已经亿了考虑到树根的数据块总是在内存中的一个亿行的表上一个整数字段的索引查找一个值最多只需要访问次磁盘其实树的第二层也有很大概率在内存中那么访问磁盘的平均次数就更少了索引的常见类型以及它是如何发挥作用的根据叶子节点的内容索引类型分为主键索引和非主键索引主键索引的叶子节点存的整行数据在里也被称为聚簇索引非主键索引叶子节点存的主键的值在里也被称为二级索引和实现树索引方式的区别是什么存储引擎树索引的叶子节点保存数据本身其数据文件本身就是索引文件存储引擎树索引的叶子节点保存数据的物理地址叶节点的域存放的是数据记录的地址索引文件和数据文件是分离的为什么设计树索引两个考虑因素需要执行的场景和功能需要在特定查询上拥有较强的性能将磁盘上的数据加载到内存中需要花费大量时间为什么选择树哈希索引虽然能提供复杂度查询但对范围查询和排序却无法很好的支持最终会导致全表扫描树能够在非叶子节点存储数据但会导致在查询连续数据可能带来更多的随机而树的所有叶节点可以通过指针来相互连接减少顺序遍历带来的随机普通索引还是唯一索引由于唯一索引用不上的优化机制因此如果业务可以接受从性能角度出发建议你优先考虑非唯一索引什么是覆盖索引和索引下推覆盖索引在某个查询里面索引已经覆盖了我们的查询需求称为覆盖索引覆盖索引可以减少树的搜索次数显著提升查询性能所以使用覆盖索引是一个常用的性能优化手段索引下推引入的索引下推优化可以在索引遍历过程中对索引中包含的字段先做判断直接过滤掉不满足条件的记录减少回表次数哪些操作会导致索引失效对索引使用左或者左右模糊匹配也就是或者这两种方式都会造成索引失效原因在于查询的结果可能是多个不知道从哪个索引值开始比较于是就只能通过全表扫描的方式来查询对索引进行函数对索引进行表达式计算因为索引保持的是索引字段的原始值而不是经过函数计算的值自然就没办法走索引对索引进行隐式转换相当于使用了新函数子句中的语句只要有条件列不是索引列就会进行全表扫描字符串加索引直接创建完整索引这样可能会比较占用空间创建前缀索引节省空间但会增加查询扫描次数并且不能使用覆盖索引倒序存储再创建前缀索引用于绕过字符串本身前缀的区分度不够的问题创建字段索引查询性能稳定有额外的存储和计算消耗跟第三种方式一样都不支持范围扫描日志相关的是什么当需要更新一个数据页时如果数据页在内存中就直接更新而如果这个数据页还没有在内存中的话在不影响数据一致性的前提下会将这些更新操作缓存在中这样就不需要从磁盘中读入这个数据页了在下次查询需要访问这个数据页的时候将数据页读入内存然后执行中与这个页有关的操作通过这种方式就能保证这个数据逻辑的正确性注意唯一索引的更新就不能使用实际上也只有普通索引可以使用适用场景对于写多读少的业务来说页面在写完以后马上被访问到的概率比较小此时的使用效果最好这种业务模型常见的就是账单类日志类的系统反过来假设一个业务的更新模式是写入之后马上会做查询那么即使满足了条件将更新先记录在但之后由于马上要访问这个数据页会立即触发过程这样随机访问的次数不会减少反而增加了的维护代价是如何判断一行扫描数的在真正开始执行语句之前并不能精确地知道满足这个条件的记录有多少条而只能根据统计信息来估算记录数这个统计信息就是索引的区分度的和区别为什么需要主要用于异常重启后的一种数据恢复手段确保了数据的一致性其实是为了配合的机制因为进行更新操作为了能够快速响应所以采用了异步写回磁盘的技术写入内存后就返回但是这样会存在后内存数据丢失的隐患而具备的能力为什么具有的能力是无法替代的第一点可确保判断哪些数据已经刷盘哪些数据还没有和有一个很大的区别就是一个是循环写一个是追加写也就是说只会记录未刷盘的日志已经刷入磁盘的数据都会从这个有限大小的日志文件里删除是追加日志保存的是全量的日志当数据库后想要恢复未刷盘但已经写入和的数据到内存时是无法恢复的虽然拥有全量的日志但没有一个标志让判断哪些数据已经刷盘哪些数据还没有但不一样只要刷入磁盘的数据都会从中抹掉因为是循环写数据库重启后直接把中的数据都恢复至内存就可以了第二点如果写入失败说明此次操作失败事务也不可能提交每次更新操作完成后就一定会写入日志如果写入失败说明此次操作失败事务也不可能提交内部结构是基于页的记录了这个页的字段值变化只要后读取进行重放就可以恢复数据这就是为什么具有的能力而不具备当数据库后如何恢复未刷盘的数据到内存中根据和的两阶段提交未持久化的数据分为几种情况写入虽然做了但未未到磁盘这部分数据丢失写入未已经到磁盘先从恢复再从恢复写入和都已经直接从里恢复写入方式包括两部分内容分别是内存中的日志缓冲和磁盘上的日志文件每执行一条语句会先把记录写入用户空间再保存到内核空间的缓冲区中后续某个时间点再一次性将多个操作记录写到刷盘这种先写日志再写磁盘的技术就是可以发现写入到是经过中转的其实可以通过参数进行配置参数值含义如下称为延迟写事务提交时不会将中日志写入到而是每秒写入并调用写入到中称为实时写实时刷事务每次提交都会将中的日志写入并保存到中称为实时写延迟刷每次事务提交写入到然后是每秒将日志写入到的执行流程我们来看下的执行流程假设执行的如下客户端将请求语句发往层层接收到请求后对其进行分析优化执行等处理工作将生成的执行计划发到存储引擎层执行存储引擎层将修改为的这个操作记录到内存中记录到内存以后会修改的记录会在添加一行记录其内容是需要在哪个数据页上做什么修改此后将事务的状态设置为说明已经准备好提交事务了等到层处理完事务以后会将事务的状态设置为也就是提交该事务在收到事务提交的请求以后会把刚才写入内存中的操作记录写入到磁盘中从而完成整个日志的记录过程的概念是什么起到什么作用可以保证吗是归档日志属于层的日志可以实现主从复制和数据恢复两个作用当需要恢复数据时可以取出某个时间范围内的进行重放恢复但是不可以做因为之前可能没有写入完全就挂了所以需要配合才可以进行什么是两阶段提交将的写入拆成了两个步骤和中间再穿插写入这就是两阶段提交而两阶段提交就是让这两个状态保持逻辑上的一致用于恢复主机故障时的未更新的物理数据用于备份操作两者本身就是两个独立的个体要想保持一致就必须使用分布式事务的解决方案来处理为什么需要两阶段提交呢如果不用两阶段提交的话可能会出现这样情况先写后备份恢复时少了一次更新与当前数据不一致先写后由于没写入事务无效所以后续备份恢复时数据不一致两阶段提交就是为了保证和数据的安全一致性只有在这两个日志文件逻辑上高度一致了才能放心的使用在恢复数据时状态为则说明也成功直接恢复数据如果是则需要查询对应的事务是否成功决定是回滚还是执行怎么知道是完整的一个事务的是有完整格式的格式的最后会有格式的最后会有一个什么是技术有什么优点中文全称是它的关键点就是日志先写内存再写磁盘执行更新操作后在真正把数据写入到磁盘前先记录日志好处是不用每一次操作都实时把数据写盘就算后也可以通过恢复所以能够实现快速响应语句日志的三种格式日志有三种格式基于语句的复制基于行的复制混合模式复制格式每一条会修改数据的都会记录在中优点不需要记录每一行的变化减少了日志量节约了提高性能缺点由于记录的只是执行语句为了这些语句能在备库上正确运行还必须记录每条语句在执行的时候的一些相关信息以保证所有语句能在备库得到和在主库端执行时候相同的结果格式不记录语句上下文相关信息仅保存哪条记录被修改优点中可以不记录执行的语句的上下文相关的信息仅需要记录那一条记录被修改成什么了所以的日志内容会非常清楚的记录下每一行数据修改的细节不会出现某些特定情况下的存储过程或或的调用和触发无法被正确复制的问题缺点可能会产生大量的日志内容格式实际上就是与的结合一般的语句修改使用格式保存如一些函数无法完成主从复制的操作则采用格式保存会根据执行的每一条具体的语句来区分对待记录的日志形式日志格式内存中是由首尾相连的四个文件组成的它们分别是是当前记录的位置一边写一边后移写到第号文件末尾后就回到号文件开头是当前要擦除的位置也是往后推移并且循环的擦除记录前要把记录更新到数据文件和之间的是粉板上还空着的部分可以用来记录新的操作如果追上表示粉板满了这时候不能再执行新的更新得停下来先擦掉一些记录把推进一下有了当数据库发生宕机重启后可通过将未落盘的数据之后的数据恢复保证已经提交的事务记录不会丢失这种能力称为原本可以执行得很快的语句执行速度却比预期的慢很多原因是什么如何解决原因从大到小可分为四种情况数据库本身被堵住了比如系统或网络资源不够语句被堵住了比如表锁行锁等导致存储引擎不执行对应的语句确实是索引使用不当没有走索引表中数据的特点导致的走了索引但回表次数庞大解决考虑采用强行选择一个索引考虑修改语句引导使用我们期望的索引比如把改成语义的逻辑是相同的第三种方法是在有些场景下可以新建一个更合适的索引来提供给优化器做选择或删掉误用的索引如果确定是索引根本没必要可以考虑删除索引数据页结构一个数据页大致划分七个部分表示页的一些通用信息占固定的字节表示数据页专有信息占固定的字节两个虚拟的伪记录分别表示页中的最小记录和最大记录占固定的字节真正存储我们插入的数据大小不固定页中尚未使用的部分大小不固定页中某些记录的相对位置也就是各个槽对应的记录在页面中的地址偏移量用于检验页是否完整占固定大小字节数据相关是如何保证数据不丢失的只要和保证持久化磁盘就能确保异常重启后回复数据在恢复数据时状态为则说明也成功直接恢复数据如果是则需要查询对应的事务是否成功决定是回滚还是执行误删数据怎么办的最核心的工作就是保证数据的完整性先要做好预防预防的话大概是通过这几个点权限控制与分配数据库和服务器权限制作操作规范定期给开发进行培训搭建延迟备库做好审计只要是对线上数据有更改操作的语句和都需要进行审核做好备份备份的话又分为两个点如果数据量比较大用物理备份定期对数据库进行全量备份也可以做增量备份如果数据量较少用或者再利用来恢复或者搭建主从的方式来恢复数据定期备份文件也是很有必要的如果发生了数据删除的操作又可以从以下几个点来恢复误操作语句造成数据不完整或者丢失可以通过美团的也是一个不错的工具本质都差不多都是先解析然后在进行反转把反转为反转为前后对调所以必须设置和切记恢复数据的时候应该先恢复到临时的实例然后在恢复回主库上语句误操作和由于语句不管是还是在里都只记录语句不记录所以恢复起来相对要麻烦得多只能通过全量备份应用的方式来恢复数据一旦数据量比较大那么恢复时间就特别长删除使用备份跨机房或者最好是跨城市保存和的区别语句执行删除的过程是每次从表中删除一行并且同时将该行的删除操作作为事务记录在日志中保存以便进行进行回滚操作则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存删除行是不能恢复的并且在删除的过程中不会激活与表有关的删除触发器执行速度快语句将表所占用的空间全释放掉在速度上一般来说如果想删除部分数据用注意带上子句回滚段要足够大如果想删除表当然用如果想保留表而将所有数据删除如果和事务无关用即可如果和事务有关或者想触发还是用如果是整理表内部的碎片可以用跟上再重新导入插入数据在中有两个命令一个是线程表示终止这个线程中正在执行的语句一个是线程这里可缺省表示断开这个线程的连接不掉的原因命令被堵了还没到位命令到位了但是没被立刻触发命令被触发了但执行完也需要时间如何理解的边读边发如果客户端接受慢会导致服务端由于结果发不出去这个事务的执行时间会很长服务端并不需要保存一个完整的结果集取数据和发数据的流程都是通过一个来操作的内存的数据页都是在中操作的管理使用的是改进的算法使用链表实现实现上按照的比例把整个链表分成了区域和区域的大表查询为什么不会爆内存由于是边读变发因此对于数据量很大的查询结果来说不会再端保存完整的结果集所以如果客户端读结果不及时会堵住的查询过程但是不会把内存打爆引擎内部由于有淘汰策略管理使用的是改进的算法使用链表实现实现上按照的比例把整个链表分成了区域和区域对冷数据的全扫描影响也能做到可控制临时表的用法和特性只对当前可见可以与普通表重名增删改查用的是临时表不显示普通表在实际应用中临时表一般用于处理比较复杂的计算逻辑由于临时表是每个线程自己可见的所以不需要考虑多个线程执行同一个处理时临时表的重名问题在线程退出的时候临时表会自动删除存储引擎介绍是事务型数据库的首选引擎支持事务安全表支持行锁定和外键之后作为默认存储引擎基于的存储引擎并对其进行扩展它是在数据存储和其他应用环境下最常用的存储引擎之一拥有较高的插入查询速度但不支持事务在之前的版本中是默认存储引擎存储引擎将表中的数据存储到内存中为查询和引用其他表数据提供快速访问都说好那还要不要使用引擎内存表就是使用引擎创建的表为什么我不建议你在生产环境上使用内存表这里的原因主要包括两个方面锁粒度问题数据持久化问题由于重启会丢数据如果一个备库重启会导致主备同步线程停止如果主库跟这个备库是双架构还可能导致主库的内存表数据被删掉如果数据库误操作如何执行数据恢复数据库在某个时候误操作就可以找到距离误操作最近的时间节点的重放到临时数据库里然后选择误删的数据节点恢复到线上数据库主从备份相关是如何保证主备同步主备关系的建立一开始创建主备关系的时候是由备库指定的比如基于位点的主备关系备库说我要从文件的位置开始同步主库就从这个指定的位置开始往后发而主备关系搭建之后是主库决定要发给数据给备库的所以主库有新的日志也会发给备库主备切换流程客户端读写都是直接访问而节点是备库只要将的更新都同步过来到本地执行就可以保证数据是相同的当需要切换的时候就把节点换一下的节点的备库一个事务完整的同步过程备库和主库建立来了长链接主库内部专门线程用于维护了这个长链接在备库上通过命令设置主库的端口用户名密码以及从哪个位置开始请求包括文件名和日志偏移量在备库上执行命令备库会启动两个线程和分别负责建立连接和读取中转日志进行解析执行备库读取主库传过来的文件备库收到文件写到本地成为中转日志后来由于多线程复制方案的引入演化成了多个线程什么是主备延迟主库和备库在执行同一个事务的时候出现时间差的问题主要原因有有些部署条件下备库所在机器的性能要比主库性能差备库的压力较大大事务一个主库上语句执行分钟那么这个事务可能会导致从库延迟分钟为什么要有多线程复制策略因为单线程复制的能力全面低于多线程复制对于更新压力较大的主库备库可能是一直追不上主库的带来的现象就是备库上值越来越大在实际应用中建议使用可靠性优先策略减少主备延迟提升系统可用性尽量减少大事务操作把大事务拆分小事务的并行策略有哪些按表分发策略如果两个事务更新不同的表它们就可以并行因为数据是存储在表里的所以按表分发可以保证两个不会更新同一行缺点如果碰到热点表比如所有的更新事务都会涉及到某一个表的时候所有事务都会被分配到同一个中就变成单线程复制了按行分发策略如果两个事务没有更新相同的行它们在备库上可以并行如果两个事务没有更新相同的行它们在备库上可以并行执行显然这个模式要求格式必须是缺点相比于按表并行分发策略按行并行策略在决定线程分发的时候需要消耗更多的计算资源的一主一备和一主多从有什么区别在一主一备的双架构里主备切换只需要把客户端流量切到备库而在一主多从架构里主备切换除了要把客户端流量切到备库外还需要把从库接到新主库上主库出问题如何解决基于位点的主备切换存在找同步位点这个问题版本引入了彻底解决了这个困难那么到底是什么意思又是如何解决找同步位点这个问题呢全局事务是一个事务在提交的时候生成的是这个事务的唯一标识它由两部分组成格式是每个实例都维护了一个集合用来对应这个实例执行过的所有事务在基于的主备关系里系统认为只要建立主备关系就必须保证主库发给备库的日志是完整的因此如果实例需要的日志已经不存在就拒绝把日志发给读写分离涉及到过期读问题的几种解决方案强制走主库方案方案判断主备无延迟方案配合方案等主库位点方案方案实际生产中先客户端对请求做分类区分哪些请求可以接受过期读而哪些请求完全不能接受过期读然后对于不能接受过期读的语句再使用等或等位点的方案的并发链接和并发查询有什么区别在执行的结果里看到了几千个连接指的是并发连接而当前正在执行的语句才是并发查询并发连接数多影响的是内存并发查询太高对不利一个机器的核数有限线程全冲进来上下文切换的成本就会太高所以需要设置参数用来限制线程数当线程数达到该参数就会认为线程数用完了会阻止其他语句进入引擎执行性能相关短时间提高性能的方法第一种方法先处理掉那些占着连接但是不工作的线程或者再考虑断开事务内空闲太久的连接第二种方法减少连接过程的消耗慢查询性能问题在中会引发性能问题的慢查询大体有以下三种可能索引没有设计好语句没写好选错了索引为什么自增主键不连续唯一键冲突事务回滚自增主键的批量申请深层次原因是不判断自增主键是否存在从而减少加锁的时间范围和粒度这样能保持更高的性能确保自增主键不能回退所以才有自增主键不连续自增主键怎么做到唯一性自增值加来通过自增锁控制并发为什么要用自增作为主键自增主键的插入模式符合递增插入每次都是追加操作不涉及挪动记录也不会触发叶子节点的分裂每次插入新的记录就会顺序添加到当前索引节点的后续位置当一页写满就会自动开辟一个新的页而有业务逻辑的字段做主键不容易保证有序插入由于每次插入主键的值近似于随机因此每次新纪录都要被插到现有索引页得中间某个位置频繁的移动分页操作造成了大量的碎片得到了不够紧凑的索引结构写数据成本较高如何最快的复制一张表为了避免对源表加读锁更稳妥的方案是先将数据写到外部文本文件然后再写回目标表一种方法是使用命令将数据导出成一组语句另一种方法是直接将结果导出成文件提供语法用来将查询结果导出到服务端本地目录得到导出文件后你就可以用下面的命令将数据导入到目标表中物理拷贝在版本引入了可传输表空间的方法可以通过导出导入表空间的方式实现物理拷贝表的功能和语句语句会同时修改数据表和内存判断权限的时候使用的内存数据因此规范使用是不需要加上语句语句本身会用数据表的数据重建一份内存权限数据所以在权限数据可能存在不一致的情况下再使用要不要使用分区表分区并不是越细越好实际上单表或者单分区的数据一千万行只要没有特别大的索引对于现在的硬件能力来说都已经是小表了分区也不要提前预留太多在使用之前预先创建即可比如如果是按月分区每年年底时再把下一年度的个新分区创建上即可对于没有数据的历史分区要及时的掉用法使用左边的表不一定是驱动表如果需要的语义就不能把被驱动表的字段放在条件里面做等值判断或不等值判断必须都写在里面标准的语句是需要在部分加一个聚合函数比如有哪些自增各自场景是什么表的自增达到上限之后在申请值不会变化进而导致联系插入数据的时候报主键冲突错误达到上限之后归在重新递增如果出现相同的后写的数据会覆盖之前的数据只需要不在同一个文件出现重复值即可理论上会出现重复值但概率极小可忽略不计的递增值每次重启会保存起来是由层维护的内部使用就是为了能够在事务和之间做关联但是自己的是另外维护的是我们使用中最常见的而且也是处理得最好的一个自增逻辑了使用了算法在内部是怎么生成的呢内部维护了一个全局变量每次执行语句包括语句的时候将它赋值给然后给这个变量加如果当前语句是这个事务执行的第一条语句那么还会同时把赋值给这个事务的而是一个纯内存变量重启之后就清零了所以你就知道了在同一个数据库实例中不同事务的也是有可能相同的但是重启之后会重新生成新的文件这就保证了同一个文件里一定是惟一的锁相关说一下的锁在层和存储引擎层都运用了大量的锁层需要讲两种锁第一种是元数据锁第二种则表锁又名元数据锁那么什么是元数据呢任何描述数据库的内容就是元数据比如我们的表结构库结构等都是元数据那为什么需要呢主要解决两个问题事务隔离问题数据复制问题有五种表级锁意向读锁意向写锁读写在对表进行语句时候不会加表级锁和的作用是为了判断表中是否有已经被加锁的记录自增主键的保障就是有锁是语句级别的为表的某个列添加属性之后在插记录时可以不指定该列的值系统会动为它赋上单调递增的值种行级锁记录锁间隙锁解决幻读前一次查询不存在的东西在下一次查询出现了其实就是事务中的两次查询之间事务执行插入操作被事务感知了锁住某条记录又想阻止其它事务在改记录前面的间隙插入新纪录插入意向锁如果插入到同一行间隙中的多个事务未插入到间隙内的同一位置则无须等待行锁和表锁的抉择全表扫描用行级锁什么是幻读值在同一个事务中存在前后两次查询同一个范围的数据第二次看到了第一次没有查询到的数据幻读出现的场景事务的隔离级别是可重复读且是当前读幻读指新插入的行幻读带来的问题对行锁语义的破坏破坏了数据一致性解决加间隙锁锁住行与行之间的间隙阻塞新插入的操作带来的问题降低并发度可能导致死锁其它为什么系列为什么会抖一下脏页会被后台线程自动也会由于数据页淘汰而触发而刷脏页的过程由于会占用资源可能会让你的更新和查询语句的响应时间长一些为什么删除了表表文件的大小还是没变数据项删除之后某个页会被标记为可复用命令把整个表的数据删除结果就是所有的数据页都会被标记为可复用但是磁盘上文件不会变小经过大量增删改的表都是可能是存在空洞的这些空洞也占空间所以如果能够把这些空洞去掉就能达到收缩表空间的目的重建表就可以达到这样的目的可以使用命令来重建表实现方式以及各种对比对于主键来说引擎会遍历整张表把每一行的值都取出来返回给层层拿到后判断是不可能为空的就按行累加对于来说引擎遍历整张表但不取值层对于返回的每一行放一个数字进去判断是不可能为空的按行累加单看这两个用法的差别的话你能对比出来执行得要比主键快因为从引擎返回会涉及到解析数据行以及拷贝字段值的操作对于字段来说如果这个字段是定义为的话一行行地从记录里面读出这个字段判断不能为按行累加如果这个字段定义允许为那么执行的时候判断到有可能是还要把值取出来再判断一下不是才累加也就是前面的第一条原则层要什么字段就返回什么字段但是是例外并不会把全部字段取出来而是专门做了优化不取值肯定不是按行累加所以结论是按照效率排序的话字段主键所以建议尽量使用排序内部原理会为每个线程分配一个内存用于排序该内存大小为如果排序的数据量小于排序就会在内存中完成内部排序分为两种全字段排序到索引树上找到满足条件的主键根据主键去取出数据放到然后进行快速排序排序通过控制排序的行数据的长度来让中尽可能多的存放数据如果数据量很大内存中无法存下这么多就会使用磁盘临时文件来辅助排序称为外部排序外部排序会分为好几份单独的临时文件来存放排序后的数据一般是磁盘文件中进行归并然后将这些文件合并成一个大文件如何高效的使用显式随机消息随机取出之后算出得到集后算出对应的三个最后这样扫描的行数应该是',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-08 12:22:25',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>面试</span></a></span></div></div><h1 class="post-title" itemprop="name headline">精选数据库60道面试题必看</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.511Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-08T04:22:25.627Z" title="Updated 2023-08-08 12:22:25">2023-08-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/interview/selected/3/"><header><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a><a href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url">面试</a><h1 id="CrawlerTitle" itemprop="name headline">精选数据库60道面试题必看</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.511Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-08T04:22:25.627Z" title="Updated 2023-08-08 12:22:25">2023-08-08</time></header><h1 id="精选数据库60道面试题必看-1"><a href="#精选数据库60道面试题必看-1" class="headerlink" title="精选数据库60道面试题必看:+1:"></a>精选数据库60道面试题必看:+1:</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="1、关系型和非关系型数据库的区别？"><a href="#1、关系型和非关系型数据库的区别？" class="headerlink" title="1、关系型和非关系型数据库的区别？"></a>1、关系型和非关系型数据库的区别？</h3><p>关系型数据库的优点</p>
+<ul>
+<li>容易理解，因为它采用了关系模型来组织数据。</li>
+<li>可以保持数据的一致性。</li>
+<li>数据更新的开销比较小。</li>
+<li>支持复杂查询（带 where 子句的查询）</li>
+</ul>
+<p>非关系型数据库（NOSQL）的优点</p>
+<ul>
+<li>无需经过 SQL 层的解析，读写效率高。</li>
+<li>基于键值对，读写性能很高，易于扩展</li>
+<li>可以支持多种类型数据的存储，如图片，文档等等。</li>
+<li>扩展（可分为内存性数据库以及文档型数据库，比如 Redis，MongoDB，HBase 等，适合场景：数据量大高可用的日志系统&#x2F;地理位置存储系统）。</li>
+</ul>
+<h3 id="2、详细说一下一条-MySQL-语句执行的步骤"><a href="#2、详细说一下一条-MySQL-语句执行的步骤" class="headerlink" title="2、详细说一下一条 MySQL 语句执行的步骤"></a>2、详细说一下一条 MySQL 语句执行的步骤</h3><p>Server 层按顺序执行 SQL 的步骤为：</p>
+<ul>
+<li>客户端请求 -&gt; 连接器（验证用户身份，给予权限）</li>
+<li>查询缓存（存在缓存则直接返回，不存在则执行后续操作）</li>
+<li>分析器（对 SQL 进行词法分析和语法分析操作）</li>
+<li>优化器（主要对执行的 SQL 优化选择最优的执行方案方法）</li>
+<li>执行器（执行时会先看用户是否有执行权限，有才去使用这个引擎提供的接口）-&gt; 去引擎层获取数据返回（如果开启查询缓存则会缓存查询结果）</li>
+</ul>
+<h2 id="索引相关"><a href="#索引相关" class="headerlink" title="索引相关"></a>索引相关</h2><h3 id="3、MySQL-使用索引的原因？"><a href="#3、MySQL-使用索引的原因？" class="headerlink" title="3、MySQL 使用索引的原因？"></a>3、MySQL 使用索引的原因？</h3><p>根本原因</p>
+<ul>
+<li>索引的出现，就是为了提高数据查询的效率，就像书的目录一样。</li>
+<li>对于数据库的表而言，索引其实就是它的“目录”。</li>
+</ul>
+<p>扩展</p>
+<ul>
+<li>创建唯一性索引，可以保证数据库表中每一行数据的唯一性。</li>
+<li>帮助引擎层避免排序和临时表</li>
+<li>将随机 IO 变为顺序 IO，加速表和表之间的连接。</li>
+</ul>
+<h3 id="4、索引的三种常见底层数据结构以及优缺点"><a href="#4、索引的三种常见底层数据结构以及优缺点" class="headerlink" title="4、索引的三种常见底层数据结构以及优缺点"></a>4、索引的三种常见底层数据结构以及优缺点</h3><p>三种常见的索引底层数据结构：分别是哈希表、有序数组和搜索树。</p>
+<ul>
+<li>哈希表这种适用于等值查询的场景，比如 memcached 以及其它一些 NoSQL 引擎，不适合范围查询。</li>
+<li>有序数组索引只适用于静态存储引擎，等值和范围查询性能好，但更新数据成本高。</li>
+<li>N 叉树由于读写上的性能优点以及适配磁盘访问模式以及广泛应用在数据库引擎中。</li>
+<li>扩展（以 InnoDB 的一个整数字段索引为例，这个 N 差不多是 1200。棵树高是 4 的时候，就可以存 1200 的 3 次方个值，这已经 17 亿了。考虑到树根的数据块总是在内存中的，一个 10 亿行的表上一个整数字段的索引，查找一个值最多只需要访问 3 次磁盘。其实，树的第二层也有很大概率在内存中，那么访问磁盘的平均次数就更少了。）</li>
+</ul>
+<h3 id="5、索引的常见类型以及它是如何发挥作用的？"><a href="#5、索引的常见类型以及它是如何发挥作用的？" class="headerlink" title="5、索引的常见类型以及它是如何发挥作用的？"></a>5、索引的常见类型以及它是如何发挥作用的？</h3><p>根据叶子节点的内容，索引类型分为主键索引和非主键索引。</p>
+<ul>
+<li>主键索引的叶子节点存的整行数据，在InnoDB里也被称为聚簇索引。</li>
+<li>非主键索引叶子节点存的主键的值，在InnoDB里也被称为二级索引。</li>
+</ul>
+<h3 id="6、MyISAM-和-InnoDB-实现-B-树索引方式的区别是什么？"><a href="#6、MyISAM-和-InnoDB-实现-B-树索引方式的区别是什么？" class="headerlink" title="6、MyISAM 和 InnoDB 实现 B 树索引方式的区别是什么？"></a>6、MyISAM 和 InnoDB 实现 B 树索引方式的区别是什么？</h3><ul>
+<li>InnoDB 存储引擎：B+ 树索引的叶子节点保存数据本身，其数据文件本身就是索引文件。</li>
+<li>MyISAM 存储引擎：B+ 树索引的叶子节点保存数据的物理地址，叶节点的 data 域存放的是数据记录的地址，索引文件和数据文件是分离的。</li>
+</ul>
+<h3 id="7、InnoDB-为什么设计-B-树索引？"><a href="#7、InnoDB-为什么设计-B-树索引？" class="headerlink" title="7、InnoDB 为什么设计 B+ 树索引？"></a>7、InnoDB 为什么设计 B+ 树索引？</h3><p>两个考虑因素：</p>
+<ul>
+<li>InnoDB 需要执行的场景和功能需要在特定查询上拥有较强的性能。</li>
+<li>CPU 将磁盘上的数据加载到内存中需要花费大量时间。</li>
+</ul>
+<p>为什么选择 B+ 树：</p>
+<ul>
+<li><p>哈希索引虽然能提供O（1）复杂度查询，但对范围查询和排序却无法很好的支持，最终会导致全表扫描。</p>
+</li>
+<li><p>B 树能够在非叶子节点存储数据，但会导致在查询连续数据可能带来更多的随机 IO。</p>
+</li>
+<li><p>而 B+ 树的所有叶节点可以通过指针来相互连接，减少顺序遍历带来的随机 IO。</p>
+</li>
+<li><p>普通索引还是唯一索引？</p>
+<p>由于唯一索引用不上 change buffer 的优化机制，因此如果业务可以接受，从性能角度出发建议你优先考虑非唯一索引。</p>
+</li>
+</ul>
+<h3 id="8、什么是覆盖索引和索引下推？"><a href="#8、什么是覆盖索引和索引下推？" class="headerlink" title="8、什么是覆盖索引和索引下推？"></a>8、什么是覆盖索引和索引下推？</h3><p>覆盖索引：</p>
+<ul>
+<li><p>在某个查询里面，索引 k 已经“覆盖了”我们的查询需求，称为覆盖索引。</p>
+</li>
+<li><p>覆盖索引可以减少树的搜索次数，显著提升查询性能，所以使用覆盖索引是一个常用的性能优化手段。</p>
+</li>
+</ul>
+<p>索引下推：</p>
+<ul>
+<li>MySQL 5.6 引入的索引下推优化（index condition pushdown)， 可以在索引遍历过程中，对索引中包含的字段先做判断，直接过滤掉不满足条件的记录，减少回表次数。</li>
+</ul>
+<h3 id="9、哪些操作会导致索引失效？"><a href="#9、哪些操作会导致索引失效？" class="headerlink" title="9、哪些操作会导致索引失效？"></a>9、哪些操作会导致索引失效？</h3><ul>
+<li>对索引使用左或者左右模糊匹配，也就是 like %xx 或者 like %xx% 这两种方式都会造成索引失效。原因在于查询的结果可能是多个，不知道从哪个索引值开始比较，于是就只能通过全表扫描的方式来查询。</li>
+<li>对索引进行函数&#x2F;对索引进行表达式计算，因为索引保持的是索引字段的原始值，而不是经过函数计算的值，自然就没办法走索引。</li>
+<li>对索引进行隐式转换相当于使用了新函数。</li>
+<li>WHERE 子句中的 OR语句，只要有条件列不是索引列，就会进行全表扫描。</li>
+</ul>
+<h3 id="10、字符串加索引"><a href="#10、字符串加索引" class="headerlink" title="10、字符串加索引"></a>10、字符串加索引</h3><ul>
+<li>直接创建完整索引，这样可能会比较占用空间。</li>
+<li>创建前缀索引，节省空间，但会增加查询扫描次数，并且不能使用覆盖索引。</li>
+<li>倒序存储，再创建前缀索引，用于绕过字符串本身前缀的区分度不够的问题。</li>
+<li>创建 hash 字段索引，查询性能稳定，有额外的存储和计算消耗，跟第三种方式一样，都不支持范围扫描。</li>
+</ul>
+<h2 id="日志相关"><a href="#日志相关" class="headerlink" title="日志相关"></a>日志相关</h2><h3 id="11、MySQL-的-change-buffer-是什么？"><a href="#11、MySQL-的-change-buffer-是什么？" class="headerlink" title="11、MySQL 的 change buffer 是什么？"></a>11、MySQL 的 change buffer 是什么？</h3><ul>
+<li>当需要更新一个数据页时，如果数据页在内存中就直接更新；而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InnoDB 会将这些更新操作缓存在 change buffer 中。</li>
+<li>这样就不需要从磁盘中读入这个数据页了，在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer 中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。</li>
+<li>注意唯一索引的更新就不能使用 change buffer，实际上也只有普通索引可以使用。</li>
+<li>适用场景：</li>
+<li><ul>
+<li>对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时 change buffer 的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。</li>
+<li>反过来，假设一个业务的更新模式是写入之后马上会做查询，那么即使满足了条件，将更新先记录在 change buffer，但之后由于马上要访问这个数据页，会立即触发 merge 过程。这样随机访问 IO 的次数不会减少，反而增加了 change buffer 的维护代价。</li>
+</ul>
+</li>
+</ul>
+<h3 id="12、MySQL-是如何判断一行扫描数的？"><a href="#12、MySQL-是如何判断一行扫描数的？" class="headerlink" title="12、MySQL 是如何判断一行扫描数的？"></a>12、MySQL 是如何判断一行扫描数的？</h3><ul>
+<li>MySQL 在真正开始执行语句之前，并不能精确地知道满足这个条件的记录有多少条。</li>
+<li>而只能根据统计信息来估算记录数。这个统计信息就是索引的“区分度。</li>
+</ul>
+<h3 id="13、MySQL-的-redo-log-和-binlog-区别？"><a href="#13、MySQL-的-redo-log-和-binlog-区别？" class="headerlink" title="13、MySQL 的 redo log 和 binlog 区别？"></a>13、MySQL 的 redo log 和 binlog 区别？</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-a2b8e123-41cb-4717-9225-3a8b49197004.png"></p>
+<h3 id="14、为什么需要-redo-log？"><a href="#14、为什么需要-redo-log？" class="headerlink" title="14、为什么需要 redo log？"></a>14、为什么需要 redo log？</h3><ul>
+<li>redo log 主要用于 MySQL 异常重启后的一种数据恢复手段，确保了数据的一致性。 </li>
+<li>其实是为了配合 MySQL 的 WAL 机制。因为 MySQL 进行更新操作，为了能够快速响应，所以采用了异步写回磁盘的技术，写入内存后就返回。但是这样，会存在 <strong>crash后</strong> 内存数据丢失的隐患，而 redo log 具备 crash safe 的能力。</li>
+</ul>
+<h3 id="15、为什么-redo-log-具有-crash-safe-的能力，是-binlog-无法替代的？"><a href="#15、为什么-redo-log-具有-crash-safe-的能力，是-binlog-无法替代的？" class="headerlink" title="15、为什么 redo log 具有 crash-safe 的能力，是 binlog 无法替代的？"></a>15、为什么 redo log 具有 crash-safe 的能力，是 binlog 无法替代的？</h3><p>第一点：redo log 可确保 innoDB 判断哪些数据已经刷盘，哪些数据还没有</p>
+<ul>
+<li><p>redo log 和 binlog 有一个很大的区别就是，一个是循环写，一个是追加写。也就是说 redo log 只会记录未刷盘的日志，已经刷入磁盘的数据都会从 redo log 这个有限大小的日志文件里删除。binlog 是追加日志，保存的是全量的日志。</p>
+</li>
+<li><p>当数据库 crash 后，想要恢复<strong>未刷盘但已经写入 redo log 和 binlog 的数据</strong>到内存时，binlog 是无法恢复的。虽然 binlog 拥有全量的日志，但没有一个标志让 innoDB 判断哪些数据已经刷盘，哪些数据还没有。</p>
+</li>
+<li><p>但 redo log 不一样，只要刷入磁盘的数据，都会从 redo log 中抹掉，因为是循环写！数据库重启后，直接把 redo log 中的数据都恢复至内存就可以了。</p>
+</li>
+</ul>
+<p>第二点：如果 redo log 写入失败，说明此次操作失败，事务也不可能提交</p>
+<ul>
+<li>redo log 每次更新操作完成后，就一定会写入日志，如果<strong>写入失败</strong>，说明此次操作失败，事务也不可能提交。 </li>
+<li>redo log 内部结构是基于页的，记录了这个页的字段值变化，只要crash后读取redo log进行重放，就可以恢复数据。</li>
+<li>这就是为什么 redo log 具有 crash-safe 的能力，而 binlog 不具备。</li>
+</ul>
+<h3 id="16、当数据库-crash-后，如何恢复未刷盘的数据到内存中？"><a href="#16、当数据库-crash-后，如何恢复未刷盘的数据到内存中？" class="headerlink" title="16、当数据库 crash 后，如何恢复未刷盘的数据到内存中？"></a>16、当数据库 crash 后，如何恢复未刷盘的数据到内存中？</h3><p>根据 redo log 和 binlog 的两阶段提交，未持久化的数据分为几种情况：</p>
+<ul>
+<li><p>change buffer 写入，redo log 虽然做了 fsync 但未 commit，binlog 未 fsync 到磁盘，这部分数据丢失。</p>
+</li>
+<li><p>change buffer 写入，redo log fsync 未 commit，binlog 已经 fsync 到磁盘，先从 binlog 恢复 redo log，再从 redo log 恢复 change buffer。</p>
+</li>
+<li><p>change buffer 写入，redo log 和 binlog 都已经 fsync，直接从 redo log 里恢复。</p>
+</li>
+</ul>
+<h3 id="17、redo-log-写入方式？"><a href="#17、redo-log-写入方式？" class="headerlink" title="17、redo log 写入方式？"></a>17、redo log 写入方式？</h3><p>redo log包括两部分内容，分别是内存中的<strong>日志缓冲</strong>(redo log buffer)和磁盘上的<strong>日志文件</strong>(redo log file)。</p>
+<p>MySQL 每执行一条 DML 语句，会先把记录写入 <strong>redo log buffer（用户空间）</strong> ，再保存到内核空间的缓冲区 OS-buffer 中，后续某个时间点再一次性将多个操作记录写到 <strong>redo log file（刷盘）</strong> 。这种先写日志，再写磁盘的技术，就是<strong>WAL</strong>。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-f901a97f-9d82-4d4e-a5be-559a64b3d9b8.png"></p>
+<p>可以发现，redo log buffer写入到redo log file，是经过OS buffer中转的。其实可以通过参数innodb_flush_log_at_trx_commit进行配置，参数值含义如下： </p>
+<ul>
+<li>0：称为<strong>延迟写</strong>，事务提交时不会将redo log buffer中日志写入到OS buffer，而是每秒写入OS buffer并调用写入到redo log file中。 </li>
+<li>1：称为<strong>实时写</strong>，实时刷”，事务每次提交都会将redo log buffer中的日志写入OS buffer并保存到redo log file中。 </li>
+<li>2： 称为<strong>实时写，延迟刷</strong>。每次事务提交写入到OS buffer，然后是每秒将日志写入到redo log file。</li>
+</ul>
+<h3 id="18、redo-log-的执行流程"><a href="#18、redo-log-的执行流程" class="headerlink" title="18、redo log 的执行流程?"></a>18、redo log 的执行流程?</h3><p>我们来看下Redo log的执行流程，假设执行的 SQL 如下： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update T set a =1 where id =666</span><br></pre></td></tr></table></figure>
+
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-43fe6587-0cb8-49aa-bd93-0119e46430d7.png"></p>
+<ol>
+<li>MySQL 客户端将请求语句 update T set a &#x3D;1 where id &#x3D;666，发往 MySQL Server 层。 </li>
+<li>MySQL Server 层接收到 SQL 请求后，对其进行分析、优化、执行等处理工作，将生成的 SQL 执行计划发到 InnoDB 存储引擎层执行。 </li>
+<li>InnoDB 存储引擎层将<strong>a修改为1</strong>的这个操作记录到内存中。 </li>
+<li>记录到内存以后会修改 redo log 的记录，会在添加一行记录，其内容是<strong>需要在哪个数据页上做什么修改</strong>。 </li>
+<li>此后，将事务的状态设置为 prepare ，说明已经准备好提交事务了。 </li>
+<li>等到 MySQL Server 层处理完事务以后，会将事务的状态设置为 <strong>commit</strong>，也就是提交该事务。 </li>
+<li>在收到事务提交的请求以后，<strong>redo log</strong> 会把刚才写入内存中的操作记录写入到磁盘中，从而完成整个日志的记录过程。</li>
+</ol>
+<h3 id="19、binlog-的概念是什么，起到什么作用，-可以保证-crash-safe-吗"><a href="#19、binlog-的概念是什么，起到什么作用，-可以保证-crash-safe-吗" class="headerlink" title="19、binlog 的概念是什么，起到什么作用， 可以保证 crash-safe 吗?"></a>19、binlog 的概念是什么，起到什么作用， 可以保证 crash-safe 吗?</h3><ul>
+<li>binlog 是归档日志，属于 MySQL Server 层的日志。可以实现<strong>主从复制</strong>和<strong>数据恢复</strong>两个作用。 </li>
+<li>当需要<strong>恢复数据</strong>时，可以取出某个时间范围内的 binlog 进行重放恢复。 </li>
+<li>但是 binlog 不可以做 crash safe，因为 crash 之前，binlog <strong>可能没有写入完全</strong> MySQL 就挂了。所以需要配合 <strong>redo log</strong> 才可以进行 crash safe。</li>
+</ul>
+<h3 id="20、什么是两阶段提交？"><a href="#20、什么是两阶段提交？" class="headerlink" title="20、什么是两阶段提交？"></a>20、什么是两阶段提交？</h3><p>MySQL 将 redo log 的写入拆成了两个步骤：prepare 和 commit，中间再穿插写入binlog，这就是”两阶段提交”。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-11420486-f9d0-483a-ba2e-a742ec4c518d.png"></p>
+<p>而两阶段提交就是让这两个状态保持逻辑上的一致。redolog 用于恢复主机故障时的未更新的物理数据，binlog 用于备份操作。两者本身就是两个独立的个体，要想保持一致，就必须使用分布式事务的解决方案来处理。</p>
+<p><strong>为什么需要两阶段提交呢?</strong> </p>
+<ul>
+<li>如果不用两阶段提交的话，可能会出现这样情况</li>
+<li>先写 redo log，crash 后 bin log 备份恢复时少了一次更新，与当前数据不一致。 </li>
+<li>先写 bin log，crash 后，由于 redo log 没写入，事务无效，所以后续 bin log 备份恢复时，数据不一致。</li>
+<li>两阶段提交就是为了保证 redo log 和 binlog 数据的安全一致性。只有在这两个日志文件逻辑上高度一致了才能放心的使用。</li>
+</ul>
+<p>在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog事务是否成功，决定是回滚还是执行。</p>
+<h3 id="21、MySQL-怎么知道-binlog-是完整的"><a href="#21、MySQL-怎么知道-binlog-是完整的" class="headerlink" title="21、MySQL 怎么知道 binlog 是完整的?"></a>21、MySQL 怎么知道 binlog 是完整的?</h3><p>一个事务的 binlog 是有完整格式的：</p>
+<ul>
+<li>statement 格式的 binlog，最后会有 COMMIT；</li>
+<li>row 格式的 binlog，最后会有一个 XID event。</li>
+</ul>
+<h3 id="22、什么是-WAL-技术，有什么优点？"><a href="#22、什么是-WAL-技术，有什么优点？" class="headerlink" title="22、什么是 WAL 技术，有什么优点？"></a>22、什么是 WAL 技术，有什么优点？</h3><p>WAL，中文全称是 Write-Ahead Logging，它的关键点就是日志先写内存，再写磁盘。MySQL 执行更新操作后，<strong>在真正把数据写入到磁盘前，先记录日志</strong>。 </p>
+<p> 好处是不用每一次操作都实时把数据写盘，就算 crash 后也可以通过redo log 恢复，所以能够实现快速响应 SQL 语句。</p>
+<h3 id="23、binlog-日志的三种格式"><a href="#23、binlog-日志的三种格式" class="headerlink" title="23、binlog 日志的三种格式"></a>23、binlog 日志的三种格式</h3><p> binlog 日志有三种格式 </p>
+<ul>
+<li>Statement：基于SQL语句的复制((statement-based replication,SBR)) </li>
+<li>Row：基于行的复制。(row-based replication,RBR) </li>
+<li>Mixed：混合模式复制。(mixed-based replication,MBR)</li>
+</ul>
+<p> <strong>Statement格式</strong> </p>
+<p> 每一条会修改数据的 SQL 都会记录在 binlog 中 </p>
+<ul>
+<li>优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO，提高性能。 </li>
+<li>缺点：由于记录的只是执行语句，为了这些语句能在备库上正确运行，还必须记录每条语句在执行的时候的一些相关信息，以保证所有语句能在备库得到和在主库端执行时候相同的结果。</li>
+</ul>
+<p> <strong>Row格式</strong> </p>
+<p> 不记录 SQL 语句上下文相关信息，仅保存哪条记录被修改。 </p>
+<ul>
+<li>优点：binlog 中可以不记录执行的 SQL 语句的上下文相关的信息，仅需要记录那一条记录被修改成什么了。所以rowlevel的日志内容会非常清楚的记录下每一行数据修改的细节。不会出现某些特定情况下的存储过程、或 function、或trigger的调用和触发无法被正确复制的问题。 </li>
+<li>缺点:可能会产生大量的日志内容。</li>
+</ul>
+<p> <strong>Mixed格式</strong> </p>
+<p> 实际上就是 Statement 与 Row 的结合。一般的语句修改使用 statment 格式保存 binlog，如一些函数，statement 无法完成主从复制的操作，则采用 row 格式保存 binlog，MySQL 会根据执行的每一条具体的 SQL 语句来区分对待记录的日志形式。</p>
+<h3 id="24、redo-log日志格式"><a href="#24、redo-log日志格式" class="headerlink" title="24、redo log日志格式"></a>24、redo log日志格式</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.tobebetterjavaer.com/tobebetterjavaer/images/sidebar/herongwei/mysql-ee8a859f-d1e8-4ab6-94d1-9733373be825.png"></p>
+<p>redo log buffer (内存中)是由首尾相连的四个文件组成的，它们分别是：ib_logfile_1、ib_logfile_2、ib_logfile_3、ib_logfile_4。</p>
+<ul>
+<li>write pos 是当前记录的位置，一边写一边后移，写到第 3 号文件末尾后就回到 0 号文件开头。</li>
+<li>checkpoint 是当前要擦除的位置，也是往后推移并且循环的，擦除记录前要把记录更新到数据文件。</li>
+<li>write pos 和 checkpoint 之间的是“粉板”上还空着的部分，可以用来记录新的操作。</li>
+<li>如果 write pos 追上 checkpoint，表示“粉板”满了，这时候不能再执行新的更新，得停下来先擦掉一些记录，把 checkpoint 推进一下。</li>
+<li>有了 redo log，当数据库发生宕机重启后，可通过 redo log将未落盘的数据（check point之后的数据）恢复，保证已经提交的事务记录不会丢失，这种能力称为<strong>crash-safe</strong>。</li>
+</ul>
+<h3 id="25、原本可以执行得很快的-SQL-语句，执行速度却比预期的慢很多，原因是什么？如何解决？"><a href="#25、原本可以执行得很快的-SQL-语句，执行速度却比预期的慢很多，原因是什么？如何解决？" class="headerlink" title="25、原本可以执行得很快的 SQL 语句，执行速度却比预期的慢很多，原因是什么？如何解决？"></a>25、原本可以执行得很快的 SQL 语句，执行速度却比预期的慢很多，原因是什么？如何解决？</h3><p>原因：从大到小可分为四种情况</p>
+<ul>
+<li>MySQL 数据库本身被堵住了，比如：系统或网络资源不够。</li>
+<li>SQL 语句被堵住了，比如：表锁，行锁等，导致存储引擎不执行对应的 SQL 语句。</li>
+<li>确实是索引使用不当，没有走索引。</li>
+<li>表中数据的特点导致的，走了索引，但回表次数庞大。</li>
+</ul>
+<p>解决：</p>
+<ul>
+<li>考虑采用 force index 强行选择一个索引</li>
+<li>考虑修改语句，引导 MySQL 使用我们期望的索引。比如把“order by b limit 1” 改成 “order by b,a limit 1” ，语义的逻辑是相同的。</li>
+<li>第三种方法是，在有些场景下，可以新建一个更合适的索引，来提供给优化器做选择，或删掉误用的索引。</li>
+<li>如果确定是索引根本没必要，可以考虑删除索引。</li>
+</ul>
+<h3 id="26、InnoDB-数据页结构"><a href="#26、InnoDB-数据页结构" class="headerlink" title="26、InnoDB 数据页结构"></a>26、InnoDB 数据页结构</h3><p>一个数据页大致划分七个部分</p>
+<ul>
+<li>File Header：表示页的一些通用信息，占固定的38字节。</li>
+<li>page Header：表示数据页专有信息，占固定的56字节。</li>
+<li>inimum+Supermum：两个虚拟的伪记录，分别表示页中的最小记录和最大记录，占固定的26字节。</li>
+<li>User Records：真正存储我们插入的数据，大小不固定。</li>
+<li>Free Space：页中尚未使用的部分，大小不固定。</li>
+<li>Page Directory：页中某些记录的相对位置，也就是各个槽对应的记录在页面中的地址偏移量。</li>
+<li>File Trailer：用于检验页是否完整，占固定大小 8 字节。</li>
+</ul>
+<h2 id="数据相关"><a href="#数据相关" class="headerlink" title="数据相关"></a>数据相关</h2><h3 id="27、MySQL-是如何保证数据不丢失的？"><a href="#27、MySQL-是如何保证数据不丢失的？" class="headerlink" title="27、MySQL 是如何保证数据不丢失的？"></a>27、MySQL 是如何保证数据不丢失的？</h3><ul>
+<li>只要redolog 和 binlog 保证持久化磁盘就能确保MySQL异常重启后回复数据</li>
+<li>在恢复数据时，redolog 状态为 commit 则说明 binlog 也成功，直接恢复数据；如果 redolog 是 prepare，则需要查询对应的 binlog事务是否成功，决定是回滚还是执行。</li>
+</ul>
+<h3 id="28、误删数据怎么办？"><a href="#28、误删数据怎么办？" class="headerlink" title="28、误删数据怎么办？"></a>28、误删数据怎么办？</h3><p>DBA 的最核心的工作就是保证数据的完整性，先要做好预防，预防的话大概是通过这几个点：</p>
+<ul>
+<li>权限控制与分配(数据库和服务器权限)</li>
+<li>制作操作规范</li>
+<li>定期给开发进行培训</li>
+<li>搭建延迟备库</li>
+<li>做好 SQL 审计，只要是对线上数据有更改操作的语句(DML和DDL)都需要进行审核</li>
+<li>做好备份。备份的话又分为两个点 (1)如果数据量比较大，用物理备份 xtrabackup。定期对数据库进行全量备份，也可以做增量备份。 (2)如果数据量较少，用 mysqldump 或者 mysqldumper。再利用 binlog 来恢复或者搭建主从的方式来恢复数据。 定期备份binlog 文件也是很有必要的</li>
+<li>如果发生了数据删除的操作，又可以从以下几个点来恢复:</li>
+<li>DML 误操作语句造成数据不完整或者丢失。可以通过 flashback，美团的 myflash，也是一个不错的工具，本质都差不多，都是先解析 binlog event，然后在进行反转。把 delete 反转为insert，insert 反转为 delete，update前后 image 对调。所以必须设置binlog_format&#x3D;row 和 binlog_row_image&#x3D;full，切记恢复数据的时候，应该先恢复到临时的实例，然后在恢复回主库上。</li>
+<li>DDL语句误操作(truncate和drop)，由于DDL语句不管 binlog_format 是 row 还是 statement ，在 binlog 里都只记录语句，不记录 image 所以恢复起来相对要麻烦得多。只能通过全量备份+应用 binlog 的方式来恢复数据。一旦数据量比较大，那么恢复时间就特别长</li>
+<li>rm 删除：使用备份跨机房，或者最好是跨城市保存。</li>
+</ul>
+<h3 id="29、drop、truncate-和-delete-的区别"><a href="#29、drop、truncate-和-delete-的区别" class="headerlink" title="29、drop、truncate 和 delete 的区别"></a>29、drop、truncate 和 delete 的区别</h3><ul>
+<li>DELETE 语句执行删除的过程是每次从表中删除一行，并且同时将该行的删除操作作为事务记录在日志中保存以便进行进行回滚操作。</li>
+<li>TRUNCATE TABLE  则一次性地从表中删除所有的数据并不把单独的删除操作记录记入日志保存，删除行是不能恢复的。并且在删除的过程中不会激活与表有关的删除触发器。执行速度快。</li>
+<li>drop语句将表所占用的空间全释放掉。</li>
+<li>在速度上，一般来说，drop&gt; truncate &gt; delete。</li>
+<li>如果想删除部分数据用 delete，注意带上 where 子句，回滚段要足够大；</li>
+<li>如果想删除表，当然用 drop； 如果想保留表而将所有数据删除，如果和事务无关，用 truncate 即可；</li>
+<li>如果和事务有关，或者想触发 trigger，还是用 delete； 如果是整理表内部的碎片，可以用 truncate 跟上 reuse stroage，再重新导入&#x2F;插入数据。</li>
+</ul>
+<h3 id="30、在-MySQL-中有两个-kill-命令"><a href="#30、在-MySQL-中有两个-kill-命令" class="headerlink" title="30、在 MySQL 中有两个 kill 命令"></a>30、在 MySQL 中有两个 kill 命令</h3><ul>
+<li>一个是 kill query + 线程 id，表示终止这个线程中正在执行的语句</li>
+<li>一个是 kill connection + 线程 id，这里 connection 可缺省，表示断开这个线程的连接</li>
+</ul>
+<p>kill 不掉的原因</p>
+<ul>
+<li>kill命令被堵了，还没到位</li>
+<li>kill命令到位了，但是没被立刻触发</li>
+<li>kill命令被触发了，但执行完也需要时间</li>
+</ul>
+<h3 id="31、如何理解-MySQL-的边读边发"><a href="#31、如何理解-MySQL-的边读边发" class="headerlink" title="31、如何理解 MySQL 的边读边发"></a>31、如何理解 MySQL 的边读边发</h3><ul>
+<li>如果客户端接受慢，会导致 MySQL 服务端由于结果发不出去，这个事务的执行时间会很长。</li>
+<li>服务端并不需要保存一个完整的结果集，取数据和发数据的流程都是通过一个 next_buffer 来操作的。</li>
+<li>内存的数据页都是在 Buffer_Pool中操作的。</li>
+<li>InnoDB 管理 Buffer_Pool 使用的是改进的 LRU 算法，使用链表实现，实现上，按照 5:3 的比例把整个 LRU 链表分成了 young 区域和 old 区域。</li>
+</ul>
+<h3 id="32、MySQL-的大表查询为什么不会爆内存？"><a href="#32、MySQL-的大表查询为什么不会爆内存？" class="headerlink" title="32、MySQL 的大表查询为什么不会爆内存？"></a>32、MySQL 的大表查询为什么不会爆内存？</h3><ul>
+<li>由于 MySQL 是边读变发，因此对于数据量很大的查询结果来说，不会再 server 端保存完整的结果集，所以，如果客户端读结果不及时，会堵住 MySQL 的查询过程，但是不会把内存打爆。</li>
+<li>InnoDB 引擎内部，由于有淘汰策略，InnoDB 管理 Buffer_Pool 使用的是改进的 LRU 算法，使用链表实现，实现上，按照 5:3 的比例把整个 LRU 链表分成了 young 区域和 old 区域。对冷数据的全扫描，影响也能做到可控制。</li>
+</ul>
+<h3 id="33、MySQL-临时表的用法和特性"><a href="#33、MySQL-临时表的用法和特性" class="headerlink" title="33、MySQL 临时表的用法和特性"></a>33、MySQL 临时表的用法和特性</h3><ul>
+<li>只对当前session可见。</li>
+<li>可以与普通表重名。</li>
+<li>增删改查用的是临时表。</li>
+<li>show tables 不显示普通表。</li>
+<li>在实际应用中，临时表一般用于处理比较复杂的计算逻辑。</li>
+<li>由于临时表是每个线程自己可见的，所以不需要考虑多个线程执行同一个处理时临时表的重名问题，在线程退出的时候，临时表会自动删除。</li>
+</ul>
+<h3 id="34、MySQL-存储引擎介绍（InnoDB、MyISAM、MEMORY）"><a href="#34、MySQL-存储引擎介绍（InnoDB、MyISAM、MEMORY）" class="headerlink" title="34、MySQL 存储引擎介绍（InnoDB、MyISAM、MEMORY）"></a>34、MySQL 存储引擎介绍（InnoDB、MyISAM、MEMORY）</h3><ul>
+<li>InnoDB 是事务型数据库的首选引擎，支持事务安全表 (ACID)，支持行锁定和外键。MySQL5.5.5 之后，InnoDB 作为默认存储引擎</li>
+<li>MyISAM 基于 ISAM 的存储引擎，并对其进行扩展。它是在 Web、数据存储和其他应用环境下最常用的存储引擎之一。MyISAM 拥有较高的插入、查询速度，但不支持事务。在 MySQL5.5.5 之前的版本中，MyISAM 是默认存储引擎</li>
+<li>MEMORY 存储引擎将表中的数据存储到内存中，为查询和引用其他表数据提供快速访问。</li>
+</ul>
+<h3 id="35、都说-InnoDB-好，那还要不要使用-MEMORY-引擎？"><a href="#35、都说-InnoDB-好，那还要不要使用-MEMORY-引擎？" class="headerlink" title="35、都说 InnoDB 好，那还要不要使用 MEMORY 引擎？"></a>35、都说 InnoDB 好，那还要不要使用 MEMORY 引擎？</h3><ul>
+<li>内存表就是使用 memory 引擎创建的表</li>
+<li>为什么我不建议你在生产环境上使用内存表。这里的原因主要包括两个方面：锁粒度问题；数据持久化问题。</li>
+<li>由于重启会丢数据，如果一个备库重启，会导致主备同步线程停止；如果主库跟这个备库是双 M 架构，还可能导致主库的内存表数据被删掉。</li>
+</ul>
+<h3 id="36、如果数据库误操作-如何执行数据恢复"><a href="#36、如果数据库误操作-如何执行数据恢复" class="headerlink" title="36、如果数据库误操作, 如何执行数据恢复?"></a>36、如果数据库误操作, 如何执行数据恢复?</h3><p>数据库在某个时候误操作，就可以找到距离误操作最近的时间节点的bin log，重放到临时数据库里，然后选择误删的数据节点，恢复到线上数据库。</p>
+<h2 id="主从备份相关"><a href="#主从备份相关" class="headerlink" title="主从备份相关"></a>主从备份相关</h2><h3 id="37、MySQL-是如何保证主备同步？"><a href="#37、MySQL-是如何保证主备同步？" class="headerlink" title="37、MySQL 是如何保证主备同步？"></a>37、MySQL 是如何保证主备同步？</h3><p>主备关系的建立：</p>
+<ul>
+<li>一开始创建主备关系的时候，是由备库指定的，比如基于位点的主备关系，备库说“我要从binlog文件A的位置P”开始同步，主库就从这个指定的位置开始往后发。</li>
+<li>而主备关系搭建之后，是主库决定要发给数据给备库的，所以主库有新的日志也会发给备库。</li>
+</ul>
+<p>MySQL 主备切换流程：</p>
+<ul>
+<li>客户端读写都是直接访问A，而节点B是备库，只要将A的更新都同步过来，到本地执行就可以保证数据是相同的。</li>
+<li>当需要切换的时候就把节点换一下，A的节点B的备库</li>
+</ul>
+<p>一个事务完整的同步过程：</p>
+<ul>
+<li><p>备库B和主库A建立来了长链接，主库A内部专门线程用于维护了这个长链接。</p>
+</li>
+<li><p>在备库B上通过changemaster命令设置主库A的IP端口用户名密码以及从哪个位置开始请求binlog包括文件名和日志偏移量</p>
+</li>
+<li><p>在备库B上执行start-slave命令备库会启动两个线程：io_thread和sql_thread分别负责建立连接和读取中转日志进行解析执行</p>
+</li>
+<li><p>备库读取主库传过来的binlog文件备库收到文件写到本地成为中转日志</p>
+</li>
+<li><p>后来由于多线程复制方案的引入，sql_thread演化成了多个线程。</p>
+</li>
+</ul>
+<h3 id="38、什么是主备延迟"><a href="#38、什么是主备延迟" class="headerlink" title="38、什么是主备延迟"></a>38、什么是主备延迟</h3><p>主库和备库在执行同一个事务的时候出现时间差的问题，主要原因有：</p>
+<ul>
+<li>有些部署条件下，备库所在机器的性能要比主库性能差。</li>
+<li>备库的压力较大。</li>
+<li>大事务，一个主库上语句执行10分钟，那么这个事务可能会导致从库延迟10分钟。</li>
+</ul>
+<h3 id="39、为什么要有多线程复制策略？"><a href="#39、为什么要有多线程复制策略？" class="headerlink" title="39、为什么要有多线程复制策略？"></a>39、为什么要有多线程复制策略？</h3><ul>
+<li>因为单线程复制的能力全面低于多线程复制，对于更新压力较大的主库，备库可能是一直追不上主库的，带来的现象就是备库上seconds_behind_master值越来越大。</li>
+<li>在实际应用中，建议使用可靠性优先策略，减少主备延迟，提升系统可用性，尽量减少大事务操作，把大事务拆分小事务。</li>
+</ul>
+<h3 id="40、MySQL-的并行策略有哪些？"><a href="#40、MySQL-的并行策略有哪些？" class="headerlink" title="40、MySQL 的并行策略有哪些？"></a>40、MySQL 的并行策略有哪些？</h3><ul>
+<li>按表分发策略：如果两个事务更新不同的表，它们就可以并行。因为数据是存储在表里的，所以按表分发，可以保证两个 worker 不会更新同一行。缺点：如果碰到热点表，比如所有的更新事务都会涉及到某一个表的时候，所有事务都会被分配到同一个 worker 中，就变成单线程复制了。</li>
+<li>按行分发策略：如果两个事务没有更新相同的行，它们在备库上可以并行。如果两个事务没有更新相同的行，它们在备库上可以并行执行。显然，这个模式要求 binlog 格式必须是 row。缺点：相比于按表并行分发策略，按行并行策略在决定线程分发的时候，需要消耗更多的计算资源。</li>
+</ul>
+<h3 id="41、MySQL的一主一备和一主多从有什么区别？"><a href="#41、MySQL的一主一备和一主多从有什么区别？" class="headerlink" title="41、MySQL的一主一备和一主多从有什么区别？"></a>41、MySQL的一主一备和一主多从有什么区别？</h3><p>在一主一备的双 M 架构里，主备切换只需要把客户端流量切到备库；而在一主多从架构里，主备切换除了要把客户端流量切到备库外，还需要把从库接到新主库上。</p>
+<h3 id="42、主库出问题如何解决"><a href="#42、主库出问题如何解决" class="headerlink" title="42、主库出问题如何解决?"></a>42、主库出问题如何解决?</h3><ul>
+<li>基于位点的主备切换：存在找同步位点这个问题</li>
+<li>MySQL 5.6 版本引入了 GTID，彻底解决了这个困难。那么，GTID 到底是什么意思，又是如何解决找同步位点这个问题呢？</li>
+<li>GTID：全局事务 ID，是一个事务在提交的时候生成的，是这个事务的唯一标识；它由两部分组成，格式是：GTID&#x3D;server_uuid:gno</li>
+<li>每个 MySQL 实例都维护了一个 GTID 集合，用来对应“这个实例执行过的所有事务”。</li>
+<li>在基于 GTID 的主备关系里，系统认为只要建立主备关系，就必须保证主库发给备库的日志是完整的。因此，如果实例 B 需要的日志已经不存在，A’就拒绝把日志发给 B。</li>
+</ul>
+<h3 id="43、MySQL-读写分离涉及到过期读问题的几种解决方案"><a href="#43、MySQL-读写分离涉及到过期读问题的几种解决方案" class="headerlink" title="43、MySQL 读写分离涉及到过期读问题的几种解决方案?"></a>43、MySQL 读写分离涉及到过期读问题的几种解决方案?</h3><ul>
+<li>强制走主库方案</li>
+<li>sleep 方案</li>
+<li>判断主备无延迟方案</li>
+<li>配合 semi-sync 方案</li>
+<li>等主库位点方案</li>
+<li>GTID 方案。</li>
+<li>实际生产中，先客户端对请求做分类，区分哪些请求可以接受过期读，而哪些请求完全不能接受过期读；然后，对于不能接受过期读的语句，再使用等 GTID 或等位点的方案。</li>
+</ul>
+<h3 id="44、MySQL的并发链接和并发查询有什么区别？"><a href="#44、MySQL的并发链接和并发查询有什么区别？" class="headerlink" title="44、MySQL的并发链接和并发查询有什么区别？"></a>44、MySQL的并发链接和并发查询有什么区别？</h3><ul>
+<li>在执行show processlist的结果里，看到了几千个连接，指的是并发连接。而”当前正在执行”的语句，才是并发查询。</li>
+<li>并发连接数多影响的是内存，并发查询太高对CPU不利。一个机器的CPU核数有限，线程全冲进来，上下文切换的成本就会太高。</li>
+<li>所以需要设置参数：innodb_thread_concurrency 用来限制线程数，当线程数达到该参数，InnoDB就会认为线程数用完了，会阻止其他语句进入引擎执行。</li>
+</ul>
+<h2 id="性能相关"><a href="#性能相关" class="headerlink" title="性能相关"></a>性能相关</h2><h3 id="45、短时间提高-MySQL-性能的方法"><a href="#45、短时间提高-MySQL-性能的方法" class="headerlink" title="45、短时间提高 MySQL 性能的方法"></a>45、短时间提高 MySQL 性能的方法</h3><ul>
+<li>第一种方法：先处理掉那些占着连接但是不工作的线程。或者再考虑断开事务内空闲太久的连接。 kill connection + id</li>
+<li>第二种方法：减少连接过程的消耗：慢查询性能问题在 MySQL 中，会引发性能问题的慢查询，大体有以下三种可能：索引没有设计好；SQL 语句没写好；MySQL 选错了索引（force index）。</li>
+</ul>
+<h3 id="46、为什么-MySQL-自增主键-ID-不连续？"><a href="#46、为什么-MySQL-自增主键-ID-不连续？" class="headerlink" title="46、为什么 MySQL 自增主键 ID 不连续？"></a>46、为什么 MySQL 自增主键 ID 不连续？</h3><ul>
+<li><p>唯一键冲突</p>
+</li>
+<li><p>事务回滚</p>
+</li>
+<li><p>自增主键的批量申请</p>
+</li>
+<li><p>深层次原因是：MySQL 不判断自增主键是否存在，从而减少加锁的时间范围和粒度，这样能保持更高的性能，确保自增主键不能回退，所以才有自增主键不连续。</p>
+</li>
+<li><p>自增主键怎么做到唯一性？自增值加1来通过自增锁控制并发</p>
+</li>
+</ul>
+<h3 id="47、InnoDB-为什么要用自增-ID-作为主键？"><a href="#47、InnoDB-为什么要用自增-ID-作为主键？" class="headerlink" title="47、InnoDB 为什么要用自增 ID 作为主键？"></a>47、InnoDB 为什么要用自增 ID 作为主键？</h3><ul>
+<li><p>自增主键的插入模式，符合递增插入，每次都是追加操作，不涉及挪动记录，也不会触发叶子节点的分裂。</p>
+</li>
+<li><p>每次插入新的记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。</p>
+</li>
+<li><p>而有业务逻辑的字段做主键，不容易保证有序插入，由于每次插入主键的值近似于随机</p>
+</li>
+<li><p>因此每次新纪录都要被插到现有索引页得中间某个位置， 频繁的移动、分页操作造成了大量的碎片，得到了不够紧凑的索引结构，写数据成本较高。</p>
+</li>
+</ul>
+<h3 id="48、如何最快的复制一张表？"><a href="#48、如何最快的复制一张表？" class="headerlink" title="48、如何最快的复制一张表？"></a>48、如何最快的复制一张表？</h3><ul>
+<li>为了避免对源表加读锁，更稳妥的方案是先将数据写到外部文本文件，然后再写回目标表</li>
+<li>一种方法是，使用 mysqldump 命令将数据导出成一组 INSERT 语句</li>
+<li>另一种方法是直接将结果导出成.csv 文件。MySQL 提供语法，用来将查询结果导出到服务端本地目录：<code>select * from db1.t where a&gt;900 into outfile &#39;/server_tmp/t.csv&#39;</code>;得到.csv 导出文件后，你就可以用下面的 load data 命令将数据导入到目标表 db2.t 中：<code>load data infile &#39;/server_tmp/t.csv&#39; into table db2.t;</code></li>
+<li>物理拷贝：在 MySQL 5.6 版本引入了可传输表空间(transportable tablespace) 的方法，可以通过导出 + 导入表空间的方式，实现物理拷贝表的功能。</li>
+</ul>
+<h3 id="49、grant-和-flush-privileges语句"><a href="#49、grant-和-flush-privileges语句" class="headerlink" title="49、grant 和 flush privileges语句"></a>49、grant 和 flush privileges语句</h3><ul>
+<li>grant语句会同时修改数据表和内存，判断权限的时候使用的内存数据，因此，规范使用是不需要加上 flush privileges 语句。</li>
+<li>flush privileges 语句本身会用数据表的数据重建一份内存权限数据，所以在权限数据可能存在不一致的情况下再使用。</li>
+</ul>
+<h3 id="50、要不要使用分区表？"><a href="#50、要不要使用分区表？" class="headerlink" title="50、要不要使用分区表？"></a>50、要不要使用分区表？</h3><ul>
+<li>分区并不是越细越好。实际上，单表或者单分区的数据一千万行，只要没有特别大的索引，对于现在的硬件能力来说都已经是小表了。</li>
+<li>分区也不要提前预留太多，在使用之前预先创建即可。比如，如果是按月分区，每年年底时再把下一年度的 12 个新分区创建上即可。对于没有数据的历史分区，要及时的 drop 掉。</li>
+</ul>
+<h3 id="51、join-用法"><a href="#51、join-用法" class="headerlink" title="51、join 用法"></a>51、join 用法</h3><ul>
+<li>使用 left join 左边的表不一定是驱动表</li>
+<li>如果需要 left join 的语义，就不能把被驱动表的字段放在 where 条件里面做等值判断或不等值判断，必须都写在 on 里面</li>
+<li>标准的 group by 语句，是需要在 select 部分加一个聚合函数，比如<code>select a,count(*) from t group by a order by null;</code></li>
+</ul>
+<h3 id="52、MySQL-有哪些自增ID？各自场景是什么？"><a href="#52、MySQL-有哪些自增ID？各自场景是什么？" class="headerlink" title="52、MySQL 有哪些自增ID？各自场景是什么？"></a>52、MySQL 有哪些自增ID？各自场景是什么？</h3><ul>
+<li><p>表的自增 ID 达到上限之后，在申请值不会变化，进而导致联系插入数据的时候报主键冲突错误。</p>
+</li>
+<li><p>row_id 达到上限之后，归 0 在重新递增，如果出现相同的 row_id 后写的数据会覆盖之前的数据。</p>
+</li>
+<li><p>Xid 只需要不在同一个 binlog 文件出现重复值即可，理论上会出现重复值，但概率极小可忽略不计。</p>
+</li>
+<li><p>InnoDB 的 max_trx_id 递增值每次 MySQL 重启会保存起来。</p>
+</li>
+<li><p>Xid 是由 server 层维护的。InnoDB 内部使用 Xid，就是为了能够在 InnoDB 事务和 server 之间做关联。但是，InnoDB 自己的 trx_id，是另外维护的。</p>
+</li>
+<li><p>thread_id 是我们使用中最常见的，而且也是处理得最好的一个自增 id 逻辑了。使用了insert_unique算法</p>
+</li>
+</ul>
+<h3 id="53、Xid-在-MySQL-内部是怎么生成的呢？"><a href="#53、Xid-在-MySQL-内部是怎么生成的呢？" class="headerlink" title="53、Xid 在 MySQL 内部是怎么生成的呢？"></a>53、Xid 在 MySQL 内部是怎么生成的呢？</h3><p><strong>MySQL 内部维护了一个全局变量 global_query_id，每次执行语句（包括select语句）的时候将它赋值给 Query_id，然后给这个变量加 1。如果当前语句是这个事务执行的第一条语句，那么 MySQL 还会同时把 Query_id 赋值给这个事务的 Xid。</strong></p>
+<p>而 global_query_id 是一个纯内存变量，重启之后就清零了。所以你就知道了，在同一个数据库实例中，不同事务的 Xid 也是有可能相同的。但是 MySQL 重启之后会重新生成新的 binlog 文件，这就保证了，同一个 binlog 文件里，Xid 一定是惟一的。</p>
+<h2 id="锁相关"><a href="#锁相关" class="headerlink" title="锁相关"></a>锁相关</h2><h3 id="54、说一下-MySQL-的锁"><a href="#54、说一下-MySQL-的锁" class="headerlink" title="54、说一下 MySQL 的锁"></a>54、说一下 MySQL 的锁</h3><ul>
+<li>MySQL 在 server 层 和 存储引擎层 都运用了大量的锁</li>
+<li>MySQL server 层需要讲两种锁，第一种是MDL(metadata lock) 元数据锁，第二种则 Table Lock 表锁。</li>
+<li>MDL 又名元数据锁，那么什么是元数据呢，任何描述数据库的内容就是元数据，比如我们的表结构、库结构等都是元数据。那为什么需要 MDL 呢？</li>
+<li>主要解决两个问题：事务隔离问题；数据复制问题</li>
+<li>InnoDB 有五种表级锁：IS（意向读锁）；IX（意向写锁）；S（读）；X（写）；AUTO-INC</li>
+<li>在对表进行select&#x2F;insert&#x2F;delete&#x2F;update语句时候不会加表级锁</li>
+<li>IS和IX的作用是为了判断表中是否有已经被加锁的记录</li>
+<li>自增主键的保障就是有 AUTO-INC 锁，是语句级别的：为表的某个列添加 AUTO_INCREMENT 属性，之后在插⼊记录时，可以不指定该列的值，系统会⾃动为它赋上单调递增的值。</li>
+<li>InnoDB 4 种行级锁</li>
+<li>RecordLock：记录锁</li>
+<li>GapLock：间隙锁解决幻读；前一次查询不存在的东西在下一次查询出现了，其实就是事务A中的两次查询之间事务B执行插入操作被事务A感知了</li>
+<li>Next-KeyLock：锁住某条记录又想阻止其它事务在改记录前面的间隙插入新纪录</li>
+<li>InsertIntentionLock：插入意向锁;如果插入到同一行间隙中的多个事务未插入到间隙内的同一位置则无须等待</li>
+<li>行锁和表锁的抉择<ul>
+<li>全表扫描用行级锁</li>
+</ul>
+</li>
+</ul>
+<h3 id="55、什么是幻读？"><a href="#55、什么是幻读？" class="headerlink" title="55、什么是幻读？"></a>55、什么是幻读？</h3><p>值在同一个事务中，存在前后两次查询同一个范围的数据，第二次看到了第一次没有查询到的数据。</p>
+<p>幻读出现的场景：</p>
+<ul>
+<li>事务的隔离级别是可重复读，且是当前读。</li>
+<li>幻读指新插入的行。</li>
+</ul>
+<p>幻读带来的问题：</p>
+<ul>
+<li>对行锁语义的破坏</li>
+<li>破坏了数据一致性</li>
+</ul>
+<p>解决：</p>
+<ul>
+<li>加间隙锁，锁住行与行之间的间隙，阻塞新插入的操作。</li>
+<li>带来的问题：降低并发度，可能导致死锁。</li>
+</ul>
+<h2 id="其它为什么系列"><a href="#其它为什么系列" class="headerlink" title="其它为什么系列"></a>其它为什么系列</h2><h3 id="56、为什么-MySQL-会抖一下？"><a href="#56、为什么-MySQL-会抖一下？" class="headerlink" title="56、为什么 MySQL 会抖一下？"></a>56、为什么 MySQL 会抖一下？</h3><ul>
+<li>脏页会被后台线程自动 flush，也会由于数据页淘汰而触发 flush，而刷脏页的过程由于会占用资源，可能会让你的更新和查询语句的响应时间长一些。</li>
+</ul>
+<h3 id="57、为什么删除了表，表文件的大小还是没变？"><a href="#57、为什么删除了表，表文件的大小还是没变？" class="headerlink" title="57、为什么删除了表，表文件的大小还是没变？"></a>57、为什么删除了表，表文件的大小还是没变？</h3><ul>
+<li>数据项删除之后 InnoDB 某个页 page A 会被标记为可复用。</li>
+<li>delete 命令把整个表的数据删除，结果就是，所有的数据页都会被标记为可复用。但是磁盘上，文件不会变小。</li>
+<li>经过大量增删改的表，都是可能是存在空洞的。这些空洞也占空间所以，如果能够把这些空洞去掉，就能达到收缩表空间的目的。</li>
+<li>重建表，就可以达到这样的目的。可以使用 alter table A engine&#x3D;InnoDB 命令来重建表。</li>
+</ul>
+<h3 id="58、count-实现方式以及各种-count-对比"><a href="#58、count-实现方式以及各种-count-对比" class="headerlink" title="58、count(*)实现方式以及各种 count 对比"></a>58、<code>count(*)</code>实现方式以及各种 count 对比</h3><ul>
+<li>对于 count(主键 id) 来说，InnoDB 引擎会遍历整张表，把每一行的 id 值都取出来，返回给 server 层。server 层拿到 id 后，判断是不可能为空的，就按行累加。</li>
+<li>对于 count(1) 来说，InnoDB 引擎遍历整张表，但不取值。server 层对于返回的每一行，放一个数字“1”进去，判断是不可能为空的，按行累加。 单看这两个用法的差别的话，你能对比出来，count(1) 执行得要比 count(主键 id) 快。因为从引擎返回 id 会涉及到解析数据行，以及拷贝字段值的操作。</li>
+<li>对于 count(字段) 来说：如果这个“字段”是定义为 not null 的话，一行行地从记录里面读出这个字段，判断不能为 null，按行累加；如果这个“字段”定义允许为 null，那么执行的时候，判断到有可能是 null，还要把值取出来再判断一下，不是 null 才累加。也就是前面的第一条原则，server 层要什么字段，InnoDB 就返回什么字段。 </li>
+<li>但是 <code>count *</code> 是例外，并不会把全部字段取出来，而是专门做了优化，不取值。<code>count(*)</code>肯定不是 null，按行累加。</li>
+<li>所以结论是：按照效率排序的话，count(字段)<code>&lt;count(主键 id)&lt;count(1)≈count(※)</code>，所以建议尽量使用 <code>count(*)</code>。</li>
+</ul>
+<h3 id="59、orderby-排序内部原理"><a href="#59、orderby-排序内部原理" class="headerlink" title="59、orderby 排序内部原理"></a>59、orderby 排序内部原理</h3><ul>
+<li><p>MySQL 会为每个线程分配一个内存（sort-buffer）用于排序该内存大小为 sort_buffer_size；</p>
+</li>
+<li><p>如果排序的数据量小于 sort_buffer_size，排序就会在内存中完成；</p>
+<p>内部排序分为两种</p>
+</li>
+<li><p>全字段排序：到索引树上找到满足条件的主键ID根据主键ID去取出数据放到sort_buffer然后进行快速排序</p>
+</li>
+<li><p>rowid排序：通过控制排序的行数据的长度来让sort_buffer中尽可能多的存放数据</p>
+</li>
+<li><p>如果数据量很大，内存中无法存下这么多，就会使用磁盘临时文件来辅助排序，称为外部排序；</p>
+</li>
+<li><p>外部排序，MySQL会分为好几份单独的临时文件来存放排序后的数据，一般是磁盘文件中进行归并，然后将这些文件合并成一个大文件；</p>
+</li>
+</ul>
+<h3 id="60、如何高效的使用-MySQL-显式随机消息"><a href="#60、如何高效的使用-MySQL-显式随机消息" class="headerlink" title="60、如何高效的使用 MySQL 显式随机消息"></a>60、如何高效的使用 MySQL 显式随机消息</h3><ul>
+<li><p>随机取出 Y1,Y2,Y3之后，算出Ymax,Ymin</p>
+</li>
+<li><p>得到id集后算出Y1、Y2、Y3对应的三个id 最后 select * from t where id in (id1, id2, id3)<br>这样扫描的行数应该是C+Ymax+3</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select count(*) into @C from t;</span><br><span class="line">set @Y1 = floor(@C * rand());</span><br><span class="line">set @Y2 = floor(@C * rand());</span><br><span class="line">set @Y3 = floor(@C * rand());</span><br><span class="line">Ymax = max(Y1,Y2,Y3)</span><br><span class="line">Ymin = min(Y1,Y2,Y3)</span><br><span class="line">select id from t limit Ymin，(Ymax - Ymin)</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/interview/selected/3/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/interview/selected/3/')">精选数据库60道面试题必看</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/interview/selected/3/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=精选数据库60道面试题必看&amp;url=http://example.com/2023/10/01/interview/selected/3/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>面试<span class="tagsPageCount">51</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/interview/selected/5/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Nginx：40道精选面试题必看</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/interview/selected/4/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Mysql索引的15连问</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/interview/Java/" title="第四版最强八股文"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第四版最强八股文</div></div></a></div><div><a href="/2023/10/01/interview/selected/1/" title="Java：34道精选高频面试题必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java：34道精选高频面试题必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/10/" title="Java 并发编程八股文（背诵版）必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java 并发编程八股文（背诵版）必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/12/" title="秒传"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">秒传</div></div></a></div><div><a href="/2023/10/01/interview/selected/11/" title="kafka40题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">kafka40题</div></div></a></div><div><a href="/2023/10/01/interview/selected/14/" title="Scenario 场景"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Scenario 场景</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B2%BE%E9%80%89%E6%95%B0%E6%8D%AE%E5%BA%9360%E9%81%93%E9%9D%A2%E8%AF%95%E9%A2%98%E5%BF%85%E7%9C%8B-1"><span class="toc-number">1.</span> <span class="toc-text">精选数据库60道面试题必看:+1:</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E5%85%B3%E7%B3%BB%E5%9E%8B%E5%92%8C%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、关系型和非关系型数据库的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%AF%A6%E7%BB%86%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%B8%80%E6%9D%A1-MySQL-%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、详细说一下一条 MySQL 语句执行的步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E7%9B%B8%E5%85%B3"><span class="toc-number">1.2.</span> <span class="toc-text">索引相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81MySQL-%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9F"><span class="toc-number">1.2.1.</span> <span class="toc-text">3、MySQL 使用索引的原因？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E7%B4%A2%E5%BC%95%E7%9A%84%E4%B8%89%E7%A7%8D%E5%B8%B8%E8%A7%81%E5%BA%95%E5%B1%82%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%BB%A5%E5%8F%8A%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-number">1.2.2.</span> <span class="toc-text">4、索引的三种常见底层数据结构以及优缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E7%B4%A2%E5%BC%95%E7%9A%84%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B%E4%BB%A5%E5%8F%8A%E5%AE%83%E6%98%AF%E5%A6%82%E4%BD%95%E5%8F%91%E6%8C%A5%E4%BD%9C%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-number">1.2.3.</span> <span class="toc-text">5、索引的常见类型以及它是如何发挥作用的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81MyISAM-%E5%92%8C-InnoDB-%E5%AE%9E%E7%8E%B0-B-%E6%A0%91%E7%B4%A2%E5%BC%95%E6%96%B9%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.2.4.</span> <span class="toc-text">6、MyISAM 和 InnoDB 实现 B 树索引方式的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81InnoDB-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AE%BE%E8%AE%A1-B-%E6%A0%91%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">1.2.5.</span> <span class="toc-text">7、InnoDB 为什么设计 B+ 树索引？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%E5%92%8C%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8%EF%BC%9F"><span class="toc-number">1.2.6.</span> <span class="toc-text">8、什么是覆盖索引和索引下推？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E5%93%AA%E4%BA%9B%E6%93%8D%E4%BD%9C%E4%BC%9A%E5%AF%BC%E8%87%B4%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%EF%BC%9F"><span class="toc-number">1.2.7.</span> <span class="toc-text">9、哪些操作会导致索引失效？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">1.2.8.</span> <span class="toc-text">10、字符串加索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9B%B8%E5%85%B3"><span class="toc-number">1.3.</span> <span class="toc-text">日志相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81MySQL-%E7%9A%84-change-buffer-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.3.1.</span> <span class="toc-text">11、MySQL 的 change buffer 是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81MySQL-%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E8%A1%8C%E6%89%AB%E6%8F%8F%E6%95%B0%E7%9A%84%EF%BC%9F"><span class="toc-number">1.3.2.</span> <span class="toc-text">12、MySQL 是如何判断一行扫描数的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81MySQL-%E7%9A%84-redo-log-%E5%92%8C-binlog-%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.3.3.</span> <span class="toc-text">13、MySQL 的 redo log 和 binlog 区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81-redo-log%EF%BC%9F"><span class="toc-number">1.3.4.</span> <span class="toc-text">14、为什么需要 redo log？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88-redo-log-%E5%85%B7%E6%9C%89-crash-safe-%E7%9A%84%E8%83%BD%E5%8A%9B%EF%BC%8C%E6%98%AF-binlog-%E6%97%A0%E6%B3%95%E6%9B%BF%E4%BB%A3%E7%9A%84%EF%BC%9F"><span class="toc-number">1.3.5.</span> <span class="toc-text">15、为什么 redo log 具有 crash-safe 的能力，是 binlog 无法替代的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81%E5%BD%93%E6%95%B0%E6%8D%AE%E5%BA%93-crash-%E5%90%8E%EF%BC%8C%E5%A6%82%E4%BD%95%E6%81%A2%E5%A4%8D%E6%9C%AA%E5%88%B7%E7%9B%98%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%B0%E5%86%85%E5%AD%98%E4%B8%AD%EF%BC%9F"><span class="toc-number">1.3.6.</span> <span class="toc-text">16、当数据库 crash 后，如何恢复未刷盘的数据到内存中？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81redo-log-%E5%86%99%E5%85%A5%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-number">1.3.7.</span> <span class="toc-text">17、redo log 写入方式？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81redo-log-%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-number">1.3.8.</span> <span class="toc-text">18、redo log 的执行流程?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81binlog-%E7%9A%84%E6%A6%82%E5%BF%B5%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E8%B5%B7%E5%88%B0%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%8C-%E5%8F%AF%E4%BB%A5%E4%BF%9D%E8%AF%81-crash-safe-%E5%90%97"><span class="toc-number">1.3.9.</span> <span class="toc-text">19、binlog 的概念是什么，起到什么作用， 可以保证 crash-safe 吗?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%A4%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%EF%BC%9F"><span class="toc-number">1.3.10.</span> <span class="toc-text">20、什么是两阶段提交？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81MySQL-%E6%80%8E%E4%B9%88%E7%9F%A5%E9%81%93-binlog-%E6%98%AF%E5%AE%8C%E6%95%B4%E7%9A%84"><span class="toc-number">1.3.11.</span> <span class="toc-text">21、MySQL 怎么知道 binlog 是完整的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-WAL-%E6%8A%80%E6%9C%AF%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-number">1.3.12.</span> <span class="toc-text">22、什么是 WAL 技术，有什么优点？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81binlog-%E6%97%A5%E5%BF%97%E7%9A%84%E4%B8%89%E7%A7%8D%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.13.</span> <span class="toc-text">23、binlog 日志的三种格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81redo-log%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.14.</span> <span class="toc-text">24、redo log日志格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E5%8E%9F%E6%9C%AC%E5%8F%AF%E4%BB%A5%E6%89%A7%E8%A1%8C%E5%BE%97%E5%BE%88%E5%BF%AB%E7%9A%84-SQL-%E8%AF%AD%E5%8F%A5%EF%BC%8C%E6%89%A7%E8%A1%8C%E9%80%9F%E5%BA%A6%E5%8D%B4%E6%AF%94%E9%A2%84%E6%9C%9F%E7%9A%84%E6%85%A2%E5%BE%88%E5%A4%9A%EF%BC%8C%E5%8E%9F%E5%9B%A0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-number">1.3.15.</span> <span class="toc-text">25、原本可以执行得很快的 SQL 语句，执行速度却比预期的慢很多，原因是什么？如何解决？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81InnoDB-%E6%95%B0%E6%8D%AE%E9%A1%B5%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.16.</span> <span class="toc-text">26、InnoDB 数据页结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9B%B8%E5%85%B3"><span class="toc-number">1.4.</span> <span class="toc-text">数据相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#27%E3%80%81MySQL-%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E4%B8%8D%E4%B8%A2%E5%A4%B1%E7%9A%84%EF%BC%9F"><span class="toc-number">1.4.1.</span> <span class="toc-text">27、MySQL 是如何保证数据不丢失的？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#28%E3%80%81%E8%AF%AF%E5%88%A0%E6%95%B0%E6%8D%AE%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-number">1.4.2.</span> <span class="toc-text">28、误删数据怎么办？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#29%E3%80%81drop%E3%80%81truncate-%E5%92%8C-delete-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.4.3.</span> <span class="toc-text">29、drop、truncate 和 delete 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30%E3%80%81%E5%9C%A8-MySQL-%E4%B8%AD%E6%9C%89%E4%B8%A4%E4%B8%AA-kill-%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.4.</span> <span class="toc-text">30、在 MySQL 中有两个 kill 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#31%E3%80%81%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3-MySQL-%E7%9A%84%E8%BE%B9%E8%AF%BB%E8%BE%B9%E5%8F%91"><span class="toc-number">1.4.5.</span> <span class="toc-text">31、如何理解 MySQL 的边读边发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#32%E3%80%81MySQL-%E7%9A%84%E5%A4%A7%E8%A1%A8%E6%9F%A5%E8%AF%A2%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BC%9A%E7%88%86%E5%86%85%E5%AD%98%EF%BC%9F"><span class="toc-number">1.4.6.</span> <span class="toc-text">32、MySQL 的大表查询为什么不会爆内存？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81MySQL-%E4%B8%B4%E6%97%B6%E8%A1%A8%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E7%89%B9%E6%80%A7"><span class="toc-number">1.4.7.</span> <span class="toc-text">33、MySQL 临时表的用法和特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34%E3%80%81MySQL-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E4%BB%8B%E7%BB%8D%EF%BC%88InnoDB%E3%80%81MyISAM%E3%80%81MEMORY%EF%BC%89"><span class="toc-number">1.4.8.</span> <span class="toc-text">34、MySQL 存储引擎介绍（InnoDB、MyISAM、MEMORY）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#35%E3%80%81%E9%83%BD%E8%AF%B4-InnoDB-%E5%A5%BD%EF%BC%8C%E9%82%A3%E8%BF%98%E8%A6%81%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-MEMORY-%E5%BC%95%E6%93%8E%EF%BC%9F"><span class="toc-number">1.4.9.</span> <span class="toc-text">35、都说 InnoDB 好，那还要不要使用 MEMORY 引擎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#36%E3%80%81%E5%A6%82%E6%9E%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AF%E6%93%8D%E4%BD%9C-%E5%A6%82%E4%BD%95%E6%89%A7%E8%A1%8C%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D"><span class="toc-number">1.4.10.</span> <span class="toc-text">36、如果数据库误操作, 如何执行数据恢复?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E4%BB%8E%E5%A4%87%E4%BB%BD%E7%9B%B8%E5%85%B3"><span class="toc-number">1.5.</span> <span class="toc-text">主从备份相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#37%E3%80%81MySQL-%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E4%B8%BB%E5%A4%87%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-number">1.5.1.</span> <span class="toc-text">37、MySQL 是如何保证主备同步？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#38%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%BB%E5%A4%87%E5%BB%B6%E8%BF%9F"><span class="toc-number">1.5.2.</span> <span class="toc-text">38、什么是主备延迟</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#39%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%8D%E5%88%B6%E7%AD%96%E7%95%A5%EF%BC%9F"><span class="toc-number">1.5.3.</span> <span class="toc-text">39、为什么要有多线程复制策略？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#40%E3%80%81MySQL-%E7%9A%84%E5%B9%B6%E8%A1%8C%E7%AD%96%E7%95%A5%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.5.4.</span> <span class="toc-text">40、MySQL 的并行策略有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#41%E3%80%81MySQL%E7%9A%84%E4%B8%80%E4%B8%BB%E4%B8%80%E5%A4%87%E5%92%8C%E4%B8%80%E4%B8%BB%E5%A4%9A%E4%BB%8E%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.5.5.</span> <span class="toc-text">41、MySQL的一主一备和一主多从有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42%E3%80%81%E4%B8%BB%E5%BA%93%E5%87%BA%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="toc-number">1.5.6.</span> <span class="toc-text">42、主库出问题如何解决?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#43%E3%80%81MySQL-%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB%E6%B6%89%E5%8F%8A%E5%88%B0%E8%BF%87%E6%9C%9F%E8%AF%BB%E9%97%AE%E9%A2%98%E7%9A%84%E5%87%A0%E7%A7%8D%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">1.5.7.</span> <span class="toc-text">43、MySQL 读写分离涉及到过期读问题的几种解决方案?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44%E3%80%81MySQL%E7%9A%84%E5%B9%B6%E5%8F%91%E9%93%BE%E6%8E%A5%E5%92%8C%E5%B9%B6%E5%8F%91%E6%9F%A5%E8%AF%A2%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.5.8.</span> <span class="toc-text">44、MySQL的并发链接和并发查询有什么区别？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E7%9B%B8%E5%85%B3"><span class="toc-number">1.6.</span> <span class="toc-text">性能相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#45%E3%80%81%E7%9F%AD%E6%97%B6%E9%97%B4%E6%8F%90%E9%AB%98-MySQL-%E6%80%A7%E8%83%BD%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.6.1.</span> <span class="toc-text">45、短时间提高 MySQL 性能的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#46%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88-MySQL-%E8%87%AA%E5%A2%9E%E4%B8%BB%E9%94%AE-ID-%E4%B8%8D%E8%BF%9E%E7%BB%AD%EF%BC%9F"><span class="toc-number">1.6.2.</span> <span class="toc-text">46、为什么 MySQL 自增主键 ID 不连续？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#47%E3%80%81InnoDB-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E8%87%AA%E5%A2%9E-ID-%E4%BD%9C%E4%B8%BA%E4%B8%BB%E9%94%AE%EF%BC%9F"><span class="toc-number">1.6.3.</span> <span class="toc-text">47、InnoDB 为什么要用自增 ID 作为主键？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#48%E3%80%81%E5%A6%82%E4%BD%95%E6%9C%80%E5%BF%AB%E7%9A%84%E5%A4%8D%E5%88%B6%E4%B8%80%E5%BC%A0%E8%A1%A8%EF%BC%9F"><span class="toc-number">1.6.4.</span> <span class="toc-text">48、如何最快的复制一张表？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#49%E3%80%81grant-%E5%92%8C-flush-privileges%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.6.5.</span> <span class="toc-text">49、grant 和 flush privileges语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#50%E3%80%81%E8%A6%81%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%88%86%E5%8C%BA%E8%A1%A8%EF%BC%9F"><span class="toc-number">1.6.6.</span> <span class="toc-text">50、要不要使用分区表？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#51%E3%80%81join-%E7%94%A8%E6%B3%95"><span class="toc-number">1.6.7.</span> <span class="toc-text">51、join 用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52%E3%80%81MySQL-%E6%9C%89%E5%93%AA%E4%BA%9B%E8%87%AA%E5%A2%9EID%EF%BC%9F%E5%90%84%E8%87%AA%E5%9C%BA%E6%99%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">1.6.8.</span> <span class="toc-text">52、MySQL 有哪些自增ID？各自场景是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53%E3%80%81Xid-%E5%9C%A8-MySQL-%E5%86%85%E9%83%A8%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%9F%E6%88%90%E7%9A%84%E5%91%A2%EF%BC%9F"><span class="toc-number">1.6.9.</span> <span class="toc-text">53、Xid 在 MySQL 内部是怎么生成的呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%94%81%E7%9B%B8%E5%85%B3"><span class="toc-number">1.7.</span> <span class="toc-text">锁相关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#54%E3%80%81%E8%AF%B4%E4%B8%80%E4%B8%8B-MySQL-%E7%9A%84%E9%94%81"><span class="toc-number">1.7.1.</span> <span class="toc-text">54、说一下 MySQL 的锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#55%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%BB%E8%AF%BB%EF%BC%9F"><span class="toc-number">1.7.2.</span> <span class="toc-text">55、什么是幻读？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83%E4%B8%BA%E4%BB%80%E4%B9%88%E7%B3%BB%E5%88%97"><span class="toc-number">1.8.</span> <span class="toc-text">其它为什么系列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#56%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88-MySQL-%E4%BC%9A%E6%8A%96%E4%B8%80%E4%B8%8B%EF%BC%9F"><span class="toc-number">1.8.1.</span> <span class="toc-text">56、为什么 MySQL 会抖一下？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#57%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%A0%E9%99%A4%E4%BA%86%E8%A1%A8%EF%BC%8C%E8%A1%A8%E6%96%87%E4%BB%B6%E7%9A%84%E5%A4%A7%E5%B0%8F%E8%BF%98%E6%98%AF%E6%B2%A1%E5%8F%98%EF%BC%9F"><span class="toc-number">1.8.2.</span> <span class="toc-text">57、为什么删除了表，表文件的大小还是没变？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#58%E3%80%81count-%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%E4%BB%A5%E5%8F%8A%E5%90%84%E7%A7%8D-count-%E5%AF%B9%E6%AF%94"><span class="toc-number">1.8.3.</span> <span class="toc-text">58、count(*)实现方式以及各种 count 对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#59%E3%80%81orderby-%E6%8E%92%E5%BA%8F%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86"><span class="toc-number">1.8.4.</span> <span class="toc-text">59、orderby 排序内部原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#60%E3%80%81%E5%A6%82%E4%BD%95%E9%AB%98%E6%95%88%E7%9A%84%E4%BD%BF%E7%94%A8-MySQL-%E6%98%BE%E5%BC%8F%E9%9A%8F%E6%9C%BA%E6%B6%88%E6%81%AF"><span class="toc-number">1.8.5.</span> <span class="toc-text">60、如何高效的使用 MySQL 显式随机消息</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

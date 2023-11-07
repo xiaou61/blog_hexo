@@ -1,0 +1,632 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>JVM系列-第8章-执行引擎 | 小u的博客</title><meta name="keywords" content="JVM，虚拟机。"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="JVM系列-第8章-执行引擎"><meta name="application-name" content="JVM系列-第8章-执行引擎"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="JVM系列-第8章-执行引擎"><meta property="og:url" content="http://example.com/2023/10/01/codenotes/Java/jvm/8/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="JVM系列-第8章-执行引擎。"><meta property="og:locale" content="en"><meta property="og:image" content="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png"><meta name="description" content="JVM系列-第8章-执行引擎。"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/codenotes/Java/jvm/8/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: 'JVM系列-第8章-执行引擎',
+  postAI: '',
+  pageFillDescription: '执行引擎, 执行引擎概述, 执行引擎概述, 执行引擎工作过程, Java代码编译和执行过程, 解释执行和即时编译, 什么是解释器？什么是JIT编译器？, 机器码 指令 汇编语言, 机器码, 指令和指令集, 汇编语言, 高级语言, 字节码, C、C++源程序执行过程, 解释器, 为什么要有解释器, 解释器的分类, 解释器的现状, JIT编译器, Java 代码执行的分类, 为啥我们还需要解释器呢？, 案例, JIT编译器相关概念, 热点代码及探测方式, 方法调用计数器, 热度衰减, 回边计数器, HotSpotVM可以设置程序执行方法, HotSpotVM JIT 分类, C1和C2编译器不同的优化策略, 分层编译策略, Graal 编译器, AOT编译器执行引擎执行引擎概述执行引擎概述执行引擎是虚拟机核心的组成部分之一虚拟机是一个相对于物理机的概念这两种机器都有代码执行能力其区别是物理机的执行引擎是直接建立在处理器缓存指令集和操作系统层面上的而虚拟机的执行引擎则是由软件自行实现的因此可以不受物理条件制约地定制指令集与执行引擎的结构体系能够执行那些不被硬件直接支持的指令集格式的主要任务是负责装载字节码到其内部但字节码并不能够直接运行在操作系统之上因为字节码指令并非等价于本地机器指令它内部包含的仅仅只是一些能够被所识别的字节码指令符号表以及其他辅助信息那么如果想要让一个程序运行起来执行引擎的任务就是将字节码指令解释编译为对应平台上的本地机器指令才可以简单来说中的执行引擎充当了将高级语言翻译为机器语言的译者前端编译从程序员字节码文件的这个过程叫前端编译执行引擎这里有两种行为一种是解释执行一种是编译执行这里的是后端编译执行引擎工作过程执行引擎工作过程执行引擎在执行的过程中究竟需要执行什么样的字节码指令完全依赖于寄存器每当执行完一项指令操作后寄存器就会更新下一条需要被执行的指令地址当然方法在执行的过程中执行引擎有可能会通过存储在局部变量表中的对象引用准确定位到存储在堆区中的对象实例信息以及通过对象头中的元数据指针定位到目标对象的类型信息从外观上来看所有的虚拟机的执行引擎输入处理输出都是一致的输入的是字节码二进制流处理过程是字节码解析执行即时编译的等效过程输出的是执行过程代码编译和执行过程解释执行和即时编译大部分的程序代码转换成物理机的目标代码或虚拟机能执行的指令集之前都需要经过下图中的各个步骤前面橙色部分是编译生成生成字节码文件的过程编译器来完成也就是前端编译器和没有关系后面绿色解释执行和蓝色即时编译才是需要考虑的过程编译器前端编译器流程图如下所示字节码的执行是由执行引擎来完成流程图如下所示什么是解释器什么是编译器解释器当虚拟机启动时会根据预定义的规范对字节码采用逐行解释的方式执行将每条字节码文件中的内容翻译为对应平台的本地机器指令执行编译器就是虚拟机将源代码一次性直接编译成和本地机器平台相关的机器语言但并不是马上执行为什么是半编译半解释型语言时代将语言定位为解释执行还是比较准确的再后来也发展出可以直接生成本地代码的编译器现在在执行代码的时候通常都会将解释执行与编译执行二者结合起来进行编译器将字节码翻译成本地代码后就可以做一个缓存操作存储在方法区的代码缓存中执行效率更高了并且在翻译成本地代码的过程中可以做优化用图总结一下机器码指令汇编语言机器码各种用二进制编码方式表示的指令叫做机器指令码开始人们就用它采编写程序这就是机器语言机器语言虽然能够被计算机理解和接受但和人们的语言差别太大不易被人们理解和记忆并且用它编程容易出差错用它编写的程序一经输入计算机直接读取运行因此和其他语言编的程序相比执行速度最快机器指令与紧密相关所以不同种类的所对应的机器指令也就不同指令和指令集指令由于机器码是由和组成的二进制序列可读性实在太差于是人们发明了指令指令就是把机器码中特定的和序列简化成对应的指令一般为英文简写如等可读性稍好由于不同的硬件平台执行同一个操作对应的机器码可能不同所以不同的硬件平台的同一种指令比如对应的机器码也可能不同指令集不同的硬件平台各自支持的指令是有差别的因此每个平台所支持的指令称之为对应平台的指令集如常见的指令集对应的是架构的平台指令集对应的是架构的平台汇编语言由于指令的可读性还是太差于是人们又发明了汇编语言在汇编语言中用助记符代替机器指令的操作码用地址符号或标号代替指令或操作数的地址在不同的硬件平台汇编语言对应着不同的机器语言指令集通过汇编过程转换成机器指令由于计算机只认识指令码所以用汇编语言编写的程序还必须翻译汇编成机器指令码计算机才能识别和执行高级语言为了使计算机用户编程序更容易些后来就出现了各种高级计算机语言高级语言比机器语言汇编语言更接近人的语言当计算机执行高级语言编写的程序时仍然需要把程序解释和编译成机器的指令码完成这个过程的程序就叫做解释程序或编译程序字节码字节码是一种中间状态中间码的二进制代码文件它比机器码更抽象需要直译器转译后才能成为机器码字节码主要为了实现特定软件运行和软件环境与硬件环境无关字节码的实现方式是通过编译器和虚拟机器编译器将源码编译成字节码特定平台上的虚拟机器将字节码转译为可以直接执行的指令字节码典型的应用为源程序执行过程编译过程又可以分成两个阶段编译和汇编编译过程是读取源程序字符流对之进行词法和语法的分析将高级语言指令转换为功能等效的汇编代码汇编过程实际上指把汇编语言代码翻译成目标机器指令的过程解释器为什么要有解释器设计者们的初衷仅仅只是单纯地为了满足程序实现跨平台特性因此避免采用静态编译的方式由高级语言直接生成本地机器指令从而诞生了实现解释器在运行时采用逐行解释字节码执行程序的想法也就是产生了一个中间产品字节码解释器真正意义上所承担的角色就是一个运行时翻译者将字节码文件中的内容翻译为对应平台的本地机器指令执行当一条字节码指令被解释执行完成后接着再根据寄存器中记录的下一条需要被执行的字节码指令执行解释操作解释器的分类在的发展历史里一共有两套解释执行器即古老的字节码解释器现在普遍使用的模板解释器字节码解释器在执行时通过纯软件代码模拟字节码的执行效率非常低下而模板解释器将每一条字节码和一个模板函数相关联模板函数中直接产生这条字节码执行时的机器码从而很大程度上提高了解释器的性能在中解释器主要由模块和模块构成模块实现了解释器的核心功能模块用于管理在运行时生成的本地机器指令解释器的现状由于解释器在设计和实现上非常简单因此除了语言之外还有许多高级语言同样也是基于解释器执行的比如等但是在今天基于解释器执行已经沦落为低效的代名词并且时常被一些程序员所调侃为了解决这个问题平台支持一种叫作即时编译的技术即时编译的目的是避免函数被解释执行而是将整个函数体编译成为机器码每次函数执行时只执行编译后的机器码即可这种方式可以使执行效率大幅度提升不过无论如何基于解释器的执行模式仍然为中间语言的发展做出了不可磨灭的贡献编译器代码执行的分类第一种是将源代码编译成字节码文件然后在运行时通过解释器将字节码文件转为机器码执行第二种是编译执行直接编译成机器码现代虚拟机为了提高执行效率会使用即时编译技术将方法编译成机器码后再执行是目前市面上高性能虚拟机的代表作之一它采用解释器与即时编译器并存的架构在虚拟机运行时解释器和即时编译器能够相互协作各自取长补短尽力去选择最合适的方式来权衡编译本地代码的时间和直接解释执行代码的时间在今天程序的运行性能早已脱胎换骨已经达到了可以和程序一较高下的地步为啥我们还需要解释器呢有些开发人员会感觉到诧异既然中已经内置编译器了那么为什么还需要再使用解释器来拖累程序的执行性能呢比如内部就不包含解释器字节码全部都依靠即时编译器编译后执行虚拟机是砍掉了解释器也就是只采及时编译器那是因为呢只部署在服务器上一般已经有时间让他进行指令编译的过程了对于响应来说要求不高等及时编译器的编译完成后就会提供更好的性能首先明确两点当程序启动后解释器可以马上发挥作用响应速度快省去编译的时间立即执行编译器要想发挥作用把代码编译成本地代码需要一定的执行时间但编译为本地代码后执行效率高所以尽管中程序的执行性能会非常高效但程序在启动时必然需要花费更长的时间来进行编译对于服务端应用来说启动时间并非是关注重点但对于那些看中启动时间的应用场景而言或许就需要采用解释器与即时编译器并存的架构来换取一个平衡点在此模式下在虚拟器启动时解释器可以首先发挥作用而不必等待即时编译器全部编译完成后再执行这样可以省去许多不必要的编译时间随着时间的推移编译器发挥作用把越来越多的代码编译成本地代码获得更高的执行效率同时解释执行在编译器进行激进优化不成立的时候作为编译器的逃生门后备方案案例当虚拟机启动的时候解释器可以首先发挥作用而不必等待即时编译器全部编译完成再执行这样可以省去许多不必要的编译时间随着程序运行时间的推移即时编译器逐渐发挥作用根据热点探测功能将有价值的字节码编译为本地机器指令以换取更高的程序执行效率注意解释执行与编译执行在线上环境微妙的辩证关系机器在热机状态已经运行了一段时间叫热机状态可以承受的负载要大于冷机状态刚启动的时候叫冷机状态如果以热机状态时的流量进行切流可能使处于冷机状态的服务器因无法承载流量而假死在生产环境发布过程中以分批的方式进行发布根据机器数量划分成多个批次每个批次的机器数至多占到整个集群的曾经有这样的故障案例某程序员在发布平台进行分批发布在输入发布总批数时误填写成分为两批发布如果是热机状态在正常情况下一半的机器可以勉强承载流量但由于刚启动的均是解释执行还没有进行热点代码统计和动态编译导致机器启动之后当前发布成功的服务器马上全部宕机此故障说明了的存在阿里团队让天下没有难学的技术通过查看编译器执行的编译次数编译器相关概念语言的编译期其实是一段不确定的操作过程因为它可能是指一个前端编译器其实叫编译器的前端更准确一些把文件转变成文件的过程也可能是指虚拟机的后端运行期编译器编译器把字节码转变成机器码的过程还可能是指使用静态提前编译器编译器直接把文件编译成本地机器代码的过程可能是后续发展的趋势典型的编译器前端编译器的中的增量式编译器编译器的编译器编译器热点代码及探测方式当然是否需要启动编译器将字节码直接编译为对应平台的本地机器指令则需要根据代码被调用执行的频率而定关于那些需要被编译为本地代码的字节码也被称之为热点代码编译器在运行时会针对那些频繁被调用的热点代码做出深度优化将其直接编译为对应平台的本地机器指令以此提升程序的执行性能一个被多次调用的方法或者是一个方法体内部循环次数较多的循环体都可以被称之为热点代码因此都可以通过编译器编译为本地机器指令由于这种编译方式发生在方法的执行过程中因此也被称之为栈上替换或简称为编译一个方法究竟要被调用多少次或者一个循环体究竟需要执行多少次循环才可以达到这个标准必然需要一个明确的阈值编译器才会将这些热点代码编译为本地机器指令执行这里主要依靠热点探测功能目前所采用的热点探测方式是基于计数器的热点探测采用基于计数器的热点探测将会为每一个方法都建立个不同类型的计数器分别为方法调用计数器和回边计数器方法调用计数器用于统计方法的调用次数回边计数器则用于统计循环体执行的循环次数方法调用计数器这个计数器就用于统计方法被调用的次数它的默认阀值在模式下是次在模式下是次超过这个阈值就会触发编译这个阀值可以通过虚拟机参数来人为设定当一个方法被调用时会先检查该方法是否存在被编译过的版本如果存在则优先使用编译后的本地代码来执行如果不存在已被编译过的版本则将此方法的调用计数器值加然后判断方法调用计数器与回边计数器值之和是否超过方法调用计数器的阀值如果已超过阈值那么将会向即时编译器提交一个该方法的代码编译请求如果未超过阈值则使用解释器对字节码文件解释执行热度衰减如果不做任何设置方法调用计数器统计的并不是方法被调用的绝对次数而是一个相对的执行频率即一段时间之内方法被调用的次数当超过一定的时间限度如果方法的调用次数仍然不足以让它提交给即时编译器编译那这个方法的调用计数器就会被减少一半这个过程称为方法调用计数器热度的衰减而这段时间就称为此方法统计的半衰周期半衰周期是化学中的概念比如出土的文物通过查看来获得文物的年龄进行热度衰减的动作是在虚拟机进行垃圾收集时顺便进行的可以使用虚拟机参数来关闭热度衰减让方法计数器统计方法调用的绝对次数这样的话只要系统运行时间足够长绝大部分方法都会被编译成本地代码另外可以使用参数设置半衰周期的时间单位是秒回边计数器它的作用是统计一个方法中循环体代码执行的次数在字节码中遇到控制流向后跳转的指令称为回边显然建立回边计数器统计的目的就是为了触发编译可以设置程序执行方法缺省情况下是采用解释器与即时编译器并存的架构当然开发人员可以根据具体的应用场景通过命令显式地为虚拟机指定在运行时到底是完全采用解释器执行还是完全采用即时编译器执行如下所示完全采用解释器模式执行程序完全采用即时编译器模式执行程序如果即时编译出现问题解释器会介入执行采用解释器即时编译器的混合模式共同执行程序代码测试测试解释器模式和编译模式花费的时间为计算以内的质数结论只用解释器执行是真的慢分类在中内嵌有两个编译器分别为和但大多数情况下我们简称为编译器和编译器开发人员可以通过如下命令显式指定虚拟机在运行时到底使用哪一种即时编译器如下所示指定虚拟机运行在模式下并使用编译器编译器会对字节码进行简单和可靠的优化耗时短以达到更快的编译速度指定虚拟机运行在模式下并使用编译器进行耗时较长的优化以及激进优化但优化的代码执行效率更高使用和编译器不同的优化策略在不同的编译器上有不同的优化策略编译器上主要有方法内联去虚拟化元余消除方法内联将引用的函数代码编译到引用点处这样可以减少栈帧的生成减少参数传递以及跳转过程去虚拟化对唯一的实现樊进行内联冗余消除在运行期间把一些不会执行的代码折叠掉的优化主要是在全局层面逃逸分析是优化的基础基于逃逸分析在上有如下几种优化标量替换用标量值代替聚合对象的属性值栈上分配对于未逃逸的对象分配对象在栈而不是堆同步消除清除同步操作通常指也就是说之前的逃逸分析只有在模式下才会触发那是否说明就用不了了分层编译策略分层编译策略程序解释执行不开启性能监控可以触发编译将字节码编译成机器码可以进行简单优化也可以加上性能监控编译会根据性能监控信息进行激进优化不过在版本之后一旦开发人员在程序中显式指定命令时默认将会开启分层编译策略由编译器和编译器相互协作共同来执行编译任务一般来讲编译出来的机器码性能比解释器解释执行的性能高编译器启动时长比慢系统稳定执行以后编译器执行速度远快于编译器编译器自起又加入了一个全新的即时编译器编译器编译效果短短几年时间就追平了编译器未来可期对应还出现了虚拟机是有可能替代的虚拟机的目前带着实验状态标签需要使用开关参数去激活才能使用编译器引入了编译器静态提前编译器引入了实验性编译工具它借助了编译器将所输入的类文件转换为机器码并存放至生成的动态共享库之中所谓编译是与即时编译相对立的一个概念我们知道即时编译指的是在程序的运行过程中将字节码转换为可在硬件上直接运行的机器码并部署至托管环境中的过程而编译指的则是在程序运行之前便将字节码转换为机器码的过程使用编译器编译器的优缺点最大的好处虚拟机加载已经预编译成二进制库可以直接执行不必等待即时编译器的预热减少应用给人带来第一次运行慢的不良体验缺点破坏了一次编译到处运行必须为每个不同的硬件编译对应的发行包降低了链接过程的动态性加载的代码在编译器就必须全部已知还需要继续优化中最初只支持',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-02 18:28:46',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/JVM/" itemprop="url">JVM</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/JVM/1-%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AF%87/" itemprop="url">1.内存与垃圾回收篇</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/JVM/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>JVM</span></a><a class="article-meta__tags" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>虚拟机</span></a></span></div></div><h1 class="post-title" itemprop="name headline">JVM系列-第8章-执行引擎</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.018Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-02T10:28:46.250Z" title="Updated 2023-08-02 18:28:46">2023-08-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/codenotes/Java/jvm/8/"><header><a class="post-meta-categories" href="/categories/JVM/" itemprop="url">JVM</a><a class="post-meta-categories" href="/categories/JVM/1-%E5%86%85%E5%AD%98%E4%B8%8E%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AF%87/" itemprop="url">1.内存与垃圾回收篇</a><a href="/tags/JVM/" tabindex="-1" itemprop="url">JVM</a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" tabindex="-1" itemprop="url">虚拟机</a><h1 id="CrawlerTitle" itemprop="name headline">JVM系列-第8章-执行引擎</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.018Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-02T10:28:46.250Z" title="Updated 2023-08-02 18:28:46">2023-08-02</time></header><h1 id="执行引擎"><a href="#执行引擎" class="headerlink" title="执行引擎"></a>执行引擎</h1><h2 id="执行引擎概述"><a href="#执行引擎概述" class="headerlink" title="执行引擎概述"></a>执行引擎概述</h2><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0001.png">
+
+<h3 id="执行引擎概述-1"><a href="#执行引擎概述-1" class="headerlink" title="执行引擎概述"></a>执行引擎概述</h3><ol>
+<li>执行引擎是Java虚拟机核心的组成部分之一。</li>
+<li>“虚拟机”是一个相对于“物理机”的概念，这两种机器都有代码执行能力，其区别是物理机的执行引擎是直接建立在处理器、缓存、指令集和操作系统层面上的，而<strong>虚拟机的执行引擎则是由软件自行实现的</strong>，因此可以不受物理条件制约地定制指令集与执行引擎的结构体系，<strong>能够执行那些不被硬件直接支持的指令集格式</strong>。</li>
+<li>JVM的主要任务是负责<strong>装载字节码到其内部</strong>，但字节码并不能够直接运行在操作系统之上，因为字节码指令并非等价于本地机器指令，它内部包含的仅仅只是一些能够被JVM所识别的字节码指令、符号表，以及其他辅助信息。</li>
+<li>那么，如果想要让一个Java程序运行起来，执行引擎（Execution Engine）的任务就是<strong>将字节码指令解释&#x2F;编译为对应平台上的本地机器指令才可以</strong>。简单来说，JVM中的执行引擎充当了将高级语言翻译为机器语言的译者。</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0002.png">
+
+<p>1、前端编译：从Java程序员-字节码文件的这个过程叫前端编译</p>
+<p>2、执行引擎这里有两种行为：一种是解释执行，一种是编译执行（这里的是后端编译）。</p>
+<h3 id="执行引擎工作过程"><a href="#执行引擎工作过程" class="headerlink" title="执行引擎工作过程"></a>执行引擎工作过程</h3><blockquote>
+<p><strong>执行引擎工作过程</strong></p>
+</blockquote>
+<ol>
+<li>执行引擎在执行的过程中究竟需要执行什么样的字节码指令完全依赖于PC寄存器。</li>
+<li>每当执行完一项指令操作后，PC寄存器就会更新下一条需要被执行的指令地址。</li>
+<li>当然方法在执行的过程中，执行引擎有可能会通过存储在局部变量表中的对象引用准确定位到存储在Java堆区中的对象实例信息，以及通过对象头中的元数据指针定位到目标对象的类型信息。</li>
+<li>从外观上来看，所有的Java虚拟机的执行引擎输入、处理、输出都是一致的：输入的是字节码二进制流，处理过程是字节码解析执行、即时编译的等效过程，输出的是执行过程。</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0003.png">
+
+
+
+<h2 id="Java代码编译和执行过程"><a href="#Java代码编译和执行过程" class="headerlink" title="Java代码编译和执行过程"></a>Java代码编译和执行过程</h2><h3 id="解释执行和即时编译"><a href="#解释执行和即时编译" class="headerlink" title="解释执行和即时编译"></a>解释执行和即时编译</h3><p>大部分的程序代码转换成物理机的目标代码或虚拟机能执行的指令集之前，都需要经过下图中的各个步骤：</p>
+<ol>
+<li><p>前面橙色部分是编译生成生成字节码文件的过程（javac编译器来完成，也就是前端编译器），和JVM没有关系。</p>
+</li>
+<li><p>后面绿色（解释执行）和蓝色（即时编译）才是JVM需要考虑的过程</p>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0004.png">
+    
+
+<ol start="3">
+<li><p>javac编译器（前端编译器）流程图如下所示：</p>
+ <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0005.png">
+
+ 
+</li>
+<li><p>Java字节码的执行是由JVM执行引擎来完成，流程图如下所示</p>
+ <img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0006.png"></li>
+</ol>
+<h3 id="什么是解释器？什么是JIT编译器？"><a href="#什么是解释器？什么是JIT编译器？" class="headerlink" title="什么是解释器？什么是JIT编译器？"></a>什么是解释器？什么是JIT编译器？</h3><ol>
+<li>解释器：当Java虚拟机启动时会根据预定义的规范对字节码采用<strong>逐行</strong>解释的方式<strong>执行</strong>，将每条字节码文件中的内容“翻译”为对应平台的本地机器指令执行。</li>
+<li>JIT（Just In Time Compiler）编译器：就是虚拟机将源代码<strong>一次性直接</strong>编译成和本地机器平台相关的机器语言，<strong>但并不是马上执行</strong>。</li>
+</ol>
+<p><strong>为什么Java是半编译半解释型语言？</strong></p>
+<ol>
+<li>JDK1.0时代，将Java语言定位为“解释执行”还是比较准确的。再后来，Java也发展出可以直接生成本地代码的编译器。</li>
+<li>现在JVM在执行Java代码的时候，通常都会将解释执行与编译执行二者结合起来进行。</li>
+<li>JIT编译器将字节码翻译成本地代码后，就可以做一个缓存操作，存储在方法区的JIT 代码缓存中（执行效率更高了），并且在翻译成本地代码的过程中可以做优化。</li>
+</ol>
+<p><strong>用图总结一下</strong></p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0007.png">
+
+<h2 id="机器码-指令-汇编语言"><a href="#机器码-指令-汇编语言" class="headerlink" title="机器码 指令 汇编语言"></a>机器码 指令 汇编语言</h2><h3 id="机器码"><a href="#机器码" class="headerlink" title="机器码"></a>机器码</h3><ol>
+<li>各种用二进制编码方式表示的指令，叫做机器指令码。开始，人们就用它采编写程序，这就是机器语言。</li>
+<li>机器语言虽然能够被计算机理解和接受，但和人们的语言差别太大，不易被人们理解和记忆，并且用它编程容易出差错。</li>
+<li>用它编写的程序一经输入计算机，CPU直接读取运行，因此和其他语言编的程序相比，执行速度最快。</li>
+<li>机器指令与CPU紧密相关，所以不同种类的CPU所对应的机器指令也就不同。</li>
+</ol>
+<h3 id="指令和指令集"><a href="#指令和指令集" class="headerlink" title="指令和指令集"></a>指令和指令集</h3><p><strong>指令</strong></p>
+<ol>
+<li><p>由于机器码是由0和1组成的二进制序列，可读性实在太差，于是人们发明了指令。</p>
+</li>
+<li><p>指令就是把机器码中特定的0和1序列，简化成对应的指令（一般为英文简写，如mov，inc等），可读性稍好</p>
+</li>
+<li><p>由于不同的硬件平台，执行同一个操作，对应的机器码可能不同，所以不同的硬件平台的同一种指令（比如mov），对应的机器码也可能不同。</p>
+</li>
+</ol>
+<p><strong>指令集</strong></p>
+<p>不同的硬件平台，各自支持的指令，是有差别的。因此每个平台所支持的指令，称之为对应平台的指令集。如常见的</p>
+<ol>
+<li>x86指令集，对应的是x86架构的平台</li>
+<li>ARM指令集，对应的是ARM架构的平台</li>
+</ol>
+<h3 id="汇编语言"><a href="#汇编语言" class="headerlink" title="汇编语言"></a>汇编语言</h3><ol>
+<li>由于指令的可读性还是太差，于是人们又发明了汇编语言。</li>
+<li>在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。</li>
+<li>在不同的硬件平台，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。</li>
+<li>由于计算机只认识指令码，所以用汇编语言编写的程序还必须翻译（汇编）成机器指令码，计算机才能识别和执行。</li>
+</ol>
+<h3 id="高级语言"><a href="#高级语言" class="headerlink" title="高级语言"></a>高级语言</h3><ol>
+<li><p>为了使计算机用户编程序更容易些，后来就出现了各种高级计算机语言。高级语言比机器语言、汇编语言更接近人的语言</p>
+</li>
+<li><p>当计算机执行高级语言编写的程序时，仍然需要把程序解释和编译成机器的指令码。完成这个过程的程序就叫做解释程序或编译程序。</p>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0008.png">
+
+
+
+<h3 id="字节码"><a href="#字节码" class="headerlink" title="字节码"></a>字节码</h3><ol>
+<li><p>字节码是一种中间状态（中间码）的二进制代码（文件），它比机器码更抽象，需要直译器转译后才能成为机器码</p>
+</li>
+<li><p>字节码主要为了实现特定软件运行和软件环境、与硬件环境无关。</p>
+</li>
+<li><p>字节码的实现方式是通过编译器和虚拟机器。编译器将源码编译成字节码，特定平台上的虚拟机器将字节码转译为可以直接执行的指令。</p>
+</li>
+<li><p>字节码典型的应用为：Java bytecode</p>
+</li>
+</ol>
+<h3 id="C、C-源程序执行过程"><a href="#C、C-源程序执行过程" class="headerlink" title="C、C++源程序执行过程"></a>C、C++源程序执行过程</h3><p><strong>编译过程又可以分成两个阶段：编译和汇编。</strong></p>
+<ol>
+<li><p>编译过程：是读取源程序（字符流），对之进行词法和语法的分析，将高级语言指令转换为功能等效的汇编代码</p>
+</li>
+<li><p>汇编过程：实际上指把汇编语言代码翻译成目标机器指令的过程。</p>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0009.png">
+
+
+
+<h2 id="解释器"><a href="#解释器" class="headerlink" title="解释器"></a>解释器</h2><h3 id="为什么要有解释器"><a href="#为什么要有解释器" class="headerlink" title="为什么要有解释器"></a>为什么要有解释器</h3><ol>
+<li><p>JVM设计者们的初衷仅仅只是单纯地为了满足Java程序实现跨平台特性，因此避免采用静态编译的方式由高级语言直接生成本地机器指令，从而诞生了实现解释器在运行时采用逐行解释字节码执行程序的想法（也就是产生了一个中间产品<strong>字节码</strong>）。</p>
+</li>
+<li><p>解释器真正意义上所承担的角色就是一个运行时“翻译者”，将字节码文件中的内容“翻译”为对应平台的本地机器指令执行。</p>
+</li>
+<li><p>当一条字节码指令被解释执行完成后，接着再根据PC寄存器中记录的下一条需要被执行的字节码指令执行解释操作。</p>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0010.png">
+
+
+
+<h3 id="解释器的分类"><a href="#解释器的分类" class="headerlink" title="解释器的分类"></a>解释器的分类</h3><ol>
+<li>在Java的发展历史里，一共有两套解释执行器，即古老的<strong>字节码解释器</strong>、现在普遍使用的<strong>模板解释器</strong>。<ul>
+<li>字节码解释器在执行时通过纯软件代码模拟字节码的执行，效率非常低下。</li>
+<li>而模板解释器将每一条字节码和一个模板函数相关联，模板函数中直接产生这条字节码执行时的机器码，从而很大程度上提高了解释器的性能。</li>
+</ul>
+</li>
+<li>在HotSpot VM中，解释器主要由Interpreter模块和Code模块构成。<ul>
+<li>Interpreter模块：实现了解释器的核心功能</li>
+<li>Code模块：用于管理HotSpot VM在运行时生成的本地机器指令</li>
+</ul>
+</li>
+</ol>
+<h3 id="解释器的现状"><a href="#解释器的现状" class="headerlink" title="解释器的现状"></a>解释器的现状</h3><ol>
+<li><p>由于解释器在设计和实现上非常简单，因此除了Java语言之外，还有许多高级语言同样也是基于解释器执行的，比如Python、Perl、Ruby等。但是在今天，基于解释器执行已经沦落为低效的代名词，并且时常被一些C&#x2F;C++程序员所调侃。</p>
+</li>
+<li><p>为了解决这个问题，JVM平台支持一种叫作即时编译的技术。即时编译的目的是避免函数被解释执行，而是将整个函数体编译成为机器码，每次函数执行时，只执行编译后的机器码即可，这种方式可以使执行效率大幅度提升。</p>
+</li>
+<li><p>不过无论如何，基于解释器的执行模式仍然为中间语言的发展做出了不可磨灭的贡献。</p>
+</li>
+</ol>
+<h2 id="JIT编译器"><a href="#JIT编译器" class="headerlink" title="JIT编译器"></a>JIT编译器</h2><h3 id="Java-代码执行的分类"><a href="#Java-代码执行的分类" class="headerlink" title="Java 代码执行的分类"></a>Java 代码执行的分类</h3><ol>
+<li><p>第一种是将源代码编译成字节码文件，然后在运行时通过解释器将字节码文件转为机器码执行</p>
+</li>
+<li><p>第二种是编译执行（直接编译成机器码）。现代虚拟机为了提高执行效率，会使用即时编译技术（JIT，Just In Time）将方法编译成机器码后再执行</p>
+</li>
+<li><p>HotSpot VM是目前市面上高性能虚拟机的代表作之一。<strong>它采用解释器与即时编译器并存的架构</strong>。在Java虚拟机运行时，解释器和即时编译器能够相互协作，各自取长补短，尽力去选择最合适的方式来权衡编译本地代码的时间和直接解释执行代码的时间。</p>
+</li>
+<li><p>在今天，Java程序的运行性能早已脱胎换骨，已经达到了可以和C&#x2F;C++ 程序一较高下的地步。</p>
+</li>
+</ol>
+<h3 id="为啥我们还需要解释器呢？"><a href="#为啥我们还需要解释器呢？" class="headerlink" title="为啥我们还需要解释器呢？"></a>为啥我们还需要解释器呢？</h3><ol>
+<li><p>有些开发人员会感觉到诧异，既然HotSpot VM中已经内置JIT编译器了，那么为什么还需要再使用解释器来“拖累”程序的执行性能呢？比如JRockit VM内部就不包含解释器，字节码全部都依靠即时编译器编译后执行。</p>
+</li>
+<li><p>JRockit虚拟机是砍掉了解释器，也就是只采及时编译器。那是因为呢JRockit只部署在服务器上，一般已经有时间让他进行指令编译的过程了，对于响应来说要求不高，等及时编译器的编译完成后，就会提供更好的性能</p>
+</li>
+</ol>
+<p><strong>首先明确两点：</strong></p>
+<ol>
+<li>当程序启动后，解释器可以马上发挥作用，<strong>响应速度快</strong>，省去编译的时间，立即执行。</li>
+<li>编译器要想发挥作用，把代码编译成本地代码，<strong>需要一定的执行时间</strong>，但编译为本地代码后，执行效率高。</li>
+</ol>
+<p><strong>所以：</strong></p>
+<ol>
+<li>尽管JRockit VM中程序的执行性能会非常高效，但程序在启动时必然需要花费更长的时间来进行编译。对于服务端应用来说，启动时间并非是关注重点，但对于那些看中启动时间的应用场景而言，或许就需要采用解释器与即时编译器并存的架构来换取一个平衡点。</li>
+<li>在此模式下，在Java虚拟器启动时，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成后再执行，这样可以省去许多不必要的编译时间。随着时间的推移，编译器发挥作用，把越来越多的代码编译成本地代码，获得更高的执行效率。</li>
+<li>同时，解释执行在编译器进行激进优化不成立的时候，作为编译器的“逃生门”（后备方案）。</li>
+</ol>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><ul>
+<li>当虚拟机启动的时候，解释器可以首先发挥作用，而不必等待即时编译器全部编译完成再执行，这样可以省去许多不必要的编译时间。随着程序运行时间的推移，即时编译器逐渐发挥作用，根据热点探测功能，将有价值的字节码编译为本地机器指令，以换取更高的程序执行效率。</li>
+</ul>
+<ol>
+<li><p>注意解释执行与编译执行在线上环境微妙的辩证关系。<strong>机器在热机状态（已经运行了一段时间叫热机状态）可以承受的负载要大于冷机状态（刚启动的时候叫冷机状态）</strong>。如果以热机状态时的流量进行切流，可能使处于冷机状态的服务器因无法承载流量而假死。</p>
+</li>
+<li><p>在生产环境发布过程中，以分批的方式进行发布，根据机器数量划分成多个批次，每个批次的机器数至多占到整个集群的1&#x2F;8。曾经有这样的故障案例：某程序员在发布平台进行分批发布，在输入发布总批数时，误填写成分为两批发布。如果是热机状态，在正常情况下一半的机器可以勉强承载流量，但由于刚启动的JVM均是解释执行，还没有进行热点代码统计和JIT动态编译，导致机器启动之后，当前1&#x2F;2发布成功的服务器马上全部宕机，此故障说明了JIT的存在。—<strong>阿里团队</strong></p>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0011.png">
+
+
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JITTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            list.add(<span class="string">&quot;让天下没有难学的技术&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过 JVisualVM 查看 JIT 编译器执行的编译次数</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0012.png">
+
+
+
+<h3 id="JIT编译器相关概念"><a href="#JIT编译器相关概念" class="headerlink" title="JIT编译器相关概念"></a>JIT编译器相关概念</h3><ol>
+<li>Java 语言的“编译期”其实是一段“不确定”的操作过程，因为它可能是指一个前端编译器（其实叫“编译器的前端”更准确一些）把.java文件转变成.class文件的过程。</li>
+<li>也可能是指虚拟机的后端运行期编译器（JIT编译器，Just In Time Compiler）把字节码转变成机器码的过程。</li>
+<li>还可能是指使用静态提前编译器（AOT编译器，Ahead of Time Compiler）直接把.java文件编译成本地机器代码的过程。（可能是后续发展的趋势）</li>
+</ol>
+<p><strong>典型的编译器：</strong></p>
+<ol>
+<li>前端编译器：Sun的javac、Eclipse JDT中的增量式编译器（ECJ）。</li>
+<li>JIT编译器：HotSpot VM的C1、C2编译器。</li>
+<li>AOT 编译器：GNU Compiler for the Java（GCJ）、Excelsior JET。</li>
+</ol>
+<h3 id="热点代码及探测方式"><a href="#热点代码及探测方式" class="headerlink" title="热点代码及探测方式"></a>热点代码及探测方式</h3><ol>
+<li>当然是否需要启动JIT编译器将字节码直接编译为对应平台的本地机器指令，则需要根据代码被调用<strong>执行的频率</strong>而定。</li>
+<li>关于那些需要被编译为本地代码的字节码，也被称之为<strong>“热点代码”</strong>，JIT编译器在运行时会针对那些频繁被调用的“热点代码”做出<strong>深度优化</strong>，将其直接编译为对应平台的本地机器指令，以此提升Java程序的执行性能。</li>
+<li>一个被多次调用的方法，或者是一-个方法体内部循环次数较多的循环体都可以被称之为“热点代码”，因此都可以通过JIT编译器编译为本地机器指令。由于这种编译方式发生在方法的执行过程中，因此也被称之为栈上替换，或简称为OSR (On StackReplacement)编译。</li>
+<li>一个方法究竟要被调用多少次，或者一个循环体究竟需要执行多少次循环才可以达到这个标准？必然需要一个明确的阈值，JIT编译器才会将这些“热点代码”编译为本地机器指令执行。这里主要依靠热点探测功能。</li>
+<li><strong>目前HotSpot VM所采用的热点探测方式是基于计数器的热点探测</strong>。</li>
+<li>采用基于计数器的热点探测，HotSpot VM将会为每一个方法都建立2个不同类型的计数器，分别为方法调用计数器（Invocation Counter）和回边计数器（Back Edge Counter）。<ol>
+<li>方法调用计数器用于统计方法的调用次数</li>
+<li>回边计数器则用于统计循环体执行的循环次数</li>
+</ol>
+</li>
+</ol>
+<h4 id="方法调用计数器"><a href="#方法调用计数器" class="headerlink" title="方法调用计数器"></a>方法调用计数器</h4><ol>
+<li><p>这个计数器就用于统计方法被调用的次数，它的默认阀值在Client模式下是1500次，在Server模式下是10000次。超过这个阈值，就会触发JIT编译。</p>
+</li>
+<li><p>这个阀值可以通过虚拟机参数 -XX:CompileThreshold 来人为设定。</p>
+</li>
+<li><p>当一个方法被调用时，会先检查该方法是否存在被JIT编译过的版本</p>
+<ul>
+<li>如果存在，则优先使用编译后的本地代码来执行</li>
+<li>如果不存在已被编译过的版本，则将此方法的调用计数器值加1，然后判断方法调用计数器与回边计数器值之和是否超过方法调用计数器的阀值。<ul>
+<li>如果已超过阈值，那么将会向即时编译器提交一个该方法的代码编译请求。</li>
+<li>如果未超过阈值，则使用解释器对字节码文件解释执行</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0013.png">
+
+
+
+<h4 id="热度衰减"><a href="#热度衰减" class="headerlink" title="热度衰减"></a>热度衰减</h4><ol>
+<li>如果不做任何设置，方法调用计数器统计的并不是方法被调用的绝对次数，而是一个相对的执行频率，即<strong>一段时间之内方法被调用的次数</strong>。当超过一定的时间限度，如果方法的调用次数仍然不足以让它提交给即时编译器编译，那这个方法的调用计数器就会被减少一半，这个过程称为方法调用计数器热度的衰减（Counter Decay），而这段时间就称为此方法统计的半衰周期（Counter Half Life Time）（半衰周期是化学中的概念，比如出土的文物通过查看C60来获得文物的年龄）</li>
+<li>进行热度衰减的动作是在虚拟机进行垃圾收集时顺便进行的，可以使用虚拟机参数 -XX:-UseCounterDecay 来关闭热度衰减，让方法计数器统计方法调用的绝对次数，这样的话，只要系统运行时间足够长，绝大部分方法都会被编译成本地代码。</li>
+<li>另外，可以使用-XX:CounterHalfLifeTime参数设置半衰周期的时间，单位是秒。</li>
+</ol>
+<h4 id="回边计数器"><a href="#回边计数器" class="headerlink" title="回边计数器"></a>回边计数器</h4><p>它的作用是统计一个方法中循环体代码执行的次数，在字节码中遇到控制流向后跳转的指令称为“回边”（Back Edge）。显然，建立回边计数器统计的目的就是为了触发OSR编译。</p>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0014.png">
+
+
+
+<h3 id="HotSpotVM可以设置程序执行方法"><a href="#HotSpotVM可以设置程序执行方法" class="headerlink" title="HotSpotVM可以设置程序执行方法"></a>HotSpotVM可以设置程序执行方法</h3><p>缺省情况下HotSpot VM是采用解释器与即时编译器并存的架构，当然开发人员可以根据具体的应用场景，通过命令显式地为Java虚拟机指定在运行时到底是完全采用解释器执行，还是完全采用即时编译器执行。如下所示：</p>
+<ol>
+<li>-Xint：完全采用解释器模式执行程序；</li>
+<li>-Xcomp：完全采用即时编译器模式执行程序。如果即时编译出现问题，解释器会介入执行</li>
+<li>-Xmixed：采用解释器+即时编译器的混合模式共同执行程序。</li>
+</ol>
+<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/youthlql@1.0.8/JVM/chapter_008/0015.png">
+
+
+
+<p><strong>代码测试</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 测试解释器模式和JIT编译模式</span></span><br><span class="line"><span class="comment"> *  -Xint  : 6520ms</span></span><br><span class="line"><span class="comment"> *  -Xcomp : 950ms</span></span><br><span class="line"><span class="comment"> *  -Xmixed : 936ms</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">IntCompTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        testPrimeNumber(<span class="number">1000000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;花费的时间为：&quot;</span> + (end - start));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">testPrimeNumber</span><span class="params">(<span class="type">int</span> count)</span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            <span class="comment">//计算100以内的质数</span></span><br><span class="line">            label:<span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">2</span>;j &lt;= <span class="number">100</span>;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">2</span>;k &lt;= Math.sqrt(j);k++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(j % k == <span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="keyword">continue</span> label;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//System.out.println(j);</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>结论：只用解释器执行是真的慢</p>
+<h3 id="HotSpotVM-JIT-分类"><a href="#HotSpotVM-JIT-分类" class="headerlink" title="HotSpotVM JIT 分类"></a>HotSpotVM JIT 分类</h3><p>在HotSpot VM中内嵌有两个JIT编译器，分别为Client Compiler和Server Compiler，但大多数情况下我们简称为C1编译器 和 C2编译器。开发人员可以通过如下命令显式指定Java虚拟机在运行时到底使用哪一种即时编译器，如下所示：</p>
+<ol>
+<li>-client：指定Java虚拟机运行在Client模式下，并使用C1编译器；<ul>
+<li>C1编译器会对字节码进行简单和可靠的优化，耗时短，以达到更快的编译速度。</li>
+</ul>
+</li>
+<li>-server：指定Java虚拟机运行在server模式下，并使用C2编译器。<ul>
+<li>C2进行耗时较长的优化，以及激进优化，但优化的代码执行效率更高。（使用C++）</li>
+</ul>
+</li>
+</ol>
+<h3 id="C1和C2编译器不同的优化策略"><a href="#C1和C2编译器不同的优化策略" class="headerlink" title="C1和C2编译器不同的优化策略"></a>C1和C2编译器不同的优化策略</h3><ol>
+<li>在不同的编译器上有不同的优化策略，C1编译器上主要有方法内联，去虚拟化、元余消除。<ul>
+<li>方法内联：将引用的函数代码编译到引用点处，这样可以减少栈帧的生成，减少参数传递以及跳转过程</li>
+<li>去虚拟化：对唯一的实现樊进行内联</li>
+<li>冗余消除：在运行期间把一些不会执行的代码折叠掉</li>
+</ul>
+</li>
+<li>C2的优化主要是在全局层面，逃逸分析是优化的基础。基于逃逸分析在C2上有如下几种优化：<ul>
+<li>标量替换：用标量值代替聚合对象的属性值</li>
+<li>栈上分配：对于未逃逸的对象分配对象在栈而不是堆</li>
+<li>同步消除：清除同步操作，通常指synchronized</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>也就是说之前的逃逸分析，只有在C2（server模式下）才会触发。那是否说明C1就用不了了？</p>
+</blockquote>
+<h3 id="分层编译策略"><a href="#分层编译策略" class="headerlink" title="分层编译策略"></a>分层编译策略</h3><ol>
+<li><p>分层编译（Tiered Compilation）策略：程序解释执行（不开启性能监控）可以触发C1编译，将字节码编译成机器码，可以进行简单优化，也可以加上性能监控，C2编译会根据性能监控信息进行激进优化。</p>
+</li>
+<li><p>不过在Java7版本之后，一旦开发人员在程序中显式指定命令“-server”时，默认将会开启分层编译策略，由C1编译器和C2编译器相互协作共同来执行编译任务。</p>
+</li>
+<li><p>一般来讲，JIT编译出来的机器码性能比解释器解释执行的性能高</p>
+</li>
+<li><p>C2编译器启动时长比C1慢，系统稳定执行以后，C2编译器执行速度远快于C1编译器</p>
+</li>
+</ol>
+<h4 id="Graal-编译器"><a href="#Graal-编译器" class="headerlink" title="Graal 编译器"></a>Graal 编译器</h4><ul>
+<li><p>自JDK10起，HotSpot又加入了一个全新的即时编译器：Graal编译器</p>
+</li>
+<li><p>编译效果短短几年时间就追平了G2编译器，未来可期（对应还出现了Graal虚拟机，是有可能替代Hotspot的虚拟机的）</p>
+</li>
+<li><p>目前，带着实验状态标签，需要使用开关参数去激活才能使用</p>
+<p>-XX:+UnlockExperimentalvMOptions -XX:+UseJVMCICompiler</p>
+</li>
+</ul>
+<h4 id="AOT编译器"><a href="#AOT编译器" class="headerlink" title="AOT编译器"></a>AOT编译器</h4><ol>
+<li><p>jdk9引入了AoT编译器（静态提前编译器，Ahead of Time Compiler）</p>
+</li>
+<li><p>Java 9引入了实验性AOT编译工具jaotc。它借助了Graal编译器，将所输入的Java类文件转换为机器码，并存放至生成的动态共享库之中。</p>
+</li>
+<li><p>所谓AOT编译，是与即时编译相对立的一个概念。我们知道，即时编译指的是<strong>在程序的运行过程中</strong>，将字节码转换为可在硬件上直接运行的机器码，并部署至托管环境中的过程。而AOT编译指的则是，<strong>在程序运行之前</strong>，便将字节码转换为机器码的过程。</p>
+<p> .java -&gt; .class -&gt; (使用jaotc) -&gt; .so</p>
+</li>
+</ol>
+<p><strong>AOT编译器编译器的优缺点</strong></p>
+<p><strong>最大的好处：</strong></p>
+<ol>
+<li>Java虚拟机加载已经预编译成二进制库，可以直接执行。</li>
+<li>不必等待即时编译器的预热，减少Java应用给人带来“第一次运行慢” 的不良体验</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>破坏了 java “ 一次编译，到处运行”，必须为每个不同的硬件，OS编译对应的发行包</li>
+<li>降低了Java链接过程的动态性，加载的代码在编译器就必须全部已知。</li>
+<li>还需要继续优化中，最初只支持Linux X64 java base</li>
+</ol>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/codenotes/Java/jvm/8/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/codenotes/Java/jvm/8/')">JVM系列-第8章-执行引擎</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/codenotes/Java/jvm/8/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=JVM系列-第8章-执行引擎&amp;url=http://example.com/2023/10/01/codenotes/Java/jvm/8/&amp;pic=https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/JVM/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>JVM<span class="tagsPageCount">22</span></a><a class="post-meta__box__tags" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>虚拟机<span class="tagsPageCount">12</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/codenotes/Java/jvm/9/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">JVM系列-第9章-StringTable(字符串常量池)</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/codenotes/Java/jvm/11/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">JVM系列-第11章-垃圾回收相关概念</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/codenotes/Java/jvm/1/" title="JVM系列-第1章-JVM与Java体系结构"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第1章-JVM与Java体系结构</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/jvm/10/" title="JVM系列-第10章-垃圾回收概述和相关算法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第10章-垃圾回收概述和相关算法</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/jvm/12/" title="JVM系列-第12章-垃圾回收器"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第12章-垃圾回收器</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/jvm/11/" title="JVM系列-第11章-垃圾回收相关概念"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第11章-垃圾回收相关概念</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/jvm/2/" title="JVM系列-第2章-类加载子系统"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第2章-类加载子系统</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/jvm/3/" title="JVM系列-第3章-运行时数据区"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://npm.elemecdn.com/lql_static@latest/logo/jvm.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JVM系列-第3章-运行时数据区</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E"><span class="toc-number">1.</span> <span class="toc-text">执行引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">执行引擎概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%E6%A6%82%E8%BF%B0-1"><span class="toc-number">1.1.1.</span> <span class="toc-text">执行引擎概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">执行引擎工作过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E5%92%8C%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">Java代码编译和执行过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%92%8C%E5%8D%B3%E6%97%B6%E7%BC%96%E8%AF%91"><span class="toc-number">1.2.1.</span> <span class="toc-text">解释执行和即时编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AFJIT%E7%BC%96%E8%AF%91%E5%99%A8%EF%BC%9F"><span class="toc-number">1.2.2.</span> <span class="toc-text">什么是解释器？什么是JIT编译器？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81-%E6%8C%87%E4%BB%A4-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80"><span class="toc-number">1.3.</span> <span class="toc-text">机器码 指令 汇编语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E7%A0%81"><span class="toc-number">1.3.1.</span> <span class="toc-text">机器码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E5%92%8C%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">指令和指令集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80"><span class="toc-number">1.3.3.</span> <span class="toc-text">汇编语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E8%AF%AD%E8%A8%80"><span class="toc-number">1.3.4.</span> <span class="toc-text">高级语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E8%8A%82%E7%A0%81"><span class="toc-number">1.3.5.</span> <span class="toc-text">字节码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C%E3%80%81C-%E6%BA%90%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.3.6.</span> <span class="toc-text">C、C++源程序执行过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">1.4.</span> <span class="toc-text">解释器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E8%A7%A3%E9%87%8A%E5%99%A8"><span class="toc-number">1.4.1.</span> <span class="toc-text">为什么要有解释器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.2.</span> <span class="toc-text">解释器的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A%E5%99%A8%E7%9A%84%E7%8E%B0%E7%8A%B6"><span class="toc-number">1.4.3.</span> <span class="toc-text">解释器的现状</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JIT%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.5.</span> <span class="toc-text">JIT编译器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.5.1.</span> <span class="toc-text">Java 代码执行的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E6%88%91%E4%BB%AC%E8%BF%98%E9%9C%80%E8%A6%81%E8%A7%A3%E9%87%8A%E5%99%A8%E5%91%A2%EF%BC%9F"><span class="toc-number">1.5.2.</span> <span class="toc-text">为啥我们还需要解释器呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.5.3.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JIT%E7%BC%96%E8%AF%91%E5%99%A8%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">1.5.4.</span> <span class="toc-text">JIT编译器相关概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%83%AD%E7%82%B9%E4%BB%A3%E7%A0%81%E5%8F%8A%E6%8E%A2%E6%B5%8B%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.5.</span> <span class="toc-text">热点代码及探测方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">1.5.5.1.</span> <span class="toc-text">方法调用计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%83%AD%E5%BA%A6%E8%A1%B0%E5%87%8F"><span class="toc-number">1.5.5.2.</span> <span class="toc-text">热度衰减</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E8%BE%B9%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">1.5.5.3.</span> <span class="toc-text">回边计数器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpotVM%E5%8F%AF%E4%BB%A5%E8%AE%BE%E7%BD%AE%E7%A8%8B%E5%BA%8F%E6%89%A7%E8%A1%8C%E6%96%B9%E6%B3%95"><span class="toc-number">1.5.6.</span> <span class="toc-text">HotSpotVM可以设置程序执行方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HotSpotVM-JIT-%E5%88%86%E7%B1%BB"><span class="toc-number">1.5.7.</span> <span class="toc-text">HotSpotVM JIT 分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C1%E5%92%8CC2%E7%BC%96%E8%AF%91%E5%99%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E4%BC%98%E5%8C%96%E7%AD%96%E7%95%A5"><span class="toc-number">1.5.8.</span> <span class="toc-text">C1和C2编译器不同的优化策略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%B1%82%E7%BC%96%E8%AF%91%E7%AD%96%E7%95%A5"><span class="toc-number">1.5.9.</span> <span class="toc-text">分层编译策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graal-%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.5.9.1.</span> <span class="toc-text">Graal 编译器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AOT%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-number">1.5.9.2.</span> <span class="toc-text">AOT编译器</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

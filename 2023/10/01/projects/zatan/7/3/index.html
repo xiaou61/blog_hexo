@@ -1,0 +1,421 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>css中margin和padding的区别 | 小u的博客</title><meta name="keywords" content="前端,技术杂谈,css"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="css中margin和padding的区别"><meta name="application-name" content="css中margin和padding的区别"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="css中margin和padding的区别"><meta property="og:url" content="http://example.com/2023/10/01/projects/zatan/7/3/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="CSSmargin 和padding 属性使开发者能够控制网页上元素的内部和外部空间，使其具有理想的外观和感觉。 尽管这些属性很重要，但大多数开发人员，特别是新手，往往对它们有误解。本教程将解开围绕CSS边距与填充的问题。 我们将介绍CSS盒状模型、margin 和padding 属性的含义、如何以"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="CSSmargin 和padding 属性使开发者能够控制网页上元素的内部和外部空间，使其具有理想的外观和感觉。 尽管这些属性很重要，但大多数开发人员，特别是新手，往往对它们有误解。本教程将解开围绕CSS边距与填充的问题。 我们将介绍CSS盒状模型、margin 和padding 属性的含义、如何以"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/projects/zatan/7/3/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: 'css中margin和padding的区别',
+  postAI: '',
+  pageFillDescription: 'CSS盒状模型, 内容区, 填充区域, 边框区域, 边框区域, margin 对比padding, 什么是margin ？, 什么是padding ？, margin 和 之间的区别padding, 间距, Padding 需要背景色；Margin 不需要。, margin 可以被设置为自动；padding 不能, margin 可以有一个负值；padding 不能。, padding 忽略了内联元素, 什么时候应该使用margin 与padding?, 小结和属性使开发者能够控制网页上元素的内部和外部空间使其具有理想的外观和感觉尽管这些属性很重要但大多数开发人员特别是新手往往对它们有误解本教程将解开围绕边距与填充的问题我们将介绍盒状模型和属性的含义如何以及何时使用它们以及它们之间的区别盒状模型要有效地理解与就必须了解盒状模型以及元素如何按照其标准呈现每一个添加到网页上的元素在浏览器中都会呈现为一个盒子例如下面的图片似乎并不包含方框而是由一个圆圈和文字组成但是如果浏览器检查这些元素如下图所示浏览器的渲染引擎根据盒状模型将这些元素表示为一个盒状那么盒状模型究竟是什么呢它本质上是一个包裹着网站上每个块级元素的盒子每个盒子都由四个区域组成这些区域由各自的边缘定义内容边缘填充边缘边框边缘和边缘以上面的插图为例让我们详细介绍一下每个盒子的四个区域内容区由内容边缘定义的内容区域表示指定的元素的值例如如果在网页上添加一个元素该元素的内容就显示为文本如果添加一个元素该内容就显示为音频播放器在我们上面的例子中内容是一个图像由元素定义填充区域围绕着内容区的是填充区由填充边定义一个元素的填充区是其内容区和边界区之间的空间填充区的大小是通过的速记属性或其子属性和来设置的使用属性来设置填充区的大小是非常重要的因为一个元素的填充区大小可以大大影响或改善网页内容的外观边框区域然后是边框区它围绕着一个元素的填充区并作为每个块级元素所包裹的盒子的边缘或盾牌边界区域可以通过向元素添加属性来实现边框区域边框区域由边框边缘定义是边框区域周围的一个不可见区域将一个元素与周围的其他元素分开边距区的大小由速记属性及其子属性决定和对比在上面的章节中我们谈到了盒状模型和它的四个区域这四个区域有各自的属性来定义或控制它们内容区是由元素的值定义的填充区是由属性定义的边界区域是由属性定义的边缘区域是由属性定义的尽管这些属性能够定义盒子模型的四个区域但和属性的影响似乎几乎是无形的如果没有这些属性当你使用标签时你可以看到网页上的一个图像当你使用属性时你可以看到该图像周围的边框但是当向一个元素添加或属性时你最多只能看到空间而往往有些人甚至看不到空间朋友这就是为什么这两个属性经常被误解或互换使用为了帮助你更好地理解和属性本节将介绍它们是什么如何使用它们它们的区别以及何时使用与什么是记住网页上的每个元素都是一个盒子在此基础上所有的元素都有四个面上右下和左在元素周围的无形空间将其他元素从它身边推开因为页边距围绕着盒子的所有四边上右下左它给我们提供了针对和改变盒子每边或所有边的页边距区域的大小的能力复制代码你可以使用这些子属性独立地增加或减少顶部底部左侧和右侧的边距区域的大小你也可以使用速记属性一次增加或减少所有边距区的大小在下面的演示中为圆圈添加了像素的边距以便在圆圈和文本之间创造一个空间参见上的教程如果你删除两个元素之间的空间就会减少使它们看起来是连在一起的这表明属性只在元素外增加空间而不是在元素内请参阅上的教程什么是属性定义了盒子模型的内部部分它可以增加或减少填充区的大小就像元素有四个面一样元素中的内容如文本图片或音频播放器也有四个面上右左下属性增加或减少了填充区的大小从而在内容和边框之间创造了一个空间复制代码就像属性围绕着内容的所有四个边让你能够使用这些子属性独立地增加或减少顶部底部左侧和右侧的填充大小你还可以使用速记属性同时增加或减少所有填充区边的大小在下面的演示中没有添加任何你可以看到内容文本非常接近边界这意味着填充区相对较小或不存在你必须使用属性来增加它参见上的教程那么让我们用为我们当前的演示添加像素的填充看看它对元素的内容会有什么影响请看上的教程你可以看到方框的填充区域增加了像素从而在内容和边框之间增加了一个空间和之间的区别尽管这两个属性很相似而且经常被误认为可以互换使用但它们还是有很大区别的了解它们的区别对网页开发者来说是很有好处的间距和的核心区别之一是控制边框和元素内容之间的空间而控制边框和周围其他元素之间的空间下面的插图表示使用属性时增加的空间箭头表示在三个不同的元素周围添加的不可见的空间以确保它们不会相互靠近而下图代表了使用时添加的空间箭头表示添加的无形空间以确保内容圆形和三角形不靠近元素的边界通俗地讲允许我们定义元素内部的空间而允许我们定义元素之间的空间需要背景色不需要和所创造的空间是不可见的然而如果给一个元素添加了背景色将不再是不可见的因为它采用了该元素的颜色而由边距创建的空间仍然是不可见的例如下面的插图包含两个简单的网页左边的图片只应用了而右边的图片只应用了由于背景颜色的存在变得更加明显而似乎仍然不可见可以被设置为自动不能如果你为一个有固定宽度的元素设置它就会将该元素水平居中或者在使用时垂直居中由于居中元素一直是网页开发人员难以理解或记住的你可以从网上关于居中的有趣备忘录中看出这个功能非常方便另一方面不可能将到参见上的教程可以有一个负值不能如果你想让元素重叠你可以将值设置为负值当你想在你的网站上实现美丽的设计时这个负值会非常有用请看上的重叠边距与填充教程但是数值只能是正的因为负的会导致边框塌陷到内容中使内容区域小于内容本身忽略了内联元素当你在一个内联元素上添加其变化只反映在元素的左侧和右侧而不是顶部和底部例如下面的演示有一个元素其填充物为像素正如你所看到的这只在元素的左边和右边增加了空间而不是在顶部和底部请看上的忽略内联元素边距与填充教程什么时候应该使用与和是网页设计中的两个重要元素可以在不同的地方增加额外的空间但是你应该在什么地方和什么时候使用一个而不是另一个对于你可以在以下情况下使用它当你不希望你的内容接触到容器的边缘时当你想增加一个内容块的大小而不使内容本身变大时当你需要在一个内部元素和父箱之间有空间时当你希望元素的背景显示在产生的间隙中时需要在外侧添加空白时空白处不需要背景色时上下相连得两个盒子之间的空白需要相互抵消时如得将得到的空白折叠对于在以下情况下使用当你需要元素周围的空间时例如分隔一张照片和描述它的文字当你想让一个元素水平居中时当你想让元素重叠的时候当你想把一个元素向上向下或向两侧移动时需要在内侧添加空白时空白处需要背景色时小结在中和都是用来设置元素的外边距和内边距的但是它们有一些明显的不同是元素与其他元素之间的空隙它是外边距的一部分例如您可以使用设置两个相邻的之间的空隙是元素内部的空隙它是内边距的一部分例如您可以使用设置文本与元素边框之间的空隙总的来说和都可以用来调整元素的大小和布局但是它们的应用场景略有不同例如如果您想要创建两个相邻的元素之间的空隙则可以使用如果您想要为文本或其他内容腾出空间则可以使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-22 15:18:10',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url">技术杂谈</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/%E5%89%8D%E7%AB%AF/" itemprop="url">前端</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/%E5%89%8D%E7%AB%AF/css/" itemprop="url">css</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>前端</span></a><a class="article-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>技术杂谈</span></a><a class="article-meta__tags" href="/tags/css/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>css</span></a></span></div></div><h1 class="post-title" itemprop="name headline">css中margin和padding的区别</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:05.828Z" title="Created 2023-10-01 07:34:05">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-07-22T07:18:10.931Z" title="Updated 2023-07-22 15:18:10">2023-07-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/projects/zatan/7/3/"><header><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url">技术杂谈</a><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/%E5%89%8D%E7%AB%AF/" itemprop="url">前端</a><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/%E5%89%8D%E7%AB%AF/css/" itemprop="url">css</a><a href="/tags/%E5%89%8D%E7%AB%AF/" tabindex="-1" itemprop="url">前端</a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" tabindex="-1" itemprop="url">技术杂谈</a><a href="/tags/css/" tabindex="-1" itemprop="url">css</a><h1 id="CrawlerTitle" itemprop="name headline">css中margin和padding的区别</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:05.828Z" title="Created 2023-10-01 07:34:05">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-07-22T07:18:10.931Z" title="Updated 2023-07-22 15:18:10">2023-07-22</time></header><p>CSS<code>margin</code> 和<code>padding</code> 属性使开发者能够控制网页上元素的内部和外部空间，使其具有理想的外观和感觉。</p>
+<p>尽管这些属性很重要，但大多数开发人员，特别是新手，往往对它们有误解。本教程将解开围绕CSS边距与填充的问题。</p>
+<p>我们将介绍CSS盒状模型、<code>margin</code> 和<code>padding</code> 属性的含义、如何以及何时使用它们，以及它们之间的区别。</p>
+<h2 id="CSS盒状模型"><a href="#CSS盒状模型" class="headerlink" title="CSS盒状模型"></a>CSS盒状模型</h2><p>要有效地理解CSS<code>margin</code> 与<code>padding</code> ，就必须了解CSS盒状模型以及HTML元素如何按照其标准呈现。</p>
+<p><a href="https://link.juejin.cn/?target=https://blog.logrocket.com/using-css-content-visibility-to-boost-your-rendering-performance/">每一个添加到网页上的HTML元素在浏览器中都会呈现为一个盒子</a>。例如，下面的图片似乎并不包含方框，而是由一个圆圈和文字组成。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaou61/pictures/Elements-render-boxes-1.png" alt="A Blue Circle And &quot;Hello There!&quot; Elements Render In Boxes"></p>
+<p>但是，如果浏览器检查这些元素，如下图所示，浏览器的渲染引擎根据CSS盒状模型将这些元素表示为一个盒状。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaou61/pictures/Rendering-engine-sees-elements-box.png" alt="Rendering Engine Sees Blue Circle And &quot;Hello There!&quot; Elements In Boxes"></p>
+<p>那么，CSS盒状模型究竟是什么呢？它本质上是一个包裹着网站上每个块级HTML元素的盒子。</p>
+<p>每个盒子都由四个区域组成，这些区域由各自的边缘定义：内容边缘、填充边缘、边框边缘和边缘。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaou61/pictures/CSS-box-model.png" alt="CSS Box Model With Maring Edge, Border Edge, Padding Edge, Content Edge, And Picture Of Sunset In Middle"></p>
+<p>以上面的插图为例，让我们详细介绍一下每个盒子的四个区域。</p>
+<h3 id="内容区"><a href="#内容区" class="headerlink" title="内容区"></a>内容区</h3><p>由内容边缘定义的内容区域，表示指定的HTML元素的值。</p>
+<p>例如，如果在网页上添加一个<code>&lt;h1&gt;</code> 元素，该元素的内容就显示为文本，如果添加一个<code>&lt;audio&gt;</code> 元素，该内容就显示为音频播放器。</p>
+<p>在我们上面的例子中，内容是一个图像，由<code>&lt;img&gt;</code> 元素定义。</p>
+<h3 id="填充区域"><a href="#填充区域" class="headerlink" title="填充区域"></a>填充区域</h3><p>围绕着内容区的是填充区，由填充边定义。一个元素的填充区是其内容区和边界区之间的空间。</p>
+<p>填充区的大小是通过CSS的速记属性<code>padding</code> 或其子属性：<code>padding-top</code>,<code>padding-right</code>,<code>padding-bottom</code>, 和<code>padding-left</code> 来设置的。</p>
+<p>使用CSS<code>padding</code> 属性来设置填充区的大小是非常重要的，因为一个元素的填充区大小可以大大影响或改善网页内容的外观。</p>
+<h3 id="边框区域"><a href="#边框区域" class="headerlink" title="边框区域"></a>边框区域</h3><p>然后是边框区，它围绕着一个元素的填充区，并作为每个块级HTML元素所包裹的盒子的边缘或盾牌。</p>
+<p>边界区域可以通过向元素添加CSS<code>border</code> 属性来实现。</p>
+<h3 id="边框区域-1"><a href="#边框区域-1" class="headerlink" title="边框区域"></a>边框区域</h3><p>边框区域，由边框边缘定义，是边框区域周围的一个不可见区域，将一个元素与周围的其他元素分开。</p>
+<p>边距区的大小由CSS速记<code>margin</code> 属性及其子属性决定：<code>margin-top</code>,<code>margin-right</code>,<code>margin-bottom</code>, 和<code>margin-left</code> 。</p>
+<h2 id="margin-对比padding"><a href="#margin-对比padding" class="headerlink" title="margin 对比padding"></a><code>margin</code> 对比<code>padding</code></h2><p>在上面的章节中，我们谈到了CSS盒状模型和它的四个区域。这四个区域有各自的CSS属性来定义或控制它们。</p>
+<ul>
+<li>内容区是由HTML元素的值定义的</li>
+<li>填充区是由<code>padding</code> 属性定义的</li>
+<li>边界区域是由<code>border</code> 属性定义的。</li>
+<li>边缘区域是由<code>margin</code> 属性定义的。</li>
+</ul>
+<p>尽管这些属性能够定义CSS盒子模型的四个区域，但<code>margin</code> 和<code>padding</code> 属性的影响似乎几乎是无形的。</p>
+<p>如果没有这些属性，当你使用<code>&lt;img&gt;</code> 标签时，你可以看到网页上的一个图像，当你使用<code>border</code> 属性时，你可以看到该图像周围的边框。但是，当向一个元素添加<code>margin</code> 或<code>padding</code> 属性时，你最多只能看到空间。</p>
+<p>而往往，有些人甚至看不到空间，朋友，这就是为什么这两个属性经常被误解或互换使用。</p>
+<p>为了帮助你更好地理解<code>margin</code> 和<code>padding</code> 属性，本节将介绍它们是什么，如何使用它们，它们的区别，以及何时使用<code>padding</code> 与<code>margin</code> 。</p>
+<h3 id="什么是margin-？"><a href="#什么是margin-？" class="headerlink" title="什么是margin ？"></a>什么是<code>margin</code> ？</h3><p>记住，网页上的每个HTML元素都是一个盒子。在此基础上，所有的HTML元素都有四个面：上、右、下和左。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blog.logrocket.com/wp-content/uploads/2021/08/Sides-margin-edge.png" alt="Sides Of Margine Edge With Top, Right, Bottom, Left"></p>
+<p>margin在HTML元素周围的无形空间将其他元素从它身边推开。</p>
+<p>因为页边距围绕着盒子的所有四边（上、右、下、左），它给我们提供了针对和改变盒子每边或所有边的页边距区域的大小的能力。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">css复制代码<span class="attribute">margin</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">margin-top</span>: <span class="number">20px</span>:</span><br><span class="line">margin-right: <span class="number">40px</span>;</span><br><span class="line"><span class="attribute">margin-bottom</span>: <span class="number">70px</span></span><br><span class="line">margin-left: <span class="number">20px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>你可以使用这些子属性独立地增加或减少顶部、底部、左侧和右侧的边距区域的大小。</p>
+<ul>
+<li><code>margin-top</code></li>
+<li><code>margin-bottom</code></li>
+<li><code>margin-left</code></li>
+<li><code>margin-right</code></li>
+</ul>
+<p>你也可以使用速记属性<code>margin</code> ，一次增加或减少所有边距区的大小。</p>
+<p>在下面的演示中，为圆圈添加了50像素的边距(<code>margin: 50px;</code>)，以便在圆圈和文本之间创造一个空间。</p>
+<p>参见<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>) 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/yLbrMLy">
+ </a>Margin 1 (Margin vs. Padding 教程)<br> 。</p>
+<p>如果你删除<code>margin</code> ，两个元素之间的空间就会减少，使它们看起来是连在一起的。这表明，<code>margin</code> 属性只在元素外增加空间，而不是在元素内。</p>
+<p>请参阅<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>) 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/QWvPrvL">
+ </a>Margin 2 (Margin vs. Padding教程)<br> 。</p>
+<h3 id="什么是padding-？"><a href="#什么是padding-？" class="headerlink" title="什么是padding ？"></a>什么是<code>padding</code> ？</h3><p><code>padding</code> 属性定义了CSS盒子模型的内部部分。它可以增加或减少填充区的大小。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blog.logrocket.com/wp-content/uploads/2021/08/Increasing-reducing-padding-edge.png" alt="Box Model Showing Increasing Or Reducing Padding Edge"></p>
+<p>就像HTML元素有四个面一样，HTML元素中的内容，如文本、图片或音频播放器，也有四个面：上、右、左、下。</p>
+<p><code>padding</code> 属性增加或减少了填充区的大小，从而在内容和边框之间创造了一个空间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">css复制代码<span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line"><span class="attribute">padding-top</span>: <span class="number">20px</span>:</span><br><span class="line">padding-right: <span class="number">40px</span>;</span><br><span class="line"><span class="attribute">padding-bottom</span>: <span class="number">70px</span></span><br><span class="line">padding-left: <span class="number">20px</span>;</span><br></pre></td></tr></table></figure>
+
+<p>就像<code>margin</code> ，<code>padding</code> 属性围绕着内容的所有四个边，让你能够使用这些子属性独立地增加或减少顶部、底部、左侧和右侧的填充大小。</p>
+<ul>
+<li><code>padding-top</code></li>
+<li><code>padding-bottom</code></li>
+<li><code>padding-left</code></li>
+<li><code>padding-right</code></li>
+</ul>
+<p>你还可以使用速记属性<code>padding</code> ，同时增加或减少所有填充区边的大小。</p>
+<p>在下面的演示中，没有添加任何padding。你可以看到，内容文本非常接近边界–这意味着填充区相对较小或不存在–你必须使用<code>padding</code> 属性来增加它。</p>
+<p>参见<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>) 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/rNmbKzv">
+ </a>Padding 1 (CSS Margin vs. Padding 教程)<br> 。</p>
+<p>那么，让我们用<code>padding: 15px</code> ，为我们当前的演示添加15像素的填充，看看它对HTML元素的内容会有什么影响。</p>
+<p>请看<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>) 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/OJmGZwe">
+ </a>Padding 2 (CSS Margin vs. Padding 教程)<br> 。</p>
+<p>你可以看到，方框的填充区域增加了15像素，从而在内容和边框之间增加了一个空间。</p>
+<h2 id="margin-和-之间的区别padding"><a href="#margin-和-之间的区别padding" class="headerlink" title="margin 和 之间的区别padding"></a><code>margin</code> 和 之间的区别<code>padding</code></h2><p>尽管这两个<a href="https://link.juejin.cn/?target=https://blog.logrocket.com/tag/css/">CSS属性</a>很相似，而且经常被误认为可以互换使用，但它们还是有很大区别的，了解它们的区别对网页开发者来说是很有好处的。</p>
+<h3 id="间距"><a href="#间距" class="headerlink" title="间距"></a>间距</h3><p><code>margin</code> 和<code>padding</code> 的核心区别之一是：<code>padding</code> 控制边框和元素内容之间的空间，而<code>margin</code> 控制边框和周围其他元素之间的空间。</p>
+<p>下面的插图表示使用<code>margin</code> 属性时增加的空间。箭头表示在三个不同的元素周围添加的不可见的空间（margin），以确保它们不会相互靠近。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/xiaou61/pictures/Margin-space-around-elements.png" alt="Margin Space Around Element A, Element B, And Element C"></p>
+<p>而下图代表了使用<code>padding</code> 时添加的空间。箭头表示添加的无形空间（padding），以确保内容（圆形和三角形）不靠近元素的边界。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blog.logrocket.com/wp-content/uploads/2021/08/padding-space-around-elements.png" alt="Padding Space Around Element A and Element B"></p>
+<p>通俗地讲，<code>padding</code> 允许我们定义元素内部的空间，而<code>margin</code> 允许我们定义元素之间的空间。</p>
+<h3 id="Padding-需要背景色；Margin-不需要。"><a href="#Padding-需要背景色；Margin-不需要。" class="headerlink" title="Padding 需要背景色；Margin 不需要。"></a><code>Padding</code> 需要背景色；<code>Margin</code> 不需要。</h3><p>margin和padding所创造的空间是不可见的。然而，如果给一个元素添加了背景色，<code>padding</code> 将不再是不可见的，因为它采用了该元素的颜色，而由边距创建的空间仍然是不可见的。</p>
+<p>例如，下面的插图包含两个简单的网页。左边的图片只应用了<code>margin</code> ，而右边的图片只应用了<code>padding</code> 。</p>
+<p>由于背景颜色的存在，padding变得更加明显，而margin似乎仍然不可见。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blog.logrocket.com/wp-content/uploads/2021/08/Maring-vs-padding-rendering.png" alt="Margin Vs. Padding Rendering With Background Color"></p>
+<h3 id="margin-可以被设置为自动；padding-不能"><a href="#margin-可以被设置为自动；padding-不能" class="headerlink" title="margin 可以被设置为自动；padding 不能"></a><code>margin</code> 可以被设置为自动；<code>padding</code> 不能</h3><p>如果你为一个有固定宽度的元素设置<code>margin: auto</code> ，它就会将该元素水平居中（或者在使用flexbox时垂直居中）。</p>
+<p>由于居中元素一直是网页开发人员难以理解或记住的（你可以从<a href="https://link.juejin.cn/?target=https://twitter.com/overflow_meme/status/1233967116782579714?lang=en">网上关于居中div的有趣备忘录</a>中看出），这个功能非常方便。</p>
+<p>另一方面，不可能将<code>padding</code> 到<code>auto</code> 。</p>
+<p>参见<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>)的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/oNWOMLb">
+ </a>Margin Auto (CSS Margin vs. Padding 教程)<br> 。</p>
+<h3 id="margin-可以有一个负值；padding-不能。"><a href="#margin-可以有一个负值；padding-不能。" class="headerlink" title="margin 可以有一个负值；padding 不能。"></a><code>margin</code> 可以有一个负值；<code>padding</code> 不能。</h3><p>如果你想让元素重叠，你可以将<code>margin</code> 值设置为负值。当你想在你的网站上实现美丽的设计时，这个负值会非常有用。</p>
+<p>请看<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>)<br> 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/MWmRBMg">
+ </a>重叠（CSS边距与填充教程）。</p>
+<p><code>padding</code> ，但是，数值只能是正的，因为负的padding会导致边框塌陷到内容中，使内容区域小于内容本身。</p>
+<h3 id="padding-忽略了内联元素"><a href="#padding-忽略了内联元素" class="headerlink" title="padding 忽略了内联元素"></a><code>padding</code> 忽略了内联元素</h3><p>当你在一个内联元素上添加<code>padding</code> ，其变化只反映在元素的左侧和右侧，而不是顶部和底部。</p>
+<p>例如，下面的演示有一个span元素<code>&lt;span&gt;super&lt;/span&gt;</code> ，其填充物为20像素(<code>padding: 20px;</code>)。正如你所看到的，这只在元素的左边和右边增加了空间，而不是在顶部和底部。</p>
+<p>请看<a href="https://link.juejin.cn/?target=https://codepen.io">CodePen</a>上Didicodes<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo">(@edyasikpo</a>) 的Pen<a href="https://link.juejin.cn/?target=https://codepen.io/edyasikpo/pen/wvdZxLQ">
+ </a>忽略内联元素（CSS边距与填充教程）<br> 。</p>
+<h2 id="什么时候应该使用margin-与padding"><a href="#什么时候应该使用margin-与padding" class="headerlink" title="什么时候应该使用margin 与padding?"></a>什么时候应该使用<code>margin</code> 与<code>padding</code>?</h2><p><code>padding</code> 和<code>margin</code> 是网页设计中的两个重要元素，可以在不同的地方增加额外的空间。但是，你应该在什么地方和什么时候使用一个而不是另一个？</p>
+<p>对于<code>padding</code> ，你可以在以下情况下使用它。</p>
+<ul>
+<li>当你不希望你的内容接触到容器的边缘时</li>
+<li>当你想增加一个内容块的大小而不使内容本身变大时</li>
+<li>当你需要在一个内部元素和父箱之间有空间时</li>
+<li>当你希望元素的背景显示在产生的间隙中时</li>
+<li>需要在border外侧添加空白时;</li>
+<li>空白处不需要背景色时;</li>
+<li>上下相连得两个盒子之间的空白需要相互抵消时，如15px+20px得margin，将得到20px的空白。（margin折叠）</li>
+</ul>
+<p>对于<code>margin</code> ，在以下情况下使用。</p>
+<ul>
+<li>当你需要元素周围的空间时，例如分隔一张照片和描述它的文字</li>
+<li>当你想让一个元素水平居中时</li>
+<li>当你想让元素重叠的时候</li>
+<li>当你想把一个元素向上、向下、或向两侧移动时</li>
+<li>需要在border内侧添加空白时。</li>
+<li>空白处需要背景（色）时。</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>在 CSS 中，margin 和 padding 都是用来设置元素的外边距和内边距的，但是它们有一些明显的不同。</p>
+<p>Margin 是元素与其他元素之间的空隙，它是外边距的一部分。例如，您可以使用 margin 设置两个相邻的 div 之间的空隙。</p>
+<p>Padding 是元素内部的空隙，它是内边距的一部分。例如，您可以使用 padding 设置文本与元素边框之间的空隙。</p>
+<p>总的来说，margin 和 padding 都可以用来调整元素的大小和布局，但是它们的应用场景略有不同。例如，如果您想要创建两个相邻的元素之间的空隙，则可以使用 margin。如果您想要为文本或其他内容腾出空间，则可以使用 padding。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/projects/zatan/7/3/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/projects/zatan/7/3/')">css中margin和padding的区别</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/projects/zatan/7/3/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=css中margin和padding的区别&amp;url=http://example.com/2023/10/01/projects/zatan/7/3/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%89%8D%E7%AB%AF/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>前端<span class="tagsPageCount">10</span></a><a class="post-meta__box__tags" href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>技术杂谈<span class="tagsPageCount">51</span></a><a class="post-meta__box__tags" href="/tags/css/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>css<span class="tagsPageCount">3</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/projects/zatan/7/4/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">JavaScript实现访问本地文件夹</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/projects/zatan/8/1/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">JavaBean和封装之间的关系</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/projects/zatan/8/3/" title="vertical-align什么时候用并且有效"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">vertical-align什么时候用并且有效</div></div></a></div><div><a href="/2023/10/01/projects/zatan/7/4/" title="JavaScript实现访问本地文件夹"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">JavaScript实现访问本地文件夹</div></div></a></div><div><a href="/2023/10/01/codenotes/book/front/" title="前端书籍推荐"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">前端书籍推荐</div></div></a></div><div><a href="/2023/10/01/codenotes/front_end/2023ts/" title="都2023年了你还不学ts？"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">都2023年了你还不学ts？</div></div></a></div><div><a href="/2023/10/01/codenotes/front_end/WebApi/" title="WebApi"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">WebApi</div></div></a></div><div><a href="/2023/10/01/codenotes/front_end/HTML/" title="HTML"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">HTML</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E7%9B%92%E7%8A%B6%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">CSS盒状模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%8C%BA"><span class="toc-number">1.1.</span> <span class="toc-text">内容区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">填充区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E5%8C%BA%E5%9F%9F"><span class="toc-number">1.3.</span> <span class="toc-text">边框区域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%B9%E6%A1%86%E5%8C%BA%E5%9F%9F-1"><span class="toc-number">1.4.</span> <span class="toc-text">边框区域</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margin-%E5%AF%B9%E6%AF%94padding"><span class="toc-number">2.</span> <span class="toc-text">margin 对比padding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFmargin-%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">什么是margin ？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFpadding-%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">什么是padding ？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#margin-%E5%92%8C-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%ABpadding"><span class="toc-number">3.</span> <span class="toc-text">margin 和 之间的区别padding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E8%B7%9D"><span class="toc-number">3.1.</span> <span class="toc-text">间距</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Padding-%E9%9C%80%E8%A6%81%E8%83%8C%E6%99%AF%E8%89%B2%EF%BC%9BMargin-%E4%B8%8D%E9%9C%80%E8%A6%81%E3%80%82"><span class="toc-number">3.2.</span> <span class="toc-text">Padding 需要背景色；Margin 不需要。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#margin-%E5%8F%AF%E4%BB%A5%E8%A2%AB%E8%AE%BE%E7%BD%AE%E4%B8%BA%E8%87%AA%E5%8A%A8%EF%BC%9Bpadding-%E4%B8%8D%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">margin 可以被设置为自动；padding 不能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#margin-%E5%8F%AF%E4%BB%A5%E6%9C%89%E4%B8%80%E4%B8%AA%E8%B4%9F%E5%80%BC%EF%BC%9Bpadding-%E4%B8%8D%E8%83%BD%E3%80%82"><span class="toc-number">3.4.</span> <span class="toc-text">margin 可以有一个负值；padding 不能。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#padding-%E5%BF%BD%E7%95%A5%E4%BA%86%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0"><span class="toc-number">3.5.</span> <span class="toc-text">padding 忽略了内联元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E5%BA%94%E8%AF%A5%E4%BD%BF%E7%94%A8margin-%E4%B8%8Epadding"><span class="toc-number">4.</span> <span class="toc-text">什么时候应该使用margin 与padding?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">小结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

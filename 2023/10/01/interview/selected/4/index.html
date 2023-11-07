@@ -1,0 +1,467 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>Mysql索引的15连问 | 小u的博客</title><meta name="keywords" content="面试"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="Mysql索引的15连问"><meta name="application-name" content="Mysql索引的15连问"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="Mysql索引的15连问"><meta property="og:url" content="http://example.com/2023/10/01/interview/selected/4/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="前言金三银四很快就要来啦，准备了索引的15连问，相信大家看完肯定会有帮助的。  1. 索引是什么？  索引是一种能提高数据库查询效率的数据结构。它可以比作一本字典的目录，可以帮你快速找到对应的记录。 索引一般存储在磁盘的文件中，它是占用物理空间的。 正所谓水能载舟，也能覆舟。适当的索引能提高查询效率"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="前言金三银四很快就要来啦，准备了索引的15连问，相信大家看完肯定会有帮助的。  1. 索引是什么？  索引是一种能提高数据库查询效率的数据结构。它可以比作一本字典的目录，可以帮你快速找到对应的记录。 索引一般存储在磁盘的文件中，它是占用物理空间的。 正所谓水能载舟，也能覆舟。适当的索引能提高查询效率"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/interview/selected/4/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: 'Mysql索引的15连问',
+  postAI: '',
+  pageFillDescription: '前言, 1. 索引是什么？, 2. MySQL索引有哪些类型, 3. 索引什么时候会失效？, 4. 哪些场景不适合建立索引？, 5. 为什么要用 B+树为什么不用二叉树？, 6. 一次B+树索引树查找过程, 7. 什么是回表？如何减少回表？, 8. 什么是覆盖索引？, 9. 聊聊索引的最左前缀原则, 10. 索引下推了解过吗？什么是索引下推, 11. 大表如何添加索引, 12. 如何知道语句是否走索引查询？, 1.2.1 type, 1.2.2 rows, 1.2.3 filtered, 1.2.4 extra, 1.2.5 key, 13.Hash 索引和 B+树区别是什么？你在设计索引是怎么抉择的？, 14.  索引有哪些优缺点？, 15. 聚簇索引与非聚簇索引的区别前言金三银四很快就要来啦准备了索引的连问相信大家看完肯定会有帮助的索引是什么索引是一种能提高数据库查询效率的数据结构它可以比作一本字典的目录可以帮你快速找到对应的记录索引一般存储在磁盘的文件中它是占用物理空间的正所谓水能载舟也能覆舟适当的索引能提高查询效率过多的索引会影响数据库表的插入和更新功能索引有哪些类型数据结构维度树索引所有数据存储在叶子节点复杂度为适合范围查询哈希索引适合等值查询检索效率高一次到位全文索引和中都支持使用全文索引一般在文本类型类型上创建索引用来对数据类型创建索引物理存储维度聚集索引聚集索引就是以主键创建的索引在叶子节点存储的是表中的数据存储引擎非聚集索引非聚集索引就是以非主键创建的索引在叶子节点存储的是主键和索引列存储引擎逻辑维度主键索引一种特殊的唯一索引不允许有空值普通索引中基本索引类型允许空值和重复值联合索引多个字段创建的索引使用时遵循最左前缀原则唯一索引索引列中的值必须是唯一的但是允许为空值空间索引之后支持空间索引在空间索引这方面遵循几何数据模型规则索引什么时候会失效查询条件包含可能导致索引失效如果字段类型是字符串时一定用引号括起来否则索引失效通配符可能导致索引失效联合索引查询时的条件列不是联合索引中的第一个列索引失效在索引列上使用的内置函数索引失效对索引列运算如索引失效索引字段上使用或者时可能会导致索引失效索引字段上使用可能导致索引失效左连接查询或者右连接查询查询关联的字段编码格式不一样可能导致索引失效估计使用全表扫描要比使用索引快则不使用索引哪些场景不适合建立索引数据量少的表不适合加索引更新比较频繁的也不适合加索引区分度低的字段不适合加索引如性别等后面没有使用到的字段不需要建立索引已经有冗余的索引的情况比如已经有的联合索引不需要再单独建立索引为什么要用树为什么不用二叉树可以从几个维度去看这个问题查询是否够快效率是否稳定存储数据多少以及查找磁盘次数为什么不是二叉树为什么不是平衡二叉树为什么不是树而偏偏是树呢为什么不是一般二叉树如果二叉树特殊化为一个链表相当于全表扫描平衡二叉树相比于二叉查找树来说查找效率更稳定总体的查找速度也更快为什么不是平衡二叉树呢我们知道在内存比在磁盘的数据查询效率快得多如果树这种数据结构作为索引那我们每查找一次数据就需要从磁盘中读取一个节点也就是我们说的一个磁盘块但是平衡二叉树可是每个节点只存储一个键值和数据的如果是树可以存储更多的节点数据树的高度也会降低因此读取磁盘的次数就降下来啦查询效率就快啦那为什么不是树而是树呢树非叶子节点上是不存储数据的仅存储键值而树节点中不仅存储键值也会存储数据中页的默认大小是如果不存储数据那么就会存储更多的键值相应的树的阶数节点的子节点树就会更大树就会更矮更胖如此一来我们查找数据进行磁盘的次数有会再次减少数据查询的效率也会更快树索引的所有数据均存储在叶子节点而且数据是按照顺序排列的链表连着的那么树使得范围查找排序查找分组查找以及去重查找变得异常简单一次树索引树查找过程假设有以下表结构并且初始化了这几条数据小伦俊杰紫琪立红易迅小军小燕执行这条查询需要执行几次的树搜索操作可以画下对应的索引树结构图其实这个这个大家可以先画出普通索引的索引结构图大概如下再画出主键索引我们先画出聚族索引结构图如下这条查询语句执行大概流程是这样的搜索索引树将磁盘块加载到内存由于搜索左路分支到磁盘寻址磁盘块将磁盘块加载到内存中由于搜索左路分支到磁盘寻址磁盘块将磁盘块加载到内存中在内存继续遍历找到的记录取得拿到后回到主键索引树搜索主键索引树将磁盘块加载到内存因为所以在选择中间分支到磁盘寻址磁盘块虽然在磁盘块找到了但是它不是叶子节点所以会继续往下找到磁盘寻址磁盘块将磁盘块加载内存在内存遍历找到的记录拿到这一行的数据好的大功告成什么是回表如何减少回表当查询的数据在索引树中找不到的时候需要回到主键索引树中去获取这个过程叫做回表比如在第小节中使用的查询需要查询所有列的数据普通索引不能满足需要拿到主键的值后再回到主键索引查找获取这个过程就是回表什么是覆盖索引如果我们查询的修改为的话其实是不需要回表的因为和的值都在索引树的叶子节点上这就涉及到覆盖索引的知识点了覆盖索引是的数据列只用从索引中就能够取得不必回表换句话说查询列要被所建的索引覆盖聊聊索引的最左前缀原则索引的最左前缀原则可以是联合索引的最左个字段比如你建立一个组合索引其实可以相当于建了三个索引大大提高了索引复用能力当然最左前缀也可以是字符串索引的最左个字符比如你的普通索引树是酱紫这个小也是命中索引的索引下推了解过吗什么是索引下推给你这个小其中和为联合索引如果是之前在索引树找出所有名字第一个字是小的人拿到它们的主键然后回表找出数据行再去对比年龄和性别等其他字段如图有些朋友可能觉得奇怪不是联合索引嘛为什么选出包含小字后不再顺便看下年龄再回表呢不是更高效嘛所以呀就引入了索引下推优化可以在索引遍历过程中对索引中包含的字段先做判断直接过滤掉不满足条件的记录减少回表次数因此版本之后选出包含小字后顺表过滤大表如何添加索引如果一张表数据量级是千万级别以上的那么如何给这张表添加索引我们需要知道一点给表添加索引的时候是会对表加锁的如果不谨慎操作有可能出现生产事故的可以参考以下方法先创建一张跟原表数据结构相同的新表在新表添加需要加上的新索引把原表数据导到新表新表为原表的表名原表换别的表名如何知道语句是否走索引查询查看的执行计划这样就知道是否命中索引了当与一起使用时将显示来自优化器的有关语句执行计划的信息一般来说我们需要重点关注表示连接类型查看索引执行情况的一个重要指标以下性能从好到坏依次这种类型要求数据库表中只有一条数据是类型的一个特例一般情况下是不会出现的通过一次索引就能找到数据一般用于主键或唯一索引作为条件这类扫描效率极高速度非常快常用于主键或唯一索引扫描一般指使用主键的关联查询常用于非主键和唯一索引扫描这种连接类型类似于区别在于会额外搜索包含值的行使用了索引合并优化方法查询使用了两个以上的索引类似于条件用了子查询区别于用于非唯一索引可以返回重复值常用于范围查询比如或等操作全索引扫描全表扫描该列表示估算要找到我们所需的记录需要读取的行数对于表此数字是估计值并非一定是个准确值该列是一个百分比的值表里符合条件的记录数的百分比简单点说这个字段表示存储引擎返回的数据在经过过滤后剩下满足条件的记录数量的比例该字段包含有关如何解析查询的其他信息它一般会出现这几个值表示按文件排序一般是在指定的排序和索引排序不一致的情况才会出现一般见于语句表示是否用了覆盖索引表示是否使用了临时表性能特别差需要重点优化一般多见于语句或者语句表示使用了条件过滤之后新增的索引下推在存储引擎层进行数据过滤而不是在服务层过滤利用索引现有的数据减少回表的数据该列表示实际用到的索引一般配合列一起看索引和树区别是什么你在设计索引是怎么抉择的树可以进行范围查询索引不能树支持联合索引的最左侧原则索引不支持树支持排序索引不支持索引在等值查询上比树效率更高但是索引列的重复值很多的话冲突效率降低树使用进行模糊查询的时候后面比如开头的话可以起到优化的作用索引根本无法进行模糊查询索引有哪些优缺点优点索引可以加快数据查询速度减少查询时间唯一索引可以保证数据库表中每一行的数据的唯一性缺点创建索引和维护索引要耗费时间索引需要占物理空间除了数据表占用数据空间之外每一个索引还要占用一定的物理空间以表中的数据进行增删改的时候索引也要动态的维护聚簇索引与非聚簇索引的区别聚簇索引并不是一种单独的索引类型而是一种数据存储方式它表示索引结构和数据一起存放的索引非聚集索引是索引结构和数据分开存放的索引接下来我们分不同存存储引擎去聊哈在的存储引擎中聚簇索引与非聚簇索引最大的区别在于叶节点是否存放一整行记录聚簇索引叶子节点存储了一整行记录而非聚簇索引叶子节点存储的是主键信息因此一般非聚簇索引还需要回表查询一个表中只能拥有一个聚集索引因为一般聚簇索引就是主键索引而非聚集索引一个表则可以存在多个一般来说相对于非聚簇索引聚簇索引查询效率更高因为不用回表而在存储引擎中它的主键索引普通索引都是非聚簇索引因为数据和索引是分开的叶子节点都使用一个地址指向真正的表数据',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-08 12:26:12',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>面试</span></a></span></div></div><h1 class="post-title" itemprop="name headline">Mysql索引的15连问</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.511Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-08T04:26:12.195Z" title="Updated 2023-08-08 12:26:12">2023-08-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/interview/selected/4/"><header><a class="post-meta-categories" href="/categories/%E9%9D%A2%E8%AF%95/" itemprop="url">面试</a><a href="/tags/%E9%9D%A2%E8%AF%95/" tabindex="-1" itemprop="url">面试</a><h1 id="CrawlerTitle" itemprop="name headline">Mysql索引的15连问</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.511Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-08T04:26:12.195Z" title="Updated 2023-08-08 12:26:12">2023-08-08</time></header><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>金三银四很快就要来啦，准备了索引的15连问，相信大家看完肯定会有帮助的。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-561417b5-d542-4494-9483-6124a0331a2f.jpg"></p>
+<h2 id="1-索引是什么？"><a href="#1-索引是什么？" class="headerlink" title="1. 索引是什么？"></a>1. 索引是什么？</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-60177b59-879d-4ee9-9425-e13e79a1eac2.jpg"></p>
+<ul>
+<li>索引是一种能提高数据库查询效率的数据结构。它可以比作一本字典的目录，可以帮你快速找到对应的记录。</li>
+<li>索引一般存储在磁盘的文件中，它是占用物理空间的。</li>
+<li>正所谓水能载舟，也能覆舟。适当的索引能提高查询效率，过多的索引会影响数据库表的插入和更新功能。</li>
+</ul>
+<h2 id="2-MySQL索引有哪些类型"><a href="#2-MySQL索引有哪些类型" class="headerlink" title="2. MySQL索引有哪些类型"></a>2. MySQL索引有哪些类型</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-7be424ca-9043-4cf4-bd4e-084d2a2ad1aa.jpg"></p>
+<p><strong>数据结构维度</strong></p>
+<ul>
+<li>B+树索引：所有数据存储在叶子节点，复杂度为<code>O(logn)</code>，适合范围查询。</li>
+<li>哈希索引: 适合等值查询，检索效率高，一次到位。</li>
+<li>全文索引：<code>MyISAM</code>和<code>InnoDB</code>中都支持使用全文索引，一般在文本类型<code>char,text,varchar</code>类型上创建。</li>
+<li><code>R-Tree</code>索引: 用来对<code>GIS</code>数据类型创建<code>SPATIAL</code>索引</li>
+</ul>
+<p><strong>物理存储维度</strong></p>
+<ul>
+<li>聚集索引：聚集索引就是以主键创建的索引，在叶子节点存储的是表中的数据。（<code>Innodb</code>存储引擎）</li>
+<li>非聚集索引：非聚集索引就是以非主键创建的索引，在叶子节点存储的是主键和索引列。（<code>Innodb</code>存储引擎）</li>
+</ul>
+<p><strong>逻辑维度</strong></p>
+<ul>
+<li>主键索引：一种特殊的唯一索引，不允许有空值。</li>
+<li>普通索引：<code>MySQL中</code>基本索引类型，允许空值和重复值。</li>
+<li>联合索引：多个字段创建的索引，使用时遵循最左前缀原则。</li>
+<li>唯一索引：索引列中的值必须是唯一的，但是允许为空值。</li>
+<li>空间索引：<code>MySQL5.7</code>之后支持空间索引，在空间索引这方面遵循<code>OpenGIS</code>几何数据模型规则。</li>
+</ul>
+<h2 id="3-索引什么时候会失效？"><a href="#3-索引什么时候会失效？" class="headerlink" title="3. 索引什么时候会失效？"></a>3. 索引什么时候会失效？</h2><ul>
+<li>查询条件包含<code>or</code>，可能导致索引失效</li>
+<li>如果字段类型是字符串，<code>where</code>时一定用引号括起来，否则索引失效</li>
+<li><code>like</code>通配符可能导致索引失效。</li>
+<li>联合索引，查询时的条件列不是联合索引中的第一个列，索引失效。</li>
+<li>在索引列上使用 mysql 的内置函数，索引失效。</li>
+<li>对索引列运算（如，<code>+、-、*、/</code>），索引失效。</li>
+<li>索引字段上使用<code>（！= 或者 &lt; &gt;，not in）</code>时，可能会导致索引失效。</li>
+<li>索引字段上使用<code>is null， is not null</code>，可能导致索引失效。</li>
+<li>左连接查询或者右连接查询查询关联的字段编码格式不一样，可能导致索引失效。</li>
+<li>mysql 估计使用全表扫描要比使用索引快,则不使用索引。</li>
+</ul>
+<h2 id="4-哪些场景不适合建立索引？"><a href="#4-哪些场景不适合建立索引？" class="headerlink" title="4. 哪些场景不适合建立索引？"></a>4. 哪些场景不适合建立索引？</h2><ul>
+<li>数据量少的表，不适合加索引</li>
+<li>更新比较频繁的也不适合加索引</li>
+<li>区分度低的字段不适合加索引（如性别）</li>
+<li><code>where、group by、order by</code>等后面没有使用到的字段，不需要建立索引</li>
+<li>已经有冗余的索引的情况（比如已经有<code>a,b</code>的联合索引，不需要再单独建立<code>a</code>索引）</li>
+</ul>
+<h2 id="5-为什么要用-B-树，为什么不用二叉树？"><a href="#5-为什么要用-B-树，为什么不用二叉树？" class="headerlink" title="5. 为什么要用 B+树，为什么不用二叉树？"></a>5. 为什么要用 B+树，为什么不用二叉树？</h2><blockquote>
+<p>可以从几个维度去看这个问题，查询是否够快，效率是否稳定，存储数据多少， 以及查找磁盘次数，为什么不是二叉树，为什么不是平衡二叉树，为什么不是 B 树，而偏偏是 B+树呢？</p>
+</blockquote>
+<p><strong>为什么不是一般二叉树？</strong></p>
+<p>如果二叉树特殊化为一个链表，相当于全表扫描。平衡二叉树相比于二叉查找 树来说，查找效率更稳定，总体的查找速度也更快。</p>
+<p><strong>为什么不是平衡二叉树呢？</strong></p>
+<p>我们知道，在内存比在磁盘的数据，查询效率快得多。如果树这种数据结构作 为索引，那我们每查找一次数据就需要从磁盘中读取一个节点，也就是我们说 的一个磁盘块，但是平衡二叉树可是每个节点只存储一个键值和数据的，如果 是 B 树，可以存储更多的节点数据，树的高度也会降低，因此读取磁盘的次数 就降下来啦，查询效率就快啦。</p>
+<p><strong>那为什么不是 B 树而是 B+树呢？</strong></p>
+<ul>
+<li>B+树非叶子节点上是不存储数据的，仅存储键值，而 B 树节点中不仅存储 键值，也会存储数据。innodb 中页的默认大小是 16KB，如果不存储数据，那 么就会存储更多的键值，相应的树的阶数（节点的子节点树）就会更大，树就 会更矮更胖，如此一来我们查找数据进行磁盘的 IO 次数有会再次减少，数据查 询的效率也会更快。</li>
+<li>B+树索引的所有数据均存储在叶子节点，而且数据是按照顺序排列的，链 表连着的。那么 B+树使得范围查找，排序查找，分组查找以及去重查找变得 异常简单。</li>
+</ul>
+<h2 id="6-一次B-树索引树查找过程"><a href="#6-一次B-树索引树查找过程" class="headerlink" title="6. 一次B+树索引树查找过程"></a>6. 一次B+树索引树查找过程</h2><blockquote>
+<p>假设有以下表结构，并且初始化了这几条数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE `employee` (</span><br><span class="line">  `id` int(11) NOT NULL,</span><br><span class="line">  `name` varchar(255) DEFAULT NULL,</span><br><span class="line">  `age` int(11) DEFAULT NULL,</span><br><span class="line">  `date` datetime DEFAULT NULL,</span><br><span class="line">  `sex` int(1) DEFAULT NULL,</span><br><span class="line">  PRIMARY KEY (`id`),</span><br><span class="line">  KEY `idx_age` (`age`) USING BTREE</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8;</span><br><span class="line"></span><br><span class="line">insert into employee values(100,&#x27;小伦&#x27;,43,&#x27;2021-01-20&#x27;,&#x27;0&#x27;);</span><br><span class="line">insert into employee values(200,&#x27;俊杰&#x27;,48,&#x27;2021-01-21&#x27;,&#x27;0&#x27;);</span><br><span class="line">insert into employee values(300,&#x27;紫琪&#x27;,36,&#x27;2020-01-21&#x27;,&#x27;1&#x27;);</span><br><span class="line">insert into employee values(400,&#x27;立红&#x27;,32,&#x27;2020-01-21&#x27;,&#x27;0&#x27;);</span><br><span class="line">insert into employee values(500,&#x27;易迅&#x27;,37,&#x27;2020-01-21&#x27;,&#x27;1&#x27;);</span><br><span class="line">insert into employee values(600,&#x27;小军&#x27;,49,&#x27;2021-01-21&#x27;,&#x27;0&#x27;);</span><br><span class="line">insert into employee values(700,&#x27;小燕&#x27;,28,&#x27;2021-01-21&#x27;,&#x27;1&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>执行这条查询SQL，需要执行几次的树搜索操作？可以画下对应的索引树结构图~</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Temployee where age=32;</span><br></pre></td></tr></table></figure>
+
+<p>其实这个，这个大家可以先画出<code>idx_age</code>普通索引的索引结构图，大概如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-baca02c4-1ed6-421f-9ad4-e3e63dd58efa.jpg"></p>
+<p>再画出<code>id</code>主键索引，我们先画出聚族索引结构图，如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-8bf752f5-772b-4308-b51c-d06406428866.jpg"></p>
+<p>这条 SQL 查询语句执行大概流程是这样的：</p>
+<ul>
+<li>搜索<code>idx_age</code> 索引树，将<code>磁盘块1</code>加载到内存，由于<code>32&lt;43</code>,搜索左路分支，到磁盘寻址<code>磁盘块2</code>。</li>
+<li>将<code>磁盘块2</code>加载到内存中，由于<code>32&lt;36</code>,搜索左路分支，到磁盘寻址<code>磁盘块4</code>。</li>
+<li>将<code>磁盘块4</code>加载到内存中，在内存继续遍历，找到<code>age=32</code>的记录，取得<code>id = 400</code>.</li>
+<li>拿到<code>id=400</code>后，回到<code>id主键索引树</code>。</li>
+<li>搜索<code>id主键索引树</code>，将<code>磁盘块1</code>加载到内存，因为<code>300&lt;400&lt;500</code>,所以在选择中间分支，到磁盘寻址<code>磁盘块3</code>。</li>
+<li>虽然在<code>磁盘块3</code>，找到了id&#x3D;400，但是它不是叶子节点，所以会继续往下找。到磁盘寻址<code>磁盘块8</code>。</li>
+<li>将<code>磁盘块8</code>加载内存，在内存遍历，找到<code>id=400</code>的记录，拿到<code>R4</code>这一行的数据，好的，大功告成。</li>
+</ul>
+<h2 id="7-什么是回表？如何减少回表？"><a href="#7-什么是回表？如何减少回表？" class="headerlink" title="7. 什么是回表？如何减少回表？"></a>7. 什么是回表？如何减少回表？</h2><p>当查询的数据在索引树中，找不到的时候，需要回到<strong>主键索引树</strong>中去获取，这个过程叫做<strong>回表</strong>。</p>
+<p>比如在<strong>第6</strong>小节中，使用的查询SQL</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from Temployee where age=32;</span><br></pre></td></tr></table></figure>
+
+<p>需要查询所有列的数据，<code>idx_age</code>普通索引不能满足，需要拿到主键id的值后，再回到<code>id</code>主键索引查找获取，这个过程就是回表。</p>
+<h2 id="8-什么是覆盖索引？"><a href="#8-什么是覆盖索引？" class="headerlink" title="8. 什么是覆盖索引？"></a>8. 什么是覆盖索引？</h2><p>如果我们查询SQL的<code>select *</code> 修改为 <code>select id, age</code>的话，其实是<strong>不需要回表</strong>的。因为<code>id</code>和<code>age</code>的值，都在<code>idx_age</code>索引树的叶子节点上，这就涉及到覆盖索引的知识点了。</p>
+<blockquote>
+<p>覆盖索引是<code>select</code>的数据列只用从索引中就能够取得，不必回表，换句话说，查询列要被所建的索引覆盖。</p>
+</blockquote>
+<h2 id="9-聊聊索引的最左前缀原则"><a href="#9-聊聊索引的最左前缀原则" class="headerlink" title="9. 聊聊索引的最左前缀原则"></a>9. 聊聊索引的最左前缀原则</h2><p>索引的最左前缀原则，可以是<strong>联合索引的最左N个字段</strong>。比如你建立一个组合索引<code>（a,b,c）</code>，其实可以相当于建了<code>（a），（a,b）,(a,b,c)</code>三个索引，大大提高了索引复用能力。</p>
+<p>当然，最左前缀也可以是<strong>字符串索引的最左M个字符。</strong>。比如，你的普通索引树是酱紫：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-65c3f954-df70-439b-b0e1-1009007d6560.jpg"></p>
+<p>这个SQL: <code>select * from employee where name like &#39;小%&#39; order by age desc;</code> 也是命中索引的。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-3c751d80-02df-43cf-acc7-aafdb409811b.jpg"></p>
+<h2 id="10-索引下推了解过吗？什么是索引下推"><a href="#10-索引下推了解过吗？什么是索引下推" class="headerlink" title="10. 索引下推了解过吗？什么是索引下推"></a>10. 索引下推了解过吗？什么是索引下推</h2><p>给你这个SQL：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from employee where name like &#x27;小%&#x27; and age=28 and sex=&#x27;0&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>name</code>和<code>age</code>为联合索引（<code>idx_name_age</code>）。</p>
+<p>如果是<strong>Mysql5.6之前</strong>，在<code>idx_name_age</code>索引树，找出所有名字第一个字是<code>“小”</code>的人，拿到它们的<code>主键id</code>，然后回表找出数据行，再去对比年龄和性别等其他字段。如图：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-b5ccdd0e-f299-49ac-9176-8e2c475f606f.jpg"></p>
+<p>有些朋友可能觉得奇怪，<code>idx_name_age（name,age)</code>不是联合索引嘛？为什么选出包含<code>“小”</code>字后，不再顺便看下年龄<code>age</code>再回表呢，不是更高效嘛？所以呀，<code>MySQL 5.6</code>就引入了<strong>索引下推优化</strong>，可以在索引遍历过程中，对索引中包含的字段先做判断，直接过滤掉不满足条件的记录，减少回表次数。</p>
+<p>因此，MySQL5.6版本之后，选出包含<code>“小”</code>字后，顺表过滤<code>age=28</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-4b37d45c-b5a2-4ff7-8125-ccd1e89eed42.jpg"></p>
+<h2 id="11-大表如何添加索引"><a href="#11-大表如何添加索引" class="headerlink" title="11. 大表如何添加索引"></a>11. 大表如何添加索引</h2><p>如果一张表数据量级是千万级别以上的，那么，如何给这张表添加索引？</p>
+<p>我们需要知道一点，<strong>给表添加索引的时候</strong>，<strong>是会对表加锁的</strong>。如果不谨慎操作，有可能出现生产事故的。可以参考以下方法：</p>
+<ol>
+<li>先创建一张跟原表<code>A</code>数据结构相同的新表<code>B</code>。</li>
+<li>在新表<code>B</code>添加需要加上的新索引。</li>
+<li>把原表<code>A</code>数据导到新表<code>B</code></li>
+<li><code>rename</code>新表<code>B</code>为原表的表名<code>A</code>，原表<code>A</code>换别的表名；</li>
+</ol>
+<h2 id="12-如何知道语句是否走索引查询？"><a href="#12-如何知道语句是否走索引查询？" class="headerlink" title="12. 如何知道语句是否走索引查询？"></a>12. 如何知道语句是否走索引查询？</h2><p><code>explain</code>查看SQL的执行计划，<strong>这样就知道是否命中索引了</strong>。</p>
+<p>当<code>explain</code>与<code>SQL</code>一起使用时，MySQL将显示来自优化器的有关语句执行计划的信息。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="http://cdn.tobebetterjavaer.com/tobebetterjavaer/images/nice-article/weixin-mysqlsylwkz-1a294975-c9dd-4077-95fc-2a972911a3ab.jpg"></p>
+<p>一般来说，我们需要重点关注<code>type、rows、filtered、extra、key</code>。</p>
+<h3 id="1-2-1-type"><a href="#1-2-1-type" class="headerlink" title="1.2.1 type"></a>1.2.1 type</h3><p>type表示<strong>连接类型</strong>，查看索引执行情况的一个重要指标。以下性能从好到坏依次：<code>system &gt; const &gt; eq_ref &gt; ref &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL</code></p>
+<ul>
+<li>system：这种类型要求数据库表中只有一条数据，是<code>const</code>类型的一个特例，一般情况下是不会出现的。</li>
+<li>const：通过一次索引就能找到数据，一般用于主键或唯一索引作为条件，这类扫描效率极高，，速度非常快。</li>
+<li>eq_ref：常用于主键或唯一索引扫描，一般指使用主键的关联查询</li>
+<li>ref : 常用于非主键和唯一索引扫描。</li>
+<li>ref_or_null：这种连接类型类似于<code>ref</code>，区别在于<code>MySQL</code>会额外搜索包含<code>NULL</code>值的行</li>
+<li>index_merge：使用了索引合并优化方法，查询使用了两个以上的索引。</li>
+<li>unique_subquery：类似于<code>eq_ref</code>，条件用了<code>in</code>子查询</li>
+<li>index_subquery：区别于<code>unique_subquery</code>，用于非唯一索引，可以返回重复值。</li>
+<li>range：常用于范围查询，比如：between … and 或 In 等操作</li>
+<li>index：全索引扫描</li>
+<li>ALL：全表扫描</li>
+</ul>
+<h3 id="1-2-2-rows"><a href="#1-2-2-rows" class="headerlink" title="1.2.2 rows"></a>1.2.2 rows</h3><p>该列表示MySQL估算要找到我们所需的记录，需要读取的行数。对于InnoDB表，此数字是估计值，并非一定是个准确值。</p>
+<h3 id="1-2-3-filtered"><a href="#1-2-3-filtered" class="headerlink" title="1.2.3 filtered"></a>1.2.3 filtered</h3><p>该列是一个百分比的值，表里符合条件的记录数的百分比。简单点说，这个字段表示存储引擎返回的数据在经过过滤后，剩下满足条件的记录数量的比例。</p>
+<h3 id="1-2-4-extra"><a href="#1-2-4-extra" class="headerlink" title="1.2.4 extra"></a>1.2.4 extra</h3><p>该字段包含有关MySQL如何解析查询的其他信息，它一般会出现这几个值：</p>
+<ul>
+<li>Using filesort：表示按文件排序，一般是在指定的排序和索引排序不一致的情况才会出现。一般见于order by语句</li>
+<li>Using index ：表示是否用了覆盖索引。</li>
+<li>Using temporary: 表示是否使用了临时表,性能特别差，需要重点优化。一般多见于group by语句，或者union语句。</li>
+<li>Using where : 表示使用了where条件过滤.</li>
+<li>Using index condition：MySQL5.6之后新增的索引下推。在存储引擎层进行数据过滤，而不是在服务层过滤，利用索引现有的数据减少回表的数据。</li>
+</ul>
+<h4 id="1-2-5-key"><a href="#1-2-5-key" class="headerlink" title="1.2.5 key"></a>1.2.5 key</h4><p>该列表示<strong>实际用到的索引</strong>。一般配合<code>possible_keys</code>列一起看。</p>
+<h2 id="13-Hash-索引和-B-树区别是什么？你在设计索引是怎么抉择的？"><a href="#13-Hash-索引和-B-树区别是什么？你在设计索引是怎么抉择的？" class="headerlink" title="13.Hash 索引和 B+树区别是什么？你在设计索引是怎么抉择的？"></a>13.Hash 索引和 B+树区别是什么？你在设计索引是怎么抉择的？</h2><ul>
+<li>B+树可以进行范围查询，Hash 索引不能。</li>
+<li>B+树支持联合索引的最左侧原则，Hash 索引不支持。</li>
+<li>B+树支持 order by 排序，Hash 索引不支持。</li>
+<li>Hash 索引在等值查询上比 B+树效率更高。（但是索引列的重复值很多的话，Hash冲突，效率降低）。</li>
+<li>B+树使用 like 进行模糊查询的时候，like 后面（比如%开头）的话可以起到优化的作用，Hash 索引根本无法进行模糊查询。</li>
+</ul>
+<h2 id="14-索引有哪些优缺点？"><a href="#14-索引有哪些优缺点？" class="headerlink" title="14.  索引有哪些优缺点？"></a>14.  索引有哪些优缺点？</h2><p><strong>优点：</strong></p>
+<ul>
+<li>索引可以加快数据查询速度，减少查询时间</li>
+<li>唯一索引可以保证数据库表中每一行的数据的唯一性</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>创建索引和维护索引要耗费时间</li>
+<li>索引需要占物理空间，除了数据表占用数据空间之外，每一个索引还要占用一定的物理空间</li>
+<li>以表中的数据进行增、删、改的时候，索引也要动态的维护。</li>
+</ul>
+<h2 id="15-聚簇索引与非聚簇索引的区别"><a href="#15-聚簇索引与非聚簇索引的区别" class="headerlink" title="15. 聚簇索引与非聚簇索引的区别"></a>15. 聚簇索引与非聚簇索引的区别</h2><p>聚簇索引并不是一种单独的索引类型，而是一种<strong>数据存储方式</strong>。它表示索引结构和数据一起存放的索引。非聚集索引是<strong>索引结构和数据分开存放的索引</strong>。</p>
+<p>接下来，我们分不同存存储引擎去聊哈~</p>
+<p>在<code>MySQL</code>的<code>InnoDB</code>存储引擎中， 聚簇索引与非聚簇索引最大的区别，在于叶节点是否存放一整行记录。聚簇索引叶子节点存储了一整行记录，而非聚簇索引叶子节点存储的是主键信息，<strong>因此，一般非聚簇索引还需要回表查询。</strong></p>
+<ul>
+<li>一个表中只能拥有一个聚集索引（因为一般聚簇索引就是<strong>主键索引</strong>），而非聚集索引一个表则可以存在多个。</li>
+<li>一般来说，相对于非聚簇索引，聚簇索引查询效率更高，因为不用回表。</li>
+</ul>
+<p>而在<code>MyISM</code>存储引擎中，它的主键索引，普通索引都是非聚簇索引，因为数据和索引是分开的，叶子节点都使用<strong>一个地址指向真正的表数据</strong>。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/interview/selected/4/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/interview/selected/4/')">Mysql索引的15连问</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/interview/selected/4/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=Mysql索引的15连问&amp;url=http://example.com/2023/10/01/interview/selected/4/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E9%9D%A2%E8%AF%95/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>面试<span class="tagsPageCount">51</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/interview/selected/3/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">精选数据库60道面试题必看</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/interview/selected/2/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Java HashMap精选面试题</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/interview/Java/" title="第四版最强八股文"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第四版最强八股文</div></div></a></div><div><a href="/2023/10/01/interview/selected/1/" title="Java：34道精选高频面试题必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java：34道精选高频面试题必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/10/" title="Java 并发编程八股文（背诵版）必看"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Java 并发编程八股文（背诵版）必看</div></div></a></div><div><a href="/2023/10/01/interview/selected/12/" title="秒传"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">秒传</div></div></a></div><div><a href="/2023/10/01/interview/selected/11/" title="kafka40题"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">kafka40题</div></div></a></div><div><a href="/2023/10/01/interview/selected/14/" title="Scenario 场景"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">Scenario 场景</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%B4%A2%E5%BC%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">1. 索引是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-MySQL%E7%B4%A2%E5%BC%95%E6%9C%89%E5%93%AA%E4%BA%9B%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">2. MySQL索引有哪些类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%B4%A2%E5%BC%95%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E4%BC%9A%E5%A4%B1%E6%95%88%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">3. 索引什么时候会失效？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%93%AA%E4%BA%9B%E5%9C%BA%E6%99%AF%E4%B8%8D%E9%80%82%E5%90%88%E5%BB%BA%E7%AB%8B%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">4. 哪些场景不适合建立索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-B-%E6%A0%91%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">5. 为什么要用 B+树，为什么不用二叉树？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%B8%80%E6%AC%A1B-%E6%A0%91%E7%B4%A2%E5%BC%95%E6%A0%91%E6%9F%A5%E6%89%BE%E8%BF%87%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">6. 一次B+树索引树查找过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%9E%E8%A1%A8%EF%BC%9F%E5%A6%82%E4%BD%95%E5%87%8F%E5%B0%91%E5%9B%9E%E8%A1%A8%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">7. 什么是回表？如何减少回表？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">8. 什么是覆盖索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E8%81%8A%E8%81%8A%E7%B4%A2%E5%BC%95%E7%9A%84%E6%9C%80%E5%B7%A6%E5%89%8D%E7%BC%80%E5%8E%9F%E5%88%99"><span class="toc-number">10.</span> <span class="toc-text">9. 聊聊索引的最左前缀原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8%E4%BA%86%E8%A7%A3%E8%BF%87%E5%90%97%EF%BC%9F%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%E4%B8%8B%E6%8E%A8"><span class="toc-number">11.</span> <span class="toc-text">10. 索引下推了解过吗？什么是索引下推</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-%E5%A4%A7%E8%A1%A8%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-number">12.</span> <span class="toc-text">11. 大表如何添加索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-%E5%A6%82%E4%BD%95%E7%9F%A5%E9%81%93%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%90%A6%E8%B5%B0%E7%B4%A2%E5%BC%95%E6%9F%A5%E8%AF%A2%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">12. 如何知道语句是否走索引查询？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-type"><span class="toc-number">13.1.</span> <span class="toc-text">1.2.1 type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-rows"><span class="toc-number">13.2.</span> <span class="toc-text">1.2.2 rows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3-filtered"><span class="toc-number">13.3.</span> <span class="toc-text">1.2.3 filtered</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-4-extra"><span class="toc-number">13.4.</span> <span class="toc-text">1.2.4 extra</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-5-key"><span class="toc-number">13.4.1.</span> <span class="toc-text">1.2.5 key</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-Hash-%E7%B4%A2%E5%BC%95%E5%92%8C-B-%E6%A0%91%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BD%A0%E5%9C%A8%E8%AE%BE%E8%AE%A1%E7%B4%A2%E5%BC%95%E6%98%AF%E6%80%8E%E4%B9%88%E6%8A%89%E6%8B%A9%E7%9A%84%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">13.Hash 索引和 B+树区别是什么？你在设计索引是怎么抉择的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-%E7%B4%A2%E5%BC%95%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-number">15.</span> <span class="toc-text">14.  索引有哪些优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E4%B8%8E%E9%9D%9E%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">16.</span> <span class="toc-text">15. 聚簇索引与非聚簇索引的区别</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
