@@ -1,0 +1,542 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>如何编写测试用例 | 小u的博客</title><meta name="keywords" content="掘金"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="如何编写测试用例"><meta name="application-name" content="如何编写测试用例"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="如何编写测试用例"><meta property="og:url" content="http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="如何编写测试用例代码质量管理是软件开发过程中的关键组成部分，比如我们常说的代码规范、代码可读性、单元测试和测试覆盖率等，对于研发人员来说单元测试和测试覆盖率是保障自己所编写代码的质量的重要手段；好的用例可以帮助研发人员确保代码质量和稳定性、减少维护成本、提高开发效率以及促进团队合作。之前看过一篇关于"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="如何编写测试用例代码质量管理是软件开发过程中的关键组成部分，比如我们常说的代码规范、代码可读性、单元测试和测试覆盖率等，对于研发人员来说单元测试和测试覆盖率是保障自己所编写代码的质量的重要手段；好的用例可以帮助研发人员确保代码质量和稳定性、减少维护成本、提高开发效率以及促进团队合作。之前看过一篇关于"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: '如何编写测试用例',
+  postAI: 'true',
+  pageFillDescription: '如何编写测试用例, 常见的测试方式, UT、CT 和 IT, 测试工具, spring-boot-starter-test, junit4, Mockito, 单元测试（UT）, 组件测试（CT）x2F集成测试（IT）, 使用 mock 代替实际请求, SpringBootTest 说明, 使用 H2 内存数据库来代替实际库, 使用指定的测试配置文件, 做好测试资源的清理, 小结如何编写测试用例代码质量管理是软件开发过程中的关键组成部分比如我们常说的代码规范代码可读性单元测试和测试覆盖率等对于研发人员来说单元测试和测试覆盖率是保障自己所编写代码的质量的重要手段好的用例可以帮助研发人员确保代码质量和稳定性减少维护成本提高开发效率以及促进团队合作之前看过一篇关于质量之道的文章文章中提到的工程理念就把测试作为非常重要的组成部分是和研发同样重要的组成部分也听过内部的同学说过最核心的是用例工程理念经过多年的摸索团队打造了独特的工程文化测试和开发同时进行功能测试不再是一个独立分开的过程而是融入到开发环节从源端控制引入的概率资深测试人员的精力主要放在难度较大的的发现测试体系建设和相关技术钻研测试自动化实施我们建立了一套高效的代码准入流程防范了许多初级的问题提升了团队整体的研发效率由此可见测试用例对于项目的重要性从实际的工作中也会发现大多数的同学对于如何编写测试用例其实是比较模糊的在以项目交付为核心思路的工程实践中测试用例往往只占整个工程周期相当小的一部分更多时候是依赖测试团队进行功能测试属于纯黑盒测试那么这种测试对于业务常规流程可以起到一定的作用但是对于一些边界问题其实很难住另外基于黑盒模式的功能性测试对于研发团队本身来说除了拿到准入的测试报告之外并无其他帮助当研发需要对代码进行重构或者升级某部分组件时没有用例的保障则会将风险直接带到线上环境去常见的测试方式在既往的工作团队中关于测试方式包括我自己在内在没系统了解过测试理论之前对于各种测试方式也是模棱两可因为测试方式的种类实在是多又杂下面是梳理的常见的测试方式按照不同的维度进行了分类分类维度测试方式说明测试目标功能测试验证系统是否按照规格说明的功能需求进行操作和响应性能测试评估系统在不同负载条件下的性能表现安全性测试发现系统的安全漏洞和弱点以确保系统不容易受到攻击回归测试确保在对系统进行修改后没有引入新的错误或破坏已有功能可用性测试评估系统的用户界面和用户体验兼容性测试验证系统在不同浏览器操作系统和设备上的兼容性测试层次单元测试验证单个代码单元通常是函数方法类等的正确性组件测试验证单个软件组件的功能性和正确性集成测试验证不同组件模块或服务之间的接口和协同工作系统测试验证整个系统是否按照需求规格正常运行验收测试由最终用户或客户进行的测试以验证系统是否满足其需求和期望测试方法手动测试测试人员手动执行测试用例模拟用户的操作自动化测试使用自动化测试工具和脚本来执行测试用例提高测试效率和一致性白盒测试关注内部代码逻辑通常由开发人员执行黑盒测试关注输入和输出不关心内部代码逻辑灰盒测试结合了白盒测试和黑盒测试的特点执行时机静态测试在代码编写之前或编译之后执行包括静态代码分析代码审查等动态测试在运行时执行包括各种类型的功能测试性能测试等测试对象功能测试测试系统的功能性非功能测试测试系统的非功能性特征如性能安全性可用性等白盒测试测试代码的内部逻辑和结构黑盒测试测试系统的输入和输出不考虑内部实现每种测试方式都有其独特的目标和方法可以在软件开发生命周期的不同阶段进行不同的测试方式在不同的测试维度分类下会有一些重叠这是正常的但是他们的关注点是一致的在本篇文章中主要更偏向于研发侧所以从测试层次角度来看更多的是关注单元测试组件测试以及集成测试总体来说关注代码单元的正确性关注组件的功能性关注不同组件的集成和协同工作这些测试层次通常是渐进的从开始然后是最后是不同的测试方式在软件测试策略中起着不同的作用这些测试手段的目的就是共同确保软件在各个层次上的质量和稳定性下面会通过一些具体的例子来阐述不同的测试方式主要是针对单元测试组件测试和集成测试项目基于版本使用和两种测试工具包和在具体看案例之前先把几个测试工具跑出来做个简单了解测试工具下面的案例中主要涉及到的测试工具和框架包括和官方文档是提供的一个用于测试的依赖库它简化了应用程序的测试过程提供了许多有用的工具和类帮助开发人员编写高效可靠的单元测试和集成测试就目前而言技术栈的项目是绕不开这套体系的而绝大多数情况下在或者项目中我们需要依赖容器刷新之后去测试相应的逻辑就是做这个事情的复制代码是一个用于编程语言的单元测试框架目前版本是目前我们项目中使用的是以下是中一些常用的特性和概念注解驱动的测试使用注解来标记测试方法以指定哪些方法应该被运行为测试常见的测试注解包括用于标记测试方法用于标记在每个测试方法之前运行的方法用于标记在每个测试方法之后运行的方法等对于全局资源的初始化和释放可以通过和来搞定测试套件允许你将多个测试类组合在一起形成一个测试套件然后可以一次运行所有测试类这对于组织和管理测试非常有用断言提供了一系列的断言方法用于验证测试中的条件是否为真如果条件不满足断言将引发测试失败常见的断言方法包括等运行器引入了运行器的概念允许你扩展测试的执行方式提供了一些内置的运行器例如用于普通的测试类还有一些用于特定用途的运行器如用于参数化测试目前在中使用了其实也是的子类关于的运行机制可以参考我之前写的一篇文章你知道是怎么跑的吗是一个用于模拟对象的框架用于创建和配置模拟对象以模拟外部依赖的主要焦点是模拟外部依赖以便在单元测试中隔离被测试的代码并确保它与外部依赖正确交互和的区别在于是一个单元测试框架用于编写和运行测试用例的主要焦点是定义和执行测试以及管理测试生命周期关于的运行机制可以参考我之前写的一篇文章聊一聊单元测试在前面的测试分类中单元测试主要是验证单个代码单元通常是函数方法类等的正确性在实际的项目中单元测试主要是对于一个封装好的工具类的测试如在工具类中有一个方法复制代码右击选中方法也可以通过相应的快捷键直接创建当前选中方法的测试用例相应的测试代码如下复制代码这里覆盖了正常的情况对于传入为的分支并未覆盖到所以对于强调覆盖率必须满足一定阈值的情况之前的一个项目中在流程中会对当前提供的代码覆盖率进行严格把控比如行覆盖率比如达到才能被则对于不同分支逻辑也需要提供对应的用例复制代码当为时期望返回组件测试集成测试我们目前基于的测试大体可以归类于组件测试这种情况只需要针对当前服务自己的组件进行设计用例对于可能涉及到的上下游依赖一般可以通过的方式来绕过从而使得当前应用的用例在自己的业务逻辑上使用代替实际请求场景描述中有个方法通过传入一个参数然后去另一个服务拉取当前用户的事件列表代码如下复制代码在中底层是对的封装复制代码底层实际发起拉取数据的地方在上面那段代码中会具体发送请求到另一个服务去拉取数据对于这种场景需要保障用例不会受到对方服务的影响都能顺利执行关注的是这个方法本身的逻辑这里举例代码做了相应的简化因此和实际运行的逻辑不同在于在编写测试用例时对于底层发起的调用其实不是主要关注的可以基于约定好的成功失败的数据报文结构通过的方式来代替实际请求发送复制代码提供条件通过这种形式则可以有效屏蔽因为三方服务对于我们自己当前用例的影响核心的还是要关注在自己的业务逻辑上准备条件可以在中体现复制代码说明在中是一个因此执行此用例我们需要依赖容器环境复制代码在官文档中被描述用于使用的注解其目的是用于启动一个达到在无需部署应用程序或连接到其他基础设施即可执行集成测试已上面的代码为例其中用于描述运行环境主要包括以下几种类型类型描述这个选项不启动真正的服务器而是使用模拟的上下文来运行测试这意味着你的应用程序的层控制器过滤器等将在一个模拟的环境中运行不会实际处理请求和响应这种环境适用于单元测试和切片测试通常用于测试应用程序的业务逻辑这个选项会启动一个嵌入式的服务器并随机选择一个可用的端口测试将通过实际的请求和响应与应用程序的层交互这种环境适用于端到端测试可以测试整个栈包括控制器服务数据访问等这个选项也会启动嵌入式的服务器但它会使用一个预定义的端口号你可以通过配置属性来指定端口号与不同这个选项的端口号是固定的这对于需要在已知端口上运行测试的情况很有用这个选项完全不启动服务器它用于纯粹的单元测试不涉及任何层的逻辑在这种环境中通常只测试应用程序的业务逻辑和服务层不测试与请求和响应相关的内容属性用于指定要加载的配置类这些配置类将用于初始化应用程序上下文通过属性可以控制在测试中加载的配置以适应不同的测试需求在上述案例中是当前项目的启动类表示在测试中加载整个应用程序上下文用于指定测试运行器默认运行器是在中对应的是的子类而上述代码中的和是一样的从类的源码注释中可以看到是的别名使用内存数据库来代替实际库在编写用例时大多数情况下我们需要依赖数据库的数据进行场景描述但是一般情况下即使是测试库用于作为测试用例的依赖也是不合适的因此在实践过程中一般会使用来代替实际使用的类似数据库来进行测试实现数据层面的环境隔离使用作为测试用例依赖数据库也比较简单在中引入如下的依赖然后在测试时指定对应的配置文件代替的配置文件即可制定配置参考下一小节复制代码使用指定的测试配置文件如前面提到如何我们期望测试用例的环境和实际的环境隔离则可以使用一个单独的配置文件来描述比如使用代替实际的数据库测试配置文件复制代码使用作为数据源省略其他配置指定配置文件复制代码做好测试资源的清理做好测试资源清理是一个好用例具备的基本前提如果两个研发同时需要依赖某一个表的数据进行用例设计如果每个人都没有做好自己用例的资源清理则在实际的用例执行过程中则会出现用例之间的相互干扰另外如果对于一些团队没有使用来代替实际的测试库那么在用例不断执行的过程中会给测试库产生相当于的测试脏数据基于上面两个前提所以我们在设计用例时特别是涉及到数据或者状态变更的场景时一定要做好相应的资源清理如用户注册的场景逻辑复制代码注册用户在上面这段用例可能会出现的情况如果用户表中没有做基于名字或者手机号的唯一性校验则在我们的表中可能会出现很多为的用户每执行一次则产生一条记录如果用户表做了唯一性约束那么当第一次执行完之后第二次执行时则可能会报错当前用例会执行失败所以在优化这个用例时就可以将用例执行完之后的数据清除掉具体做法有两种在当前用例中执行比如通过在块中执行删除插入的数据在中执行删除插入的数据注解描述的方法会在每个用例执行完之后执行通过用于做资源清理小结本篇主要针对如何编写测试用例进行了简单的介绍包括场景的测试方式分类测试工具并通过几个小的测试用例对单元测试组件测试和集成测试做了分析最后针对日常研发中如何做好测试编写和如何做好测试资源释放给了目前主流方案的建议和使用说明',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-01 08:24:47',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8E%98%E9%87%91/" itemprop="url">掘金</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%8E%98%E9%87%91/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>掘金</span></a></span></div></div><h1 class="post-title" itemprop="name headline">如何编写测试用例</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:28:14.000Z" title="Created 2023-10-01 07:28:14">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-10-01T00:24:47.308Z" title="Updated 2023-10-01 08:24:47">2023-10-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><div class="post-ai-description"><div class="ai-title"><i class="anzhiyufont anzhiyu-icon-bilibili"></i><div class="ai-title-text">AI-摘要</div><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i><i class="anzhiyufont anzhiyu-icon-circle-dot" title="朗读摘要"></i><div id="ai-tag">Tianli GPT</div></div><div class="ai-explanation">AI初始化中...</div><div class="ai-btn-box"><div class="ai-btn-item">介绍自己 🙈</div><div class="ai-btn-item">生成本文简介 👋</div><div class="ai-btn-item">推荐相关文章 📖</div><div class="ai-btn-item">前往主页 🏠</div><div class="ai-btn-item" id="go-tianli-blog">前往爱发电购买</div></div><script data-pjax src="/js/anzhiyu/ai_abstract.js"></script></div><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/"><header><a class="post-meta-categories" href="/categories/%E6%8E%98%E9%87%91/" itemprop="url">掘金</a><a href="/tags/%E6%8E%98%E9%87%91/" tabindex="-1" itemprop="url">掘金</a><h1 id="CrawlerTitle" itemprop="name headline">如何编写测试用例</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:28:14.000Z" title="Created 2023-10-01 07:28:14">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-10-01T00:24:47.308Z" title="Updated 2023-10-01 08:24:47">2023-10-01</time></header><h1 id="如何编写测试用例"><a href="#如何编写测试用例" class="headerlink" title="如何编写测试用例"></a>如何编写测试用例</h1><p>代码质量管理是软件开发过程中的关键组成部分，比如我们常说的<strong>代码规范</strong>、代码可读性、<strong>单元测试和测试覆盖率</strong>等，对于研发人员来说<strong>单元测试和测试覆盖率</strong>是保障自己所编写代码的质量的重要手段；好的用例可以帮助研发人员<strong>确保代码质量和稳定性</strong>、<strong>减少维护成本</strong>、<strong>提高开发效率</strong>以及<strong>促进团队合作</strong>。之前看过一篇关于 OceanBase 质量之道的文章，文章中提到的工程理念就把测试作为非常重要的组成部分，是和研发同样重要的组成部分；也听过内部的同学说过，OB 最核心的是用例。</p>
+<blockquote>
+<p>OceanBase工程理念：经过多年的摸索，OceanBase团队打造了独特的工程文化。测试和开发同时进行，功能测试不再是一个独立分开的过程，而是融入到开发环节，从源端控制引入bug的概率。资深测试人员的精力主要放在难度较大的bug的发现，测试体系建设和相关技术钻研、测试自动化实施。我们建立了一套高效的代码准入流程，防范了许多初级的问题，提升了团队整体的研发效率。</p>
+</blockquote>
+<p>由此可见，测试用例对于项目的重要性。从实际的工作中，也会发现大多数的同学对于如何编写测试用例其实是比较模糊的，在以项目交付为核心思路的工程实践中，测试用例往往只占整个工程周期相当小的一部分，更多时候是依赖测试团队进行功能测试，属于纯黑盒测试。那么这种测试对于业务常规流程可以起到一定的作用，但是对于一些边界问题其实很难 cover 住；另外，基于黑盒模式的功能性测试对于研发团队本身来说，除了拿到准入的测试报告之外，并无其他帮助，当研发需要对代码进行重构或者升级某部分组件时，没有用例的保障，则会将风险直接带到线上环境去。</p>
+<h2 id="常见的测试方式"><a href="#常见的测试方式" class="headerlink" title="常见的测试方式"></a>常见的测试方式</h2><p>在既往的工作团队中，关于测试方式，包括我自己在内，在没系统了解过测试理论之前，对于各种测试方式也是模棱两可；因为测试方式的种类实在是多又杂。下面是梳理的常见的测试方式，按照不同的维度进行了分类。</p>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>测试方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测试目标</td>
+<td>功能测试</td>
+<td>验证系统是否按照规格说明的功能需求进行操作和响应。</td>
+</tr>
+<tr>
+<td></td>
+<td>性能测试</td>
+<td>评估系统在不同负载条件下的性能表现。</td>
+</tr>
+<tr>
+<td></td>
+<td>安全性测试</td>
+<td>发现系统的安全漏洞和弱点，以确保系统不容易受到攻击。</td>
+</tr>
+<tr>
+<td></td>
+<td>回归测试</td>
+<td>确保在对系统进行修改后，没有引入新的错误或破坏已有功能。</td>
+</tr>
+<tr>
+<td></td>
+<td>可用性测试</td>
+<td>评估系统的用户界面和用户体验。</td>
+</tr>
+<tr>
+<td></td>
+<td>兼容性测试</td>
+<td>验证系统在不同浏览器、操作系统和设备上的兼容性。</td>
+</tr>
+<tr>
+<td>测试层次</td>
+<td>单元测试</td>
+<td>验证单个代码单元（通常是函数、方法、类等）的正确性。</td>
+</tr>
+<tr>
+<td></td>
+<td>组件测试</td>
+<td>验证单个软件组件的功能性和正确性。</td>
+</tr>
+<tr>
+<td></td>
+<td>集成测试</td>
+<td>验证不同组件、模块或服务之间的接口和协同工作。</td>
+</tr>
+<tr>
+<td></td>
+<td>系统测试</td>
+<td>验证整个系统是否按照需求规格正常运行。</td>
+</tr>
+<tr>
+<td></td>
+<td>验收测试</td>
+<td>由最终用户或客户进行的测试，以验证系统是否满足其需求和期望。</td>
+</tr>
+<tr>
+<td>测试方法</td>
+<td>手动测试</td>
+<td>测试人员手动执行测试用例，模拟用户的操作。</td>
+</tr>
+<tr>
+<td></td>
+<td>自动化测试</td>
+<td>使用自动化测试工具和脚本来执行测试用例，提高测试效率和一致性。</td>
+</tr>
+<tr>
+<td></td>
+<td>白盒测试</td>
+<td>关注内部代码逻辑，通常由开发人员执行。</td>
+</tr>
+<tr>
+<td></td>
+<td>黑盒测试</td>
+<td>关注输入和输出，不关心内部代码逻辑。</td>
+</tr>
+<tr>
+<td></td>
+<td>灰盒测试</td>
+<td>结合了白盒测试和黑盒测试的特点。</td>
+</tr>
+<tr>
+<td>执行时机</td>
+<td>静态测试</td>
+<td>在代码编写之前或编译之后执行，包括静态代码分析、代码审查等。</td>
+</tr>
+<tr>
+<td></td>
+<td>动态测试</td>
+<td>在运行时执行，包括各种类型的功能测试、性能测试等。</td>
+</tr>
+<tr>
+<td>测试对象</td>
+<td>功能测试</td>
+<td>测试系统的功能性。</td>
+</tr>
+<tr>
+<td></td>
+<td>非功能测试</td>
+<td>测试系统的非功能性特征，如性能、安全性、可用性等。</td>
+</tr>
+<tr>
+<td></td>
+<td>白盒测试</td>
+<td>测试代码的内部逻辑和结构。</td>
+</tr>
+<tr>
+<td></td>
+<td>黑盒测试</td>
+<td>测试系统的输入和输出，不考虑内部实现。</td>
+</tr>
+</tbody></table>
+<p>每种测试方式都有其独特的目标和方法，可以在软件开发生命周期的不同阶段进行。不同的测试方式在不同的测试维度分类下会有一些重叠，这是正常的，但是他们的关注点是一致的。</p>
+<p>在本篇文章中，主要更偏向于研发侧，所以从测试层次角度来看，更多的是关注单元测试(UT)、组件测试(CT)以及集成测试(IT)。总体来说，UT 关注代码单元的正确性，CT关注组件的功能性，IT关注不同组件的集成和协同工作。这些测试层次通常是渐进的，从UT开始，然后是CT，最后是IT。不同的测试方式在软件测试策略中起着不同的作用，这些测试手段的目的就是共同确保软件在各个层次上的质量和稳定性。</p>
+<blockquote>
+<p>下面会通过一些具体的例子来阐述不同的测试方式，主要是针对单元测试、组件测试和集成测试；项目基于 Spingboot 2.4.12 版本，使用 Junit4 和 Mockito 两种测试工具包。</p>
+</blockquote>
+<h2 id="UT、CT-和-IT"><a href="#UT、CT-和-IT" class="headerlink" title="UT、CT 和 IT"></a>UT、CT 和 IT</h2><p>在具体看案例之前，先把几个测试工具跑出来，做个简单了解。</p>
+<h3 id="测试工具"><a href="#测试工具" class="headerlink" title="测试工具"></a>测试工具</h3><p>下面的案例中主要涉及到的测试工具和框架包括：<code>spring-boot-starter-test</code>、<code>junit4</code>和<code>Mockito</code>。</p>
+<h4 id="spring-boot-starter-test"><a href="#spring-boot-starter-test" class="headerlink" title="spring-boot-starter-test"></a>spring-boot-starter-test</h4><blockquote>
+<p>官方文档：<a href="https://link.juejin.cn/?target=https://docs.spring.io/spring-boot/docs/1.5.7.RELEASE/reference/html/boot-features-testing.html">docs.spring.io&#x2F;spring-boot…</a></p>
+</blockquote>
+<p><code>spring-boot-starter-test</code> 是 Spring Boot 提供的一个用于测试的依赖库，它简化了 Spring Boot 应用程序的测试过程，提供了许多有用的工具和类，帮助开发人员编写高效、可靠的单元测试和集成测试。就目前而言，JAVA 技术栈的项目是绕不开 Spring 这套体系的，而绝大多数情况下，在 spring 或者 springBoot 项目中，我们需要依赖 spring 容器刷新之后去测试相应的逻辑，<code>spring-boot-starter-test</code> 就是做这个事情的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xml复制代码<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="junit4"><a href="#junit4" class="headerlink" title="junit4"></a>junit4</h4><p>JUnit 4 是一个用于 Java 编程语言的单元测试框架。目前版本是 JUnit 5，目前我们项目中使用的是 JUnit4。以下是 JUnit 4 中一些常用的特性和概念：</p>
+<ul>
+<li><strong>注解驱动的测试</strong>：JUnit 4使用注解来标记测试方法，以指定哪些方法应该被运行为测试。常见的测试注解包括 @Test 用于标记测试方法、@Before 用于标记在每个测试方法之前运行的方法、@After 用于标记在每个测试方法之后运行的方法等。对于全局资源的初始化和释放可以通过 @BeforeClass 和 @AfterClass 来搞定。</li>
+<li><strong>测试套件</strong>：JUnit 4允许你将多个测试类组合在一起，形成一个测试套件，然后可以一次运行所有测试类。这对于组织和管理测试非常有用。</li>
+<li><strong>断言</strong>：JUnit 4提供了一系列的断言方法，用于验证测试中的条件是否为真。如果条件不满足，断言将引发测试失败。常见的断言方法包括 assertEquals、assertTrue、assertFalse、assertNull、assertNotNull 等。</li>
+<li><strong>运行器（Runners）</strong> ：JUnit 4引入了运行器的概念，允许你扩展测试的执行方式。JUnit 4提供了一些内置的运行器，例如 BlockJUnit4ClassRunner 用于普通的 JUnit 测试类，还有一些用于特定用途的运行器，如 Parameterized 用于参数化测试。目前在 springboot 中，使用了 SpringRunner 其实也是 BlockJUnit4ClassRunner 的子类。</li>
+</ul>
+<p>关于 Junit 的运行机制可以参考我之前写的一篇文章：<a href="https://link.juejin.cn/?target=http://www.glmapper.com/2021/07/02/tests/test-junit-run-principle/">你知道 Junit 是怎么跑的吗？</a></p>
+<h4 id="Mockito"><a href="#Mockito" class="headerlink" title="Mockito"></a>Mockito</h4><p>Mockito 是一个用于模拟对象的框架，用于创建和配置模拟对象，以模拟外部依赖。Mockito 的主要焦点是模拟外部依赖，以便在单元测试中隔离被测试的代码，并确保它与外部依赖正确交互。和 JUnit 4 的区别在于，JUnit 4 是一个单元测试框架，用于编写和运行测试用例，JUnit 4 的主要焦点是定义和执行测试，以及管理测试生命周期。</p>
+<p>关于 Mockito 的运行机制可以参考我之前写的一篇文章：<a href="https://link.juejin.cn/?target=http://www.glmapper.com/2021/11/06/tests/test-mock-mockito/">聊一聊 Mockito</a></p>
+<h3 id="单元测试（UT）"><a href="#单元测试（UT）" class="headerlink" title="单元测试（UT）"></a>单元测试（UT）</h3><p>在前面的测试分类中，单元测试主要是验证单个代码单元（通常是函数、方法、类等）的正确性；在实际的项目中，单元测试主要是对于一个封装好的工具类的测试。如在 DateUtil 工具类中有一个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getDate</span><span class="params">(Date date, String pattern)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">null</span> == date) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(pattern);</span><br><span class="line">    <span class="keyword">return</span> sdf.format(date);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>右击选中方法，goto -&gt; test，也可以通过相应的快捷键直接创建当前选中方法的测试用例。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202310010728795.webp" alt="img"></p>
+<p>相应的测试代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DateUtilTest</span> &#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_getDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">dateYear</span> <span class="operator">=</span> DateUtil.getDateYear(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">        <span class="type">String</span> <span class="variable">yyyy</span> <span class="operator">=</span> DateUtil.getDate(<span class="keyword">new</span> <span class="title class_">Date</span>(), <span class="string">&quot;YYYY&quot;</span>);</span><br><span class="line">        Assert.assertEquals(String.valueOf(dateYear), yyyy);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里覆盖了正常的情况，对于传入 date 为 null 的分支并未覆盖到；所以对于强调覆盖率必须满足一定阈值的情况(之前的一个项目中，在 CI 流程中会对当前提供的代码覆盖率进行严格把控，比如行覆盖率比如达到 75% 才能被 merge)，则对于不同分支逻辑也需要提供对应的用例。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="comment">// 当date 为 null 时，期望返回 null</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_getDate_when_date_null_thenReturn_null</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> DateUtil.getDate(<span class="literal">null</span>, <span class="string">&quot;YYYY&quot;</span>);</span><br><span class="line">    Assert.assertEquals(<span class="literal">null</span>, result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件测试（CT）-集成测试（IT）"><a href="#组件测试（CT）-集成测试（IT）" class="headerlink" title="组件测试（CT）&#x2F;集成测试（IT）"></a>组件测试（CT）&#x2F;集成测试（IT）</h3><p>我们目前基于 SpringBoot test 的测试，大体可以归类于组件测试；这种情况只需要针对当前服务自己的组件进行设计用例；对于可能涉及到的上下游依赖，一般可以通过 mock 的方式来绕过，从而使得当前应用的用例 focus 在自己的业务逻辑上。</p>
+<h4 id="使用-mock-代替实际请求"><a href="#使用-mock-代替实际请求" class="headerlink" title="使用 mock 代替实际请求"></a>使用 mock 代替实际请求</h4><p>场景描述：<code>UserCaseService 中有个 getUserCaseList 方法，通过传入一个 UserCaseRequest 参数，然后去另一个服务拉取当前用户的事件列表</code>；代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="keyword">public</span> Response&lt;CaseResponse&gt; <span class="title function_">getUserCaseList</span><span class="params">(UserCaseRequest request)</span> &#123;</span><br><span class="line">    Map&lt;String, Object&gt; param = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    param.put(<span class="string">&quot;phone&quot;</span>,request.getPhone());</span><br><span class="line">    param.put(<span class="string">&quot;pageNo&quot;</span>,request.getPageNo());</span><br><span class="line">    param.put(<span class="string">&quot;pageSize&quot;</span>,request.getPageSize());</span><br><span class="line">    <span class="type">JSONObject</span> <span class="variable">result</span> <span class="operator">=</span> HttpUtils.useHHMApi(<span class="string">&quot;/miniapp/user/case&quot;</span>, param);</span><br><span class="line">    Response&lt;CaseResponse&gt; response = result.toJavaObject(result, Response.class);</span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 HttpUtils 中，底层是对 RestTemplate 的封装：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="keyword">public</span> <span class="keyword">static</span> JSONObject <span class="title function_">request</span><span class="params">(String url, Map&lt;String, Object&gt; headers, Map&lt;String, Object&gt; param)</span> &#123;</span><br><span class="line"><span class="type">HttpHeaders</span> <span class="variable">head</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpHeaders</span>();</span><br><span class="line"><span class="keyword">if</span> (!ObjectUtils.isNull(headers)) &#123;</span><br><span class="line">    <span class="keyword">for</span> (String h : headers.keySet()) &#123;</span><br><span class="line">        head.add(h, String.valueOf(headers.get(h)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// HttpUtils.useHHMApi 底层实际发起拉取数据的地方</span></span><br><span class="line"><span class="type">String</span> <span class="variable">entity</span> <span class="operator">=</span> restTemplate.postForObject(url, <span class="keyword">new</span> <span class="title class_">HttpEntity</span>&lt;Map&gt;(param, head), String.class);</span><br><span class="line"><span class="keyword">return</span> JSONObject.parseObject(entity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面那段代码中，会具体发送 http 请求到另一个服务去拉取数据。对于这种场景：</p>
+<ul>
+<li>1、需要保障用例不会受到对方服务的影响都能顺利执行。</li>
+<li>2、关注的是 getUserCaseList 这个方法本身的逻辑（这里举例，代码做了相应的简化）</li>
+</ul>
+<p>因此，和实际运行的逻辑不同在于，在编写测试用例时，对于底层发起的 http 调用其实不是主要关注的，可以基于约定好的成功&#x2F;失败的数据报文结构，通过 mock 的方式来代替实际 http 请求发送。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_getUserCaseList</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="comment">// 提供 mock 条件</span></span><br><span class="line">    Mockito.when(restTemplate.postForObject(Mockito.any(String.class), Mockito.any(HttpEntity.class), Mockito.any(Class.class))).thenReturn(MockData.mockMiniAppUserCaseResponseData(<span class="literal">true</span>));</span><br><span class="line"></span><br><span class="line">    <span class="type">UserCaseRequest</span> <span class="variable">request</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserCaseRequest</span>();</span><br><span class="line">    request.setPhone(<span class="string">&quot;15215608668&quot;</span>);</span><br><span class="line">    request.setPageNo(<span class="number">1</span>);</span><br><span class="line">    request.setPageSize(<span class="number">10</span>);</span><br><span class="line">    Response&lt;UserCaseResponse&gt; response = naturalService.getUserCaseList(request);</span><br><span class="line">    Assert.assertEquals(<span class="string">&quot;200&quot;</span>, response.getCode());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过这种形式，则可以有效屏蔽因为三方服务对于我们自己当前用例的影响（核心的还是要关注在自己的业务逻辑上）。</p>
+<blockquote>
+<p>准备条件可以在 @Before 中体现</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="meta">@Before</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">before</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">RestTemplate</span> <span class="variable">restTemplate</span> <span class="operator">=</span> Mockito.mock(RestTemplate.class);</span><br><span class="line">    HttpUtils.setRestTemplate(restTemplate);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="SpringBootTest-说明"><a href="#SpringBootTest-说明" class="headerlink" title="SpringBootTest 说明"></a>SpringBootTest 说明</h4><p>在 test_getUserCaseList 中，naturalService 是一个spring bean，因此执行此用例我们需要依赖 spring 容器环境。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, </span></span><br><span class="line"><span class="meta">                classes = ServerApplication.class)</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserCaseTest</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> NaturalService naturalService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// your test case </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://link.juejin.cn/?target=https://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/context/SpringBootTest.html">@SpringBootTest</a> 在官文档中被描述用于 integration testing 使用的注解，<strong>其目的是用于启动一个</strong> <strong>ApplicationContext，达到在无需部署应用程序或连接到其他基础设施即可执行</strong> <strong>集成测试</strong>。已上面的代码为例，其中：</p>
+<ul>
+<li>webEnvironment 用于描述运行环境，主要包括以下几种类型：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MOCK</td>
+<td>这个选项不启动真正的 Web 服务器，而是使用模拟的 Servlet 上下文来运行测试。这意味着你的应用程序的 Web 层（控制器、过滤器等）将在一个模拟的环境中运行，不会实际处理 HTTP 请求和响应。这种环境适用于单元测试和切片测试，通常用于测试应用程序的业务逻辑。</td>
+</tr>
+<tr>
+<td>RANDOM_PORT</td>
+<td>这个选项会启动一个嵌入式的 Web 服务器，并随机选择一个可用的端口。测试将通过实际的 HTTP 请求和响应与应用程序的 Web 层交互。这种环境适用于端到端测试，可以测试整个 Web 栈，包括控制器、服务、数据访问等。</td>
+</tr>
+<tr>
+<td>DEFINED_PORT</td>
+<td>这个选项也会启动嵌入式的 Web 服务器，但它会使用一个预定义的端口号。你可以通过 server.port 配置属性来指定端口号。与 WebEnvironment.RANDOM_PORT 不同，这个选项的端口号是固定的。这对于需要在已知端口上运行测试的情况很有用。</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>这个选项完全不启动 Web 服务器。它用于纯粹的单元测试，不涉及任何 Web 层的逻辑。在这种环境中，通常只测试应用程序的业务逻辑和服务层，不测试与 HTTP 请求和响应相关的内容。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>classes 属性用于指定要加载的配置类，这些配置类将用于初始化 Spring Boot 应用程序上下文。通过 classes 属性，可以控制在测试中加载的 Spring Bean 配置，以适应不同的测试需求。在上述案例中，ServerApplication.class 是当前项目的启动类，表示在测试中加载整个应用程序上下文。</li>
+<li>@RunWith 用于指定测试运行器（Runner），JUnit 4 默认运行器是 BlockJUnit4ClassRunner ，在 Spring 中对应的是 BlockJUnit4ClassRunner 的子类 SpringJUnit4ClassRunner，而上述代码中的 SpringRunner 和 SpringJUnit4ClassRunner 是一样的，从 SpringRunner 类的源码注释中可以看到，SpringRunner是 SpringJUnit4ClassRunner 的别名(<code>SpringRunner is an alias for the SpringJUnit4ClassRunner</code>)。</li>
+</ul>
+<h4 id="使用-H2-内存数据库来代替实际库"><a href="#使用-H2-内存数据库来代替实际库" class="headerlink" title="使用 H2 内存数据库来代替实际库"></a>使用 H2 内存数据库来代替实际库</h4><p>在编写用例时，大多数情况下，我们需要依赖数据库的数据进行场景描述；但是一般情况下，即使是测试库，用于作为测试用例的依赖也是不合适的。因此在实践过程中，一般会使用 H2 来代替实际使用的类似 Mysql 数据库来进行测试，实现数据层面的环境隔离。使用 H2 作为测试用例依赖数据库也比较简单，在 pom 中引入如下 H2 的依赖。然后在测试时指定对应 H2 的配置文件代替 Mysql 的配置文件即可，制定配置参考下一小节。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xml复制代码<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.h2database<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用指定的测试配置文件"><a href="#使用指定的测试配置文件" class="headerlink" title="使用指定的测试配置文件"></a>使用指定的测试配置文件</h4><p>如前面提到，如何我们期望测试用例的环境和实际的环境隔离，则可以使用一个单独的配置文件来描述，比如使用 H2 代替实际的数据库。</p>
+<ul>
+<li>测试配置文件 application-test.yaml</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">yaml复制代码spring:</span></span><br><span class="line">  <span class="comment"># 使用 H2 作为数据源</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:h2:mem:customdb</span></span><br><span class="line">    <span class="attr">driverClassName:</span> <span class="string">org.h2.Driver</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">password</span></span><br><span class="line"><span class="comment"># 省略其他配置</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>指定配置文件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="meta">@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, </span></span><br><span class="line"><span class="meta">                classes = ServerApplication.class)</span></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@PropertySource(value = &#123;&quot;classpath:application-test.yaml&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserCaseTest</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> NaturalService naturalService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// your test case </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="做好测试资源的清理"><a href="#做好测试资源的清理" class="headerlink" title="做好测试资源的清理"></a>做好测试资源的清理</h4><p>做好测试资源清理是一个好用例具备的基本前提；如果两个研发同时需要依赖某一个表的数据进行用例设计，如果每个人都没有做好自己用例的资源清理，则在实际的用例执行过程中则会出现用例之间的相互干扰。另外，如果对于一些团队，没有使用 H2 来代替实际的测试库，那么在用例不断执行的过程中，会给测试库产生相当于的测试脏数据。基于上面两个前提，所以我们在设计用例时，特别是涉及到数据或者状态变更的场景时，一定要做好相应的资源清理。如用户注册的场景逻辑：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">java复制代码<span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test_register</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">UserDto</span> <span class="variable">userDto</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserDto</span>();</span><br><span class="line">    userDto.setPhone(<span class="string">&quot;test number&quot;</span>);</span><br><span class="line">    userDto.setName(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">    userDto.setNickName(<span class="string">&quot;test&quot;</span>);</span><br><span class="line">    userDto.setPassword(<span class="string">&quot;test pwd&quot;</span>);</span><br><span class="line">    <span class="comment">// 注册用户</span></span><br><span class="line">    <span class="type">bool</span> <span class="variable">success</span> <span class="operator">=</span> userService.register(userDto);</span><br><span class="line">    Assert.assertTrue(success);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面这段用例，可能会出现的情况：</p>
+<ul>
+<li>如果用户表中没有做基于名字或者手机号的唯一性校验，则在我们的表中可能会出现很多 name 为 test 的用户。（每执行一次，则产生一条记录）</li>
+<li>如果用户表做了唯一性约束，那么当第一次执行完之后，第二次执行时则可能会报错，当前用例会执行失败。</li>
+</ul>
+<p>所以，在优化这个用例时，就可以将用例执行完之后的数据清除掉。具体做法有两种：</p>
+<ul>
+<li>1、在当前用例中执行，比如通过 try finally，在 finally 块中执行删除插入的数据</li>
+<li>2、在 @After 中执行删除插入的数据（@After 注解描述的方法，会在每个用例执行完之后执行，通过用于做资源清理）</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>本篇主要针对如何编写测试用例进行了简单的介绍；包括场景的测试方式分类、测试工具；并通过几个小的测试用例对单元测试、组件测试和集成测试做了分析。最后针对日常研发中，如何做好测试编写和如何做好测试资源释放给了目前主流方案的建议和使用说明。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/')">如何编写测试用例</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=如何编写测试用例&amp;url=http://example.com/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/3/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%8E%98%E9%87%91/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>掘金<span class="tagsPageCount">14</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/4/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">PO、VO、DAO、BO、DTO、POJO 能分清吗？</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/projects/zatan/7/1/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">关于微信备份到pc端(ios)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/1/" title="五个很实用的IDEA使用技巧"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">五个很实用的IDEA使用技巧</div></div></a></div><div><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/11/" title="【保姆级】 Vue3 开发文档"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">【保姆级】 Vue3 开发文档</div></div></a></div><div><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/10/" title="git解决冲突"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">git解决冲突</div></div></a></div><div><a href="/2023/10/03/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/13/" title="Nest + Redis + 地图，实现附近的充电宝"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-03</div><div class="title">Nest + Redis + 地图，实现附近的充电宝</div></div></a></div><div><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/12/" title="前端 ”一键换肤“ 技术方案"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">前端 ”一键换肤“ 技术方案</div></div></a></div><div><a href="/2023/10/01/%E6%8E%98%E9%87%91%E6%94%B6%E8%97%8F/2/" title="你知道抖音的IP归属地是怎么实现的吗"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">你知道抖音的IP归属地是怎么实现的吗</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">如何编写测试用例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E6%B5%8B%E8%AF%95%E6%96%B9%E5%BC%8F"><span class="toc-number">1.1.</span> <span class="toc-text">常见的测试方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UT%E3%80%81CT-%E5%92%8C-IT"><span class="toc-number">1.2.</span> <span class="toc-text">UT、CT 和 IT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7"><span class="toc-number">1.2.1.</span> <span class="toc-text">测试工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#spring-boot-starter-test"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">spring-boot-starter-test</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#junit4"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">junit4</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mockito"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Mockito</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%EF%BC%88UT%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">单元测试（UT）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%B5%8B%E8%AF%95%EF%BC%88CT%EF%BC%89-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%EF%BC%88IT%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">组件测试（CT）&#x2F;集成测试（IT）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-mock-%E4%BB%A3%E6%9B%BF%E5%AE%9E%E9%99%85%E8%AF%B7%E6%B1%82"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">使用 mock 代替实际请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SpringBootTest-%E8%AF%B4%E6%98%8E"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">SpringBootTest 说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-H2-%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9D%A5%E4%BB%A3%E6%9B%BF%E5%AE%9E%E9%99%85%E5%BA%93"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">使用 H2 内存数据库来代替实际库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%8C%87%E5%AE%9A%E7%9A%84%E6%B5%8B%E8%AF%95%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">使用指定的测试配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%9A%E5%A5%BD%E6%B5%8B%E8%AF%95%E8%B5%84%E6%BA%90%E7%9A%84%E6%B8%85%E7%90%86"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">做好测试资源的清理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">1.3.</span> <span class="toc-text">小结</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

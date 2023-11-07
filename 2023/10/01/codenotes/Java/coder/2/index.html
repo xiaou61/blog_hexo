@@ -1,0 +1,526 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>技术架构以及如何快速开发技巧 | 小u的博客</title><meta name="keywords" content="后端,coder1v5"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="技术架构以及如何快速开发技巧"><meta name="application-name" content="技术架构以及如何快速开发技巧"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="技术架构以及如何快速开发技巧"><meta property="og:url" content="http://example.com/2023/10/01/codenotes/Java/coder/2/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="首先来一个简单的架构。 比如一个庞大的项目，比如说类似京东这种庞大的项目，肯定是用的微服务。 像这种大的项目就需要用gateway来进行限流，权限认证。 gateway也叫网关 网关一、API Gateway网关？是什么呢？API网关作用就是把各个服务对外提供的API汇聚起来，让外界看起来是一个统"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="首先来一个简单的架构。 比如一个庞大的项目，比如说类似京东这种庞大的项目，肯定是用的微服务。 像这种大的项目就需要用gateway来进行限流，权限认证。 gateway也叫网关 网关一、API Gateway网关？是什么呢？API网关作用就是把各个服务对外提供的API汇聚起来，让外界看起来是一个统"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/codenotes/Java/coder/2/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: '技术架构以及如何快速开发技巧',
+  postAI: '',
+  pageFillDescription: '网关, 一、API Gateway网关？是什么呢？, 二、网关组成, 三、 Gateway是什么？伙伴们你们清楚吗？, 四、为什么用Gateway, 聚合应用层, 快速开发流程, 代码生成器, Vo, 版本兼容, 知识背景, Maven Jar包管理机制, 最先声明优先原则, Jar包冲突产生的原因, 排查定位Jar包冲突, 如何统一Jar包依赖, 解决Jar包冲突的方法, Jar包冲突的本质首先来一个简单的架构比如一个庞大的项目比如说类似京东这种庞大的项目肯定是用的微服务像这种大的项目就需要用来进行限流权限认证也叫网关网关一网关是什么呢网关作用就是把各个服务对外提供的汇聚起来让外界看起来是一个统一的接口同时也可在网关中提供额外的功能分布式服务架构微服务架构与网关在微服务架构里服务的粒度被进一步细分各个业务服务可以被独立的设计开发测试部署和管理这时各个独立部署单元可以用不同的开发测试团队维护可以使用不同的编程语言和技术平台进行设计这就要求必须使用一种语言和平台无关的服务协议作为各个单元间的通讯方式总结网关就是所有项目的一个统一入口二网关组成网关路由转发过滤器编写额外功能路由转发接收外界请求通过网关的路由转发转发到后端的服务上如果只有这个一个功能看起来和之前学习的反向代理服务器很像外界访问由做负载均衡后把请求转发到对应服务器上过滤器网关非常重要的功能就是过滤器过滤器中默认提供了内置功能还自持额外的自定义功能对于我们来说比较常用的功能有网关的容错限流以及请求及相应的额外处理三是什么伙伴们你们清楚吗介绍是官方基于和等技术开发的网关旨在为微服务架构提供一种简单而有效的统一的路由管理方式作为生态系中的网关目标是替代其不仅提供统一的路由方式并且基于链的方式提供了网关基本的功能例如安全监控埋点和限流等是的二级子项目提供了微服务网关功能包含权限安全监控指标等功能介绍一下我们要学习中的名词以及所包含的意思中文称为路由里面的是主要学习内容一个项目可以包含多个一个路由包含集合集合在中是自定的就是一个地址剩下的和学习明白了就学习清楚了中文谓词谓词时学习比较重要的一点简单点理解谓词就是一些附加条件和内容所有生效的都是的实例在运行过程中负责在代理服务之前或之后去做一些事情流程流程文字解释网关客户端访问网关中对请求进行处理处理完成后交换会被进行过滤中前半部分代码是处理请求的代码处理完成后调用真实被代理的服务被代理服务响应结果结果会被中后半部分代码进行操作操作完成后把结果返回给在返回给最终响应给客户端四为什么用可以看做是一个的升级版和代替品比更早的使用实现异步从而实现了一个简单比更高效的与紧密配合的网关里明确的区分了和并且一个很大的特点是内置了非常多的开箱即用功能并且都可以通过配置或者手工编码链式调用来使用比如内置了种使得我们可以直接配置一下就可以随心所欲的根据或者或者或者来做路由比如区分了一般的和全局内置了种和种全局也都可以直接用当然自定义也非常方便最重要的几个概念了解完网关之后我们继续来进行看这就是一个整体的技术架构这里来详细介绍一下聚合应用层是什么聚合应用层网关是微服务架构不可或缺的一部分作为微服务架构的唯一入口将所有请求转发到后端对应的微服务上去同时又可以将各个微服务中的通用功能集中到网关去做而不是在每个微服务都实现一遍比如权限校验限流熔断和监控等如图所示这是个典型的前后端分离的微服务架构但这个架构在的问题是一个接口无法同时满足不同场景的业务如移动端可能与端的需求不一样导致接口存在差异这时微服务就要对接不同的需求产生了各种各样的问题有没有更优雅的解决方式呢那就是引入这个词是年月在他的一篇博客中提出的是的简写为了前端的后端的博客还有一个副标题为了用户界面或外部方的单一目的的边缘服务用户界面比如我们常见的网页或外部方比如第三方客户企业微信小程序等其实这中模式更早一点就出现了淘宝在更早一点的时候就设立中途岛项目其主要内容就是也称聚合层或者适配层它主要承接一个适配角色将内部复杂的微服务适配成对各种不同用户体验无线第三方等友好和统一的聚合裁剪适配是的主要职责改造后的微服务架构如下图引入后有如下好处聚合将后端多个请求合并成一个请求以减少网络传输时间这些请求可能来自一个服务也可能来自多个服务适配因为遵守的接口规范不同多个微服务和外部服务的接口可能有很多不同在层可以做一些适配给前端代码提供同一个的数据格式和接口格式裁剪同样的信息在不同的客户端有着不同的展现比如手机屏幕尺寸较小内存较小性能较差只能展示部分非常重要的信息如果和电脑上使用同一个接口势必导致手机上页面渲染变慢还会浪费手机电量和网络流量我们在看到带来的各种好处的同时也要注意到它所带来的代码重复和工作量增加方面的问题另外因为增加了一层调用链也会对响应时间稍有影响之后我们来看我们如何快速开发快速开发流程这个是我们最终要进行去学习的这里我们要进行层的代码生成器来进行快速的生成这里的文件要考虑的就是兼容的问题这个是有一定的要求的如果兼容不好这个会是一个大的问题下面来介绍一下如何进行一个快速的版版本兼容在了解了如何进行快速的版本兼容后我们来介绍脚手架大概就是一个这样的之后我们创建一个这样的项目就可以了我们来对这个代码进行一个简单的介绍此代码使用构建工具基于现有原型生成新项目以下是每行含义的细分这会告诉运行目标该目标用于从原型创建新项目这会将新项目的组设置为组是项目的唯一标识符用于将其与同一包中的其他项目区分开来这会将新项目的工件设置为演示项目项目是组中项目的唯一标识符通常是项目的名称这会将新项目的版本号设置为如果需要可以在以后更改这会将新项目的包名称设置为这将确定项目的源文件将转到何处这将设置我们要用于创建新项目的原型的组在本例中我们使用原型这将为我们要用于创建新项目的原型设置工件在本例中我们使用模板原型工件这将设置我们要用于创建新项目的原型的版本号在本例中我们使用的是原型版本这告诉在生成过程中不要提示用户输入相反它将仅使用指定的设置并创建项目而无需请求确认因此将它们放在一起此代码生成一个名为的新项目版本为并将其打包在下它使用原型及其模板原型工件也是版本生成过程会自动运行而不会提示用户输入当然这个是可以自己去自定义如果自己嫌弃麻烦最简单的也有自带的下面来介绍代码生成器代码生成器首先来看这种简单的代码生成器的一个原理主要就是通过这俩个命令是一个命令用于显示有关数据库中特定表的各种详细信息此命令的语法通常是其中是我们要显示其状态的表的名称此命令的输出包括几列这些列提供有关表的信息例如表的名称表使用的存储引擎常见的值包括和表格格式的版本号表中行的格式例如动态固定或紧凑表中行数的估计值行的平均长度以字节为单位表中所有数据的总长度以字节为单位单行的最大长度以字节为单位表上所有索引的总长度以字节为单位表中可用的可用空间量通过检查这些值我们可以深入了解表的大小和结构这对于优化查询排查性能问题或规划架构的未来更改非常有用是一个命令用于显示有关给定表中所有列的详细信息它类似于语句但它提供有关每列的更全面的信息包括列的数据类型排序规则字符集和其他属性以下是命令的每个部分含义的细分此关键字表示我们要显示有关表的信息此关键字指定我们希望查看表中的所有列包括隐藏的或具有默认值的列这个关键字告诉我们希望看到有关表中列的信息此关键字指定我们要为其显示列的表例如如果我们想查看名为的表中的所有列我们将使用以下命令这将显示表中所有列的列表以及它们的数据类型排序规则字符集和其他属性请务必注意某些列可能具有某些属性的值具体取决于特定列和您使用的版本此外某些列可能指定了默认值该值将显示在列名称后面的括号中通过这个就可以进行一个快速的生成了因为这个视频里面主要讲的就是原理没有放出来代码生成器所以我这里也只是说原理在我的一点搜索后发现代码生成器使用手册这里的代码生成器是不错的有兴趣的可以去查看这个这里在补充一个的东西随着编程工业化水平的不断加深各种编程模型层出不穷比如等等伴随着这些编程模型又有一大批新的概念蜂拥而至什么之类的这些新的概念一直以来都是云里雾里网上虽然也有不少文章来区分这些概念但看下来基本都是几篇相同的文章转载来转载去这些文章本身也说的不明有些还互相矛盾再加上有些文章在简化系统里面来使用这些概念让人越看越迷糊什么原因造成了这种混乱的状态就不深究了感觉也很难究出所以然来因此让我们立足这些概念本身达成对概念理解的一致性就足够了这也是这边文章的主要目的鉴于专业术语的解释互联网上太多一搜一大把我就不重复一遍术语了而且说实话术语太抽象不利于理解看完其实没解决啥疑惑我会尽量用大白话人话来做解释争取让大家都能看明白废话不多说先来看张图看完图估计大部分人就已经有了一个直观的感受了面对这个图让我们先从承上启下的开始入手数据传输对象这个传输通常指的前后端之间的传输是一个比较特殊的对象他有两种存在形式在后端他的存在形式是对象也就是在里面定义的那个东东通常在后端不需要关心怎么从转成对象的这个都是由一些成熟的框架帮你完成啦比如框架在前端他的存在形式通常是里面的对象也可以简单理解成也就是通过请求的那个数据体这也是为什么把他画成横跨两层的原因这里可能会遇到个问题现在微服务盛行服务和服务之间调用的传输对象能叫吗我的理解是看情况本身的一个隐含的意义是要能够完整的表达一个业务模块的输出如果服务和服务之间相对独立那就可以叫如果服务和服务之间不独立每个都不是一个完整的业务模块拆开可能仅仅是因为计算复杂度或者性能的问题那这就不能够叫做只能是值对象就是展示用的数据不管展示方式是网页还是客户端还是只要是这个东西是让人看到的这就叫主要的存在形式就是里面的对象也可以简单理解成和的区别主要有两个区别一个是字段不一样根据需要会删减一些字段另一个是值不一样会根据需要对中的值进行展示业务的解释举个简单的例子可能是这样的男对于业务一来说只需要性别而且因为是一个古风聊天室也不能直接展示男因此经过业务解释业务一的是公子对于业务二来说只需要年龄而且不需要精确的年龄因此经过业务解释业务二的是持久对象比较好理解简单说就是数据库中的记录一个的数据结构对应着库中表的结构表中的一条记录就是一个对象通常里面除了之外没有别的方法对于来说数量是相对固定的一定不会超过数据库表的数量等同于这俩概念是一致的业务对象就是的组合简单的例子比如说是一条交易记录是一个人全部的交易记录集合对象复杂点儿的例子是交易记录是登录记录是商品浏览记录是添加购物车记录是搜索记录是个人网站行为对象是一个业务对象一类业务就会对应一个数量上没有限制而且会有很多业务操作也就是说除了方法以外会有很多针对自身数据进行计算的方法为什么也画成横跨两层呢原因是现在很多持久层框架自身就提供了数据组合的功能因此有可能是在业务层由业务来拼装而成也有可能是在数据库访问层由框架直接生成很多情况下为了追求查询的效率框架跳过直接生成的情况非常普遍只是用来增删改使用和的区别这两个的区别主要是就是字段的删减对内为了进行业务计算需要辅助数据或者是一个业务有多个对外的接口可能会含有很多接口对外所不需要的数据因此需要在的基础上只要自己需要的数据然后对外提供在这个关系上通常不会有数据内容的变化内容变化要么在内部业务计算的时候完成要么在解释的时候完成到这里这些关系基本就理清楚了等等是什么呢标题不是还有个么上面这些概念基本上已经涵盖了全部的流程只是跟其中一个概念相同但是跟哪个概念相同呢现在主要有两个版本一个是阿里巴巴的开发手册中的定义这个等同于上面的另一个是在领域驱动设计中这个等同于上面的最后让我们再说说实际应用这几个概念很完整我们在用的时候是必须按这个来做吗当然不是的系统和系统的复杂度不同协作水平不同完全没有必要教条主义这些概念全上上哪些概念省哪些我给一些实际建议这个没法省不管叫还是怎么着都得有一些工具类的系统和一些业务不是很复杂的系统是可以和合并成一个当业务扩展的时候注意拆分就行是可以第一个优化掉的展示业务不复杂的可以压根儿不要直接用这也是最重要的一条概念是给人用的多人协作的时候一定要保证大家的概念一致赶紧把这篇文章转发给跟你协作的人吧版本兼容知识背景包冲突在软件开发过程中是不可避免的因此如何快速定位冲突源理解冲突导致的过程及底层原理是每个程序员的必修课也是提升工作效率应对面试在团队中脱颖而出的机会实践中能够直观感受到的包冲突表现往往有这几种程序抛出异常程序抛出异常程序抛出异常程序抛出异常等这是能够直观呈现的当然还有隐性的异常比如程序执行结果与预期不符等下面我们就分析一下项目中包的处理机制及引起冲突的原因包管理机制在项目中想要了解冲突必须得先了解一下是如何管理的包的这涉及到的一些特性比如依赖传递最短路径优先原则最先声明原则等依赖传递原则当在项目中引入的依赖的依赖通常又会引入的包可能还会引入的包这样当你在文件中添加了的依赖会自动的帮你把所有相关的依赖都添加进来比如在项中当引入了此时的依赖结构可能是这样的上面这种关系我们就可以理解为依赖的传递性即当一个依赖需要另外一个依赖支撑时会帮我们把相应的依赖依次添加到项目当中这样的好处是使用起来就非常方便不用自己挨个去找依赖包了坏处是会引起包冲突我们后面会讲到最短路径优先原则依赖链路一主要根据依赖的路径长短来决定引入哪个依赖两个冲突的依赖举例说明依赖链路一依赖链路二项目中同时引入了和两个依赖它们间接都引入了依赖但由于的依赖链路比较短因此最终生效的是版本这就是最短路径优先原则此时如果的版本和版本区别较大那么就会发生包冲突的表现最先声明优先原则如果两个依赖的路径一样最短路径优先原则是无法进行判断的此时需要使用最先声明优先原则也就是说谁的声明在前则优先选择举例说明依赖链路一依赖链路二和最终都依赖此时的声明中引入的顺序优先于则针对冲突的会优先引入如果向下兼容则不会出现包冲突问题但如果将声明放前面则有可能会发生包冲突包冲突产生的原因上面讲了维护包的三个原则其实每个原则会发生什么样的包冲突已经大概了解了这里再来一个综合示例举例说明依赖链路一依赖链路二假设项目中同时引入了和的依赖按照依赖传递机制和默认依赖调节机制第一路径最近者优先第二第一声明优先默认会引入版本的包而的包不会被引用如果中的方法使用了版本中的某个新方法或类由于的处理导致并未被引入此时程序在调用对应类时便会抛出异常调用对应方法时便会抛出异常排查定位包冲突在高版本的中已经自带了依赖管理插件依次执行打开文件在文件内右击选择选择即可查看的依赖层级结构执行之后展示的效果便是最开始的那样效果在图中可以清楚的看到都使用了哪些依赖它们的层级是否有冲突的包等冲突部分会用红色标出同时标出默认选择了哪个版本如果你的版本中默认没有管理插件也可安装通过这块插件来帮你分析包冲突安装完插件重启之后打开文件在文件下面的视图中便可以看到包冲突的结果分析此时关于哪些包冲突了便一目了然同时可以右击冲突的包执行进行排除在中便会自动添加排除包的属性对于本地环境可以利用等插件来解决但在预生产或生成环境中就没那么方便了此时可以通过命令来定位突出的细节执行如下命令注意不要省略要不然不会显示被忽略的包执行结果如下通过这种形式也可以清晰的看出哪些包发生了冲突如何统一包依赖像上面截图所示如果一个项目有多个子项目构成项目之间可能还有依赖关系包冲突不可避免此时可采用父统一对版本进行管理一劳永逸通常做法是在模块的文件中尽可能地声明所有相关依赖包的版本并在子中简单引用不再指定版本该构件即可比如在父中定义的版本在子中便可定义如下通过这种方式所有的子中都采用了统一的版本解决包冲突的方法这里基于项目介绍几种场景下解决冲突的方法默认处理采用此种方法要牢记依赖调节机制的基本原则路径最近者优先和第一声明优先排除法上面的实例中已经讲到可以将冲突的包在中通过来进行排除版本锁定法如果项目中依赖同一包的很多版本一个个排除非常麻烦此时可用版本锁定法即直接明确引入指定版本的依赖根据前面介绍处理包基本原则此种方式的优先级最高这种方法一般采用上面我们讲到的如何统一包依赖的方式包冲突的本质上面讲了对项目中包冲突的解决原则和实战层面的解决方案但并未涉及到包冲突的本质关于包冲突的本质在从包冲突搞到类加载机制就是这么霸气一文中已经进行详细的讲解了这里再针对其中的几个关键点进行概述一下包冲突的本质应用程序因某种因素加载不到正确的类而导致其行为跟预期不一致具体分两种情况情况一项目依赖了同一包的多个版本并且选错了版本情况二同样的类在不同的包中出现导致加载了错误的类情况一也是本文重点讨论的场景也就是说引入了多个包版本不同的包版本有不同的类和方法由于不懂依赖树的仲裁机制导致加载了错误的包从而导致包冲突情况二同一类在不同的包中出现这种情况是由于的同一个类加载器对于同一个类只会加载一次现在加载一个类之后同全限定名的类便不会进行加载从而出现包冲突的问题针对第二种情况如果不是类冲突抛出了异常你可能根本意识不到所以就显得更为棘手这种情况就可以采用前文所述的通过分析不同类加载器的优先级及加载路径文件系统的文件加载顺序等进行调整来解决小结除了上述的方法还很多小技巧来排查类冲突比如通过提供的搜索功能直接搜索抛异常的类看看是否存在多个是否使用的是预期的版本等这些技巧需要在实践的过程中不断的摸索和积累总之无论项目多么庞大依赖多么复杂只要牢记导致冲突的原因及解决冲突的几个方式细心分析总会有迹可循的看完这篇文章实践一下你可能就会在团队中脱颖而出成为包冲突终结者',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-04 20:32:35',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/coder1v5/" itemprop="url">coder1v5</a><i class="anzhiyufont anzhiyu-icon-angle-right post-meta-separator"></i><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/coder1v5/%E5%90%8E%E7%AB%AF/" itemprop="url">后端</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>后端</span></a><a class="article-meta__tags" href="/tags/coder1v5/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>coder1v5</span></a></span></div></div><h1 class="post-title" itemprop="name headline">技术架构以及如何快速开发技巧</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.056Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-04T12:32:35.592Z" title="Updated 2023-08-04 20:32:35">2023-08-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/codenotes/Java/coder/2/"><header><a class="post-meta-categories" href="/categories/coder1v5/" itemprop="url">coder1v5</a><a class="post-meta-categories" href="/categories/coder1v5/%E5%90%8E%E7%AB%AF/" itemprop="url">后端</a><a href="/tags/%E5%90%8E%E7%AB%AF/" tabindex="-1" itemprop="url">后端</a><a href="/tags/coder1v5/" tabindex="-1" itemprop="url">coder1v5</a><h1 id="CrawlerTitle" itemprop="name headline">技术架构以及如何快速开发技巧</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:06.056Z" title="Created 2023-10-01 07:34:06">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-04T12:32:35.592Z" title="Updated 2023-08-04 20:32:35">2023-08-04</time></header><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041705243.png" alt="image-20230804170555177"></p>
+<p>首先来一个简单的架构。</p>
+<p>比如一个庞大的项目，比如说类似京东这种庞大的项目，肯定是用的微服务。</p>
+<p>像这种大的项目就需要用gateway来进行限流，权限认证。</p>
+<p>gateway也叫网关</p>
+<h2 id="网关"><a href="#网关" class="headerlink" title="网关"></a>网关</h2><h3 id="一、API-Gateway网关？是什么呢？"><a href="#一、API-Gateway网关？是什么呢？" class="headerlink" title="一、API Gateway网关？是什么呢？"></a>一、API Gateway网关？是什么呢？</h3><p>API网关作用就是把各个服务对外提供的API汇聚起来，让外界看起来是一个统一的接口。同时也可在网关中提供额外的功能。</p>
+<p>分布式服务架构、微服务架构与 API 网关：</p>
+<p>在微服务架构里，服务的粒度被进一步细分，各个业务服务可以被独立的设计、开发、测试、部署和管理。这时，各个独立部署单元可以用不同的开发测试团队维护，可以使用不同的编程语言和技术平台进行设计，这就要求必须使用一种语言和平 台无关的服务协议作为各个单元间的通讯方式。</p>
+<p>总结：网关就是所有项目的一个统一入口。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://pic4.zhimg.com/80/v2-7df20b4dbab4af40defbb9f533d28c7f_1440w.webp" alt="img"></p>
+<h3 id="二、网关组成"><a href="#二、网关组成" class="headerlink" title="二、网关组成"></a>二、网关组成</h3><p>网关 &#x3D; 路由转发 + 过滤器（编写额外功能）</p>
+<p><strong>1. 路由转发</strong></p>
+<p>接收外界请求，通过网关的路由转发，转发到后端的服务上。</p>
+<p>如果只有这个一个功能看起来和之前学习的Nginx反向代理服务器很像，外界访问nginx，由nginx做负载均衡，后把请求转发到对应服务器上。</p>
+<p><strong>2.过滤器</strong></p>
+<p>网关非常重要的功能就是过滤器。</p>
+<p>过滤器中默认提供了25内置功能还自持额外的自定义功能。</p>
+<p>对于我们来说比较常用的功能有网关的容错、限流以及请求及相应的额外处理。</p>
+<h3 id="三、-Gateway是什么？伙伴们你们清楚吗？"><a href="#三、-Gateway是什么？伙伴们你们清楚吗？" class="headerlink" title="三、 Gateway是什么？伙伴们你们清楚吗？"></a>三、 Gateway是什么？伙伴们你们清楚吗？</h3><p><strong>1.Spring Cloud Gateway介绍</strong></p>
+<blockquote>
+<p>Spring Cloud Gateway是Spring官方基于Spring 5.0，Spring Boot 2.0和Project Reactor等技术开发的网关，Spring Cloud Gateway旨在为微服务架构提供一种简单而有效的统一的API路由管理方式。Spring Cloud Gateway作为Spring Cloud生态系中的网关，目标是替代ZUUL，其不仅提供统一的路由方式，并且基于Filter链的方式提供了网关基本的功能，例如：安全，监控&#x2F;埋点，和限流等。</p>
+</blockquote>
+<p>Spring Cloud Gateway是Spring Cloud 的二级子项目，提供了微服务网关功能，包含：权限安全、监控&#x2F;指标等功能。</p>
+<p><strong>2.介绍一下我们要学习Gateway中的名词，以及所包含的意思！</strong></p>
+<p>2.1 Route</p>
+<p>Route中文称为路由，Gateway里面的Route是主要学习内容，一个Gateway项目可以包含多个Route。</p>
+<p>一个路由包含ID、URI、Predicate集合、Filter集合。</p>
+<p>在Route中ID是自定的，URI就是一个地址。剩下的Predicate和Filter学习明白了，Route就学习清楚了。</p>
+<p>2.2 Predicate</p>
+<p>中文：谓词。</p>
+<p>谓词时学习Gateway比较重要的一点，简单点理解谓词就是一些附加条件和内容。</p>
+<p>2.3Filter</p>
+<p>所有生效的Filter都是GatewayFilter的实例。在Gateway运行过程中Filter负责在代理服务“之前”或“之后”去做一些事情。</p>
+<p>2.4 流程</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://pic1.zhimg.com/80/v2-cbd3da8adb12e030c910af613672046c_1440w.webp" alt="img"></p>
+<p>流程文字解释</p>
+<p>网关客户端访问Gateway网关Gateway中Handler Mapping对请求URL进行处理。处理完成后交换Web Handler，Web Handler 会被Filter进行过滤。Filter中前半部分代码是处理请求的代码。处理完成后调用真实被代理的服务。被代理服务响应结果，结果会被Filter中后半部分代码进行操作，操作完成后把结果返回给Web Hanlder，在返回给Handler Mapping，最终响应给客户端。</p>
+<h3 id="四、为什么用Gateway"><a href="#四、为什么用Gateway" class="headerlink" title="四、为什么用Gateway"></a>四、为什么用Gateway</h3><p>Spring Cloud Gateway 可以看做是一个 Zuul 1.x 的升级版和代替品，比 Zuul 2 更早的使用 Netty 实现异步 IO，从而实现了一个简单、比 Zuul 1.x 更高效的、与 Spring Cloud 紧密配合的 API 网关。</p>
+<p>Spring Cloud Gateway 里明确的区分了 Router 和 Filter，并且一个很大的特点是内置了非常多的开箱即用功能，并且都可以通过 SpringBoot 配置或者手工编码链式调用来使用。</p>
+<p>比如内置了 10 种 Router，使得我们可以直接配置一下就可以随心所欲的根据 Header、或者 Path、或者 Host、或者 Query 来做路由。</p>
+<p>比如区分了一般的 Filter 和全局 Filter，内置了 20 种 Filter 和 9 种全局 Filter，也都可以直接用。当然自定义 Filter 也非常方便。</p>
+<p>Gateway最重要的几个概念</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041710124.png" alt="img"></p>
+<p>了解完网关之后，我们继续来进行看。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041712875.png" alt="image-20230804171232826"></p>
+<p>这就是一个整体的技术架构。这里来详细介绍一下聚合应用层是什么</p>
+<h2 id="聚合应用层"><a href="#聚合应用层" class="headerlink" title="聚合应用层"></a>聚合应用层</h2><p>网关是微服务架构不可或缺的一部分，作为微服务架构的唯一入口，将所有请求转发到后端对应的微服务上去，同时又可以将各个微服务中的通用功能集中到网关去做，而不是在每个微服务都实现一遍，比如权限校验，限流，熔断和监控等。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041713808.png" alt="img"></p>
+<p>如图所示，这是个典型的前后端分离的微服务架构，但这个架构在的问题是，一个接口无法同时满足不同场景的业务。如移动端APP，可能与Web端、OpenAPI 的需求不一样，导致接口存在差异, 这时微服务就要对接不同的API需求，产生了各种各样的问题。</p>
+<p>有没有更优雅的解决方式呢？那就是引入BFF，这个词是 2015 年 11 月 Sam Newman 在他的一篇博客中提出的。BFF 是 Backends for Frontends 的简写，为了前端的后端。Sam Newman 的博客还有一个副标题：Single-purpose Edge Services for UIs and external parties，为了用户界面或外部方的单一目的的边缘服务。用户界面比如我们常见的网页，或 App，外部方比如第三方 App，客户 App，企业微信，小程序等。其实这中模式更早一点就出现了，淘宝在更早一点的时候就设立中途岛项目，其主要内容就是 BFF。</p>
+<p>BFF也称聚合层或者适配层，它主要承接一个适配角色：将内部复杂的微服务，适配成对各种不同用户体验（无线&#x2F;Web&#x2F;H5&#x2F;第三方等）友好和统一的API。聚合裁剪适配是BFF的主要职责。</p>
+<p>改造后的微服务架构如下图:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041713821.png" alt="img"></p>
+<p>引入BFF后，有如下好处:</p>
+<ol>
+<li>聚合, 将后端多个请求合并成一个请求，以减少网络传输时间。这些请求可能来自一个服务，也可能来自多个服务。</li>
+<li>适配, 因为遵守的接口规范不同，多个微服务和外部服务的接口可能有很多不同，在 BFF 层可以做一些适配，给前端代码提供同一个的数据格式和接口格式。</li>
+<li>裁剪, 同样的信息在不同的客户端有着不同的展现，比如手机屏幕尺寸较小，内存较小，CPU 性能较差，只能展示部分非常重要的信息，如果和电脑上使用同一个接口，势必导致手机上页面渲染变慢，还会浪费手机电量和网络流量。</li>
+</ol>
+<p>我们在看到 BFF 带来的各种好处的同时，也要注意到它所带来的代码重复和工作量增加方面的问题。另外因为增加了一层调用链，也会对响应时间稍有影响。</p>
+<p>之后我们来看我们如何快速开发</p>
+<h2 id="快速开发流程"><a href="#快速开发流程" class="headerlink" title="快速开发流程"></a>快速开发流程</h2><p>这个是我们最终要进行去学习的。</p>
+<p>这里我们要进行service层的代码生成器，来进行快速的生成。这里的pom文件，要考虑的就是兼容的问题，这个是有一定的要求的。如果兼容不好，这个会是一个大的问题，下面来介绍一下如何进行一个快速的版<a href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9">版本兼容</a>。在了解了如何进行快速的版本兼容后。我们来介绍脚手架。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">MVN archetype：generate </span><br><span class="line"> -DgroupId=cn.felord.demo </span><br><span class="line"> -DartifactId=demo-project </span><br><span class="line"> -Dversion=1.0.0 </span><br><span class="line"> -Dpackage=cn.felord.demo </span><br><span class="line"> -DarchetypeGroupId=cn.felord </span><br><span class="line"> -DarchetypeArtifactId=template-archetype </span><br><span class="line"> -DarchetypeVersion=1.0 </span><br><span class="line"> -DinteractiveMode=false</span><br></pre></td></tr></table></figure>
+
+<p>大概就是一个这样的，之后我们创建一个这样的项目就可以了。</p>
+<p>我们来对这个代码进行一个简单的介绍。</p>
+<p>此代码使用 Maven 构建工具基于现有原型生成新项目。以下是每行含义的细分：</p>
+<ul>
+<li><code>mvn archetype:generate</code>：这会告诉 Maven 运行目标，该目标用于从原型创建新项目。<code>archetype:generate</code></li>
+<li><code>-DgroupId=cn.felord.demo</code>：这会将新项目的组 ID 设置为“cn.felord.demo”。组 ID 是项目的唯一标识符，用于将其与同一包中的其他项目区分开来。</li>
+<li><code>-DartifactId=demo-project</code>：这会将新项目的工件 ID 设置为“演示项目”。项目 ID 是组中项目的唯一标识符，通常是项目的名称。</li>
+<li><code>-Dversion=1.0.0</code>：这会将新项目的版本号设置为“1.0.0”。如果需要，可以在以后更改。</li>
+<li><code>-Dpackage=cn.felord.demo</code>：这会将新项目的包名称设置为“cn.felord.demo”。这将确定项目的源文件将转到何处。</li>
+<li><code>-DarchetypeGroupId=cn.felord</code>：这将设置我们要用于创建新项目的原型的组 ID。在本例中，我们使用“cn.felord”原型。</li>
+<li><code>-DarchetypeArtifactId=template-archetype</code>：这将为我们要用于创建新项目的原型设置工件 ID。在本例中，我们使用“模板原型”工件。</li>
+<li><code>-DarchetypeVersion=1.0</code>：这将设置我们要用于创建新项目的原型的版本号。在本例中，我们使用的是原型版本“1.0”。</li>
+<li><code>-DinteractiveMode=false</code>：这告诉 Maven 在生成过程中不要提示用户输入。相反，它将仅使用指定的设置并创建项目，而无需请求确认。</li>
+</ul>
+<p>因此，将它们放在一起，此代码生成一个名为“demo-project”的新Maven项目，版本为“1.0.0”，并将其打包在“cn.felord.demo”下。它使用“cn.felord”原型及其“模板原型”工件，也是版本“1.0”。生成过程会自动运行，而不会提示用户输入。</p>
+<p>当然，这个是可以自己去自定义，如果自己嫌弃麻烦，最简单的idea也有自带的。</p>
+<p>下面来介绍代码生成器</p>
+<h2 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a>代码生成器</h2><p>首先来看mybatis这种简单的代码生成器的一个原理。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041753153.png" alt="image-20230804175342091"></p>
+<p>主要就是通过这俩个命令。</p>
+<p>“Show table status”是一个 SQL 命令，用于显示有关数据库中特定表的各种详细信息。此命令的语法通常是 ，其中 是我们要显示其状态的表的名称。<code>SHOW TABLE STATUS LIKE &#39;table_name&#39;;``table_name</code></p>
+<p>此命令的输出包括几列，这些列提供有关表的信息，例如：</p>
+<ol>
+<li><code>Name</code>：表的名称。</li>
+<li><code>Engine</code>：表使用的存储引擎。常见的值包括InnoDB，MyISAM和Memory。</li>
+<li><code>Version</code>：表格格式的版本号。</li>
+<li><code>Row_format</code>：表中行的格式（例如，动态、固定或紧凑）。</li>
+<li><code>Rows</code>：表中行数的估计值。</li>
+<li><code>Avg_row_length</code>：行的平均长度（以字节为单位）。</li>
+<li><code>Data_length</code>：表中所有数据的总长度（以字节为单位）。</li>
+<li><code>Max_data_length</code>：单行的最大长度（以字节为单位）。</li>
+<li><code>Index_length</code>：表上所有索引的总长度（以字节为单位）。</li>
+<li><code>Data_free</code>：表中可用的可用空间量。</li>
+</ol>
+<p>通过检查这些值，我们可以深入了解表的大小和结构，这对于优化查询、排查性能问题或规划架构的未来更改非常有用。</p>
+<p><code>SHOW FULL COLUMNS FROM</code>是一个 MySQL 命令，用于显示有关给定表中所有列的详细信息。它类似于语句，但它提供有关每列的更全面的信息，包括列的数据类型、排序规则、字符集和其他属性。DESCRIBE</p>
+<p>以下是命令的每个部分含义的细分：</p>
+<ul>
+<li><code>SHOW</code>：此关键字表示我们要显示有关表的信息。</li>
+<li><code>FULL</code>：此关键字指定我们希望查看表中的所有列，包括隐藏的或具有默认值的列。</li>
+<li><code>COLUMNS</code>：这个关键字告诉MySQL我们希望看到有关表中列的信息。</li>
+<li><code>FROM</code>：此关键字指定我们要为其显示列的表。</li>
+</ul>
+<p>例如，如果我们想查看名为 的表中的所有列，我们将使用以下命令：<code>employees</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">FULL</span> COLUMNS <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<p>这将显示表中所有列的列表，以及它们的数据类型、排序规则、字符集和其他属性。<code>employees</code></p>
+<p>请务必注意，某些列可能具有某些属性的值，具体取决于特定列和您使用的 MySQL 版本。此外，某些列可能指定了默认值，该值将显示在列名称后面的括号中。</p>
+<p>通过这个就可以进行一个快速的生成了。</p>
+<p>因为这个视频里面主要讲的就是原理，没有放出来代码生成器，所以我这里也只是说原理。在我的一点搜索后发现<a target="_blank" rel="noopener" href="https://www.altitude.xin/blog/home/#/chapter/2fd5a01a0e58c93774ee6feece727656?id=%F0%9F%AB%92-%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C">代码生成器使用手册 (altitude.xin)</a>这里的代码生成器是不错的，有兴趣的可以去查看这个。这里在补充一个Vo的东西</p>
+<h2 id="Vo"><a href="#Vo" class="headerlink" title="Vo"></a>Vo</h2><p>随着编程工业化水平的不断加深，各种编程模型层出不穷（比如MVC，MVP等等），伴随着这些编程模型，又有一大批新的概念蜂拥而至，什么VO，BO，PO，DO，DTO之类的，这些新的概念一直以来都是云里雾里，网上虽然也有不少文章来区分这些概念，但看下来基本都是几篇相同的文章转载来转载去，这些文章本身也说的不明，有些还互相矛盾，再加上有些文章在简化系统里面来使用这些概念，让人越看越迷糊</p>
+<p>什么原因造成了这种混乱的状态，就不深究了，感觉也很难究出所以然来<br>因此让我们立足这些概念本身，达成对概念理解的一致性，就足够了，这也是这边文章的主要目的<br>鉴于专业术语的解释互联网上太多，一搜一大把，我就不重复一遍术语了，而且说实话，术语太抽象，不利于理解，看完其实没解决啥疑惑，我会尽量用大白话(人话)来做解释，争取让大家都能看明白</p>
+<p>废话不多说，先来看张图<br>看完图估计大部分人就已经有了一个直观的感受了</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041822738.webp" alt="img"></p>
+<p>面对这个图，让我们先从承上启下的DTO开始入手</p>
+<p><strong>DTO（Data Transfer Object）数据传输对象</strong></p>
+<p>这个传输通常指的前后端之间的传输</p>
+<p>DTO是一个比较特殊的对象，他有两种存在形式：</p>
+<p>在后端，他的存在形式是java对象，也就是在controller里面定义的那个东东，通常在后端不需要关心怎么从json转成java对象的，这个都是由一些成熟的框架帮你完成啦，比如spring框架</p>
+<p>在前端，他的存在形式通常是js里面的对象（也可以简单理解成json），也就是通过ajax请求的那个数据体</p>
+<p>这也是为什么把他画成横跨两层的原因</p>
+<p>这里可能会遇到个问题，现在微服务盛行，服务和服务之间调用的传输对象能叫DTO吗？<br>我的理解是看情况<br>DTO本身的一个隐含的意义是要能够完整的表达一个业务模块的输出<br>如果服务和服务之间相对独立，那就可以叫DTO<br>如果服务和服务之间不独立，每个都不是一个完整的业务模块，拆开可能仅仅是因为计算复杂度或者性能的问题，那这就不能够叫做DTO，只能是BO</p>
+<p><strong>VO（Value Object）值对象</strong><br>VO就是展示用的数据，不管展示方式是网页，还是客户端，还是APP，只要是这个东西是让人看到的，这就叫VO<br>VO主要的存在形式就是js里面的对象（也可以简单理解成json）</p>
+<p><strong>VO和DTO的区别</strong><br>主要有两个区别<br>一个是字段不一样，VO根据需要会删减一些字段<br>另一个是值不一样，VO会根据需要对DTO中的值进行展示业务的解释<br>举个简单的例子<br>DTO可能是这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;gender&quot;</span>:<span class="string">&quot;男&quot;</span>, </span><br><span class="line">    <span class="string">&quot;age&quot;</span>:<span class="number">35</span> </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>对于业务一来说只需要性别，而且因为是一个古风聊天室，也不能直接展示男，因此经过业务解释业务一的VO是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    <span class="string">&quot;gender&quot;</span>:<span class="string">&quot;公子&quot;</span> </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>对于业务二来说只需要年龄，而且不需要精确的年龄，因此经过业务解释业务二的VO是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">    <span class="string">&quot;age&quot;</span>:<span class="string">&quot;30~39&quot;</span> </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>PO（Persistant Object）持久对象</strong><br>PO比较好理解<br>简单说PO就是数据库中的记录，一个PO的数据结构对应着库中表的结构，表中的一条记录就是一个PO对象<br>通常PO里面除了get，set之外没有别的方法<br>对于PO来说，数量是相对固定的，一定不会超过数据库表的数量<br>等同于Entity，这俩概念是一致的</p>
+<p><strong>BO（Business Object）业务对象</strong><br>BO就是PO的组合<br>简单的例子比如说PO是一条交易记录，BO是一个人全部的交易记录集合对象<br>复杂点儿的例子PO1是交易记录，PO2是登录记录，PO3是商品浏览记录，PO4是添加购物车记录，PO5是搜索记录，BO是个人网站行为对象<br>BO是一个业务对象，一类业务就会对应一个BO，数量上没有限制，而且BO会有很多业务操作，也就是说除了get，set方法以外，BO会有很多针对自身数据进行计算的方法<br>为什么BO也画成横跨两层呢？原因是现在很多持久层框架自身就提供了数据组合的功能，因此BO有可能是在业务层由业务来拼装PO而成，也有可能是在数据库访问层由框架直接生成<br>很多情况下为了追求查询的效率，框架跳过PO直接生成BO的情况非常普遍，PO只是用来增删改使用</p>
+<p><strong>BO和DTO的区别</strong><br>这两个的区别主要是就是字段的删减<br>BO对内，为了进行业务计算需要辅助数据，或者是一个业务有多个对外的接口，BO可能会含有很多接口对外所不需要的数据，因此DTO需要在BO的基础上，只要自己需要的数据，然后对外提供<br>在这个关系上，通常不会有数据内容的变化，内容变化要么在BO内部业务计算的时候完成，要么在解释VO的时候完成</p>
+<p>OK，到这里这些关系基本就理清楚了</p>
+<p><strong>等等，DO是什么</strong><br>DO呢，标题不是还有个DO么？<br>上面这些概念基本上已经涵盖了全部的流程，DO只是跟其中一个概念相同<br>但是跟哪个概念相同呢？<br>现在主要有两个版本<br>一个是阿里巴巴的开发手册中的定义<br>DO（ Data Object）这个等同于上面的PO<br>另一个是在DDD（Domain-Driven Design）领域驱动设计中<br>DO（Domain Object）这个等同于上面的BO</p>
+<p><strong>最后，让我们再说说实际应用</strong><br>这几个概念很完整，我们在用的时候是必须按这个来做吗？<br>当然不是的，系统和系统的复杂度不同，协作水平不同，完全没有必要教条主义，这些概念全上<br>上哪些概念，省哪些，我给一些实际建议<br>1，PO这个没法省，不管叫PO还是Entity，怎么着都得有<br>2，一些工具类的系统和一些业务不是很复杂的系统DTO是可以和BO合并成一个，当业务扩展的时候注意拆分就行<br>3，VO是可以第一个优化掉的，展示业务不复杂的可以压根儿不要，直接用DTO<br>4，这也是最重要的一条，概念是给人用的，多人协作的时候一定要保证大家的概念一致，赶紧把这篇文章转发给跟你协作的人吧</p>
+<h2 id="版本兼容"><a href="#版本兼容" class="headerlink" title="版本兼容"></a>版本兼容</h2><h3 id="知识背景"><a href="#知识背景" class="headerlink" title="知识背景"></a><strong>知识背景</strong></h3><p>Jar包冲突在软件开发过程中是不可避免的，因此，如何快速定位冲突源，理解冲突导致的过程及底层原理，是每个程序员的必修课。也是提升工作效率、应对面试、在团队中脱颖而出的机会。</p>
+<p>实践中能够直观感受到的Jar包冲突表现往往有这几种：</p>
+<ul>
+<li>程序抛出<code>java.lang.ClassNotFoundException</code>异常；</li>
+<li>程序抛出<code>java.lang.NoSuchMethodError</code>异常；</li>
+<li>程序抛出<code>java.lang.NoClassDefFoundError</code>异常；</li>
+<li>程序抛出<code>java.lang.LinkageError</code>异常等；</li>
+</ul>
+<p>这是能够直观呈现的，当然还有隐性的异常，比如程序执行结果与预期不符等。下面，我们就分析一下Maven项目中Jar包的处理机制及引起冲突的原因。</p>
+<h3 id="Maven-Jar包管理机制"><a href="#Maven-Jar包管理机制" class="headerlink" title="Maven Jar包管理机制"></a><strong>Maven Jar包管理机制</strong></h3><p>在Maven项目中，想要了解Jar冲突必须得先了解一下Maven是如何管理的Jar包的。这涉及到Maven的一些特性，比如依赖传递、最短路径优先原则、最先声明原则等。</p>
+<p><strong>依赖传递原则</strong></p>
+<p>当在Maven项目中引入A的依赖，A的依赖通常又会引入B的jar包，B可能还会引入C的jar包。这样，当你在pom.xml文件中添加了A的依赖，Maven会自动的帮你把所有相关的依赖都添加进来。</p>
+<p>比如，在Spring Boot项中，当引入了spring-boot-starter-web：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时Maven的依赖结构可能是这样的：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041724458.webp" alt="img"></p>
+<p>上面这种关系，我们就可以理解为依赖的传递性。即当一个依赖需要另外一个依赖支撑时，Maven会帮我们把相应的依赖依次添加到项目当中。</p>
+<p>这样的好处是，使用起来就非常方便，不用自己挨个去找依赖Jar包了。坏处是会引起Jar包冲突，我们后面会讲到。</p>
+<p><strong>最短路径优先原则</strong></p>
+<p>依赖链路一：主要根据依赖的路径长短来决定引入哪个依赖（两个冲突的依赖）。</p>
+<p>举例说明：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">依赖链路一：A -&gt; X -&gt; Y -&gt; Z(21.0)</span><br><span class="line">依赖链路二：B -&gt; Q -&gt; Z(20.0)</span><br></pre></td></tr></table></figure>
+
+<p>项目中同时引入了A和B两个依赖，它们间接都引入了Z依赖，但由于B的依赖链路比较短，因此最终生效的是Z(20.0)版本。这就是最短路径优先原则。</p>
+<p>此时如果Z的21.0版本和20.0版本区别较大，那么就会发生Jar包冲突的表现。</p>
+<h3 id="最先声明优先原则"><a href="#最先声明优先原则" class="headerlink" title="最先声明优先原则"></a><strong>最先声明优先原则</strong></h3><p>如果两个依赖的路径一样，最短路径优先原则是无法进行判断的，此时需要使用<strong>最先声明优先原则</strong>，也就是说，谁的声明在前则优先选择。</p>
+<p>举例说明：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">依赖链路一：A -&gt; X -&gt; Z(21.0)</span><br><span class="line">依赖链路二：B -&gt; Q -&gt; Z(20.0)</span><br></pre></td></tr></table></figure>
+
+<p>A和B最终都依赖Z，此时A的声明（pom中引入的顺序）优先于B，则针对冲突的Z会优先引入Z(21.0)。</p>
+<p>如果Z(21.0)向下兼容Z(20.0)，则不会出现Jar包冲突问题。但如果将B声明放前面，则有可能会发生Jar包冲突。</p>
+<h3 id="Jar包冲突产生的原因"><a href="#Jar包冲突产生的原因" class="headerlink" title="Jar包冲突产生的原因"></a><strong>Jar包冲突产生的原因</strong></h3><p>上面讲了Maven维护Jar包的三个原则，其实每个原则会发生什么样的Jar包冲突，已经大概了解了。这里再来一个综合示例。</p>
+<p>举例说明：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">依赖链路一：A -&gt; B -&gt; C -&gt; G21(guava 21.0)</span><br><span class="line">依赖链路二：D -&gt; F -&gt; G20(guava 20.0)</span><br></pre></td></tr></table></figure>
+
+<p>假设项目中同时引入了A和D的依赖，按照依赖传递机制和默认依赖调节机制（第一：路径最近者优先；第二：第一声明优先），默认会引入G20版本的Jar包，而G21的Jar包不会被引用。</p>
+<p>如果C中的方法使用了G21版本中的某个新方法（或类），由于Maven的处理，导致G21并未被引入。此时，程序在调用对应<strong>类</strong>时便会抛出<code>ClassNotFoundException</code>异常，调用对应<strong>方法</strong>时便会抛出<code>NoSuchMethodError</code>异常。</p>
+<h3 id="排查定位Jar包冲突"><a href="#排查定位Jar包冲突" class="headerlink" title="排查定位Jar包冲突"></a><strong>排查定位Jar包冲突</strong></h3><p>在高版本的IDEA中已经自带了Maven依赖管理插件，依次执行：打开pom.xml文件，在文件内右击，选择Maven，选择Show Dependencies即可查看Maven的依赖层级结构：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041724466.webp" alt="img"></p>
+<p>执行之后展示的效果便是最开始的spring-boot-web那样效果，在图中可以清楚的看到都使用了哪些依赖，它们的层级，是否有冲突的jar包等。冲突部分会用红色标出，同时标出Maven默认选择了哪个版本。</p>
+<p>如果你的IDEA版本中默认没有Maven管理插件，也可安装Maven Helper，通过这块插件来帮你分析Jar包冲突。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041724441.webp" alt="img"></p>
+<p>安装完插件，重启之后，打开pom.xml文件，在文件下面的Dependency Analyzer视图中便可以看到Jar包冲突的结果分析:</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041724455.webp" alt="img"></p>
+<p>此时，关于哪些Jar包冲突了，便一目了然。同时，可以右击冲突的Jar包，执行”Exclude“进行排除，在pom.xml中便会自动添加排除jar包的属性。</p>
+<p>对于本地环境可以利用Maven Helper等插件来解决，但在预生产或生成环境中就没那么方便了。此时可以通过<code>mvn</code>命令来定位突出的细节。</p>
+<p>执行如下<code>mvn</code>命令：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn dependency:tree -Dverbose</span><br></pre></td></tr></table></figure>
+
+<p>注意不要省略<code>-Dverbose</code>，要不然不会显示被忽略的包。</p>
+<p>执行结果如下：</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308041724383.webp" alt="img"></p>
+<p>通过这种形式，也可以清晰的看出哪些Jar包发生了冲突。</p>
+<h3 id="如何统一Jar包依赖"><a href="#如何统一Jar包依赖" class="headerlink" title="如何统一Jar包依赖"></a><strong>如何统一Jar包依赖</strong></h3><p>像上面截图所示，如果一个项目有N多个子项目构成，项目之间可能还有依赖关系，Jar包冲突不可避免，此时可采用父pom，统一对版本进行管理，一劳永逸。</p>
+<p>通常做法，是在parent模块的pom文件中尽可能地声明所有相关依赖Jar包的版本，并在子pom中简单引用（不再指定版本）该构件即可。</p>
+<p>比如在父pom.xml中定义Lombok的版本：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    &lt;dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;1.18.10&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyManagement&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在子module中便可定义如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过这种方式，所有的子module中都采用了统一的版本。</p>
+<h3 id="解决Jar包冲突的方法"><a href="#解决Jar包冲突的方法" class="headerlink" title="解决Jar包冲突的方法"></a><strong>解决Jar包冲突的方法</strong></h3><p>这里基于Maven项目介绍几种场景下解决Jar冲突的方法：</p>
+<ul>
+<li>Maven默认处理：采用此种方法，要牢记Maven依赖调节机制的基本原则，路径最近者优先和第一声明优先；</li>
+<li>排除法：上面Maven Helper的实例中已经讲到，可以将冲突的Jar包在pom.xml中通过<code>exclude</code>来进行排除；</li>
+<li>版本锁定法：如果项目中依赖同一Jar包的很多版本，一个个排除非常麻烦，此时可用<strong>版本锁定法</strong>，即直接明确引入指定版本的依赖。根据前面介绍Maven处理Jar包基本原则，此种方式的优先级最高。这种方法一般采用上面我们讲到的<strong>如何统一Jar包依赖</strong>的方式。</li>
+</ul>
+<h3 id="Jar包冲突的本质"><a href="#Jar包冲突的本质" class="headerlink" title="Jar包冲突的本质"></a><strong>Jar包冲突的本质</strong></h3><p>上面讲了Maven对项目中Jar包冲突的解决原则和实战层面的解决方案，但并未涉及到Jar包冲突的本质。关于Jar包冲突的本质在《<a href="https://link.zhihu.com/?target=https://mp.weixin.qq.com/s/IfaxCCSt1WTboFAP3RsG9w">从Jar包冲突搞到类加载机制，就是这么霸气</a>》一文中已经进行详细的讲解了。这里再针对其中的几个关键点进行概述一下。</p>
+<p>Jar包冲突的本质：<strong>Java应用程序因某种因素，加载不到正确的类而导致其行为跟预期不一致</strong>。</p>
+<p>具体分两种情况：</p>
+<ul>
+<li>情况一：项目依赖了同一Jar包的多个版本，并且选错了版本；</li>
+<li>情况二：同样的类在不同的Jar包中出现，导致JVM加载了错误的类；</li>
+</ul>
+<p><strong>情况一</strong>，也是本文重点讨论的场景，也就是说引入了多个Jar包版本，不同的Jar包版本有不同的类和方法。由于（不懂）Maven依赖树的仲裁机制导致Maven加载了错误的Jar包，从而导致Jar包冲突；</p>
+<p><strong>情况二</strong>，同一类在不同的Jar包中出现。这种情况是由于JVM的同一个类加载器对于同一个类只会加载一次，现在加载一个类之后，同全限定名的类便不会进行加载，从而出现Jar包冲突的问题。</p>
+<p>针对第二种情况，如果不是类冲突抛出了异常，你可能根本意识不到，所以就显得更为棘手。这种情况就可以采用前文所述的通过分析不同类加载器的优先级及加载路径、文件系统的文件加载顺序等进行调整来解决。</p>
+<p><strong>小结</strong></p>
+<p>除了上述的方法，还很多小技巧来排查类冲突，比如通过IDE提供的搜索功能，直接搜索抛异常的类，看看是否存在多个，是否使用的是预期的版本等。这些技巧需要在实践的过程中不断的摸索和积累。</p>
+<p>总之，无论项目多么庞大，依赖多么复杂，只要牢记导致冲突的原因，及解决冲突的几个方式，细心分析，总会有迹可循的。看完这篇文章，实践一下，你可能就会在团队中脱颖而出，成为<strong>Jar包冲突终结者</strong>。</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/codenotes/Java/coder/2/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/codenotes/Java/coder/2/')">技术架构以及如何快速开发技巧</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/codenotes/Java/coder/2/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=技术架构以及如何快速开发技巧&amp;url=http://example.com/2023/10/01/codenotes/Java/coder/2/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E5%90%8E%E7%AB%AF/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>后端<span class="tagsPageCount">8</span></a><a class="post-meta__box__tags" href="/tags/coder1v5/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>coder1v5<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/codenotes/Java/jvm2/10/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">类加载器</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/codenotes/Java/coder/1/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">如何打造高效的学习环境</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/codenotes/Java/coder/1/" title="如何打造高效的学习环境"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">如何打造高效的学习环境</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/hm/1/" title="第一部分"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第一部分</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/hm/2/" title="第二部分"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第二部分</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/hm/5/" title="第五部分"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第五部分</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/hm/4/" title="第四部分"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第四部分</div></div></a></div><div><a href="/2023/10/01/codenotes/Java/hm/6/" title="第六部分"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">第六部分</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E5%85%B3"><span class="toc-number">1.</span> <span class="toc-text">网关</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81API-Gateway%E7%BD%91%E5%85%B3%EF%BC%9F%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">一、API Gateway网关？是什么呢？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BD%91%E5%85%B3%E7%BB%84%E6%88%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、网关组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81-Gateway%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E4%BC%99%E4%BC%B4%E4%BB%AC%E4%BD%A0%E4%BB%AC%E6%B8%85%E6%A5%9A%E5%90%97%EF%BC%9F"><span class="toc-number">1.3.</span> <span class="toc-text">三、 Gateway是什么？伙伴们你们清楚吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Gateway"><span class="toc-number">1.4.</span> <span class="toc-text">四、为什么用Gateway</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">2.</span> <span class="toc-text">聚合应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">快速开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">代码生成器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vo"><span class="toc-number">5.</span> <span class="toc-text">Vo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%85%BC%E5%AE%B9"><span class="toc-number">6.</span> <span class="toc-text">版本兼容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E8%83%8C%E6%99%AF"><span class="toc-number">6.1.</span> <span class="toc-text">知识背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven-Jar%E5%8C%85%E7%AE%A1%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">6.2.</span> <span class="toc-text">Maven Jar包管理机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%85%88%E5%A3%B0%E6%98%8E%E4%BC%98%E5%85%88%E5%8E%9F%E5%88%99"><span class="toc-number">6.3.</span> <span class="toc-text">最先声明优先原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jar%E5%8C%85%E5%86%B2%E7%AA%81%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">6.4.</span> <span class="toc-text">Jar包冲突产生的原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E5%AE%9A%E4%BD%8DJar%E5%8C%85%E5%86%B2%E7%AA%81"><span class="toc-number">6.5.</span> <span class="toc-text">排查定位Jar包冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80Jar%E5%8C%85%E4%BE%9D%E8%B5%96"><span class="toc-number">6.6.</span> <span class="toc-text">如何统一Jar包依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3Jar%E5%8C%85%E5%86%B2%E7%AA%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">6.7.</span> <span class="toc-text">解决Jar包冲突的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jar%E5%8C%85%E5%86%B2%E7%AA%81%E7%9A%84%E6%9C%AC%E8%B4%A8"><span class="toc-number">6.8.</span> <span class="toc-text">Jar包冲突的本质</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>

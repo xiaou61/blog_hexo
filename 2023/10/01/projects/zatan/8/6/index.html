@@ -1,0 +1,708 @@
+<!DOCTYPE html><html class="hide-aside" lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>pdf为什么不能被修改 | 小u的博客</title><meta name="keywords" content="技术杂谈"><meta name="author" content="小u"><meta name="copyright" content="小u"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="pdf为什么不能被修改"><meta name="application-name" content="pdf为什么不能被修改"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="pdf为什么不能被修改"><meta property="og:url" content="http://example.com/2023/10/01/projects/zatan/8/6/index.html"><meta property="og:site_name" content="小u的博客"><meta property="og:description" content="PDF简介 PDF是Portable Document Format 的缩写，可翻译为“便携文件格式”，由Adobe System Incorporated 公司在1992年发明。 PDF文件是一种编程形式的文档格式，它所有显示的内容，都是通过相应的操作符进行绘制的。 PDF基本显示单元包括：文字，"><meta property="og:locale" content="en"><meta property="og:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta property="article:author" content="小u"><meta property="article:tag" content="Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"><meta name="description" content="PDF简介 PDF是Portable Document Format 的缩写，可翻译为“便携文件格式”，由Adobe System Incorporated 公司在1992年发明。 PDF文件是一种编程形式的文档格式，它所有显示的内容，都是通过相应的操作符进行绘制的。 PDF基本显示单元包括：文字，"><link rel="shortcut icon" href="/favicon.ico"><link rel="canonical" href="http://example.com/2023/10/01/projects/zatan/8/6/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//hm.baidu.com"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?1433b93d16cca6b366bdf23126c0c200";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2023/09/03/125766904/ee23df8517f3c3e3efc4145658269c06_5714860933110284659.png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"tianli","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"784b999ee9b2f0689c5a","Referer":"https://mydocs-1305448902.cos-website.ap-nanjing.myqcloud.com/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: {"enable":true,"default":"晚上好👋","list":[{"greeting":"晚安😴","startTime":0,"endTime":5},{"greeting":"早上好鸭👋, 祝你一天好心情！","startTime":6,"endTime":9},{"greeting":"上午好👋, 状态很好，鼓励一下～","startTime":10,"endTime":10},{"greeting":"11点多啦, 在坚持一下就吃饭啦～","startTime":11,"endTime":11},{"greeting":"午安👋, 宝贝","startTime":12,"endTime":14},{"greeting":"🌈充实的一天辛苦啦！","startTime":14,"endTime":18},{"greeting":"19点喽, 奖励一顿丰盛的大餐吧🍔。","startTime":19,"endTime":19},{"greeting":"晚上好👋, 在属于自己的时间好好放松😌~","startTime":20,"endTime":24}]},
+  twikooEnvId: '',
+  commentBarrageConfig:undefined,
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: {"skills":null},
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":330},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"Author: 小u","link":"Link: ","source":"Source: 小u的博客","info":"Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.","copySuccess":"Copy success, copy and reprint please mark the address of this article"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"Traditional Chinese Activated Manually","cht_to_chs":"Simplified Chinese Activated Manually","day_to_night":"Dark Mode Activated Manually","night_to_day":"Light Mode Activated Manually","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小u的博客',
+  title: 'pdf为什么不能被修改',
+  postAI: '',
+  pageFillDescription: 'PDF简介, PDF的优点, PDF格式, 对象, 物理文件结构, 文件头, 对象集合, 交叉引用表, 文件尾, 逻辑文件结构, catalog根节点, 具体组成, 1 Header部分, 2 Body部分, 为什么不容易被修改, 如何修改pdf简介是的缩写可翻译为便携文件格式由公司在年发明文件是一种编程形式的文档格式它所有显示的内容都是通过相应的操作符进行绘制的基本显示单元包括文字图片矢量图图片扩展单元包括水印电子署名注释表单多媒体动作单元书签超链接拥有动作的单元有很多个包括电子署名多媒体等等的优点一致性在所有可以打开的机器上展示的效果是完全一致不会出现段落错乱文字乱码这些排版问题尤其是文档中本身可以嵌入字体避免了客户端没有对应字体而导致文字显示不一致的问题所以在印刷行业绝大多数用的都是格式不易修改用过文件的人都会知道对已经保存之后的文件想要进行重新排版基本上就不可能的这就保证了从资料源发往外界的资料不容易被篡改安全性文档可以进行加密包括以下几种加密形式文档打开密码文档权限密码文档证书密码加密的方法包括通过加密这种形式可以达到资料防扩散等目的不失真文件中使用了矢量图在文件浏览时无论放大多少倍都不会导致使用矢量图绘制的文字图案的失真支持多种压缩方式为了减少文件的格式支持各种压缩方式支持多种印刷标准支持格式根据官方指南理解格式可以从四个方面下手对象物理文件结构逻辑文件结构内容流对象物理文件结构整体上分为文件头对象集合交叉引用表文件尾四个部分结构如图修改过的结构会有部分变化未经修改经修改文件头文件头是文件的第一行格式如下复制这是个固定格式表示这个文件遵循的规范版本解析的时候尽量支持高版本的规范以保证支持大多数工具生成的文件版本支持之间的所有版本对象集合这是一个文件最重要的部分文件中用到的所有对象包括文本图象音乐视频字体超连接加密信息文档结构信息等等都在这里定义格式如下复制一个对象的定义包含个部分前面的是对象序号其用来唯一标记一个对象是生成号按照规范如果一个文件被修改那这个数字是累加的它和对象序号一起标记是原始对象还是修改后的对象但是实际开发中很少有用这种方式修改的都是重新编排对象号和是对象的定义范围可以抽象的理解为这就是一个左括号和右括号省略号部分是规定的任意合法对象可以通过关键字来引用任何一个对象比如要引用上面的对象可以使用需要主意的是关键字不仅可以引用一个已经定义的对象还可以引用一个并不存在的对象而且效果就和引用了一个空对象一样对象主要有下面几种用关键字或表示可以是对象的一个元素或对象的一个条目也可以用在计算函数里面做为或的一个条件包括整形和实型不支持非十进制数字不支持指数形式的数字例整数范围正的次方到负的的次方实数范围的次方的次方注意如果整数超过表示范围将转化成实数如果实数超过范围就会出错由一系列之间的字节组成一个总长度不能超过有以下两种方式十六进制字串由包含起来的一个进制串两位表示一个字符不足两位用补齐例表示和两个字符表示和两个字符直接字串由包含起来的一个字串中间可以使用转义符例表示表示转义符的定义如下转义字符含义换行回车水平制表符退格换页左括号右括号反斜杠八进制形式的字符对象类别续由一个前导和后面一系列字符组成最大长度为和不同的是是不可分割的并且是唯一的不可分割就是说一个对象就是一个原子比如不能说就是这个的一个元素唯一就是指两个相同的一定代表同一个对象从开始除了的别的都可以用一个加两个十六进制的数字表示例表示表示表示用包含的一组对象可以是任何对象包括虽然只支持一维但可以通过的嵌套实现任意维数的但是一个的元素不能超过例用和包含的若干组条目每组条目都由和组成其中必须是对象并且一个内的是唯一的可以是任何的合法对象包括对象例由一个字典和紧跟其后面的一组关键字和以及这组关键字中间包含一系列字节组成内容和很相似但有区别可以分几次读取分开使用不同的部分必须作为一个整体一次全部读取使用有长度限制但却没有这个限制一般较大的数据都用表示需要注意的是必须是间接对象并且的字典必须是直接对象从规范以后可以以外部文件形式存在这种情况下解析的时候和之间的内容就被忽略掉例字典中常用的字段如下字段名类型值整形必须关键字和之间的数据长度之前可能会有一个多余的标记这个不计算在数据的长度中名字或数组可选的编码算法名称列表如果有多个则数组中的编码算法列表顺序就是数据被编码的顺序字典或数组可选一个参数字典或由参数字典组成的一个数组供使用如果仅有一个并且这个需要参数除非这个的所有参数都已经给了默认值否则的话必须设置给如果有多个并且任意一个使用了非默认的参数必须是个数组每个元素对应一个的参数列表如果某个无需参数或所有参数都有了默认值就用空对象代替如果没有需要参数或者所有的参数都有默认值就被忽略了文件标识可选保存数据的文件如果有这个字段和就被忽略将会代替将代替字段还是表示和之间数据的长度但是通常此刻已经没有数据了长度是名字或字典可选和类似针对外部文件字典或数组可选和类似针对外部文件的编码算法名称列表如果有多个则数组中的编码算法列表顺序就是数据被编码的顺序且需要被编码编码算法主要如下编码可视化主要显示为乱码所以提供了隐藏信息的机会如下图的内容为乱码用表示代表空如果一个的值为则这个可以被忽略如果引用一个不存在的则等价于引用一个空对象交叉引用表交叉引用表是文件内部一种特殊的文件组织方式可以很方便的根据对象号随机访问一个对象其格式如下复制其中是开始标志表示以下为一个交叉引用表的内容每个交叉引用表又可以分为若干个子段每个子段的第一行是两个数字第一个是对象起始号后面是连续的对象个数接着每行是这个子段的每个对象的具体信息每行的前个数字代表这个这个对象相对文件头的偏移地址后面的位数字是生成号用于标记的更新信息和对象的生成号作用类似最后一位或表示对象是否被使用表示使用表示被删除或没有用上面这个交叉引用表一共有个子段分别有个个个对象第一个子段的对象不可用其余子段对象可用文件尾通过可以快速的找到交叉引用表的位置进而可以精确定位每一个对象还可以通过它本身的字典还可以获取文件的一些全局信息作者关键字标题等加密信息等等具体形式如下复制后面紧跟一个字典包含若干键值对具体含义如下键值类型值说明整形数字所有间接对象的个数一个文件如果被更新过则会有多个对象集合交叉引用表最后一个的这个字段记录了之前所有对象的个数这个值必须是直接对象整形数字当文件有多个对象集合交叉引用表和时才会有这个键它表示前一个相对于文件头的偏移位置这个值必须是直接对象字典字典文件的逻辑入口点的对象号必须是间接对象字典文档被保护时会有这个字段加密字典的对象号字典存放文档信息的字典必须是间接对象数组文件的上面代码中的后面的数字表示最后一个交叉引用表相对于文件起始位置的偏移量文件结束符逻辑文件结构根节点是整个逻辑结构的根节点这个可以通过的字段定位虽然简单但是相当重要因为这里是文件物理结构和逻辑结构的连接点字典包含的信息非常多这里仅就最主要的几个字段做个说明字段类型值必须只能为如果不是里面指定的跟节点则必须有并且必须是间接对象当前节点的直接父节点必须一个间接对象组成的数组节点可能是或必须里面所包含叶子节点对象的个数从以上字段可以看出最主要的功能就是组织所有的对象对象描述了一个页面的属性资源等信息对象是一个字典它主要包含一下几个重要的属性字段这是个必须字段是里面所有页面的描述集合字段本身是个字典它里面又包含了一下几个主要字段字段类型值必须必须是必须并且只能是间接对象当前节点的直接父节点如果存在字段就必须有否则可选记录当前页面被最后一次修改的日期和时间必须可继承记录了当前用到的所有资源如果当前页不用任何资源则这是个空字典忽略所有字段则表示继承父节点的资源必须可继承定义了要显示或打印页面的物理媒介的区域可选可继承定义了一个可视区域当前页被显示或打印的时候它的内容会被这个区域裁剪默认值就是可选定义了一个区域当输出设备是个生产环境的时候页面显示的内容会被裁剪默认值是可选描述页面内容的流如果这个字段缺省则页面上什么也不会显示这个值可以是一个流也可以是由几个流组成的一个数组如果是数组实际效果相当于所有的流是按顺序连在一起的一个流这就允许生成的时候可以随时插入图片或其他资源流之间的分割只是词汇上的一个分割并不是逻辑上或者组织形式的切割可选可继承顺时钟旋转的角度数这个必须是的整数倍默认是可选定义当前页的缩略图可选和当前页面关联的注释可选当前页包含的元数据一个简单例子复制字段是里面为了方便用户从的一部分跳转到另外一部分而设计的有时候也叫书签它是一个树状结构可以直观的把文件结构展现给用户用户可以通过鼠标点击来打开或者关闭某个项来实现交互当打开一个时用户可以看到它的所有子节点关闭一个的时候这个的所有子节点会自动隐藏并且在点击的时候阅读器会自动跳转到对应的页面位置包含以下几个字段字段类型值可选如果这个字段有值则必须是必须必须是间接对象第一个顶层必须必须是间接对象最后一个顶层必须的所有层次的的总数是一个管理的顶层对象我们看到的其实是这个里面才包含了文字行为目标区域等等一个主要有一下几个字段字段类型值必须当前要显示的标题必须必须是间接对象层级中当前的父对象如果本身是顶级则父对象就是它本身除了每层的第一个外其他必须有这个字段必须是间接对象当前层级中此的前一个除了每层的最后一个外其他必须有这个字段必须是间接对象当前层级中此的后一个如果当前有任何子节点则这个字段是必须的必须是间接对象当前的第一个直接子节点如果当前有任何子节点则这个字段是必须的必须是间接对象当前的最后一个直接子节点可选如果字段存在则这个不能被会略当前的被激活的时候要显示的区域可选如果字段存在则这个不能被忽略当前的被激活的时候要执行的动作字段定义了文档级别的统一资源标识符和相关链接信息目录和文档中的链接就是通过这个字段来处理的字段文档的一些附带信息用表示符合的规范这个可以方便程序不用解析整个文件就能获得文件的大致信息其他字典中常用的字段一般有以下一些字段类型值必须必须为可选文件所遵循的版本号如果比文件头指定的版本号高的话如果这个字段缺省或者文件头指定的版本比这里的高那就以文件头为准一个生成程序可以通过更新这个字段的值来修改文件版本号必须并且必须为间接对象当前文档的页面集合入口可选定义了页面和页面对应关系可选文档的字典可选必须是间接对象和相应目标对应关系字典可选阅读参数配置字典定义了文档被打开时候的行为如果缺省则使用阅读器自己的配置可选指定文档被打开的时候页面的布局方式单页单列双列奇数页在左双列奇数页在右双页奇数页在左双页奇数页在右缺省值可选当文档被打开时指定文档怎么显示目录和缩略图都不显示显示目录显示缩略图全屏模式没有菜单任何其他窗口显示面板显示附件面板缺省值可选必须为间接对象文档的目录字典可选必须为间接对象文章线索字典组成的数组可选指定一个区域或一个在文档打开的时候显示区域或者执行如果缺省则会用默认缩放率显示第一页的顶部可选一个附加的动作字典在全局范围内定义了响应各种事件的可选一个字典包含了文档级别的信息可选文档的交互式字典可选必须是间接对象文档包含的元数据流具体组成部分文件的第一行应是由个字符后跟的版本号组成的标题其中是到之间的数字例如下面的从开始应使用文档目录字典中的条目通过文件部分的条目指定版本而不是标题中指定的版本部分文件的正文应由表示文件内容的一系列间接对象组成例如字体页面和采样图像从开始还可以包含对象流每个对象流包含一系列间接对象例如下面这样交叉引用表部分交叉引用表包含文件中间接对象的信息以便允许对这些对象进行随机访问因此无需读取整个文件即可定位任何特定对象交叉引用表以开始紧接着是一个空格隔开的两个数字然后每一行就是一个对象信息上面第二行中的两个数字表示下面的对象从号对象开始表示对象的数量也就是说表示从到共个对象每行一个对象信息的格式如下长度个字节表示对象在文件的偏移地址长度个字节表示对象的生成号表示对象被引用如果此值是表示对象未被引用就是回车换行交叉引用表中的第一个编号为的对象始终是的并且生成号为除了编号的对象外交叉引用表中的所有对象最初的生成号应为删除间接对象时应将其交叉引用条目标记为并将其添加到条目的链表中下次创建具有该对象编号的对象时条目的生成号应增加最大生成号为当交叉引用条目达到此值时它将永远不会被重用交叉引用表也可以是这样的部分阅读器是从的尾部开始解析文件的通过部分能够快速找到交叉引用表和某些特殊对象如下所示文件的最后一行应仅包含文件结束标记关键字下面的数字表示最后一个交叉引用表的关键字开头的字节偏移量和之间是尾部字典由包含在双尖括号中的键值对组成为什么不容易被修改文件结构和编码文件采用了一种复杂的文件结构和编码方式这使得在未经授权的情况下修改文件变得非常困难文件采用二进制格式存储而不是像文本文件那样以可读的形式存储这导致无法直接编辑和修改文件需要使用特定的软件或工具加密和安全特性文件可以使用密码进行加密和保护以确保只有授权的用户才能进行修改加密可以防止未经授权的访问和修改使得修改文件变得更加困难和复杂文件签名和验证文件可以使用数字签名进行验证以确保文件的完整性和可信性数字签名可以证明文件的来源和真实性一旦数字签名验证失败即表明文件已被篡改版本兼容性和规范格式被国际标准化组织制定为标准这个标准确保了不同版本和软件之间的文件的兼容性并定义了丰富的功能和规范包括页面布局字体嵌入图形和图像处理等这些严格的规范使得对文件进行修改变得复杂和具有挑战性如何修改因为的局限性是无法进行修改的所以我们只能通过将他转换为其他类型的文件进行查看修改当然转换的过程不可能是百分百完美的进行转换的下面推荐这俩个可以进行转换的网站转换成在线转换器免费',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-08-07 15:44:36',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小u的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" alt="微信" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> Newest Comments</span></div><div class="aside-list"><span>loading...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 1.05rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 1.05rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 1.05rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 1.05rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 1.05rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 1.05rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 1.05rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 1.05rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 1.05rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 1.05rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 1.05rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 1.05rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 1.05rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 1.05rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 1.05rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 1.05rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 1.05rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.05rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 1.05rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.05rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 1.05rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 1.05rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 1.05rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 1.05rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 1.05rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 1.05rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 1.05rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 1.05rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 1.05rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 1.05rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 1.05rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.05rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 1.05rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.05rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 1.05rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 1.05rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 1.05rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 1.05rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">234</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">May 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url">技术杂谈</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>技术杂谈</span></a></span></div></div><h1 class="post-title" itemprop="name headline">pdf为什么不能被修改</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:05.861Z" title="Created 2023-10-01 07:34:05">2023-10-01</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2023-08-07T07:44:36.991Z" title="Updated 2023-08-07 15:44:36">2023-08-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为邯郸"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>邯郸</span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src=""></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="http://example.com/2023/10/01/projects/zatan/8/6/"><header><a class="post-meta-categories" href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" itemprop="url">技术杂谈</a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" tabindex="-1" itemprop="url">技术杂谈</a><h1 id="CrawlerTitle" itemprop="name headline">pdf为什么不能被修改</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小u</span><time itemprop="dateCreated datePublished" datetime="2023-09-30T23:34:05.861Z" title="Created 2023-10-01 07:34:05">2023-10-01</time><time itemprop="dateCreated datePublished" datetime="2023-08-07T07:44:36.991Z" title="Updated 2023-08-07 15:44:36">2023-08-07</time></header><h2 id="PDF简介"><a href="#PDF简介" class="headerlink" title="PDF简介"></a>PDF简介</h2><ul>
+<li>PDF是Portable Document Format 的缩写，可翻译为“便携文件格式”，由Adobe System Incorporated 公司在1992年发明。</li>
+<li>PDF文件是一种编程形式的文档格式，它所有显示的内容，都是通过相应的操作符进行绘制的。</li>
+<li>PDF基本显示单元包括：文字，图片，矢量图，图片</li>
+<li>PDF扩展单元包括：水印，电子署名，注释，表单，多媒体，3D</li>
+<li>PDF动作单元：书签，超链接（拥有动作的单元有很多个，包括电子署名，多媒体等等）</li>
+</ul>
+<h2 id="PDF的优点"><a href="#PDF的优点" class="headerlink" title="PDF的优点"></a>PDF的优点</h2><ul>
+<li>一致性：在所有可以打开PDF的机器上，展示的效果是完全一致，不会出现段落错乱、文字乱码这些排版问题。尤其是文档中，本身可以嵌入字体，避免了客户端没有对应字体，而导致文字显示不一致的问题。所以，在印刷行业，绝大多数用的都是PDF格式。</li>
+<li>不易修改：用过PDF文件的人，都会知道，对已经保存之后的PDF文件，想要进行重新排版，基本上就不可能的，这就保证了从资料源发往外界的资料，不容易被篡改。</li>
+<li>安全性：PDF文档可以进行加密，包括以下几种加密形式：文档打开密码，文档权限密码，文档证书密码，加密的方法包括：RC4，AES，通过加密这种形式，可以达到资料防扩散等目的。</li>
+<li>不失真：PDF文件中，使用了矢量图，在文件浏览时，无论放大多少倍，都不会导致使用矢量图绘制的文字，图案的失真。</li>
+<li>支持多种压缩方式：为了减少PDF文件的size，PDF格式支持各种压缩方式：asciihex，ascii85，lzw，runlength，ccitt，jbig2，jpeg(DCT)，jpeg2000(jpx)</li>
+<li>支持多种印刷标准：支持PDF-A，PDF-X</li>
+</ul>
+<h2 id="PDF格式"><a href="#PDF格式" class="headerlink" title="PDF格式"></a>PDF格式</h2><p>根据PDF官方指南，理解PDF格式可以从四个方面下手——<strong>Objects</strong>（对象）、<strong>File structure</strong>（物理文件结构）、<strong>Document structure</strong>（逻辑文件结构）、<strong>Content streams</strong>（内容流）。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><h3 id="物理文件结构"><a href="#物理文件结构" class="headerlink" title="物理文件结构"></a>物理文件结构</h3><ul>
+<li>整体上分为文件头（Header）、对象集合（Body）、交叉引用表（Xref table）、文件尾（Trailer）四个部分，结构如图。修改过的PDF结构会有部分变化。</li>
+<li>未经修改</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308071525017.png" alt="img"></p>
+<ul>
+<li>经修改</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308071525080.jpeg" alt="img"></p>
+<h4 id="文件头"><a href="#文件头" class="headerlink" title="文件头"></a>文件头</h4><ul>
+<li>文件头是PDF文件的第一行,格式如下:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%<span class="variable constant_">PDF</span>-<span class="number">1.7</span></span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<ul>
+<li>这是个固定格式，表示这个PDF文件遵循的PDF规范版本，解析PDF的时候尽量支持高版本的规范，以保证支持大多数工具生成的PDF文件。1.7版本支持1.0-1.7之间的所有版本。</li>
+</ul>
+<h4 id="对象集合"><a href="#对象集合" class="headerlink" title="对象集合"></a>对象集合</h4><ul>
+<li>这是一个PDF文件最重要的部分，文件中用到的所有对象,包括文本、图象、音乐、视频、字体、超连接、加密信息、文档结构信息等等,都在这里定义。格式如下:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span> <span class="number">0</span> obj</span><br><span class="line">        ...</span><br><span class="line">end obj</span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<ul>
+<li><p>一个对象的定义包含4个部分：前面的2是<strong>对象序号</strong>，其用来唯一标记一个对象；0是<strong>生成号</strong>，按照PDF规范，如果一个PDF文件被修改，那这个数字是累加的，它和对象序号一起标记是原始对象还是修改后的对象，但是实际开发中，很少有用这种方式修改PDF的，都是重新编排对象号；obj和endobj是对象的定义范围，可以抽象的理解为这就是一个左括号和右括号；省略号部分是PDF规定的任意合法对象。</p>
+</li>
+<li><p>可以通过R关键字来引用任何一个对象，比如要引用上面的对象，可以使用2 0 R，需要主意的是，R关键字不仅可以引用一个已经定义的对象，还可以引用一个并<strong>不存在的对象</strong>，而且效果就和引用了一个空对象一样。</p>
+</li>
+<li><p>对象主要有下面几种</p>
+</li>
+<li><p><strong>booleam</strong> 用关键字true或false表示，可以是array对象的一个元素,或dictionary对象的一个条目。也可以用在PostScript计算函数里面，做为if或if esle的一个条件。</p>
+</li>
+<li><p>numeric</p>
+<p> 包括整形和实型，不支持非十进制数字，不支持指数形式的数字。例: 1)整数 123 4567 +111 -2 范围:正2的31次方-1到负的2的31次方 2)实数 12.3 0.8 +6.3 -4.01 -3. +.03 范围:±3.403 ×10的38次方 ±1.175 × 10的-38次方</p>
+<ul>
+<li>注意:如果整数超过表示范围将转化成实数,如果实数超过范围就会出错</li>
+</ul>
+</li>
+<li><p>string</p>
+<p> 由一系列0-255之间的字节组成，一个string总长度不能超过65535.string有以下两种方式：</p>
+<ul>
+<li>十六进制字串 由&lt;&gt;包含起来的一个16进制串，两位表示一个字符,不足两位用0补齐。例: \ 表示AA和BB两个字符 \ 表示AA和B0两个字符</li>
+<li>直接字串 由()包含起来的一个字串,中间可以使用转义符”&#x2F;“。例：(abc) 表示abc (a&#x2F;&#x2F;) 表示a&#x2F; 转义符的定义如下：</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">转义字符</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">&#x2F;n</td>
+<td align="left">换行</td>
+</tr>
+<tr>
+<td align="left">&#x2F;r</td>
+<td align="left">回车</td>
+</tr>
+<tr>
+<td align="left">&#x2F;t</td>
+<td align="left">水平制表符</td>
+</tr>
+<tr>
+<td align="left">&#x2F;b</td>
+<td align="left">退格</td>
+</tr>
+<tr>
+<td align="left">&#x2F;f</td>
+<td align="left">换页（Form feed (FF)）</td>
+</tr>
+<tr>
+<td align="left">&#x2F;(</td>
+<td align="left">左括号</td>
+</tr>
+<tr>
+<td align="left">&#x2F;)</td>
+<td align="left">右括号</td>
+</tr>
+<tr>
+<td align="left">&#x2F;&#x2F;</td>
+<td align="left">反斜杠</td>
+</tr>
+<tr>
+<td align="left">&#x2F;ddd</td>
+<td align="left">八进制形式的字符</td>
+</tr>
+</tbody></table>
+<ul>
+<li>对象类别（续）</li>
+<li><strong>name</strong> 由一个前导&#x2F;和后面一系列字符组成，最大长度为127。和string不同的是，name是<strong>不可分割</strong>的并且是<strong>唯一</strong>的，不可分割就是说一个name对象就是一个原子，比如&#x2F;name，不能说n就是这个name的一个元素；唯一就是指两个相同的name一定代表同一个对象。从pdf1.2开始，除了ascii的0，别的都可以用一个#加两个十六进制的数字表示。例: &#x2F;name 表示name &#x2F;name#20is 表示name is &#x2F;name#200 表示name 0</li>
+<li><strong>array</strong> 用[]包含的一组对象，可以是任何pdf对象(包括array)。虽然pdf只支持一维array，但可以通过array的嵌套实现任意维数的array(但是一个array的元素不能超过8191)。例：[549 3.14 false (Ralph) &#x2F;SomeName]</li>
+<li><strong>Dictionary</strong> 用”&lt;&lt;”和”&gt;&gt;”包含的若干组条目，每组条目都由key和value组成，其中key必须是name对象，并且一个dictionary内的key是唯一的；value可以是任何pdf的合法对象(包括dictionary对象)。例： <code>&lt;&lt; /IntegerItem 12 /StringItem (a string) /Subdictionary &lt;&lt; /Item1 0.4 /Item2 true /LastItem (not!) /VeryLastItem (OK) &gt;&gt; &gt;&gt;</code></li>
+<li><strong>stream</strong> 由一个字典和紧跟其后面的一组关键字stream和endstream以及这组关键字中间包含一系列字节组成。内容和string很相似，但有区别：stream可以分几次读取，分开使用不同的部分，string必须作为一个整体一次全部读取使用；string有长度限制，但stream却没有这个限制。一般较大的数据都用stream表示。需要注意的是，stream必须是间接对象，并且stream的字典必须是直接对象。从1.2规范以后，stream可以以外部文件形式存在，这种情况下，解析PDF的时候stream和endstream之间的内容就被忽略掉。例: <code>dictionary stream…data…endstream</code>stream字典中常用的字段如下： 字段名类型值Length整形（必须）关键字stream和endstream之间的数据长度，endstream之前可能会有一个多余的EOL标记，这个不计算在数据的长度中。Filter名字 或 数组（可选）Stream的编码算法名称（列表）。如果有多个，则数组中的编码算法列表顺序就是数据被编码的顺序。DecodeParms字典 或 数组（可选)一个参数字典或由参数字典组成的一个数组，供Filter使用。如果仅有一个Filter并且这个Filter需要参数，除非这个Filter的所有参数都已经给了默认值，否则的话 DecodeParms必须设置给Filter。如果有多个Filter，并且任意一个Filter使用了非默认的参数， DecodeParms 必须是个数组，每个元素对应一个Filter的参数列表（如果某个Filter无需参数或所有参数都有了默认值，就用空对象代替）。如果没有Filter需要参数，或者所有Filter的参数都有默认值，DecodeParms 就被忽略了。F文件标识（可选)保存stream数据的文件。如果有这个字段， stream和endstream就被忽略，FFilter将会代替Filter, FDecodeParms将代替DecodeParms。Length字段还是表示stream和endstream之间数据的长度，但是通常此刻已经没有数据了，长度是0.FFilter名字 或 字典(可选)和filter类似，针对外部文件。FDecodeParms字典 或 数组(可选)和DecodeParams类似，针对外部文件。</li>
+<li>Stream的编码算法名称（列表）。如果有多个，则数组中的编码算法列表顺序就是数据被编码的顺序。且需要被编码。编码算法主要如下：</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308071525115.jpeg" alt="img"></p>
+<p>编码可视化主要显示为乱码，所以提供了隐藏信息的机会,如下图的steam内容为乱码。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308071525060.jpeg" alt="img"></p>
+<ul>
+<li><strong>NULL</strong> 用null表示，代表空。如果一个key的值为null，则这个key可以被忽略；如果引用一个不存在的object则等价于引用一个空对象。</li>
+</ul>
+<h4 id="交叉引用表"><a href="#交叉引用表" class="headerlink" title="交叉引用表"></a>交叉引用表</h4><ul>
+<li>交叉引用表是PDf文件内部一种特殊的文件组织方式，可以很方便的根据对象号随机访问一个对象。其格式如下:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">xref</span><br><span class="line">      <span class="number">0</span> <span class="number">1</span></span><br><span class="line">      <span class="number">0000000000</span>   <span class="number">65535</span>   f</span><br><span class="line">      <span class="number">4</span> <span class="number">1</span></span><br><span class="line">    <span class="number">0000000009</span>   <span class="number">00000</span>   n</span><br><span class="line">      <span class="number">8</span> <span class="number">3</span></span><br><span class="line">    <span class="number">0000000074</span>   <span class="number">00000</span>   n</span><br><span class="line">      <span class="number">0000000120</span>   <span class="number">00000</span>   n</span><br><span class="line">      <span class="number">0000000179</span>   <span class="number">00000</span>   n</span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<ul>
+<li>其中,xref是开始标志,表示以下为一个交叉引用表的内容;每个交叉引用表又可以分为若干个子段，每个子段的第一行是两个数字，第一个是对象起始号，后面是连续的对象个数，接着每行是这个子段的每个对象的具体信息——每行的前10个数字代表这个这个对象<strong>相对文件头的偏移地址</strong>,后面的5位数字是<strong>生成号</strong>（用于标记PDF的更新信息，和对象的生成号作用类似），最后一位f或n表示对象是否被使用(n表示使用,f表示被删除或没有用)。上面这个交叉引用表一共有3个子段，分别有1个，1个，3个对象，第一个子段的对象不可用，其余子段对象可用。</li>
+</ul>
+<h4 id="文件尾"><a href="#文件尾" class="headerlink" title="文件尾"></a>文件尾</h4><ul>
+<li>通过trailer可以快速的找到交叉引用表的位置，进而可以精确定位每一个对象；还可以通过它本身的字典还可以获取文件的一些全局信息（作者，关键字，标题等），加密信息，等等。具体形式如下:</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">trailer</span><br><span class="line">      &lt;&lt;</span><br><span class="line">        key1   value1</span><br><span class="line">        key2   value2</span><br><span class="line">        key3   value3</span><br><span class="line">        …</span><br><span class="line">      &gt;&gt;</span><br><span class="line">      startxref</span><br><span class="line">      <span class="number">553</span></span><br><span class="line">      %%<span class="variable constant_">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<ul>
+<li>trailer后面紧跟一个字典，包含若干键-值对。具体含义如下：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">键</th>
+<th align="left">值类型</th>
+<th align="left">值说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Size</td>
+<td align="left">整形数字</td>
+<td align="left">所有间接对象的个数。一个PDF文件，如果被更新过，则会有多个对象集合、交叉引用表、trailer，最后一个trailer的这个字段记录了之前所有对象的个数。这个值必须是直接对象。</td>
+</tr>
+<tr>
+<td align="left">Prev</td>
+<td align="left">整形数字</td>
+<td align="left">当文件有多个对象集合、交叉引用表和trailer时，才会有这个键，它表示前一个相对于文件头的偏移位置。这个值必须是直接对象。</td>
+</tr>
+<tr>
+<td align="left">Root</td>
+<td align="left">字典</td>
+<td align="left">Catalog字典（文件的逻辑入口点）的对象号。必须是间接对象。</td>
+</tr>
+<tr>
+<td align="left">Encrypt</td>
+<td align="left">字典</td>
+<td align="left">文档被保护时，会有这个字段，加密字典的对象号。</td>
+</tr>
+<tr>
+<td align="left">Info</td>
+<td align="left">字典</td>
+<td align="left">存放文档信息的字典，必须是间接对象。</td>
+</tr>
+<tr>
+<td align="left">ID</td>
+<td align="left">数组</td>
+<td align="left">文件的ID</td>
+</tr>
+</tbody></table>
+<ul>
+<li>上面代码中的startxref：后面的数字表示最后一个交叉引用表相对于文件起始位置的偏移量</li>
+<li>%%EOF：文件结束符</li>
+</ul>
+<h3 id="逻辑文件结构"><a href="#逻辑文件结构" class="headerlink" title="逻辑文件结构"></a>逻辑文件结构</h3><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202308071525024.jpeg" alt="img"></p>
+<h4 id="catalog根节点"><a href="#catalog根节点" class="headerlink" title="catalog根节点"></a>catalog根节点</h4><ul>
+<li>catalog是整个PDF逻辑结构的根节点，这个可以通过trailer的Root字段定位，虽然简单，但是相当重要，因为这里是PDF文件物理结构和逻辑结构的连接点。Catalog字典包含的信息非常多，这里仅就最主要的几个字段做个说明。 字段类型值Typename(必须)只能为Pages 。Parentdictionary(如果不是catalog里面指定的跟节点，则必须有，并且必须是间接对象) 当前节点的直接父节点。Kidsarray(必须)一个间接对象组成的数组，节点可能是page或page tree。Countinteger(必须) page tree里面所包含叶子节点（page 对象）的个数。从以上字段可以看出，Pages最主要的功能就是组织所有的page对象。Page对象描述了一个PDF页面的属性、资源等信息。Page对象是一个字典，它主要包含一下几个重要的属性：<ul>
+<li>Pages字段 这是个必须字段，是PDF里面所有页面的描述集合。Pages字段本身是个字典，它里面又包含了一下几个主要字段：</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">类型</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Type</td>
+<td align="left">name</td>
+<td align="left">(必须)必须是Page。</td>
+</tr>
+<tr>
+<td align="left">Parent</td>
+<td align="left">dictionary</td>
+<td align="left">(必须；并且只能是间接对象)当前page节点的直接父节点page tree 。</td>
+</tr>
+<tr>
+<td align="left">LastModified</td>
+<td align="left">date</td>
+<td align="left">(如果存在PieceInfo字段，就必须有，否则可选)记录当前页面被最后一次修改的日期和时间。</td>
+</tr>
+<tr>
+<td align="left">Resources</td>
+<td align="left">dictionary</td>
+<td align="left">(必须; 可继承)记录了当前page用到的所有资源。如果当前页不用任何资源，则这是个空字典。忽略所有字段则表示继承父节点的资源。</td>
+</tr>
+<tr>
+<td align="left">MediaBox</td>
+<td align="left">rectangle</td>
+<td align="left">(必须; 可继承)定义了要显示或打印页面的物理媒介的区域（default user space units）</td>
+</tr>
+<tr>
+<td align="left">CropBox</td>
+<td align="left">rectangle</td>
+<td align="left">(可选; 可继承)定义了一个可视区域，当前页被显示或打印的时候，它的内容会被这个区域裁剪。默认值就是 MediaBox。</td>
+</tr>
+<tr>
+<td align="left">BleedBox</td>
+<td align="left">rectangle</td>
+<td align="left">(可选) 定义了一个区域，当输出设备是个生产环境（ production environment）的时候，页面显示的内容会被裁剪。默认值是 CropBox.</td>
+</tr>
+<tr>
+<td align="left">Contents</td>
+<td align="left">stream or array</td>
+<td align="left">(可选) 描述页面内容的流。如果这个字段缺省，则页面上什么也不会显示。这个值可以是一个流，也可以是由几个流组成的一个数组。如果是数组，实际效果相当于所有的流是按顺序连在一起的一个流，这就允许PDF生成的时候可以随时插入图片或其他资源。流之间的分割只是词汇上的一个分割，并不是逻辑上或者组织形式的切割。</td>
+</tr>
+<tr>
+<td align="left">Rotate</td>
+<td align="left">integer</td>
+<td align="left">(可选; 可继承) 顺时钟旋转的角度数，这个必须是90的整数倍，默认是0。</td>
+</tr>
+<tr>
+<td align="left">Thumb</td>
+<td align="left">stream</td>
+<td align="left">(可选)定义当前页的缩略图。</td>
+</tr>
+<tr>
+<td align="left">Annots</td>
+<td align="left">array</td>
+<td align="left">(可选) 和当前页面关联的注释。</td>
+</tr>
+<tr>
+<td align="left">Metadata</td>
+<td align="left">stream</td>
+<td align="left">(可选) 当前页包含的元数据。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>一个简单例子：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> <span class="number">0</span> obj</span><br><span class="line">       &lt;&lt; <span class="regexp">/Type /</span><span class="title class_">Page</span></span><br><span class="line">           /<span class="title class_">Parent</span> <span class="number">4</span> <span class="number">0</span> R</span><br><span class="line">           /<span class="title class_">MediaBox</span> [ <span class="number">0</span> <span class="number">0</span> <span class="number">612</span> <span class="number">792</span> ]</span><br><span class="line">           /<span class="title class_">Resources</span> &lt;&lt;/<span class="title class_">Font</span>&lt;&lt;</span><br><span class="line">                        <span class="regexp">/F3 7 0 R /</span><span class="variable constant_">F5</span> <span class="number">9</span> <span class="number">0</span> R /<span class="variable constant_">F7</span> <span class="number">11</span> <span class="number">0</span> R</span><br><span class="line">                             &gt;&gt;</span><br><span class="line">                        <span class="regexp">/ProcSet [ /PDF ]</span></span><br><span class="line"><span class="regexp">                       &gt;&gt;</span></span><br><span class="line"><span class="regexp">           /</span><span class="title class_">Contents</span> <span class="number">12</span> <span class="number">0</span> R</span><br><span class="line">           /<span class="title class_">Thumb</span> <span class="number">14</span> <span class="number">0</span> R</span><br><span class="line">           /<span class="title class_">Annots</span> [ <span class="number">23</span> <span class="number">0</span> R <span class="number">24</span> <span class="number">0</span> R]</span><br><span class="line">         &gt;&gt; </span><br><span class="line">endobj</span><br></pre></td></tr></table></figure>
+
+<p>复制</p>
+<ul>
+<li>Outlines字段 Outline是PDF里面为了方便用户从PDF的一部分跳转到另外一部分而设计的，有时候也叫书签（Bookmark），它是一个树状结构，可以直观的把PDF文件结构展现给用户。用户可以通过鼠标点击来打开或者关闭某个outline项来实现交互，当打开一个outline时，用户可以看到它的所有子节点，关闭一个outline的时候，这个outline的所有子节点会自动隐藏。并且，在点击的时候，阅读器会自动跳转到outline对应的页面位置。Outlines包含以下几个字段： 字段类型值Typename(可选)如果这个字段有值，则必须是Outlines。Firstdictionary(必须;必须是间接对象) 第一个顶层Outline item。Lastdictionary(必须;必须是间接对象)最后一个顶层outline item。Countinteger(必须)outline的所有层次的item的总数。</li>
+<li>Outline是一个管理outline item的顶层对象，我们看到的，其实是outline item，这个里面才包含了文字、行为、目标区域等等。一个outline item主要有一下几个字段： 字段类型值Titletext string(必须)当前item要显示的标题。Parentdictionary(必须;必须是间接对象) outline层级中，当前item的父对象。如果item本身是顶级item，则父对象就是它本身。Prevdictionary(除了每层的第一个item外，其他item必须有这个字段;必须是间接对象)当前层级中，此item的前一个item。Nextdictionary(除了每层的最后一个item外，其他item必须有这个字段;必须是间接对象)当前层级中，此item的后一个item。Firstdictionary(如果当前item有任何子节点，则这个字段是必须的;必须是间接对象) 当前item的第一个直接子节点。Lastdictionary(如果当前item有任何子节点，则这个字段是必须的;必须是间接对象) 当前item的最后一个直接子节点。Destname,byte string, or array(可选; 如果A字段存在，则这个不能被会略)当前的outline item被激活的时候，要显示的区域。Adictionary(可选; 如果Dest 字段存在，则这个不能被忽略)当前的outline item被激活的时候，要执行的动作。</li>
+<li>URI字段 URI（uniform resource identifier)，定义了文档级别的统一资源标识符和相关链接信息。目录和文档中的链接就是通过这个字段来处理的.</li>
+<li>Metadata字段 文档的一些附带信息，用xml表示，符合adobe的xmp规范。这个可以方便程序不用解析整个文件就能获得文件的大致信息。</li>
+<li>其他 Catalog字典中，常用的字段一般有以下一些：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">类型</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Type</td>
+<td align="left">name</td>
+<td align="left">(必须)必须为Catalog。</td>
+</tr>
+<tr>
+<td align="left">Version</td>
+<td align="left">name</td>
+<td align="left">(可选)PDF文件所遵循的版本号（如果比文件头指定的版本号高的话）。如果这个字段缺省或者文件头指定的版本比这里的高，那就以文件头为准。一个PDF生成程序可以通过更新这个字段的值来修改PDF文件版本号。</td>
+</tr>
+<tr>
+<td align="left">Pages</td>
+<td align="left">dictionary</td>
+<td align="left">(必须并且必须为间接对象)当前文档的页面集合入口。</td>
+</tr>
+<tr>
+<td align="left">PageLabels</td>
+<td align="left">number tree</td>
+<td align="left">(可选) number tree，定义了页面和页面label对应关系。</td>
+</tr>
+<tr>
+<td align="left">Names</td>
+<td align="left">dictionary</td>
+<td align="left">(可选)文档的name字典。</td>
+</tr>
+<tr>
+<td align="left">Dests</td>
+<td align="left">dictionary</td>
+<td align="left">(可选;必须是间接对象)name和相应目标对应关系字典。</td>
+</tr>
+<tr>
+<td align="left">ViewerPreferences</td>
+<td align="left">dictionary</td>
+<td align="left">(可选)阅读参数配置字典，定义了文档被打开时候的行为。如果缺省，则使用阅读器自己的配置。</td>
+</tr>
+<tr>
+<td align="left">PageLayout</td>
+<td align="left">name</td>
+<td align="left">(可选) 指定文档被打开的时候页面的布局方式。SinglePageDisplay 单页OneColumnDisplay 单列TwoColumnLeftDisplay 双列，奇数页在左TwoColumnRightDisplay 双列，奇数页在右TwoPageLeft 双页，奇数页在左TwoPageRight 双页，奇数页在右缺省值: SinglePage.</td>
+</tr>
+<tr>
+<td align="left">PageMode</td>
+<td align="left">name</td>
+<td align="left">(可选) 当文档被打开时，指定文档怎么显示UseNone 目录和缩略图都不显示UseOutlines 显示目录UseThumbs 显示缩略图FullScreen 全屏模式，没有菜单，任何其他窗口UseOC 显示Optional content group 面板UseAttachments显示附件面板缺省值: UseNone.</td>
+</tr>
+<tr>
+<td align="left">Outlines</td>
+<td align="left">dictionary</td>
+<td align="left">(可选；必须为间接对象)文档的目录字典</td>
+</tr>
+<tr>
+<td align="left">Threads</td>
+<td align="left">array</td>
+<td align="left">(可选；必须为间接对象)文章线索字典组成的数组。</td>
+</tr>
+<tr>
+<td align="left">OpenAction</td>
+<td align="left">array or dictionary</td>
+<td align="left">(可选) 指定一个区域或一个action，在文档打开的时候显示（区域）或者执行（action）。如果缺省，则会用默认缩放率显示第一页的顶部。</td>
+</tr>
+<tr>
+<td align="left">AA</td>
+<td align="left">dictionary</td>
+<td align="left">(可选)一个附加的动作字典，在全局范围内定义了响应各种事件的action。</td>
+</tr>
+<tr>
+<td align="left">URI</td>
+<td align="left">dictionary</td>
+<td align="left">(可选)一个URI字典包含了文档级别的URI action信息。</td>
+</tr>
+<tr>
+<td align="left">AcroForm</td>
+<td align="left">dictionary</td>
+<td align="left">(可选)文档的交互式form (AcroForm)字典。</td>
+</tr>
+<tr>
+<td align="left">Metadata</td>
+<td align="left">stream</td>
+<td align="left">(可选;必须是间接对象)文档包含的元数据流。</td>
+</tr>
+</tbody></table>
+<h2 id="具体组成"><a href="#具体组成" class="headerlink" title="具体组成"></a>具体组成</h2><h3 id="1-Header部分"><a href="#1-Header部分" class="headerlink" title="1 Header部分"></a><strong>1 Header部分</strong></h3><p>PDF文件的第一行应是由5个字符“%PDF-”后跟“1.N”的版本号组成的标题，其中N是0到7之间的数字。例如下面的：</p>
+<p>　　%PDF–1.0<br>　　%PDF–1.1<br>　　%PDF–1.2<br>　　%PDF–1.3<br>　　%PDF–1.4<br>　　%PDF–1.5<br>　　%PDF–1.6<br>　　%PDF–1.7</p>
+<p>从PDF 1.4开始，应使用文档目录字典中的<strong>Version</strong> 条目（通过文件<strong>Trailer</strong>部分的<strong>Root</strong>条目指定版本），而不是标题中指定的版本。</p>
+<h3 id="2-Body部分"><a href="#2-Body部分" class="headerlink" title="2 Body部分"></a><strong>2 Body部分</strong></h3><p>PDF文件的正文应由表示文件内容的一系列间接对象组成，例如字体、页面和采样图像。从PDF 1.5开始，Body还可以包含对象流，每个对象流包含一系列间接对象。例如下面这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">1 0 obj</span><br><span class="line">&lt;&lt; /Type /Catalog</span><br><span class="line">　　/Outlines 2 0 R</span><br><span class="line">　　/Pages 3 0 R</span><br><span class="line">&gt;&gt;</span><br><span class="line">endobj</span><br><span class="line">2 0 obj</span><br><span class="line">&lt;&lt; /Type Outlines</span><br><span class="line">　　/Count 0</span><br><span class="line">&gt;&gt;</span><br><span class="line">endobj</span><br><span class="line">3 0 obj</span><br><span class="line">&lt;&lt; /Type /Pages</span><br><span class="line">/Kids [4 0 R]</span><br><span class="line">/Count 1</span><br><span class="line">&gt;&gt;</span><br><span class="line">endobj</span><br><span class="line">4 0 obj</span><br><span class="line">&lt;&lt; /Type /Page</span><br><span class="line">　　/Parent 3 0 R</span><br><span class="line">　　/MediaBox [0 0 612 792]</span><br><span class="line">　　/Contents 5 0 R</span><br><span class="line">　　/Resources &lt;&lt; /ProcSet 6 0 R &gt;&gt;</span><br><span class="line">&gt;&gt;</span><br><span class="line">endobj</span><br><span class="line">5 0 obj</span><br><span class="line">&lt;&lt; /Length 35 &gt;&gt;</span><br><span class="line">stream</span><br><span class="line">　　…Page-marking operators…</span><br><span class="line">endstream</span><br><span class="line">endobj</span><br><span class="line">6 0 obj</span><br><span class="line">[/PDF]</span><br><span class="line">endobj</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3 Cross-Reference Table 交叉引用表部分</strong></p>
+<p>交叉引用表包含文件中间接对象的信息，以便允许对这些对象进行随机访问，因此无需读取整个文件即可定位任何特定对象。</p>
+<p>交叉引用表以xref开始，紧接着是一个空格隔开的两个数字，然后每一行就是一个对象信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">xref</span><br><span class="line">0 7</span><br><span class="line">0000000000 65535 f</span><br><span class="line">0000000009 00000 n</span><br><span class="line">0000000074 00000 n</span><br><span class="line">0000000120 00000 n</span><br><span class="line">0000000179 00000 n</span><br><span class="line">0000000300 00000 n</span><br><span class="line">0000000384 00000 n</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上面第二行中的两个数字“0 7”，0表示下面的对象从0号对象开始，7表示对象的数量，也就是说表示从0到6共7个对象。</p>
+<p>每行一个对象信息的格式如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nnnnnnnnnn ggggg n eol</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>nnnnnnnnnn 长度10个字节，表示对象在文件的偏移地址；</li>
+<li>ggggg 长度5个字节，表示对象的生成号；</li>
+<li>n （in-use）表示对象被引用，如果此值是f （free），表示对象未被引用；</li>
+<li>eol 就是回车换行</li>
+</ul>
+<p>交叉引用表中的第一个编号为0的对象始终是f（free）的，并且生成号为65535；除了编号0的对象外，交叉引用表中的所有对象最初的生成号应为0。删除间接对象时，应将其交叉引用条目标记为“free”，并将其添加到free条目的链表中。下次创建具有该对象编号的对象时，条目的生成号应增加1，最大生成号为65535；当交叉引用条目达到此值时，它将永远不会被重用。</p>
+<ul>
+<li>*交叉引用表也可以是这样的：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">xref</span><br><span class="line">0 1</span><br><span class="line">0000000000 65535 f</span><br><span class="line">3 1</span><br><span class="line">0000025325 00000 n</span><br><span class="line">23 2</span><br><span class="line">0000025518 00002 n</span><br><span class="line">0000025635 00000 n</span><br><span class="line">30 1</span><br><span class="line">0000025777 00000 n</span><br></pre></td></tr></table></figure>
+
+<p>[</p>
+<p><strong>4 Trailer部分</strong></p>
+<p>PDF阅读器是从PDF的尾部开始解析文件的，通过Trailer部分能够快速找到交叉引用表和某些特殊对象。如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">trailer</span><br><span class="line">&lt;&lt; /Size 7</span><br><span class="line">    /Root 1 0 R</span><br><span class="line">&gt;&gt;</span><br><span class="line">startxref</span><br><span class="line">408</span><br><span class="line">%%EOF</span><br></pre></td></tr></table></figure>
+
+
+
+<p>文件的最后一行应仅包含文件结束标记%%EOF。关键字startxref下面的数字表示最后一个交叉引用表的xref关键字开头的字节偏移量。trailer和startxref之间是尾部字典，由包含在双尖括号（&lt;&lt;…&gt;&gt;）中的键值对组成。</p>
+<h2 id="为什么不容易被修改"><a href="#为什么不容易被修改" class="headerlink" title="为什么不容易被修改"></a>为什么不容易被修改</h2><ol>
+<li>文件结构和编码：PDF文件采用了一种复杂的文件结构和编码方式，这使得在未经授权的情况下修改PDF文件变得非常困难。PDF文件采用二进制格式存储，而不是像文本文件那样以可读的形式存储。这导致无法直接编辑和修改PDF文件，需要使用特定的软件或工具。</li>
+<li>加密和安全特性：PDF文件可以使用密码进行加密和保护，以确保只有授权的用户才能进行修改。加密可以防止未经授权的访问和修改，使得修改PDF文件变得更加困难和复杂。</li>
+<li>文件签名和验证：PDF文件可以使用数字签名进行验证，以确保文件的完整性和可信性。数字签名可以证明文件的来源和真实性，一旦数字签名验证失败，即表明文件已被篡改。</li>
+<li>版本兼容性和规范：PDF格式被国际标准化组织（ISO）制定为ISO 32000标准。这个标准确保了不同版本和软件之间的PDF文件的兼容性，并定义了丰富的功能和规范，包括页面布局、字体嵌入、图形和图像处理等。这些严格的规范使得对PDF文件进行修改变得复杂和具有挑战性。</li>
+</ol>
+<h2 id="如何修改pdf"><a href="#如何修改pdf" class="headerlink" title="如何修改pdf"></a>如何修改pdf</h2><p>因为pdf的局限性是无法进行修改的，所以我们只能通过将他转换为其他类型的文件进行查看修改，当然，转换的过程不可能是百分百完美的进行转换的。</p>
+<p>下面推荐这俩个可以进行转换的网站</p>
+<p><a target="_blank" rel="noopener" href="https://www.cleverpdf.com/cn/pdf-to-word">PDF转换成Word在线转换器 - 免费 - CleverPDF</a></p>
+<p><a target="_blank" rel="noopener" href="https://smallpdf.com/pdf-to-word">Convert PDF to Word for free | Smallpdf.com</a></p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小u</div><div class="post-copyright__author_desc">热爱可抵岁月漫长</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="http://example.com/2023/10/01/projects/zatan/8/6/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('http://example.com/2023/10/01/projects/zatan/8/6/')">pdf为什么不能被修改</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816229.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300816224.jpg" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="http://example.com/2023/10/01/projects/zatan/8/6/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=pdf为什么不能被修改&amp;url=http://example.com/2023/10/01/projects/zatan/8/6/&amp;pic=" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>技术杂谈<span class="tagsPageCount">51</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/10/01/projects/zatan/8/5/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">一文搞懂正则表达式</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/01/projects/zatan/8/7/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">深入了解stream流</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/01/projects/zatan/10/1/" title="不要再封装各种 Util 工具类了，这个神级框架值得拥有！"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">不要再封装各种 Util 工具类了，这个神级框架值得拥有！</div></div></a></div><div><a href="/2023/10/01/projects/zatan/10/2/" title="一次学习通逆向"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">一次学习通逆向</div></div></a></div><div><a href="/2023/10/01/projects/zatan/10/4/" title="那些年用过的CSS奇妙用法之能用CSS就不用JS技巧系列"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">那些年用过的CSS奇妙用法之能用CSS就不用JS技巧系列</div></div></a></div><div><a href="/2023/10/01/projects/zatan/10/3/" title="git配置两个账户登录"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">git配置两个账户登录</div></div></a></div><div><a href="/2023/10/01/projects/zatan/10/5/" title="什么是CDN？它解决了什么难题？国内CDN加Vercel，无服务器使用办法"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-01</div><div class="title">什么是CDN？它解决了什么难题？国内CDN加Vercel，无服务器使用办法</div></div></a></div><div><a href="/2023/10/02/projects/zatan/10/7/" title="推荐 6 个基于 SpringBoot 的开源论坛项目！功能强大，界面炫酷！"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2023-10-02</div><div class="title">推荐 6 个基于 SpringBoot 的开源论坛项目！功能强大，界面炫酷！</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info__sayhi" id="author-info__sayhi" onclick="anzhiyu.changeSayHelloText()"></div><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://xiaou-1305448902.cos.ap-nanjing.myqcloud.com/img/202309300844043.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-status"><img class="g-status" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://bu.dusays.com/2023/08/24/64e6ce9c507bb.png" ait="status"/></div></div><div class="author-info__description">Java,java,springboot,mysql,redis,教程,git,软件,编程,开发,互联网,Java 基础,Java 教程,Java程序员进阶之路,Java 入门,Vue,前端,算法</div></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>Announcement</span></div><div class="announcement_content">欢迎来看我的博客 博客主地址：http://blog.xiaou61.top/  备用地址：https://newblog.guoyaxue.top/</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PDF%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">PDF简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PDF%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">PDF的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PDF%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">PDF格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.2.</span> <span class="toc-text">物理文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%A4%B4"><span class="toc-number">3.2.1.</span> <span class="toc-text">文件头</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E9%9B%86%E5%90%88"><span class="toc-number">3.2.2.</span> <span class="toc-text">对象集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E5%BC%95%E7%94%A8%E8%A1%A8"><span class="toc-number">3.2.3.</span> <span class="toc-text">交叉引用表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E5%B0%BE"><span class="toc-number">3.2.4.</span> <span class="toc-text">文件尾</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">3.3.</span> <span class="toc-text">逻辑文件结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#catalog%E6%A0%B9%E8%8A%82%E7%82%B9"><span class="toc-number">3.3.1.</span> <span class="toc-text">catalog根节点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%BB%84%E6%88%90"><span class="toc-number">4.</span> <span class="toc-text">具体组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Header%E9%83%A8%E5%88%86"><span class="toc-number">4.1.</span> <span class="toc-text">1 Header部分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Body%E9%83%A8%E5%88%86"><span class="toc-number">4.2.</span> <span class="toc-text">2 Body部分</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%AE%B9%E6%98%93%E8%A2%AB%E4%BF%AE%E6%94%B9"><span class="toc-number">5.</span> <span class="toc-text">为什么不容易被修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9pdf"><span class="toc-number">6.</span> <span class="toc-text">如何修改pdf</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/27/" title="再见 MyBatis-Plus ！">再见 MyBatis-Plus ！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/26/" title="“人尽皆知”的单例模式">“人尽皆知”的单例模式</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/29/" title="阿里的同事，写的代码真 TMD 优雅！">阿里的同事，写的代码真 TMD 优雅！</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/28/" title="别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？">别再用 BeanUtils 了，这款 PO VO DTO 转换神器不香么？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/08/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%94%B6%E8%97%8F/30/" title="MyBatis过时了吗？">MyBatis过时了吗？</a><time datetime="2023-10-08T12:28:14.000Z" title="Created 2023-10-08 20:28:14">2023-10-08</time></div></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2020 - 2023 By <a class="footer-bar-link" href="/" title="小u" target="_blank">小u</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">Articles</div><div class="length-num">238</div></a><a href="/tags/" title="tag"><div class="headline">Tags</div><div class="length-num">39</div></a><a href="/categories/" title="category"><div class="headline">Categories</div><div class="length-num">50</div></a></div><span class="sidebar-menu-item-title">Function</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="Display Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>Display Mode</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://mydocs.guoyaxue.top/" title="旧版博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="旧版博客"/><span class="back-menu-item-text">旧版博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://pan.xiaou61.top/#/" title="免费网盘"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="免费网盘"/><span class="back-menu-item-text">免费网盘</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cloud.xiaou61.top/" title="云盘(自用)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘(自用)"/><span class="back-menu-item-text">云盘(自用)</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://wpzc.xiaou61.top/" title="云盘转存"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="云盘转存"/><span class="back-menu-item-text">云盘转存</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://love.xiaou61.top/#/" title="关于我们(My girlFriend)"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="关于我们(My girlFriend)"/><span class="back-menu-item-text">关于我们(My girlFriend)</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">娱乐项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="http://fxq.xiaou61.top/#/" title="飞行棋"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="飞行棋"/><span class="back-menu-item-text">飞行棋</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/game/sqnwmai803/" title="谁去拿外卖"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://image.anheyu.com/favicon.ico" alt="谁去拿外卖"/><span class="back-menu-item-text">谁去拿外卖</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/desktop.html" title="win12网页版"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://blogutil-1305448902.cos-website.ap-nanjing.myqcloud.com/win12kymain/win12-main/icon/logo.svg" alt="win12网页版"/><span class="back-menu-item-text">win12网页版</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://game.xiaou61.top/" title="在线游戏"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="在线游戏"/><span class="back-menu-item-text">在线游戏</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 开往</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html"><span> 开往</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>3</sup></a><a href="/tags/HTML/" style="font-size: 0.88rem;">HTML<sup>1</sup></a><a href="/tags/JVM/" style="font-size: 0.88rem;">JVM<sup>22</sup></a><a href="/tags/Nginx/" style="font-size: 0.88rem;">Nginx<sup>1</sup></a><a href="/tags/Spring/" style="font-size: 0.88rem;">Spring<sup>1</sup></a><a href="/tags/Ts/" style="font-size: 0.88rem;">Ts<sup>1</sup></a><a href="/tags/TypeScript/" style="font-size: 0.88rem;">TypeScript<sup>1</sup></a><a href="/tags/WebApi/" style="font-size: 0.88rem;">WebApi<sup>1</sup></a><a href="/tags/coder1v5/" style="font-size: 0.88rem;">coder1v5<sup>2</sup></a><a href="/tags/css/" style="font-size: 0.88rem;">css<sup>3</sup></a><a href="/tags/java/" style="font-size: 0.88rem;">java<sup>12</sup></a><a href="/tags/javaSE/" style="font-size: 0.88rem;">javaSE<sup>3</sup></a><a href="/tags/javaWeb/" style="font-size: 0.88rem;">javaWeb<sup>2</sup></a><a href="/tags/js%E9%80%86%E5%90%91/" style="font-size: 0.88rem;">js逆向<sup>1</sup></a><a href="/tags/leetcode/" style="font-size: 0.88rem;">leetcode<sup>3</sup></a><a href="/tags/python/" style="font-size: 0.88rem;">python<sup>8</sup></a><a href="/tags/%E4%B9%A6%E7%B1%8D%E6%8E%A8%E8%8D%90/" style="font-size: 0.88rem;">书籍推荐<sup>2</sup></a><a href="/tags/%E5%85%AC%E4%BC%97%E5%8F%B7%E6%90%AC%E8%BF%90/" style="font-size: 0.88rem;">公众号搬运<sup>35</sup></a><a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 0.88rem;">前端<sup>10</sup></a><a href="/tags/%E5%8A%9E%E5%85%AC/" style="font-size: 0.88rem;">办公<sup>1</sup></a><a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 0.88rem;">后端<sup>8</sup></a><a href="/tags/%E5%A4%A9%E6%B6%AF%E8%AE%BA%E5%9D%9B/" style="font-size: 0.88rem;">天涯论坛<sup>1</sup></a><a href="/tags/%E5%AF%BC%E8%88%AA/" style="font-size: 0.88rem;">导航<sup>1</sup></a><a href="/tags/%E5%B0%B1%E4%B8%9A/" style="font-size: 0.88rem;">就业<sup>16</sup></a><a href="/tags/%E5%BE%AE%E4%BF%A1/" style="font-size: 0.88rem;">微信<sup>1</sup></a><a href="/tags/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/" style="font-size: 0.88rem;">技术杂谈<sup>51</sup></a><a href="/tags/%E6%8E%98%E9%87%91/" style="font-size: 0.88rem;">掘金<sup>14</sup></a><a href="/tags/%E6%9D%82%E9%A1%B9/" style="font-size: 0.88rem;">杂项<sup>1</sup></a><a href="/tags/%E6%B5%8B%E8%AF%95/" style="font-size: 0.88rem;">测试<sup>1</sup></a><a href="/tags/%E6%B8%A1%E4%B8%80%E5%A4%A7%E5%B8%88%E8%AF%BE/" style="font-size: 0.88rem;">渡一大师课<sup>3</sup></a><a href="/tags/%E7%88%AC%E8%99%AB/" style="font-size: 0.88rem;">爬虫<sup>1</sup></a><a href="/tags/%E7%9B%AE%E5%BD%95/" style="font-size: 0.88rem;">目录<sup>1</sup></a><a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 0.88rem;">算法<sup>4</sup></a><a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="font-size: 0.88rem;">虚拟机<sup>12</sup></a><a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 0.88rem;">设计模式<sup>6</sup></a><a href="/tags/%E8%B7%AF%E9%A3%9E%E5%AD%A6%E9%99%A2/" style="font-size: 0.88rem;">路飞学院<sup>3</sup></a><a href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" style="font-size: 0.88rem;">面向对象<sup>1</sup></a><a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 0.88rem;">面试<sup>51</sup></a><a href="/tags/%E9%A3%9E%E8%A1%8C%E6%A3%8B/" style="font-size: 0.88rem;">飞行棋<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="7409599794" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.20/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.4/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><div class="js-pjax"><input type="hidden" name="page-type" id="page-type" value="post"></div><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script src="/js/anzhiyu/right_click_menu.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
